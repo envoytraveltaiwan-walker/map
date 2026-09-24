@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>【臺灣原鄉慢旅地圖】觸控持續天候雨版 | ENVOY TRAVEL 安捷國際旅行社</title>
-  <meta name="description" content="安捷國際旅行社攜手原民會（CIP）官方推薦！1:1真實台灣手繪地圖，探索泰雅、布農、阿美、排灣、太魯閣等八大部落特色圖騰、在地美食與私房慢旅。">
+  <title>【臺灣原鄉慢旅地圖】車頭牽引順彎火車 ✕ 純圖示國際機場 | ENVOY TRAVEL 安捷國際旅行社</title>
+  <meta name="description" content="安捷國際旅行社攜手原民會（CIP）官方推薦！1:1真實台灣手繪地圖，蒸氣火車車頭實時牽引過彎，西部高鐵疾速直達高雄，純圖示國際機場。">
 
   <!-- Google tag (gtag.js) GA4 流量與轉換追蹤 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PPP4CT61HC"></script>
@@ -58,7 +58,6 @@
       height: auto;
       overflow: visible;
     }
-    /* 點擊平穩無抖動的高雅反饋 */
     .interactive-card {
       cursor: pointer;
       transition: filter 0.15s ease, opacity 0.15s ease;
@@ -67,7 +66,6 @@
       filter: brightness(0.92);
       opacity: 0.95;
     }
-    /* 全螢幕覆蓋的高效能 Canvas 粒子畫布 */
     #fx-canvas {
       position: absolute;
       top: 0;
@@ -77,14 +75,13 @@
       pointer-events: none;
       z-index: 999;
     }
-    /* 當前天候模式提示浮動膠囊 */
     .weather-indicator {
       position: absolute;
       top: 18px;
       right: 24px;
-      background: rgba(19, 36, 56, 0.75);
+      background: rgba(19, 36, 56, 0.85);
       backdrop-filter: blur(8px);
-      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
       border-radius: 20px;
       padding: 6px 16px;
       color: #FFFFFF;
@@ -93,25 +90,34 @@
       letter-spacing: 0.5px;
       z-index: 1000;
       pointer-events: none;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
       display: flex;
       align-items: center;
       gap: 6px;
     }
+
+    /* 蒸汽白煙動畫 */
+    @keyframes puff-smoke-thick {
+      0% { r: 5px; opacity: 0.95; transform: translateY(0) scale(0.8); }
+      40% { r: 15px; opacity: 0.8; transform: translateY(-12px) translateX(-8px) scale(1.3); }
+      100% { r: 25px; opacity: 0; transform: translateY(-28px) translateX(-20px) scale(2); }
+    }
+    .smoke-puff-1 { animation: puff-smoke-thick 1.3s infinite ease-out; }
+    .smoke-puff-2 { animation: puff-smoke-thick 1.3s infinite ease-out 0.26s; }
+    .smoke-puff-3 { animation: puff-smoke-thick 1.3s infinite ease-out 0.52s; }
+    .smoke-puff-4 { animation: puff-smoke-thick 1.3s infinite ease-out 0.78s; }
   </style>
 </head>
 <body>
 
 <div class="map-stage" id="stage-box">
-  <!-- 右上角目前飄落氛圍浮動小標籤 -->
   <div class="weather-indicator" id="weather-tag">
-    <span>🌸</span> <span id="weather-text">目前氛圍：白蘭部落 櫻花雨</span>
+    <span>🚂✈️</span> <span id="weather-text">車頭牽引巡航 ‧ 國際機場標示</span>
   </div>
 
-  <!-- 持續飄落粒子 Canvas 畫布 -->
   <canvas id="fx-canvas"></canvas>
 
-  <svg viewBox="0 0 1200 2360">
+  <svg id="main-map-svg" viewBox="0 0 1200 2360">
     <defs>
       <!-- 特色破格放大立體深投影 -->
       <filter id="mega-pop" x="-35%" y="-35%" width="170%" height="170%">
@@ -120,6 +126,18 @@
       <!-- 三語膠囊卡片立體陰影 -->
       <filter id="badge-shadow" x="-10%" y="-15%" width="120%" height="135%">
         <feDropShadow dx="0" dy="7" stdDeviation="6" flood-color="#0E4857" flood-opacity="0.25"/>
+      </filter>
+      <!-- 火車投影 -->
+      <filter id="train-shadow" x="-30%" y="-30%" width="160%" height="160%">
+        <feDropShadow dx="2" dy="5" stdDeviation="4" flood-color="#081820" flood-opacity="0.4"/>
+      </filter>
+      <!-- 高鐵投影 -->
+      <filter id="hsr-shadow" x="-30%" y="-30%" width="160%" height="160%">
+        <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#E76F51" flood-opacity="0.45"/>
+      </filter>
+      <!-- 機場純圖示立體投影 -->
+      <filter id="airport-icon-shadow" x="-30%" y="-30%" width="160%" height="160%">
+        <feDropShadow dx="2" dy="5" stdDeviation="4" flood-color="#143A47" flood-opacity="0.35"/>
       </filter>
       <!-- 右下角大野宴市集陰影 -->
       <filter id="feast-shadow" x="-25%" y="-25%" width="150%" height="150%">
@@ -141,7 +159,6 @@
 
     <!-- ==================== 1. 頂部雙品牌官方 LOGO 專區 ==================== -->
     <g transform="translate(50, 36)">
-      <!-- 安捷國際旅行社 ENVOY TRAVEL 官方標誌 -->
       <g transform="translate(0, 0)" class="interactive-card" onclick="trackMapInteraction('click_brand_logo', 'Brand', 'Envoy_Travel');">
         <svg x="0" y="0" width="46" height="64" viewBox="0 0 100 140">
           <path d="M50 6 C51 15 52.5 21 55.5 25 C60 25.8 66 26 73 26.5 C66 28 60 29.2 56 31 C53.8 35 52 41 50 47 C48 41 46.2 35 44 31 C40 29.2 34 28 27 26.5 C34 26 40 25.8 44.5 25 C47.5 21 49 15 50 6 Z" fill="#C5A059"/>
@@ -154,7 +171,6 @@
         <text x="56" y="52" font-size="13.5" font-weight="700" fill="#8C6B2D">交通部觀光署甲種旅行業 註冊編號 5920 號 ｜ 品保協會會員</text>
       </g>
 
-      <!-- 行政院原住民族委員會 CIP 官方推薦標章 -->
       <g transform="translate(480, 0)" class="interactive-card" onclick="trackMapInteraction('click_cip_logo', 'Brand', 'CIP_Official');">
         <circle cx="26" cy="28" r="22" fill="#A62122"/>
         <path d="M 26 12 L 29 23 L 40 23 L 31 29 L 35 40 L 26 33 L 17 40 L 21 29 L 12 23 L 23 23 Z" fill="#FFF"/>
@@ -169,7 +185,6 @@
       <text x="2" y="88" font-size="23" font-weight="800" fill="#8C6B2D" letter-spacing="1.5">TAIWAN INDIGENOUS HERITAGE MAP ‧ 台湾原住民族の旅</text>
     </g>
 
-    <!-- 右上角觀光客船與白浪花 -->
     <g transform="translate(930, 95)">
       <path d="M 0 36 L 80 36 L 70 52 L 10 52 Z" fill="#FFFFFF"/>
       <rect x="24" y="16" width="36" height="20" rx="3" fill="#E63946"/>
@@ -178,10 +193,9 @@
       <line x1="-15" y1="54" x2="105" y2="54" stroke="#8DE2F5" stroke-width="4" stroke-linecap="round"/>
     </g>
 
-    <!-- 右下方夕陽光暈 -->
     <circle cx="920" cy="1520" r="240" fill="url(#sun-glow)"/>
 
-    <!-- ==================== 3. 離島群（精確三語標示） ==================== -->
+    <!-- ==================== 3. 離島群 ==================== -->
     <g transform="translate(45, 230)">
       <path d="M 10 18 Q 18 10 28 16 Q 22 26 12 24 Z" fill="#8AC243" stroke="#4C8214" stroke-width="1.8"/>
       <circle cx="38" cy="32" r="6" fill="#8AC243" stroke="#4C8214" stroke-width="1.2"/>
@@ -213,7 +227,7 @@
 
     <!-- ==================== 4. 1:1 標準台灣地理輪廓 ==================== -->
     <g transform="translate(30, 95)">
-      <!-- 立體陰影厚度層 -->
+      <!-- 陰影厚度層 -->
       <path d="M 542 166 
                L 566 152 L 594 162 L 622 182 L 646 202 L 654 216 L 636 236 L 620 256 
                L 602 278 L 592 308 L 588 340 L 592 374 L 602 414 L 610 466 L 614 526 L 612 588 
@@ -252,6 +266,132 @@
       <path d="M 438 626 Q 514 650 598 678" stroke="#FFFFFF" stroke-width="2.5" stroke-dasharray="6,6" fill="none" opacity="0.9"/>
       <path d="M 342 772 Q 385 794 425 822" stroke="#FFFFFF" stroke-width="2.5" stroke-dasharray="6,6" fill="none" opacity="0.9"/>
       <path d="M 425 822 L 440 930 L 446 1046 L 432 1132" stroke="#FFFFFF" stroke-width="2.5" stroke-dasharray="6,6" fill="none" opacity="0.9"/>
+
+      <!-- ==================== 5. 【國際機場：純視覺精美圖示（不帶任何文字）】 ==================== -->
+      <!-- ① 桃園國際機場 (TPE) 純飛機航太圖示徽章 -->
+      <g transform="translate(450, 160)" filter="url(#airport-icon-shadow)">
+        <!-- 圓形地標基底 -->
+        <circle cx="16" cy="16" r="22" fill="#FFFFFF" stroke="#3B8EA5" stroke-width="3"/>
+        <circle cx="16" cy="16" r="17" fill="#EBF6F9"/>
+        <!-- 展翼起飛客機圖示 -->
+        <g transform="translate(16, 16) rotate(-35)">
+          <path d="M 0 -13 L 3 -3 L 15 2 L 15 6 L 3 4 L 3 10 L 7 13 L 7 15 L 0 14 L -7 15 L -7 13 L -3 10 L -3 4 L -15 6 L -15 2 L -3 -3 Z" fill="#2D728F"/>
+          <circle cx="0" cy="-6" r="1.5" fill="#FFD166"/>
+        </g>
+      </g>
+
+      <!-- ② 高雄小港國際機場 (KHH) 純飛機航太圖示徽章 -->
+      <g transform="translate(295, 875)" filter="url(#airport-icon-shadow)">
+        <circle cx="16" cy="16" r="22" fill="#FFFFFF" stroke="#E76F51" stroke-width="3"/>
+        <circle cx="16" cy="16" r="17" fill="#FDF3F0"/>
+        <!-- 降落進場客機圖示 -->
+        <g transform="translate(16, 16) rotate(145)">
+          <path d="M 0 -13 L 3 -3 L 15 2 L 15 6 L 3 4 L 3 10 L 7 13 L 7 15 L 0 14 L -7 15 L -7 13 L -3 10 L -3 4 L -15 6 L -15 2 L -3 -3 Z" fill="#C84B31"/>
+          <circle cx="0" cy="-6" r="1.5" fill="#FFD166"/>
+        </g>
+      </g>
+
+      <!-- ==================== 6. 【高鐵系統：西部高鐵直達高雄左營 ✕ 700T 疾速穿梭】 ==================== -->
+      <path id="taiwan-hsr" d="M 525 180 
+               L 460 215 
+               L 410 255 
+               L 360 335 
+               L 315 450 
+               L 285 570 
+               L 275 680 
+               L 295 780 
+               L 305 845" 
+            fill="none" stroke="#F4A261" stroke-width="3.5" stroke-dasharray="8,4" opacity="0.9"/>
+
+      <circle cx="305" cy="845" r="4.5" fill="#E76F51" stroke="#FFF" stroke-width="1.5"/>
+
+      <!-- 台灣高鐵 700T 列車 -->
+      <g filter="url(#hsr-shadow)">
+        <animateMotion dur="4.5s" repeatCount="indefinite" rotate="auto">
+          <mpath href="#taiwan-hsr"/>
+        </animateMotion>
+
+        <g transform="translate(-25, -6)">
+          <path d="M 0 3 L 42 3 Q 56 6 52 10 Q 45 12 0 12 Z" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="0.8"/>
+          <path d="M 0 8 L 46 8 Q 50 9.5 44 11 L 0 11 Z" fill="#F77F00"/>
+          <rect x="6" y="4.5" width="34" height="2.2" rx="0.5" fill="#1F2937"/>
+          <path d="M 42 4.5 Q 49 6.5 45 8 L 42 8 Z" fill="#111827"/>
+          <line x1="-15" y1="7" x2="-2" y2="7" stroke="#F77F00" stroke-width="2" stroke-linecap="round" opacity="0.75"/>
+          <line x1="-22" y1="10" x2="-4" y2="10" stroke="#FFA834" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+        </g>
+      </g>
+
+      <!-- ==================== 7. 【鐵道系統：車頭實時牽引 3 節客車順彎運轉系統】 ==================== -->
+      <path id="taiwan-railway" d="M 525 145 
+               C 560 148, 615 178, 638 212
+               C 625 245, 595 295, 580 380
+               C 586 470, 590 560, 574 690
+               C 560 800, 532 920, 480 1060
+               C 460 1120, 435 1210, 420 1235
+               C 395 1190, 392 1080, 370 960
+               C 340 840, 275 740, 260 630
+               C 255 520, 280 410, 325 320
+               C 380 230, 450 170, 525 145 Z" 
+            fill="none" stroke="#684729" stroke-width="4.5" stroke-dasharray="7,7" opacity="0.6"/>
+
+      <!-- 動態牽引火車總組件 (由底層 JavaScript 透過真實距離運算實時驅動轉向) -->
+      <g id="steam-train-towing-group" filter="url(#train-shadow)">
+        <!-- 第 3 節客車 (最後尾) -->
+        <g id="car-3">
+          <g transform="translate(-7, -7)">
+            <rect x="0" y="0" width="15" height="13" rx="2.5" fill="#8C1C13" stroke="#111" stroke-width="0.8"/>
+            <rect x="2.5" y="2.5" width="4" height="4" fill="#FFEAA7"/>
+            <rect x="8.5" y="2.5" width="4" height="4" fill="#FFEAA7"/>
+            <circle cx="4" cy="14" r="2" fill="#1F2421"/>
+            <circle cx="11" cy="14" r="2" fill="#1F2421"/>
+          </g>
+        </g>
+
+        <!-- 第 2 節客車 (中段) -->
+        <g id="car-2">
+          <g transform="translate(-7, -7)">
+            <rect x="0" y="0" width="15" height="13" rx="2.5" fill="#8C1C13" stroke="#111" stroke-width="0.8"/>
+            <rect x="2.5" y="2.5" width="4" height="4" fill="#FFEAA7"/>
+            <rect x="8.5" y="2.5" width="4" height="4" fill="#FFEAA7"/>
+            <circle cx="4" cy="14" r="2" fill="#1F2421"/>
+            <circle cx="11" cy="14" r="2" fill="#1F2421"/>
+          </g>
+        </g>
+
+        <!-- 第 1 節客車 (緊隨車頭) -->
+        <g id="car-1">
+          <g transform="translate(-7, -7)">
+            <rect x="0" y="0" width="15" height="13" rx="2.5" fill="#8C1C13" stroke="#111" stroke-width="0.8"/>
+            <rect x="2.5" y="2.5" width="4" height="4" fill="#FFEAA7"/>
+            <rect x="8.5" y="2.5" width="4" height="4" fill="#FFEAA7"/>
+            <circle cx="4" cy="14" r="2" fill="#1F2421"/>
+            <circle cx="11" cy="14" r="2" fill="#1F2421"/>
+          </g>
+        </g>
+
+        <!-- 蒸汽機車頭 (前方主動力帶頭拉動，噴吐濃厚白煙) -->
+        <g id="engine-lead">
+          <!-- 蒸汽白煙 -->
+          <g transform="translate(14, -12)">
+            <circle cx="-3" cy="-5" fill="#FFFFFF" class="smoke-puff-1"/>
+            <circle cx="-10" cy="-12" fill="#FFFFFF" class="smoke-puff-2"/>
+            <circle cx="-18" cy="-19" fill="#FFFFFF" class="smoke-puff-3"/>
+            <circle cx="-26" cy="-25" fill="#F3F4F6" class="smoke-puff-4"/>
+          </g>
+          <!-- 黑色車頭主體 -->
+          <g transform="translate(-11, -8)">
+            <rect x="0" y="0" width="22" height="15" rx="3" fill="#1F2421" stroke="#111" stroke-width="1.2"/>
+            <rect x="2" y="2" width="6" height="6" fill="#FFEAA7"/>
+            <rect x="13" y="-5" width="6" height="6" fill="#1F2421"/>
+            <rect x="12" y="-7" width="8" height="2.5" rx="1" fill="#C5A059"/>
+            <polygon points="22,15 27,15 24,7" fill="#A62122"/>
+            <circle cx="23" cy="5" r="3" fill="#FFD166" stroke="#222" stroke-width="0.8"/>
+            <circle cx="5" cy="16" r="3.5" fill="#111" stroke="#A62122" stroke-width="1"/>
+            <circle cx="15" cy="16" r="3.5" fill="#111" stroke="#A62122" stroke-width="1"/>
+            <line x1="5" y1="16" x2="15" y2="16" stroke="#C5A059" stroke-width="1.8"/>
+          </g>
+        </g>
+      </g>
 
       <!-- 城市地標景觀手繪插畫 -->
       <g transform="translate(560, 130)" filter="url(#mega-pop)">
@@ -294,8 +434,7 @@
         <circle cx="14.5" cy="6" r="3.5" fill="#FFD166"/>
       </g>
 
-      <!-- ==================== 5. 【八大部落特色超破格巨大插畫（帶有觸控切換天候雨綁定）】 ==================== -->
-      <!-- ① 白蘭部落 (新竹五峰 泰雅族) -->
+      <!-- ==================== 8. 【八大部落特色超破格巨大插畫】 ==================== -->
       <g transform="translate(340, 220)" filter="url(#mega-pop)" class="interactive-card" onclick="switchWeather('bailan');">
         <polygon points="65,0 130,65 65,130 0,65" fill="#FAF8F5" stroke="#A62122" stroke-width="9"/>
         <polygon points="65,26 104,65 65,104 26,65" fill="#A62122"/>
@@ -313,7 +452,6 @@
         <line x1="138" y1="115" x2="175" y2="140" stroke="#582F0E" stroke-width="7"/>
       </g>
 
-      <!-- ② 樂水部落 (宜蘭大同 泰雅族) -->
       <g transform="translate(490, 210)" filter="url(#mega-pop)" class="interactive-card" onclick="switchWeather('leshui');">
         <rect x="0" y="28" width="165" height="70" rx="16" fill="#4F772D" stroke="#253D0F" stroke-width="6"/>
         <line x1="38" y1="28" x2="38" y2="98" stroke="#A3B18A" stroke-width="6"/>
@@ -324,7 +462,6 @@
         <path d="M 152 20 Q 192 -2 182 42 Q 172 56 152 20 Z" fill="#2D6A4F"/>
       </g>
 
-      <!-- ③ 布拉旦部落 (花蓮秀林 太魯閣族) -->
       <g transform="translate(530, 365)" filter="url(#mega-pop)" class="interactive-card" onclick="switchWeather('pratan');">
         <path d="M 0 95 C 48 24, 130 24, 178 95" stroke="#E63946" stroke-width="14" fill="none" stroke-linecap="round"/>
         <path d="M 0 111 C 48 40, 130 40, 178 111" stroke="#FFD166" stroke-width="12" fill="none" stroke-linecap="round"/>
@@ -333,7 +470,6 @@
         <line x1="130" y1="12" x2="156" y2="140" stroke="#FFFFFF" stroke-width="5"/>
       </g>
 
-      <!-- ④ 織羅部落 (花蓮玉里 阿美族) -->
       <g transform="translate(460, 545)" filter="url(#mega-pop)" class="interactive-card" onclick="switchWeather('ceroh');">
         <path d="M 60 0 L 75 40 L 120 60 L 75 80 L 60 120 L 45 80 L 0 60 L 45 40 Z" fill="#E63946"/>
         <circle cx="60" cy="60" r="16.5" fill="#FFD166"/>
@@ -344,7 +480,6 @@
         </g>
       </g>
 
-      <!-- ⑤ 永康部落 (台東延平 布農族) -->
       <g transform="translate(425, 705)" filter="url(#mega-pop)" class="interactive-card" onclick="switchWeather('yongkang');">
         <circle cx="60" cy="60" r="50" fill="#FAF8F5" stroke="#582F0E" stroke-width="7.5" stroke-dasharray="12,6"/>
         <circle cx="60" cy="60" r="25" fill="none" stroke="#582F0E" stroke-width="6"/>
@@ -357,7 +492,6 @@
         </g>
       </g>
 
-      <!-- ⑥ 鸞山部落 (台東延平 布農族) -->
       <g transform="translate(405, 830)" filter="url(#mega-pop)" class="interactive-card" onclick="switchWeather('saza');">
         <circle cx="62" cy="50" r="52" fill="#2D6A4F"/>
         <line x1="31" y1="75" x2="31" y2="130" stroke="#52796F" stroke-width="9.5" stroke-linecap="round"/>
@@ -370,7 +504,6 @@
         </g>
       </g>
 
-      <!-- ⑦ 禮納里部落 (屏東瑪家 排灣/魯凱族) -->
       <g transform="translate(315, 810)" filter="url(#mega-pop)" class="interactive-card" onclick="switchWeather('rinari');">
         <path d="M 31 29 L 60 0 L 89 29 L 60 82 Z" fill="#FFFFFF" stroke="#8C6B2D" stroke-width="6"/>
         <circle cx="60" cy="31" r="10" fill="#E76F51"/>
@@ -381,7 +514,6 @@
         </g>
       </g>
 
-      <!-- ⑧ 吾拉魯滋部落 (屏東泰武 排灣族) -->
       <g transform="translate(295, 940)" filter="url(#mega-pop)" class="interactive-card" onclick="switchWeather('ulaljuc');">
         <g transform="translate(0, 0)">
           <ellipse cx="50" cy="50" rx="26" ry="38" transform="rotate(-30 50 50)" fill="#3D1E06"/>
@@ -397,9 +529,7 @@
       </g>
     </g>
 
-    <!-- ==================== 6. 八大部落中英日三語大字資訊標籤卡 ==================== -->
-
-    <!-- ① 白蘭部落 (新竹五峰 泰雅族) -->
+    <!-- ==================== 9. 八大部落中英日三語大字資訊標籤卡 ==================== -->
     <g transform="translate(25, 330)" filter="url(#badge-shadow)" class="interactive-card" onclick="switchWeather('bailan');">
       <line x1="345" y1="50" x2="395" y2="50" stroke="#132438" stroke-width="3" stroke-dasharray="5,5"/>
       <circle cx="400" cy="50" r="7" fill="#E63946" stroke="#FFF" stroke-width="2.5"/>
@@ -413,7 +543,6 @@
       <text x="102" y="88" font-size="11" font-weight="500" fill="#666">桜並木と雲海の秘境・祖霊の瞳</text>
     </g>
 
-    <!-- ② 樂水部落 (宜蘭大同 泰雅族) -->
     <g transform="translate(815, 300)" filter="url(#badge-shadow)" class="interactive-card" onclick="switchWeather('leshui');">
       <line x1="0" y1="50" x2="-145" y2="50" stroke="#132438" stroke-width="3" stroke-dasharray="5,5"/>
       <circle cx="-150" cy="50" r="7" fill="#1D3557" stroke="#FFF" stroke-width="2.5"/>
@@ -427,7 +556,6 @@
       <text x="102" y="88" font-size="11" font-weight="500" fill="#666">青竹の手作り狩人弁当体験</text>
     </g>
 
-    <!-- ③ 布拉旦部落 (花蓮秀林 太魯閣族) -->
     <g transform="translate(820, 440)" filter="url(#badge-shadow)" class="interactive-card" onclick="switchWeather('pratan');">
       <line x1="0" y1="50" x2="-135" y2="50" stroke="#132438" stroke-width="3" stroke-dasharray="5,5"/>
       <circle cx="-140" cy="50" r="7" fill="#E76F51" stroke="#FFF" stroke-width="2.5"/>
@@ -441,7 +569,6 @@
       <text x="102" y="88" font-size="11" font-weight="500" fill="#666">虹の架け橋伝説・清らかな渓谷</text>
     </g>
 
-    <!-- ④ 織羅部落 (花蓮玉里 阿美族) -->
     <g transform="translate(815, 615)" filter="url(#badge-shadow)" class="interactive-card" onclick="switchWeather('ceroh');">
       <line x1="0" y1="50" x2="-150" y2="50" stroke="#132438" stroke-width="3" stroke-dasharray="5,5"/>
       <circle cx="-155" cy="50" r="7" fill="#E63946" stroke="#FFF" stroke-width="2.5"/>
@@ -455,7 +582,6 @@
       <text x="102" y="88" font-size="11" font-weight="500" fill="#666">太陽の星・お米アートと大地の恵み</text>
     </g>
 
-    <!-- ⑤ 永康部落 (台東延平 布農族) -->
     <g transform="translate(790, 785)" filter="url(#badge-shadow)" class="interactive-card" onclick="switchWeather('yongkang');">
       <line x1="0" y1="50" x2="-165" y2="50" stroke="#132438" stroke-width="3" stroke-dasharray="5,5"/>
       <circle cx="-170" cy="50" r="7" fill="#2A6F97" stroke="#FFF" stroke-width="2.5"/>
@@ -469,7 +595,6 @@
       <text x="102" y="88" font-size="11" font-weight="500" fill="#666">歳時板暦・満天の星空レストラン</text>
     </g>
 
-    <!-- ⑥ 鸞山部落 (台東延平 布農族) -->
     <g transform="translate(770, 930)" filter="url(#badge-shadow)" class="interactive-card" onclick="switchWeather('saza');">
       <line x1="0" y1="50" x2="-160" y2="50" stroke="#132438" stroke-width="3" stroke-dasharray="5,5"/>
       <circle cx="-165" cy="50" r="7" fill="#2D6A4F" stroke="#FFF" stroke-width="2.5"/>
@@ -483,7 +608,6 @@
       <text x="102" y="88" font-size="11" font-weight="500" fill="#666">歩くガジュマル巨木原生林</text>
     </g>
 
-    <!-- ⑦ 禮納里部落 (屏東瑪家 排灣/魯凱) -->
     <g transform="translate(25, 840)" filter="url(#badge-shadow)" class="interactive-card" onclick="switchWeather('rinari');">
       <line x1="345" y1="50" x2="395" y2="50" stroke="#132438" stroke-width="3" stroke-dasharray="5,5"/>
       <circle cx="400" cy="50" r="7" fill="#9D0208" stroke="#FFF" stroke-width="2.5"/>
@@ -497,7 +621,6 @@
       <text x="102" y="88" font-size="11" font-weight="500" fill="#666">百合の聖花・石板屋の伝統集落</text>
     </g>
 
-    <!-- ⑧ 吾拉魯滋部落 (屏東泰武 排灣族) -->
     <g transform="translate(25, 980)" filter="url(#badge-shadow)" class="interactive-card" onclick="switchWeather('ulaljuc');">
       <line x1="345" y1="50" x2="385" y2="50" stroke="#132438" stroke-width="3" stroke-dasharray="5,5"/>
       <circle cx="390" cy="50" r="7" fill="#6F4E37" stroke="#FFF" stroke-width="2.5"/>
@@ -511,7 +634,7 @@
       <text x="102" y="88" font-size="11" font-weight="500" fill="#666">百歩蛇の陶壺・自家焙煎アラビカ珈琲</text>
     </g>
 
-    <!-- ==================== 7. 【右下角：原鄉大野宴豐收市集】 ==================== -->
+    <!-- ==================== 10. 【右下角：原鄉大野宴豐收市集】 ==================== -->
     <g transform="translate(680, 1340)" filter="url(#feast-shadow)" class="interactive-card" onclick="switchWeather('feast');">
       <path d="M 60 40 L 320 40 L 370 95 L 10 95 Z" fill="#4A3425"/>
       <path d="M 190 2 L 330 45 L 50 45 Z" fill="#6B4D36"/>
@@ -523,7 +646,6 @@
       <path d="M 25 290 Q 55 180 90 150 Q 70 215 50 300 Z" fill="#D49B35"/>
       <path d="M 60 300 Q 95 200 125 170 Q 105 230 85 310 Z" fill="#E8B459"/>
 
-      <!-- 長桌上的「原鄉風土大野宴」長條芭蕉葉鋪底 -->
       <g transform="translate(55, 145)">
         <path d="M 0 16 C 50 6, 200 6, 260 16 C 200 26, 50 26, 0 16 Z" fill="#386641" stroke="#2D6A4F" stroke-width="2"/>
         <g transform="translate(10, -18)">
@@ -555,7 +677,6 @@
         </g>
       </g>
 
-      <!-- 台灣黑熊旅行公仔 -->
       <g transform="translate(140, 55)">
         <ellipse cx="32" cy="36" rx="24" ry="28" fill="#1A1A1A"/>
         <circle cx="16" cy="16" r="8" fill="#1A1A1A"/>
@@ -573,21 +694,19 @@
         <circle cx="32" cy="63" r="4" fill="#132438"/>
       </g>
 
-      <!-- 大野宴市集木牌標籤 -->
       <g transform="translate(70, 205)">
         <rect x="0" y="0" width="230" height="34" rx="17" fill="#132438" stroke="#C5A059" stroke-width="2"/>
         <text x="115" y="22" font-size="14.5" font-weight="900" fill="#FFF" text-anchor="middle">✦ 原鄉風土大野宴 ‧ 収穫祭 ✦</text>
       </g>
     </g>
 
-    <!-- ==================== 8. 【圖片下方八大部落圖騰說明與中日對照專區】 ==================== -->
+    <!-- ==================== 11. 【八大部落文化圖騰與風土特色中日對照解說板】 ==================== -->
     <g transform="translate(50, 1680)">
       <rect x="0" y="0" width="1100" height="600" rx="20" fill="#FFFFFF" opacity="0.95" filter="url(#badge-shadow)"/>
       <text x="40" y="50" font-size="28" font-weight="900" fill="#132438">八大原鄉部落文化圖騰與風土特色解說 ｜ 8大集落の文化トーテムと風土解説</text>
       <text x="40" y="76" font-size="14" font-weight="700" fill="#8C6B2D">EXPLORE INDIGENOUS TOTEMS, TRADITIONS & GASTRONOMY OF TAIWAN</text>
       <line x1="40" y1="92" x2="1060" y2="92" stroke="#E2E8F0" stroke-width="2"/>
 
-      <!-- 1. 白蘭部落 -->
       <g transform="translate(40, 120)" class="interactive-card" onclick="switchWeather('bailan');">
         <polygon points="16,0 32,16 16,32 0,16" fill="#A62122"/>
         <circle cx="16" cy="16" r="4" fill="#FFF"/>
@@ -597,7 +716,6 @@
         <text x="42" y="70" font-size="11.5" font-weight="500" fill="#6B7280">祖霊の瞳は保護を意味し、馬告はレモン香る原生スパイス。</text>
       </g>
 
-      <!-- 2. 樂水部落 -->
       <g transform="translate(560, 120)" class="interactive-card" onclick="switchWeather('leshui');">
         <rect x="0" y="6" width="30" height="18" rx="4" fill="#4F772D"/>
         <text x="42" y="18" font-size="17" font-weight="900" fill="#132438">樂水部落 LESHUI（ロースイ）</text>
@@ -606,7 +724,6 @@
         <text x="42" y="70" font-size="11.5" font-weight="500" fill="#6B7280">新鮮な竹に包まれた伝統の狩人飯と山菜カラスザンショウ。</text>
       </g>
 
-      <!-- 3. 布拉旦部落 -->
       <g transform="translate(40, 230)" class="interactive-card" onclick="switchWeather('pratan');">
         <path d="M 0 24 C 8 8, 24 8, 32 24" stroke="#E63946" stroke-width="4" fill="none"/>
         <text x="42" y="18" font-size="17" font-weight="900" fill="#132438">布拉旦 PRATAN（プラタン）</text>
@@ -615,7 +732,6 @@
         <text x="42" y="70" font-size="11.5" font-weight="500" fill="#6B7280">試練を越えて祖霊へ渡る「虹の架け橋」伝説と清らかな峡谷。</text>
       </g>
 
-      <!-- 4. 織羅部落 -->
       <g transform="translate(560, 230)" class="interactive-card" onclick="switchWeather('ceroh');">
         <polygon points="16,0 20,11 32,16 20,21 16,32 12,21 0,16 12,11" fill="#E63946"/>
         <text x="42" y="18" font-size="17" font-weight="900" fill="#132438">織羅部落 CEROH（ツェロー）</text>
@@ -626,7 +742,6 @@
 
       <line x1="40" y1="335" x2="1060" y2="335" stroke="#E2E8F0" stroke-width="1.5"/>
 
-      <!-- 5. 永康部落 -->
       <g transform="translate(40, 360)" class="interactive-card" onclick="switchWeather('yongkang');">
         <circle cx="16" cy="16" r="14" fill="#FAF8F5" stroke="#582F0E" stroke-width="3"/>
         <text x="42" y="18" font-size="17" font-weight="900" fill="#132438">永康部落 YONGKANG（ヨンカン）</text>
@@ -635,7 +750,6 @@
         <text x="42" y="70" font-size="11.5" font-weight="500" fill="#6B7280">世界唯一の木刻暦文字とブヌン族の満天星空ジビエBBQ。</text>
       </g>
 
-      <!-- 6. 鸞山部落 -->
       <g transform="translate(560, 360)" class="interactive-card" onclick="switchWeather('saza');">
         <circle cx="16" cy="16" r="14" fill="#2D6A4F"/>
         <text x="42" y="18" font-size="17" font-weight="900" fill="#132438">鸞山部落 SAZA（サザ）</text>
@@ -644,7 +758,6 @@
         <text x="42" y="70" font-size="11.5" font-weight="500" fill="#6B7280">巨大な歩くガジュマル樹海と伝統の餅つき文化体験。</text>
       </g>
 
-      <!-- 7. 禮納里部落 -->
       <g transform="translate(40, 470)" class="interactive-card" onclick="switchWeather('rinari');">
         <path d="M 8 6 L 16 0 L 24 6 L 16 20 Z" fill="#FFFFFF" stroke="#8C6B2D" stroke-width="2"/>
         <text x="42" y="18" font-size="17" font-weight="900" fill="#132438">禮納里 RINARI（リナリ）</text>
@@ -653,7 +766,6 @@
         <text x="42" y="70" font-size="11.5" font-weight="500" fill="#6B7280">高貴な百合の聖花とトンボ玉。台湾のプロヴァンスと称される里。</text>
       </g>
 
-      <!-- 8. 吾拉魯滋部落 -->
       <g transform="translate(560, 470)" class="interactive-card" onclick="switchWeather('ulaljuc');">
         <ellipse cx="14" cy="14" rx="8" ry="12" fill="#3D1E06"/>
         <text x="42" y="18" font-size="17" font-weight="900" fill="#132438">吾拉魯滋 ULALJUC（ウラルツ）</text>
@@ -663,7 +775,7 @@
       </g>
     </g>
 
-    <!-- ==================== 9. 底部展場大字版權頁尾 ==================== -->
+    <!-- ==================== 12. 底部展場大字版權頁尾 ==================== -->
     <g transform="translate(50, 2320)">
       <text x="0" y="0" font-size="28" font-weight="900" fill="#132438" letter-spacing="2">走進山海間 ‧ 探訪八大原住民族部落</text>
       <text x="0" y="26" font-size="14.5" font-weight="700" fill="#8C6B2D" letter-spacing="1">TAIWAN INDIGENOUS TRIBAL TOURS ‧ ENVOY TRAVEL ‧ CIP OFFICIAL CERTIFIED</text>
@@ -671,28 +783,79 @@
   </svg>
 </div>
 
-<!-- ==================== 10. 高效能持續落雨粒子天候系統 (Persistent Rain Engine) ==================== -->
+<!-- ==================== 13. 核心牽引引擎與天候雨系統 ==================== -->
 <script>
+  // ---------- A. 真正的「車頭主動牽引 3 節客車順彎物理引擎」 ----------
+  const railwayPath = document.getElementById('taiwan-railway');
+  const engineEl = document.getElementById('engine-lead');
+  const car1El = document.getElementById('car-1');
+  const car2El = document.getElementById('car-2');
+  const car3El = document.getElementById('car-3');
+
+  const totalRailwayLength = railwayPath.getTotalLength();
+  let trainProgress = 0; // 車頭在軌道上的當前距離
+  const trainSpeed = 1.35; // 火車行進速度 (px/frame)
+
+  // 定長車廂掛鉤間距 (px)
+  const COUPLER_DIST_1 = 28; // 車頭到第1節客車
+  const COUPLER_DIST_2 = 24; // 第1節到第2節客車
+  const COUPLER_DIST_3 = 24; // 第2節到第3節客車
+
+  function getPointAndAngle(dist) {
+    // 循環環島距離
+    let d = dist % totalRailwayLength;
+    if (d < 0) d += totalRailwayLength;
+
+    const p = railwayPath.getPointAtLength(d);
+    // 透過微小前進步幅計算切線角度 (Tangent Angle)
+    const nextD = (d + 1.2) % totalRailwayLength;
+    const nextP = railwayPath.getPointAtLength(nextD);
+    const angle = Math.atan2(nextP.y - p.y, nextP.x - p.x) * 180 / Math.PI;
+
+    return { x: p.x, y: p.y, angle: angle };
+  }
+
+  function updateTrainTowingPhysics() {
+    trainProgress += trainSpeed;
+
+    // 1. 車頭 (前進領航)
+    const engineState = getPointAndAngle(trainProgress);
+    engineEl.setAttribute('transform', `translate(${engineState.x}, ${engineState.y}) rotate(${engineState.angle})`);
+
+    // 2. 第 1 節客車 (緊隨車頭距離被牽引)
+    const car1State = getPointAndAngle(trainProgress - COUPLER_DIST_1);
+    car1El.setAttribute('transform', `translate(${car1State.x}, ${car1State.y}) rotate(${car1State.angle})`);
+
+    // 3. 第 2 節客車 (由第1節牽引順彎)
+    const car2State = getPointAndAngle(trainProgress - COUPLER_DIST_1 - COUPLER_DIST_2);
+    car2El.setAttribute('transform', `translate(${car2State.x}, ${car2State.y}) rotate(${car2State.angle})`);
+
+    // 4. 第 3 節客車 (最後尾客車順彎轉向)
+    const car3State = getPointAndAngle(trainProgress - COUPLER_DIST_1 - COUPLER_DIST_2 - COUPLER_DIST_3);
+    car3El.setAttribute('transform', `translate(${car3State.x}, ${car3State.y}) rotate(${car3State.angle})`);
+  }
+
+  // ---------- B. 持續天候雨粒子系統 (Canvas) ----------
   const canvas = document.getElementById('fx-canvas');
   const ctx = canvas.getContext('2d');
   const stage = document.getElementById('stage-box');
   const weatherText = document.getElementById('weather-text');
   const weatherTag = document.getElementById('weather-tag');
 
-  let currentMode = 'bailan'; // 預設持續飄落白蘭櫻花雨
+  let currentMode = 'bailan';
   let rainParticles = [];
-  const MAX_RAIN_COUNT = 65; // 維持 65 顆粒子，保持流暢且充滿畫面
+  const MAX_RAIN_COUNT = 65;
 
   const weatherConfig = {
-    bailan:   { icon: '🌸', text: '目前氛圍：白蘭部落 櫻花雨', title: '桜並木の舞' },
-    leshui:   { icon: '🎋', text: '目前氛圍：樂水部落 青竹葉雨', title: '青竹の風' },
-    pratan:   { icon: '🌈', text: '目前氛圍：布拉旦部落 彩虹靈光', title: '虹の雫' },
-    ceroh:    { icon: '🌾', text: '目前氛圍：織羅部落 五彩彩繪米雨', title: '五色米の雨' },
-    yongkang: { icon: '✨', text: '目前氛圍：永康部落 星空星芒雨', title: '満天の星' },
-    saza:     { icon: '🍃', text: '目前氛圍：鸞山部落 千歲榕樹森林雨', title: '巨木原生林' },
-    rinari:   { icon: '🌺', text: '目前氛圍：禮納里部落 純白百合花雨', title: '百合の聖花' },
-    ulaljuc:  { icon: '☕', text: '目前氛圍：吾拉魯滋部落 咖啡豆香雨', title: '珈琲の雫' },
-    feast:    { icon: '🎉', text: '目前氛圍：原鄉風土大野宴 豐收祭', title: '大収穫祭' }
+    bailan:   { icon: '🌸', text: '車頭牽引巡航 ‧ 白蘭櫻花雨' },
+    leshui:   { icon: '🎋', text: '車頭牽引巡航 ‧ 樂水青竹葉雨' },
+    pratan:   { icon: '🌈', text: '車頭牽引巡航 ‧ 布拉旦彩虹靈光' },
+    ceroh:    { icon: '🌾', text: '車頭牽引巡航 ‧ 織羅彩繪米雨' },
+    yongkang: { icon: '✨', text: '車頭牽引巡航 ‧ 永康星空星芒雨' },
+    saza:     { icon: '🍃', text: '車頭牽引巡航 ‧ 鸞山千歲巨木雨' },
+    rinari:   { icon: '🌺', text: '車頭牽引巡航 ‧ 禮納里純白百合雨' },
+    ulaljuc:  { icon: '☕', text: '車頭牽引巡航 ‧ 吾拉魯滋咖啡豆雨' },
+    feast:    { icon: '🎉', text: '車頭牽引巡航 ‧ 原鄉大野宴豐收祭' }
   };
 
   function resizeCanvas() {
@@ -702,7 +865,6 @@
   window.addEventListener('resize', resizeCanvas);
   resizeCanvas();
 
-  // 持續天候雨粒子類別
   class WeatherDrop {
     constructor(isInitial = false) {
       this.reset(isInitial);
@@ -710,73 +872,64 @@
 
     reset(isInitial = false) {
       this.x = Math.random() * canvas.width;
-      // 開場均勻分佈在全畫面，之後全從頂部重新生成
       this.y = isInitial ? Math.random() * canvas.height : -20 - Math.random() * 50;
       this.type = currentMode;
       this.rotation = Math.random() * Math.PI * 2;
       this.rotSpeed = (Math.random() - 0.5) * 0.04;
-      this.alpha = Math.random() * 0.4 + 0.6; // 柔和透明度
+      this.alpha = Math.random() * 0.4 + 0.6;
 
       switch(this.type) {
-        case 'bailan': // 櫻花雨
+        case 'bailan':
           this.vx = Math.sin(Math.random() * Math.PI) * 1.5 + 0.5;
           this.vy = Math.random() * 2 + 1.8;
           this.size = Math.random() * 12 + 10;
           this.color = Math.random() > 0.3 ? '#FFA3B8' : '#FF85A1';
           break;
-
-        case 'leshui': // 青竹葉雨
+        case 'leshui':
           this.vx = (Math.random() - 0.5) * 1.8;
           this.vy = Math.random() * 2.2 + 2;
           this.size = Math.random() * 14 + 10;
           this.color = Math.random() > 0.5 ? '#588157' : '#8DAA72';
           break;
-
-        case 'pratan': // 彩虹靈光與水珠
+        case 'pratan':
           const rainbow = ['#E63946', '#FFD166', '#06D6A0', '#118AB2', '#9D4EDD', '#FFFFFF'];
           this.vx = (Math.random() - 0.5) * 1.2;
           this.vy = Math.random() * 2.5 + 2.5;
           this.size = Math.random() * 9 + 6;
           this.color = rainbow[Math.floor(Math.random() * rainbow.length)];
           break;
-
-        case 'ceroh': // 五彩米粒
+        case 'ceroh':
           const riceColors = ['#D62828', '#F4A261', '#FAF0CA', '#2A9D8F', '#457B9D'];
           this.vx = (Math.random() - 0.5) * 1;
           this.vy = Math.random() * 3 + 2.8;
           this.size = Math.random() * 8 + 5;
           this.color = riceColors[Math.floor(Math.random() * riceColors.length)];
           break;
-
-        case 'yongkang': // 星空流星火花
+        case 'yongkang':
           this.vx = (Math.random() - 0.5) * 1.5;
           this.vy = Math.random() * 2 + 1.5;
           this.size = Math.random() * 7 + 4;
           this.color = Math.random() > 0.4 ? '#FFD166' : '#FFE8D6';
           break;
-
-        case 'saza': // 巨木原生林葉
+        case 'saza':
           this.vx = Math.cos(Math.random() * Math.PI) * 2;
           this.vy = Math.random() * 2.5 + 2;
           this.size = Math.random() * 15 + 10;
           this.color = Math.random() > 0.4 ? '#2D6A4F' : '#40916C';
           break;
-
-        case 'rinari': // 百合花雨
+        case 'rinari':
           this.vx = (Math.random() - 0.5) * 1.6;
           this.vy = Math.random() * 2 + 1.8;
           this.size = Math.random() * 13 + 8;
           this.color = Math.random() > 0.3 ? '#FFFFFF' : '#F8F9FA';
           break;
-
-        case 'ulaljuc': // 咖啡豆雨
+        case 'ulaljuc':
           this.vx = (Math.random() - 0.5) * 1.4;
           this.vy = Math.random() * 2.8 + 2.2;
           this.size = Math.random() * 11 + 8;
           this.color = Math.random() > 0.5 ? '#3D1E06' : '#5E300B';
           break;
-
-        case 'feast': // 綜合大野宴
+        case 'feast':
         default:
           const festColors = ['#E63946', '#FFD166', '#588157', '#F4A261', '#FFFFFF', '#FFA3B8'];
           this.vx = (Math.random() - 0.5) * 2;
@@ -791,8 +944,6 @@
       this.x += this.vx;
       this.y += this.vy;
       this.rotation += this.rotSpeed;
-
-      // 飄出底部或兩側後，自動回頂部循環落下
       if (this.y > canvas.height + 25 || this.x < -30 || this.x > canvas.width + 30) {
         this.reset(false);
       }
@@ -806,12 +957,10 @@
       ctx.fillStyle = this.color;
 
       if (this.type === 'bailan') {
-        // 櫻花花瓣
         ctx.beginPath();
         ctx.ellipse(0, 0, this.size, this.size * 0.6, 0, 0, Math.PI * 2);
         ctx.fill();
       } else if (this.type === 'ulaljuc') {
-        // 咖啡豆
         ctx.beginPath();
         ctx.ellipse(0, 0, this.size * 0.75, this.size * 0.5, 0, 0, Math.PI * 2);
         ctx.fill();
@@ -822,17 +971,14 @@
         ctx.quadraticCurveTo(0, 2, this.size * 0.45, 0);
         ctx.stroke();
       } else if (this.type === 'leshui' || this.type === 'saza') {
-        // 青竹與森林葉片
         ctx.beginPath();
         ctx.ellipse(0, 0, this.size, this.size * 0.4, Math.PI / 4, 0, Math.PI * 2);
         ctx.fill();
       } else if (this.type === 'ceroh') {
-        // 彩繪米粒
         ctx.beginPath();
         ctx.ellipse(0, 0, this.size * 0.8, this.size * 0.35, 0, 0, Math.PI * 2);
         ctx.fill();
       } else if (this.type === 'rinari') {
-        // 百合花冠花瓣
         ctx.beginPath();
         ctx.moveTo(0, -this.size * 0.7);
         ctx.lineTo(this.size * 0.5, 0);
@@ -841,38 +987,30 @@
         ctx.closePath();
         ctx.fill();
       } else if (this.type === 'yongkang') {
-        // 閃爍四芒星
         ctx.beginPath();
         ctx.arc(0, 0, this.size * 0.5, 0, Math.PI * 2);
         ctx.fill();
       } else {
-        // 圓形/七彩光斑/彩紙
         ctx.beginPath();
         ctx.arc(0, 0, this.size * 0.5, 0, Math.PI * 2);
         ctx.fill();
       }
-
       ctx.restore();
     }
   }
 
-  // 初始化雨點
   for (let i = 0; i < MAX_RAIN_COUNT; i++) {
     rainParticles.push(new WeatherDrop(true));
   }
 
-  // 切換天候氛圍函式
   function switchWeather(newType) {
     if (currentMode === newType) return;
     currentMode = newType;
 
-    // 更新右上角提示膠囊文字
     const cfg = weatherConfig[newType] || weatherConfig['feast'];
     weatherTag.innerHTML = `<span>${cfg.icon}</span> <span>${cfg.text}</span>`;
 
-    // 觸摸時同時給予視覺回饋：讓原有粒子逐漸被新模式替換
     rainParticles.forEach((p, idx) => {
-      // 隨機重設一部份到上方，加速換景感
       if (idx % 2 === 0) {
         p.reset(false);
       } else {
@@ -880,17 +1018,21 @@
       }
     });
 
-    // 連動 GA4 事件
     trackMapInteraction('switch_weather_rain', 'Interaction_Weather', newType);
   }
 
-  // 60FPS 持續平穩渲染
+  // 60FPS 渲染循環 (同時驅動牽引火車與天候雨)
   function animate() {
+    // 1. 驅動火車車頭拉動 3 節客車順彎運轉
+    updateTrainTowingPhysics();
+
+    // 2. 驅動天候雨粒子
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     for (let i = 0; i < rainParticles.length; i++) {
       rainParticles[i].update();
       rainParticles[i].draw();
     }
+
     requestAnimationFrame(animate);
   }
   animate();
