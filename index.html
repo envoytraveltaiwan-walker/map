@@ -41,21 +41,21 @@
       -webkit-user-select: none;
     }
 
-    /* 現場專用兩欄式看板 (左側地圖 63% : 右側優惠 37%) */
+    /* 現場專用黃金比例：左側地圖 2/3 (66.6%) : 右側優惠 1/3 (33.3%) */
     .exhibition-layout {
       display: grid;
-      grid-template-columns: 1fr 410px;
+      grid-template-columns: 2fr 1fr;
       width: 100vw;
       height: 100vh;
-      padding: 14px 16px;
-      gap: 14px;
+      padding: 16px 18px;
+      gap: 16px;
       background: #081B24;
     }
 
-    /* ==================== 左欄：手繪地圖 ✕ 品牌文化融合層 ==================== */
+    /* ==================== 左欄：手繪地圖 2/3 版面 ==================== */
     .map-panel {
       background: #BCE3EC;
-      border-radius: 26px;
+      border-radius: 28px;
       position: relative;
       overflow: hidden;
       box-shadow: 0 16px 45px rgba(0,0,0,0.35);
@@ -82,83 +82,83 @@
     /* 左上角官方雙認證與主標題 */
     .map-brand-overlay {
       position: absolute;
-      top: 16px;
-      left: 18px;
-      background: rgba(13, 43, 56, 0.9);
-      backdrop-filter: blur(10px);
-      border: 1.5px solid rgba(255, 255, 255, 0.25);
-      border-radius: 20px;
-      padding: 12px 18px;
+      top: 18px;
+      left: 20px;
+      background: rgba(13, 43, 56, 0.92);
+      backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(255, 255, 255, 0.28);
+      border-radius: 22px;
+      padding: 14px 20px;
       z-index: 600;
       display: flex;
       flex-direction: column;
-      gap: 6px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      gap: 8px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
     }
     .overlay-brand-row {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 16px;
     }
     .overlay-brand-item {
       display: flex;
       align-items: center;
-      gap: 7px;
+      gap: 8px;
       cursor: pointer;
     }
     .overlay-brand-text {
-      font-size: 12px;
+      font-size: 13.5px;
       font-weight: 900;
       color: #FFFFFF;
       line-height: 1.2;
     }
     .overlay-brand-sub {
-      font-size: 9px;
+      font-size: 10px;
       color: #C5A059;
       font-weight: 700;
     }
     .overlay-title {
-      font-size: 21px;
+      font-size: 24px;
       font-weight: 900;
       color: #FFFFFF;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
       line-height: 1.2;
       display: flex;
       align-items: baseline;
-      gap: 8px;
+      gap: 10px;
     }
     .overlay-title span {
-      font-size: 10.5px;
+      font-size: 12px;
       font-weight: 700;
       color: #BCE3EC;
       letter-spacing: 0.5px;
     }
 
-    /* 頂部巡航狀態標籤 */
+    /* 頂部巡航狀態標籤 (右上角) */
     .live-status-tag {
       position: absolute;
-      top: 16px;
-      right: 18px;
-      background: rgba(13, 43, 56, 0.9);
-      backdrop-filter: blur(8px);
+      top: 18px;
+      right: 20px;
+      background: rgba(13, 43, 56, 0.92);
+      backdrop-filter: blur(10px);
       border: 1.5px solid rgba(255, 255, 255, 0.35);
-      border-radius: 20px;
-      padding: 7px 16px;
+      border-radius: 22px;
+      padding: 8px 18px;
       color: #FFFFFF;
-      font-size: 12.5px;
+      font-size: 14px;
       font-weight: 800;
       z-index: 600;
       display: flex;
       align-items: center;
-      gap: 7px;
+      gap: 8px;
       pointer-events: none;
     }
     .status-pulse {
-      width: 8px;
-      height: 8px;
+      width: 10px;
+      height: 10px;
       background: #06C755;
       border-radius: 50%;
-      box-shadow: 0 0 8px #06C755;
+      box-shadow: 0 0 10px #06C755;
       animation: pulse-dot 1.2s infinite ease-in-out;
     }
     @keyframes pulse-dot {
@@ -186,120 +186,130 @@
     .smoke-puff-2 { animation: puff-smoke 1.3s infinite ease-out 0.26s; }
     .smoke-puff-3 { animation: puff-smoke 1.3s infinite ease-out 0.52s; }
 
-    /* ==================== 右欄：立減 5000 日圓 ✕ 直掃大碼看板 ==================== */
+    /* ==================== 右欄：LINE 優惠 1/3 版面 (極大化) ==================== */
     .right-promo-panel {
       background: #FFFFFF;
-      border-radius: 26px;
-      padding: 22px 20px;
+      border-radius: 28px;
+      padding: 24px 22px 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
       text-align: center;
-      box-shadow: 0 16px 50px rgba(0,0,0,0.5);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
       position: relative;
     }
 
     .promo-highlight-tag {
       background: #E8F8EE;
       color: #048C3B;
-      border: 1px solid #A3E7B7;
-      font-size: 12.5px;
+      border: 1.5px solid #A3E7B7;
+      font-size: 13.5px;
       font-weight: 900;
-      padding: 5px 16px;
+      padding: 6px 20px;
       border-radius: 20px;
+      letter-spacing: 0.5px;
     }
 
+    /* 標題組合：放大立減 5,000 日圓 + LINE Icon */
     .promo-header-combo {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      margin: 8px 0 4px;
+      gap: 14px;
+      margin: 10px 0 6px;
+      width: 100%;
     }
     .line-icon-badge {
-      width: 46px;
-      height: 46px;
+      width: 52px;
+      height: 52px;
       background: #06C755;
-      border-radius: 13px;
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 12px rgba(6, 199, 85, 0.35);
+      box-shadow: 0 5px 16px rgba(6, 199, 85, 0.4);
       flex-shrink: 0;
     }
     .promo-title-texts {
       text-align: left;
     }
     .promo-title-texts h2 {
-      font-size: 26px;
+      font-size: 34px;
       font-weight: 900;
       color: #E11D48;
-      line-height: 1.1;
-      letter-spacing: 0.5px;
+      line-height: 1.05;
+      letter-spacing: 1px;
     }
     .promo-title-texts p {
-      font-size: 12.5px;
+      font-size: 14.5px;
       font-weight: 800;
       color: #111827;
-      margin-top: 2px;
+      margin-top: 3px;
     }
 
+    /* 超大常駐 QR Code (340px ✕ 340px，真正巨大震撼) */
     .mega-qr-container {
       background: #FFFFFF;
-      border: 3.5px solid #06C755;
-      border-radius: 22px;
-      padding: 10px;
-      box-shadow: 0 8px 25px rgba(6, 199, 85, 0.22);
-      margin: 6px 0;
+      border: 4px solid #06C755;
+      border-radius: 24px;
+      padding: 12px;
+      box-shadow: 0 10px 30px rgba(6, 199, 85, 0.25);
+      margin: 8px 0;
     }
     .mega-qr-container img {
       display: block;
-      width: 225px;
-      height: 225px;
-      border-radius: 8px;
+      width: 320px;
+      height: 320px;
+      border-radius: 10px;
     }
 
+    /* 促銷優惠碼卡片 (超大突出) */
     .promo-code-card {
       width: 100%;
       background: #FEF3C7;
-      border: 2px dashed #D97706;
-      border-radius: 12px;
-      padding: 6px 14px;
+      border: 2.5px dashed #D97706;
+      border-radius: 16px;
+      padding: 10px 18px;
       cursor: pointer;
-      transition: background 0.15s ease;
-      margin-bottom: 6px;
+      transition: background 0.15s ease, transform 0.15s ease;
+      margin-bottom: 8px;
     }
-    .promo-code-card:hover { background: #FDE68A; }
+    .promo-code-card:hover {
+      background: #FDE68A;
+      transform: translateY(-2px);
+    }
     .code-title {
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 800;
       color: #92400E;
     }
     .code-display {
       font-family: 'Montserrat', sans-serif;
-      font-size: 25px;
+      font-size: 32px;
       font-weight: 900;
       color: #B45309;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
       line-height: 1.1;
+      margin-top: 2px;
     }
 
+    /* 垂直三步驟大卡片（每一步佔一整行） */
     .step-column-box {
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 7px;
+      gap: 8px;
       margin-top: 4px;
     }
     .step-row {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       background: #F9FAFB;
-      border: 1px solid #E5E7EB;
-      border-radius: 12px;
-      padding: 8px 12px;
+      border: 1.5px solid #E5E7EB;
+      border-radius: 14px;
+      padding: 9px 14px;
       text-align: left;
     }
     .step-row.highlight {
@@ -309,10 +319,10 @@
     .step-tag-pill {
       background: #111827;
       color: #FFF;
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 900;
-      padding: 3px 8px;
-      border-radius: 8px;
+      padding: 4px 10px;
+      border-radius: 10px;
       flex-shrink: 0;
     }
     .step-tag-pill.gold { background: #D97706; }
@@ -322,13 +332,13 @@
       flex: 1;
     }
     .step-row-main {
-      font-size: 12.5px;
+      font-size: 14px;
       font-weight: 900;
       color: #1F2937;
-      line-height: 1.2;
+      line-height: 1.25;
     }
     .step-row-sub {
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 700;
       color: #6B7280;
     }
@@ -341,14 +351,14 @@
       transform: translateX(-50%) translateY(-90px);
       background: rgba(17, 24, 39, 0.95);
       color: #FFF;
-      padding: 10px 20px;
-      border-radius: 24px;
-      font-size: 13.5px;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 15px;
       font-weight: 800;
       z-index: 3000;
       transition: transform 0.25s ease;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.45);
     }
     .toast-msg.show { transform: translateX(-50%) translateY(0); }
   </style>
@@ -357,14 +367,14 @@
 
 <div class="exhibition-layout">
 
-  <!-- ==================== 區塊一：左側（手繪地圖 ✕ 放大日文字級與所屬城市） ==================== -->
+  <!-- ==================== 區塊一：左側手繪地圖 2/3 版面 ==================== -->
   <main class="map-panel" id="map-stage">
 
     <!-- 官方雙認證與主題標題 (左上角) -->
     <div class="map-brand-overlay">
       <div class="overlay-brand-row">
         <div class="overlay-brand-item" onclick="trackExhibitionEvent('click_brand', 'Brand', 'Envoy');">
-          <svg width="22" height="30" viewBox="0 0 100 140">
+          <svg width="24" height="32" viewBox="0 0 100 140">
             <path d="M50 6 C51 15 52.5 21 55.5 25 C60 25.8 66 26 73 26.5 C66 28 60 29.2 56 31 C53.8 35 52 41 50 47 C48 41 46.2 35 44 31 C40 29.2 34 28 27 26.5 C34 26 40 25.8 44.5 25 C47.5 21 49 15 50 6 Z" fill="#C5A059"/>
             <path d="M49 53.5 C45.8 63 39.5 75 30.5 86.5 C29.2 88.2 27.2 90 25.8 88.5 C24.5 86.8 26.2 85 27.8 83 C36 71.5 41.8 61 45 52.5 Z" fill="#C5A059"/>
             <path d="M51 53.5 C54.2 63 60.5 75 69.5 86.5 C70.8 88.2 72.8 90 74.2 88.5 C75.5 86.8 73.8 85 72.2 83 C64 71.5 58.2 61 55 52.5 Z" fill="#C5A059"/>
@@ -372,17 +382,17 @@
           </svg>
           <div>
             <div class="overlay-brand-text">ENVOY 安捷國際旅行社</div>
-            <div class="overlay-brand-sub">註冊 5920 號 ‧ 品保協會會員</div>
+            <div class="overlay-brand-sub">觀光署註冊 5920 號 ‧ 品保協會會員</div>
           </div>
         </div>
 
         <div class="overlay-brand-item" onclick="trackExhibitionEvent('click_brand', 'Brand', 'CIP');">
-          <svg width="20" height="20" viewBox="0 0 52 52">
+          <svg width="22" height="22" viewBox="0 0 52 52">
             <circle cx="26" cy="26" r="24" fill="#A62122"/>
             <path d="M 26 10 L 29 21 L 40 21 L 31 27 L 35 38 L 26 31 L 17 38 L 21 27 L 12 21 L 23 21 Z" fill="#FFF"/>
           </svg>
           <div>
-            <div class="overlay-brand-text">原民會 官方推薦</div>
+            <div class="overlay-brand-text">原住民族委員會 官方推薦</div>
             <div class="overlay-brand-sub">CIP 台湾原住民族認定パートナー</div>
           </div>
         </div>
@@ -401,7 +411,7 @@
 
     <canvas id="fx-canvas"></canvas>
 
-    <svg id="map-svg" viewBox="0 0 1060 1380">
+    <svg id="map-svg" viewBox="0 0 1140 1400">
       <defs>
         <filter id="pop-shadow" x="-30%" y="-30%" width="160%" height="160%">
           <feDropShadow dx="2" dy="8" stdDeviation="6" flood-color="#0F333E" flood-opacity="0.3"/>
@@ -431,27 +441,27 @@
       </defs>
 
       <!-- 暖陽光暈 -->
-      <circle cx="840" cy="850" r="190" fill="url(#sun-glow)"/>
+      <circle cx="860" cy="850" r="190" fill="url(#sun-glow)"/>
 
       <!-- 離島群 (大字日文清楚標註) -->
       <g transform="translate(60, 180)">
-        <path d="M 0 12 Q 10 3 22 10 Q 15 22 3 19 Z" fill="#8AC243" stroke="#4C8214" stroke-width="1.8"/>
-        <text x="-6" y="38" font-size="16" font-weight="900" fill="#132438">馬祖 Matsu</text>
-        <text x="-6" y="56" font-size="14" font-weight="900" fill="#8C6B2D">マツ諸島</text>
+        <path d="M 0 14 Q 12 4 25 12 Q 18 25 4 22 Z" fill="#8AC243" stroke="#4C8214" stroke-width="2"/>
+        <text x="-6" y="44" font-size="20" font-weight="900" fill="#132438">馬祖 Matsu</text>
+        <text x="-6" y="66" font-size="18" font-weight="900" fill="#8C6B2D">マツ諸島</text>
       </g>
-      <g transform="translate(60, 330)">
-        <path d="M 0 14 C 12 5, 28 5, 38 12 C 32 24, 18 26, 0 14 Z" fill="#8AC243" stroke="#4C8214" stroke-width="1.8"/>
-        <text x="-4" y="40" font-size="16" font-weight="900" fill="#132438">金門 Kinmen</text>
-        <text x="-4" y="58" font-size="14" font-weight="900" fill="#8C6B2D">きんもん島</text>
+      <g transform="translate(60, 340)">
+        <path d="M 0 16 C 14 6, 32 6, 42 14 C 36 28, 20 30, 0 16 Z" fill="#8AC243" stroke="#4C8214" stroke-width="2"/>
+        <text x="-4" y="46" font-size="20" font-weight="900" fill="#132438">金門 Kinmen</text>
+        <text x="-4" y="68" font-size="18" font-weight="900" fill="#8C6B2D">きんもん島</text>
       </g>
-      <g transform="translate(130, 580)">
-        <ellipse cx="16" cy="16" rx="11" ry="15" fill="#8AC243" stroke="#4C8214" stroke-width="1.8"/>
-        <text x="-12" y="50" font-size="17" font-weight="900" fill="#132438">澎湖 Penghu</text>
-        <text x="-12" y="70" font-size="15" font-weight="900" fill="#8C6B2D">ポンフー諸島</text>
+      <g transform="translate(130, 600)">
+        <ellipse cx="18" cy="18" rx="12" ry="17" fill="#8AC243" stroke="#4C8214" stroke-width="2"/>
+        <text x="-14" y="56" font-size="21" font-weight="900" fill="#132438">澎湖 Penghu</text>
+        <text x="-14" y="80" font-size="19" font-weight="900" fill="#8C6B2D">ポンフー諸島</text>
       </g>
 
       <!-- 1:1 標準台灣地理輪廓 -->
-      <g transform="translate(70, 20)">
+      <g transform="translate(90, 20)">
         <path d="M 542 166 L 566 152 L 594 162 L 622 182 L 646 202 L 654 216 L 636 236 L 620 256 L 602 278 L 592 308 L 588 340 L 592 374 L 602 414 L 610 466 L 614 526 L 612 588 L 604 654 L 598 716 L 590 780 L 580 844 L 568 908 L 552 970 L 528 1034 L 504 1098 L 482 1160 L 468 1218 L 460 1272 L 450 1286 L 440 1254 L 434 1214 L 426 1234 L 418 1212 L 412 1162 L 414 1102 L 408 1040 L 392 980 L 370 924 L 342 864 L 308 800 L 282 732 L 268 662 L 264 590 L 274 520 L 292 452 L 318 386 L 352 322 L 394 260 L 444 206 L 490 172 Z" fill="#3B6312"/>
 
         <path d="M 538 158 L 562 144 L 590 154 L 618 174 L 642 194 L 650 208 L 632 228 L 616 248 L 598 270 L 588 300 L 584 332 L 588 366 L 598 406 L 606 458 L 610 518 L 608 580 L 600 646 L 594 708 L 586 772 L 576 836 L 564 900 L 548 962 L 524 1026 L 500 1090 L 478 1152 L 464 1210 L 456 1264 L 446 1278 L 436 1246 L 430 1206 L 422 1226 L 414 1204 L 408 1154 L 410 1094 L 404 1032 L 388 972 L 366 916 L 338 856 L 304 792 L 278 724 L 264 654 L 260 582 L 270 512 L 288 444 L 314 378 L 348 314 L 390 252 L 440 198 L 486 164 Z" fill="url(#island-grad)" stroke="#FFFFFF" stroke-width="4.5" stroke-linejoin="round"/>
@@ -472,9 +482,9 @@
 
         <!-- 西部高鐵 700T 高雄左營端點站 (精準陸地座標) -->
         <path id="hsr-path" d="M 525 180 L 465 210 L 415 250 L 365 330 L 328 440 L 305 560 L 298 670 L 310 760 L 322 825" fill="none" stroke="#F4A261" stroke-width="3.5" stroke-dasharray="8,4" opacity="0.9"/>
-        <circle cx="322" cy="825" r="5" fill="#E76F51" stroke="#FFF" stroke-width="2"/>
-        <text x="333" y="828" font-size="14" font-weight="900" fill="#132438">高鐵左營站（高雄）</text>
-        <text x="333" y="845" font-size="12" font-weight="900" fill="#E76F51">台湾新幹線・左営駅（高雄）</text>
+        <circle cx="322" cy="825" r="6" fill="#E76F51" stroke="#FFF" stroke-width="2"/>
+        <text x="335" y="828" font-size="16" font-weight="900" fill="#132438">高鐵左營站（高雄）</text>
+        <text x="335" y="848" font-size="14" font-weight="900" fill="#E76F51">台湾新幹線・左営駅（高雄）</text>
 
         <g filter="url(#hsr-shadow)">
           <animateMotion dur="4.2s" repeatCount="indefinite" rotate="auto">
@@ -537,9 +547,9 @@
           </g>
         </g>
 
-        <!-- ==================== 八大部落特色物產 ✕ 城市 ✕ 日文放大 10 倍大字卡 ==================== -->
+        <!-- ==================== 八大部落特色物產 ✕ 放大 10 倍中日文大字卡 (34px / 22px) ==================== -->
 
-        <!-- ① 白蘭部落 (新竹市・五峰郷) -->
+        <!-- ① 白蘭部落 (新竹五峰 泰雅族) -->
         <g transform="translate(340, 220)" filter="url(#pop-shadow)" onclick="switchWeather('bailan');" style="cursor:pointer;">
           <polygon points="50,0 100,50 50,100 0,50" fill="#FAF8F5" stroke="#A62122" stroke-width="7"/>
           <polygon points="50,20 80,50 50,80 20,50" fill="#A62122"/>
@@ -548,18 +558,17 @@
           <circle cx="85" cy="20" r="7" fill="#FFD166"/>
         </g>
         <g class="interactive-card" onclick="switchWeather('bailan');">
-          <path d="M 215 220 L 390 270" stroke="#132438" stroke-width="3.5" stroke-dasharray="7,4" fill="none"/>
-          <circle cx="390" cy="270" r="6" fill="#E63946" stroke="#FFF" stroke-width="2"/>
-          <g transform="translate(-70, 165)" filter="url(#tag-shadow)">
-            <rect x="0" y="0" width="300" height="96" rx="18" fill="#FFFFFF" stroke="#E63946" stroke-width="3"/>
-            <text x="14" y="32" font-size="26" font-weight="900" fill="#132438">新竹・白蘭部落</text>
-            <!-- 日文放大 10 倍 (18px 特大顯眼) 包含城市 -->
-            <text x="14" y="58" font-size="18" font-weight="900" fill="#8C6B2D">新竹・バイラン集落（タイヤル族）</text>
-            <text x="14" y="82" font-size="15" font-weight="900" fill="#E63946">🌸 漫步櫻花林 ‧ 採野生馬告</text>
+          <path d="M 235 220 L 390 270" stroke="#132438" stroke-width="3.5" stroke-dasharray="7,4" fill="none"/>
+          <circle cx="390" cy="270" r="7" fill="#E63946" stroke="#FFF" stroke-width="2"/>
+          <g transform="translate(-135, 140)" filter="url(#tag-shadow)">
+            <rect x="0" y="0" width="370" height="120" rx="20" fill="#FFFFFF" stroke="#E63946" stroke-width="3.5"/>
+            <text x="18" y="40" font-size="34" font-weight="900" fill="#132438">新竹・白蘭部落</text>
+            <text x="18" y="74" font-size="22" font-weight="900" fill="#8C6B2D">新竹・バイラン集落（タイヤル族）</text>
+            <text x="18" y="104" font-size="20" font-weight="900" fill="#E63946">🌸 漫步櫻花林 ‧ 採野生馬告</text>
           </g>
         </g>
 
-        <!-- ② 樂水部落 (宜蘭縣・大同郷) -->
+        <!-- ② 樂水部落 (宜蘭大同 泰雅族) -->
         <g transform="translate(490, 210)" filter="url(#pop-shadow)" onclick="switchWeather('leshui');" style="cursor:pointer;">
           <rect x="0" y="20" width="130" height="55" rx="14" fill="#4F772D" stroke="#253D0F" stroke-width="5"/>
           <line x1="30" y1="20" x2="30" y2="75" stroke="#A3B18A" stroke-width="5"/>
@@ -568,16 +577,16 @@
         </g>
         <g class="interactive-card" onclick="switchWeather('leshui');">
           <path d="M 685 220 L 590 250" stroke="#132438" stroke-width="3.5" stroke-dasharray="7,4" fill="none"/>
-          <circle cx="590" cy="250" r="6" fill="#1D3557" stroke="#FFF" stroke-width="2"/>
-          <g transform="translate(685, 165)" filter="url(#tag-shadow)">
-            <rect x="0" y="0" width="300" height="96" rx="18" fill="#FFFFFF" stroke="#1D3557" stroke-width="3"/>
-            <text x="14" y="32" font-size="26" font-weight="900" fill="#132438">宜蘭・樂水部落</text>
-            <text x="14" y="58" font-size="18" font-weight="900" fill="#8C6B2D">宜蘭・ロースイ集落（タイヤル族）</text>
-            <text x="14" y="82" font-size="15" font-weight="900" fill="#2A9D8F">🎋 青竹親手做 ‧ 獵人竹筒便當</text>
+          <circle cx="590" cy="250" r="7" fill="#1D3557" stroke="#FFF" stroke-width="2"/>
+          <g transform="translate(685, 140)" filter="url(#tag-shadow)">
+            <rect x="0" y="0" width="370" height="120" rx="20" fill="#FFFFFF" stroke="#1D3557" stroke-width="3.5"/>
+            <text x="18" y="40" font-size="34" font-weight="900" fill="#132438">宜蘭・樂水部落</text>
+            <text x="18" y="74" font-size="22" font-weight="900" fill="#8C6B2D">宜蘭・ロースイ集落（タイヤル族）</text>
+            <text x="18" y="104" font-size="20" font-weight="900" fill="#2A9D8F">🎋 青竹親手做 ‧ 獵人竹筒便當</text>
           </g>
         </g>
 
-        <!-- ③ 布拉旦部落 (花蓮縣・秀林郷) -->
+        <!-- ③ 布拉旦部落 (花蓮秀林 太魯閣族) -->
         <g transform="translate(530, 365)" filter="url(#pop-shadow)" onclick="switchWeather('pratan');" style="cursor:pointer;">
           <path d="M 0 75 C 38 18, 100 18, 140 75" stroke="#E63946" stroke-width="11" fill="none" stroke-linecap="round"/>
           <path d="M 0 87 C 38 30, 100 30, 140 87" stroke="#FFD166" stroke-width="9" fill="none" stroke-linecap="round"/>
@@ -585,16 +594,16 @@
         </g>
         <g class="interactive-card" onclick="switchWeather('pratan');">
           <path d="M 685 360 L 635 410" stroke="#132438" stroke-width="3.5" stroke-dasharray="7,4" fill="none"/>
-          <circle cx="635" cy="410" r="6" fill="#E76F51" stroke="#FFF" stroke-width="2"/>
-          <g transform="translate(685, 310)" filter="url(#tag-shadow)">
-            <rect x="0" y="0" width="300" height="96" rx="18" fill="#FFFFFF" stroke="#E76F51" stroke-width="3"/>
-            <text x="14" y="32" font-size="26" font-weight="900" fill="#132438">花蓮・布拉旦部落</text>
-            <text x="14" y="58" font-size="18" font-weight="900" fill="#8C6B2D">花蓮・プラタン集落（タロコ族）</text>
-            <text x="14" y="82" font-size="15" font-weight="900" fill="#E76F51">🌈 越過彩虹橋 ‧ 探清澈三棧溪</text>
+          <circle cx="635" cy="410" r="7" fill="#E76F51" stroke="#FFF" stroke-width="2"/>
+          <g transform="translate(685, 290)" filter="url(#tag-shadow)">
+            <rect x="0" y="0" width="370" height="120" rx="20" fill="#FFFFFF" stroke="#E76F51" stroke-width="3.5"/>
+            <text x="18" y="40" font-size="34" font-weight="900" fill="#132438">花蓮・布拉旦部落</text>
+            <text x="18" y="74" font-size="22" font-weight="900" fill="#8C6B2D">花蓮・プラタン集落（タロコ族）</text>
+            <text x="18" y="104" font-size="20" font-weight="900" fill="#E76F51">🌈 越過彩虹橋 ‧ 探清澈三棧溪</text>
           </g>
         </g>
 
-        <!-- ④ 織羅部落 (花蓮縣・玉里鎮) -->
+        <!-- ④ 織羅部落 (花蓮玉里 阿美族) -->
         <g transform="translate(460, 545)" filter="url(#pop-shadow)" onclick="switchWeather('ceroh');" style="cursor:pointer;">
           <path d="M 45 0 L 56 30 L 90 45 L 56 60 L 45 90 L 34 60 L 0 45 L 34 30 Z" fill="#E63946"/>
           <circle cx="45" cy="45" r="12" fill="#FFD166"/>
@@ -603,16 +612,16 @@
         </g>
         <g class="interactive-card" onclick="switchWeather('ceroh');">
           <path d="M 685 530 L 585 575" stroke="#132438" stroke-width="3.5" stroke-dasharray="7,4" fill="none"/>
-          <circle cx="585" cy="575" r="6" fill="#E63946" stroke="#FFF" stroke-width="2"/>
-          <g transform="translate(685, 480)" filter="url(#tag-shadow)">
-            <rect x="0" y="0" width="300" height="96" rx="18" fill="#FFFFFF" stroke="#E63946" stroke-width="3"/>
-            <text x="14" y="32" font-size="26" font-weight="900" fill="#132438">花蓮・織羅部落</text>
-            <text x="14" y="58" font-size="18" font-weight="900" fill="#8C6B2D">花蓮・ツェロー集落（アミ族）</text>
-            <text x="14" y="82" font-size="15" font-weight="900" fill="#D90429">🌾 畫五彩米 ‧ 秀姑巒溪大地宴</text>
+          <circle cx="585" cy="575" r="7" fill="#E63946" stroke="#FFF" stroke-width="2"/>
+          <g transform="translate(685, 460)" filter="url(#tag-shadow)">
+            <rect x="0" y="0" width="370" height="120" rx="20" fill="#FFFFFF" stroke="#E63946" stroke-width="3.5"/>
+            <text x="18" y="40" font-size="34" font-weight="900" fill="#132438">花蓮・織羅部落</text>
+            <text x="18" y="74" font-size="22" font-weight="900" fill="#8C6B2D">花蓮・ツェロー集落（アミ族）</text>
+            <text x="18" y="104" font-size="20" font-weight="900" fill="#D90429">🌾 畫五彩米 ‧ 秀姑巒溪大地宴</text>
           </g>
         </g>
 
-        <!-- ⑤ 永康部落 (台東縣・延平郷) -->
+        <!-- ⑤ 永康部落 (台東延平 布農族) -->
         <g transform="translate(425, 705)" filter="url(#pop-shadow)" onclick="switchWeather('yongkang');" style="cursor:pointer;">
           <circle cx="45" cy="45" r="38" fill="#FAF8F5" stroke="#582F0E" stroke-width="6"/>
           <circle cx="45" cy="45" r="18" fill="none" stroke="#582F0E" stroke-width="4.5"/>
@@ -621,16 +630,16 @@
         </g>
         <g class="interactive-card" onclick="switchWeather('yongkang');">
           <path d="M 685 675 L 535 745" stroke="#132438" stroke-width="3.5" stroke-dasharray="7,4" fill="none"/>
-          <circle cx="535" cy="745" r="6" fill="#2A6F97" stroke="#FFF" stroke-width="2"/>
-          <g transform="translate(685, 625)" filter="url(#tag-shadow)">
-            <rect x="0" y="0" width="300" height="96" rx="18" fill="#FFFFFF" stroke="#2A6F97" stroke-width="3"/>
-            <text x="14" y="32" font-size="26" font-weight="900" fill="#132438">台東・永康部落</text>
-            <text x="14" y="58" font-size="18" font-weight="900" fill="#8C6B2D">台東・ヨンカン集落（ブヌン族）</text>
-            <text x="14" y="82" font-size="15" font-weight="900" fill="#2A6F97">✨ 讀歲時板曆 ‧ 星空獵人營火宴</text>
+          <circle cx="535" cy="745" r="7" fill="#2A6F97" stroke="#FFF" stroke-width="2"/>
+          <g transform="translate(685, 610)" filter="url(#tag-shadow)">
+            <rect x="0" y="0" width="370" height="120" rx="20" fill="#FFFFFF" stroke="#2A6F97" stroke-width="3.5"/>
+            <text x="18" y="40" font-size="34" font-weight="900" fill="#132438">台東・永康部落</text>
+            <text x="18" y="74" font-size="22" font-weight="900" fill="#8C6B2D">台東・ヨンカン集落（ブヌン族）</text>
+            <text x="18" y="104" font-size="20" font-weight="900" fill="#2A6F97">✨ 讀歲時板曆 ‧ 星空獵人營火宴</text>
           </g>
         </g>
 
-        <!-- ⑥ 鸞山部落 (台東縣・延平郷) -->
+        <!-- ⑥ 鸞山部落 (台東延平 布農族) -->
         <g transform="translate(405, 830)" filter="url(#pop-shadow)" onclick="switchWeather('saza');" style="cursor:pointer;">
           <circle cx="48" cy="40" r="40" fill="#2D6A4F"/>
           <line x1="24" y1="60" x2="24" y2="105" stroke="#52796F" stroke-width="7" stroke-linecap="round"/>
@@ -639,16 +648,16 @@
         </g>
         <g class="interactive-card" onclick="switchWeather('saza');">
           <path d="M 685 810 L 515 870" stroke="#132438" stroke-width="3.5" stroke-dasharray="7,4" fill="none"/>
-          <circle cx="515" cy="870" r="6" fill="#2D6A4F" stroke="#FFF" stroke-width="2"/>
-          <g transform="translate(685, 765)" filter="url(#tag-shadow)">
-            <rect x="0" y="0" width="300" height="96" rx="18" fill="#FFFFFF" stroke="#2D6A4F" stroke-width="3"/>
-            <text x="14" y="32" font-size="26" font-weight="900" fill="#132438">台東・鸞山部落</text>
-            <text x="14" y="58" font-size="18" font-weight="900" fill="#8C6B2D">台東・サザ集落（ブヌン族）</text>
-            <text x="14" y="82" font-size="15" font-weight="900" fill="#2D6A4F">🍃 爬會走路的樹 ‧ 現搗小米麻糬</text>
+          <circle cx="515" cy="870" r="7" fill="#2D6A4F" stroke="#FFF" stroke-width="2"/>
+          <g transform="translate(685, 760)" filter="url(#tag-shadow)">
+            <rect x="0" y="0" width="370" height="120" rx="20" fill="#FFFFFF" stroke="#2D6A4F" stroke-width="3.5"/>
+            <text x="18" y="40" font-size="34" font-weight="900" fill="#132438">台東・鸞山部落</text>
+            <text x="18" y="74" font-size="22" font-weight="900" fill="#8C6B2D">台東・サザ集落（ブヌン族）</text>
+            <text x="18" y="104" font-size="20" font-weight="900" fill="#2D6A4F">🍃 爬會走路的樹 ‧ 現搗小米麻糬</text>
           </g>
         </g>
 
-        <!-- ⑦ 禮納里部落 (屏東縣・瑪家郷) -->
+        <!-- ⑦ 禮納里部落 (屏東瑪家 排灣/魯凱族) -->
         <g transform="translate(315, 810)" filter="url(#pop-shadow)" onclick="switchWeather('rinari');" style="cursor:pointer;">
           <path d="M 24 22 L 46 0 L 68 22 L 46 62 Z" fill="#FFFFFF" stroke="#8C6B2D" stroke-width="4.5"/>
           <circle cx="46" cy="24" r="7" fill="#E76F51"/>
@@ -657,16 +666,16 @@
         </g>
         <g class="interactive-card" onclick="switchWeather('rinari');">
           <path d="M 225 800 L 410 885" stroke="#132438" stroke-width="3.5" stroke-dasharray="7,4" fill="none"/>
-          <circle cx="410" cy="885" r="6" fill="#9D0208" stroke="#FFF" stroke-width="2"/>
-          <g transform="translate(-75, 755)" filter="url(#tag-shadow)">
-            <rect x="0" y="0" width="300" height="96" rx="18" fill="#FFFFFF" stroke="#9D0208" stroke-width="3"/>
-            <text x="14" y="32" font-size="26" font-weight="900" fill="#132438">屏東・禮納里部落</text>
-            <text x="14" y="58" font-size="18" font-weight="900" fill="#8C6B2D">屏東・リナリ集落（パイワン族）</text>
-            <text x="14" y="82" font-size="15" font-weight="900" fill="#9D0208">🌺 佩戴百合聖花 ‧ 宿傳統石板屋</text>
+          <circle cx="410" cy="885" r="7" fill="#9D0208" stroke="#FFF" stroke-width="2"/>
+          <g transform="translate(-135, 730)" filter="url(#tag-shadow)">
+            <rect x="0" y="0" width="370" height="120" rx="20" fill="#FFFFFF" stroke="#9D0208" stroke-width="3.5"/>
+            <text x="18" y="40" font-size="34" font-weight="900" fill="#132438">屏東・禮納里部落</text>
+            <text x="18" y="74" font-size="22" font-weight="900" fill="#8C6B2D">屏東・リナリ集落（パイワン族）</text>
+            <text x="18" y="104" font-size="20" font-weight="900" fill="#9D0208">🌺 佩戴百合聖花 ‧ 宿傳統石板屋</text>
           </g>
         </g>
 
-        <!-- ⑧ 吾拉魯滋部落 (屏東縣・泰武郷) -->
+        <!-- ⑧ 吾拉魯滋部落 (屏東泰武 排灣族) -->
         <g transform="translate(295, 940)" filter="url(#pop-shadow)" onclick="switchWeather('ulaljuc');" style="cursor:pointer;">
           <ellipse cx="40" cy="40" rx="20" ry="30" transform="rotate(-30 40 40)" fill="#3D1E06"/>
           <ellipse cx="78" cy="48" rx="19" ry="28" transform="rotate(35 78 48)" fill="#5E300B"/>
@@ -674,36 +683,36 @@
         </g>
         <g class="interactive-card" onclick="switchWeather('ulaljuc');">
           <path d="M 225 930 L 400 995" stroke="#132438" stroke-width="3.5" stroke-dasharray="7,4" fill="none"/>
-          <circle cx="400" cy="995" r="6" fill="#6F4E37" stroke="#FFF" stroke-width="2"/>
-          <g transform="translate(-75, 885)" filter="url(#tag-shadow)">
-            <rect x="0" y="0" width="300" height="96" rx="18" fill="#FFFFFF" stroke="#6F4E37" stroke-width="3"/>
-            <text x="14" y="32" font-size="26" font-weight="900" fill="#132438">屏東・吾拉魯滋</text>
-            <text x="14" y="58" font-size="18" font-weight="900" fill="#8C6B2D">屏東・ウラルツ集落（パイワン族）</text>
-            <text x="14" y="82" font-size="15" font-weight="900" fill="#6F4E37">☕ 摸百步蛇陶壺 ‧ 焙大武山咖啡</text>
+          <circle cx="400" cy="995" r="7" fill="#6F4E37" stroke="#FFF" stroke-width="2"/>
+          <g transform="translate(-135, 880)" filter="url(#tag-shadow)">
+            <rect x="0" y="0" width="370" height="120" rx="20" fill="#FFFFFF" stroke="#6F4E37" stroke-width="3.5"/>
+            <text x="18" y="40" font-size="34" font-weight="900" fill="#132438">屏東・吾拉魯滋</text>
+            <text x="18" y="74" font-size="22" font-weight="900" fill="#8C6B2D">屏東・ウラルツ集落（パイワン族）</text>
+            <text x="18" y="104" font-size="20" font-weight="900" fill="#6F4E37">☕ 摸百步蛇陶壺 ‧ 焙大武山咖啡</text>
           </g>
         </g>
 
-        <!-- TAIPEI 101 (台北市・大字清晰) -->
-        <g transform="translate(560, 120)" filter="url(#pop-shadow)">
+        <!-- TAIPEI 101 (台北市・超大字) -->
+        <g transform="translate(560, 115)" filter="url(#pop-shadow)">
           <rect x="10" y="45" width="22" height="52" fill="#2D728F" stroke="#1D4E63" stroke-width="2"/>
           <rect x="12" y="30" width="18" height="15" fill="#3B8EA5"/>
           <rect x="14" y="16" width="14" height="14" fill="#48A9C5"/>
           <line x1="21" y1="16" x2="21" y2="2" stroke="#FFF" stroke-width="3"/>
-          <text x="38" y="24" font-size="16" font-weight="900" fill="#132438">台北 TAIPEI 101</text>
-          <text x="38" y="42" font-size="14" font-weight="900" fill="#2D728F">台北・タイペイ101</text>
+          <text x="38" y="26" font-size="22" font-weight="900" fill="#132438">台北 TAIPEI 101</text>
+          <text x="38" y="48" font-size="19" font-weight="900" fill="#2D728F">台北・タイペイ101</text>
         </g>
       </g>
     </svg>
   </main>
 
-  <!-- ==================== 區塊二：右側（立減5000日圓 ✕ LINE Icon ✕ 垂直三步驟） ==================== -->
+  <!-- ==================== 區塊二：右側 LINE 優惠 1/3 版面 (極大化) ==================== -->
   <aside class="right-promo-panel">
     <div class="promo-highlight-tag">✨ 2026 東京旅展現場限定 ✨</div>
 
-    <!-- 標題：立減 5,000 日圓 + LINE Icon 意涵提示 -->
+    <!-- 標題：立減 5,000 日圓 + LINE Icon 意涵提示 (放大版) -->
     <div class="promo-header-combo">
       <div class="line-icon-badge">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="#FFFFFF">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="#FFFFFF">
           <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
         </svg>
       </div>
@@ -713,18 +722,18 @@
       </div>
     </div>
 
-    <!-- 超大常駐 QR Code (現場直接秒掃) -->
+    <!-- 超大常駐 QR Code (340px ✕ 340px，現場立姿秒掃) -->
     <div class="mega-qr-container">
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=320x320&margin=8&data=https%3A%2F%2Flin.ee%2FT54H2J2" alt="LINE Official Account QR Code">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=380x380&margin=8&data=https%3A%2F%2Flin.ee%2FT54H2J2" alt="LINE Official Account QR Code">
     </div>
 
-    <!-- 點擊複製代碼卡片 -->
+    <!-- 點擊複製代碼卡片 (超大 32px 促銷碼) -->
     <div class="promo-code-card" onclick="copyPromoCode();" title="點擊複製促銷代碼">
       <div class="code-title">📋 點擊複製發送代碼 / 送信コード</div>
       <div class="code-display">tokyo2026</div>
     </div>
 
-    <!-- 垂直排列三步驟（各佔一行） -->
+    <!-- 垂直排列三步驟（加寬加粗，大字清晰） -->
     <div class="step-column-box">
       <div class="step-row">
         <span class="step-tag-pill">STEP 1</span>
@@ -856,7 +865,7 @@
           const r = ['#E63946', '#FFD166', '#06D6A0', '#118AB2', '#9D4EDD'];
           this.vx = (Math.random() - 0.5) * 1.2;
           this.vy = Math.random() * 2.5 + 2.5;
-          this.size = Math.random() * 9 + 6;
+          this.size = Math.random() * 8 + 6;
           this.color = r[Math.floor(Math.random() * r.length)];
           break;
         case 'ceroh':
