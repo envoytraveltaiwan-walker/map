@@ -186,11 +186,11 @@
     .smoke-puff-2 { animation: puff-smoke 1.3s infinite ease-out 0.26s; }
     .smoke-puff-3 { animation: puff-smoke 1.3s infinite ease-out 0.52s; }
 
-    /* ==================== 右欄：LINE 優惠 1/3 版面 (極致大字滿版) ==================== */
+    /* ==================== 右欄：LINE 優惠 1/3 版面（完全等比對照字級） ==================== */
     .right-promo-panel {
       background: #FFFFFF;
       border-radius: 28px;
-      padding: 22px 20px 20px;
+      padding: 24px 22px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -204,14 +204,14 @@
       background: #E8F8EE;
       color: #048C3B;
       border: 1.5px solid #A3E7B7;
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 900;
       padding: 6px 24px;
       border-radius: 24px;
       letter-spacing: 1px;
     }
 
-    /* 標題大字組合：雙行巨字排版 + 巨大 LINE Icon */
+    /* 標題大字組合：與左側部落標題同大 (34px) */
     .promo-header-combo {
       display: flex;
       align-items: center;
@@ -221,41 +221,43 @@
       width: 100%;
     }
     .line-icon-badge {
-      width: 72px;
-      height: 72px;
+      width: 60px;
+      height: 60px;
       background: #06C755;
-      border-radius: 20px;
+      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 24px rgba(6, 199, 85, 0.45);
+      box-shadow: 0 6px 18px rgba(6, 199, 85, 0.4);
       flex-shrink: 0;
     }
     .promo-title-texts {
       text-align: left;
     }
-    .promo-title-texts .line-1 {
-      font-size: 46px;
+    /* 【指定要求】立減 5,000 日圓 = 部落標題字級 34px */
+    .promo-title-texts h2 {
+      font-size: 34px;
       font-weight: 900;
       color: #E11D48;
-      line-height: 1.05;
+      line-height: 1.1;
       letter-spacing: 1px;
     }
-    .promo-title-texts .line-2 {
-      font-size: 30px;
+    /* 【指定要求】副標其他文字 = 行程說明字級 20px */
+    .promo-title-texts p {
+      font-size: 20px;
       font-weight: 900;
       color: #111827;
-      line-height: 1.15;
       margin-top: 4px;
+      line-height: 1.2;
     }
 
-    /* 超大常駐 QR Code (410px ✕ 410px，走過3公尺秒掃) */
+    /* 超大常駐 QR Code (340px ✕ 340px) */
     .mega-qr-container {
       background: #FFFFFF;
       border: 4.5px solid #06C755;
       border-radius: 26px;
       padding: 12px;
-      box-shadow: 0 12px 35px rgba(6, 199, 85, 0.28);
+      box-shadow: 0 10px 30px rgba(6, 199, 85, 0.25);
       margin: 6px 0;
       display: flex;
       align-items: center;
@@ -263,12 +265,12 @@
     }
     .mega-qr-container img {
       display: block;
-      width: 390px;
-      height: 390px;
+      width: 320px;
+      height: 320px;
       border-radius: 12px;
     }
 
-    /* 促銷優惠碼卡片 (超大 46px 突出字體) */
+    /* 促銷優惠碼卡片 */
     .promo-code-card {
       width: 100%;
       background: linear-gradient(180deg, #FEF3C7 0%, #FDE68A 100%);
@@ -284,23 +286,24 @@
       background: #FCD34D;
       transform: translateY(-2px);
     }
+    /* 【指定要求】提示文字 = 行程說明字級 20px */
     .code-title {
-      font-size: 14.5px;
+      font-size: 20px;
       font-weight: 900;
       color: #92400E;
       letter-spacing: 0.5px;
     }
     .code-display {
       font-family: 'Montserrat', sans-serif;
-      font-size: 46px;
+      font-size: 44px;
       font-weight: 900;
       color: #B45309;
       letter-spacing: 4px;
       line-height: 1.1;
-      margin-top: 2px;
+      margin-top: 4px;
     }
 
-    /* 垂直三步驟導引卡片（加寬加粗，大字清晰填滿版面） */
+    /* 垂直三步驟導引卡片 */
     .step-column-box {
       width: 100%;
       display: flex;
@@ -325,7 +328,7 @@
     .step-tag-pill {
       background: #111827;
       color: #FFF;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 900;
       padding: 6px 14px;
       border-radius: 12px;
@@ -338,6 +341,7 @@
     .step-row-text {
       flex: 1;
     }
+    /* 【指定要求】步驟說明主文字 = 行程說明字級 20px */
     .step-row-main {
       font-size: 20px;
       font-weight: 900;
@@ -345,7 +349,7 @@
       line-height: 1.25;
     }
     .step-row-sub {
-      font-size: 14.5px;
+      font-size: 16px;
       font-weight: 800;
       color: #4B5563;
       margin-top: 2px;
@@ -674,7 +678,7 @@
         </g>
         <g class="interactive-card" onclick="switchWeather('rinari');">
           <path d="M 225 800 L 410 885" stroke="#132438" stroke-width="3.5" stroke-dasharray="7,4" fill="none"/>
-          <circle cx="410" cy="885" r="7" fill="#9D0208" stroke="#FFF" stroke-width="2"/>
+          <circle cx="410" cy="885" r="6" fill="#9D0208" stroke="#FFF" stroke-width="2"/>
           <g transform="translate(-135, 730)" filter="url(#tag-shadow)">
             <rect x="0" y="0" width="370" height="120" rx="20" fill="#FFFFFF" stroke="#9D0208" stroke-width="3.5"/>
             <text x="18" y="40" font-size="34" font-weight="900" fill="#132438">屏東・禮納里部落</text>
@@ -691,7 +695,7 @@
         </g>
         <g class="interactive-card" onclick="switchWeather('ulaljuc');">
           <path d="M 225 930 L 400 995" stroke="#132438" stroke-width="3.5" stroke-dasharray="7,4" fill="none"/>
-          <circle cx="400" cy="995" r="7" fill="#6F4E37" stroke="#FFF" stroke-width="2"/>
+          <circle cx="400" cy="995" r="6" fill="#6F4E37" stroke="#FFF" stroke-width="2"/>
           <g transform="translate(-135, 880)" filter="url(#tag-shadow)">
             <rect x="0" y="0" width="370" height="120" rx="20" fill="#FFFFFF" stroke="#6F4E37" stroke-width="3.5"/>
             <text x="18" y="40" font-size="34" font-weight="900" fill="#132438">屏東・吾拉魯滋</text>
@@ -721,35 +725,35 @@
     </svg>
   </main>
 
-  <!-- ==================== 區塊二：右側 LINE 優惠 1/3 版面 (極大化) ==================== -->
+  <!-- ==================== 區塊二：右側 LINE 優惠 1/3 版面（完全等比對齊字級） ==================== -->
   <aside class="right-promo-panel">
     <div class="promo-highlight-tag">✨ 2026 東京旅展現場限定 ✨</div>
 
-    <!-- 標題大字組合：雙行巨字排版 + 巨大 LINE Icon -->
+    <!-- 標題：立減 5,000 日圓 = 部落標題同級 (34px) ✕ 行程說明同級 (20px) -->
     <div class="promo-header-combo">
       <div class="line-icon-badge">
-        <svg width="46" height="46" viewBox="0 0 24 24" fill="#FFFFFF">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="#FFFFFF">
           <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
         </svg>
       </div>
       <div class="promo-title-texts">
-        <div class="line-1">💥 立減 5,000 日圓！</div>
-        <div class="line-2">LINE追加で 5,000円 OFF！</div>
+        <h2>立減 5,000 日圓</h2>
+        <p>加 LINE 輸入代碼享專屬優惠</p>
       </div>
     </div>
 
-    <!-- 超大常駐 QR Code (410px ✕ 410px，現場立姿秒掃) -->
+    <!-- 超大常駐 QR Code (340px ✕ 340px，現場立姿秒掃) -->
     <div class="mega-qr-container">
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=450x450&margin=8&data=https%3A%2F%2Flin.ee%2FT54H2J2" alt="LINE Official Account QR Code">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=380x380&margin=8&data=https%3A%2F%2Flin.ee%2FT54H2J2" alt="LINE Official Account QR Code">
     </div>
 
-    <!-- 點擊複製代碼卡片 (超大 46px 促銷碼) -->
+    <!-- 點擊複製代碼卡片：提示文字 = 行程說明字級 (20px) -->
     <div class="promo-code-card" onclick="copyPromoCode();" title="點擊複製促銷代碼">
       <div class="code-title">📋 點擊複製發送代碼 / 送信するコード</div>
       <div class="code-display">tokyo2026</div>
     </div>
 
-    <!-- 垂直排列三步驟（加寬加粗，大字清晰填滿版面） -->
+    <!-- 垂直排列三步驟：主要文字 = 行程說明字級 (20px) -->
     <div class="step-column-box">
       <div class="step-row">
         <span class="step-tag-pill">STEP 1</span>
@@ -763,7 +767,7 @@
         <span class="step-tag-pill gold">STEP 2</span>
         <div class="step-row-text">
           <div class="step-row-main">💬 聊天室發送代碼「tokyo2026」</div>
-          <div class="step-row-sub">トーク画面にコード「tokyo2026」を送信</div>
+          <div class="step-row-sub">トーク画面にコードを送信</div>
         </div>
       </div>
 
@@ -771,7 +775,7 @@
         <span class="step-tag-pill rose">STEP 3</span>
         <div class="step-row-text">
           <div class="step-row-main" style="color:#E11D48;">🎁 2027年6月底前行程現折 5,000 円！</div>
-          <div class="step-row-sub">2027年6月末までのツアー全プラン対象</div>
+          <div class="step-row-sub">出発ツアー全プランで使える割引クーポン</div>
         </div>
       </div>
     </div>
