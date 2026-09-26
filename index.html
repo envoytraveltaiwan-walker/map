@@ -79,7 +79,7 @@
       z-index: 500;
     }
 
-    /* 左上角官方雙認證與主標題 (超大不重疊卡片) */
+    /* 左上角官方雙認證與主標題 */
     .map-brand-overlay {
       position: absolute;
       top: 18px;
@@ -186,11 +186,11 @@
     .smoke-puff-2 { animation: puff-smoke 1.3s infinite ease-out 0.26s; }
     .smoke-puff-3 { animation: puff-smoke 1.3s infinite ease-out 0.52s; }
 
-    /* ==================== 右欄：LINE 優惠 1/3 版面 (大字走過必見) ==================== */
+    /* ==================== 右欄：LINE 優惠 1/3 版面 (極致大字滿版) ==================== */
     .right-promo-panel {
       background: #FFFFFF;
       border-radius: 28px;
-      padding: 24px 20px 20px;
+      padding: 22px 20px 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -204,14 +204,14 @@
       background: #E8F8EE;
       color: #048C3B;
       border: 1.5px solid #A3E7B7;
-      font-size: 14.5px;
+      font-size: 15px;
       font-weight: 900;
-      padding: 6px 22px;
-      border-radius: 22px;
-      letter-spacing: 0.8px;
+      padding: 6px 24px;
+      border-radius: 24px;
+      letter-spacing: 1px;
     }
 
-    /* 標題大字：立減 5,000 日圓 + LINE Icon */
+    /* 標題大字組合：雙行巨字排版 + 巨大 LINE Icon */
     .promo-header-combo {
       display: flex;
       align-items: center;
@@ -221,80 +221,86 @@
       width: 100%;
     }
     .line-icon-badge {
-      width: 58px;
-      height: 58px;
+      width: 72px;
+      height: 72px;
       background: #06C755;
-      border-radius: 16px;
+      border-radius: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 6px 18px rgba(6, 199, 85, 0.45);
+      box-shadow: 0 8px 24px rgba(6, 199, 85, 0.45);
       flex-shrink: 0;
     }
     .promo-title-texts {
       text-align: left;
     }
-    .promo-title-texts h2 {
-      font-size: 40px;
+    .promo-title-texts .line-1 {
+      font-size: 46px;
       font-weight: 900;
       color: #E11D48;
       line-height: 1.05;
       letter-spacing: 1px;
     }
-    .promo-title-texts p {
-      font-size: 16px;
+    .promo-title-texts .line-2 {
+      font-size: 30px;
       font-weight: 900;
       color: #111827;
-      margin-top: 3px;
+      line-height: 1.15;
+      margin-top: 4px;
     }
 
-    /* 超大常駐 QR Code (330px ✕ 330px) */
+    /* 超大常駐 QR Code (410px ✕ 410px，走過3公尺秒掃) */
     .mega-qr-container {
       background: #FFFFFF;
-      border: 4px solid #06C755;
-      border-radius: 24px;
-      padding: 10px;
-      box-shadow: 0 10px 30px rgba(6, 199, 85, 0.25);
+      border: 4.5px solid #06C755;
+      border-radius: 26px;
+      padding: 12px;
+      box-shadow: 0 12px 35px rgba(6, 199, 85, 0.28);
       margin: 6px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .mega-qr-container img {
       display: block;
-      width: 320px;
-      height: 320px;
-      border-radius: 10px;
+      width: 390px;
+      height: 390px;
+      border-radius: 12px;
     }
 
-    /* 促銷優惠碼卡片 (超大 40px 突出字體) */
+    /* 促銷優惠碼卡片 (超大 46px 突出字體) */
     .promo-code-card {
       width: 100%;
-      background: #FEF3C7;
-      border: 2.5px dashed #D97706;
-      border-radius: 18px;
+      background: linear-gradient(180deg, #FEF3C7 0%, #FDE68A 100%);
+      border: 3px dashed #D97706;
+      border-radius: 20px;
       padding: 10px 18px;
       cursor: pointer;
       transition: background 0.15s ease, transform 0.15s ease;
       margin-bottom: 6px;
+      box-shadow: 0 6px 16px rgba(217, 119, 6, 0.18);
     }
     .promo-code-card:hover {
-      background: #FDE68A;
+      background: #FCD34D;
       transform: translateY(-2px);
     }
     .code-title {
-      font-size: 13.5px;
+      font-size: 14.5px;
       font-weight: 900;
       color: #92400E;
+      letter-spacing: 0.5px;
     }
     .code-display {
       font-family: 'Montserrat', sans-serif;
-      font-size: 38px;
+      font-size: 46px;
       font-weight: 900;
       color: #B45309;
-      letter-spacing: 3px;
+      letter-spacing: 4px;
       line-height: 1.1;
       margin-top: 2px;
     }
 
-    /* 垂直三步驟導引卡片（加粗特大，遠看清晰） */
+    /* 垂直三步驟導引卡片（加寬加粗，大字清晰填滿版面） */
     .step-column-box {
       width: 100%;
       display: flex;
@@ -305,11 +311,11 @@
     .step-row {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 16px;
       background: #F9FAFB;
-      border: 1.5px solid #E5E7EB;
-      border-radius: 16px;
-      padding: 11px 16px;
+      border: 2px solid #E5E7EB;
+      border-radius: 18px;
+      padding: 12px 18px;
       text-align: left;
     }
     .step-row.highlight {
@@ -319,11 +325,12 @@
     .step-tag-pill {
       background: #111827;
       color: #FFF;
-      font-size: 12.5px;
+      font-size: 14px;
       font-weight: 900;
-      padding: 5px 12px;
-      border-radius: 10px;
+      padding: 6px 14px;
+      border-radius: 12px;
       flex-shrink: 0;
+      letter-spacing: 0.5px;
     }
     .step-tag-pill.gold { background: #D97706; }
     .step-tag-pill.rose { background: #E11D48; }
@@ -332,15 +339,16 @@
       flex: 1;
     }
     .step-row-main {
-      font-size: 17px;
+      font-size: 20px;
       font-weight: 900;
       color: #1F2937;
       line-height: 1.25;
     }
     .step-row-sub {
-      font-size: 13px;
-      font-weight: 700;
-      color: #6B7280;
+      font-size: 14.5px;
+      font-weight: 800;
+      color: #4B5563;
+      margin-top: 2px;
     }
 
     /* 吐司提示 */
@@ -353,8 +361,8 @@
       color: #FFF;
       padding: 12px 24px;
       border-radius: 30px;
-      font-size: 15px;
-      font-weight: 800;
+      font-size: 16px;
+      font-weight: 900;
       z-index: 3000;
       transition: transform 0.25s ease;
       border: 1px solid rgba(255, 255, 255, 0.25);
@@ -392,7 +400,7 @@
             <path d="M 26 10 L 29 21 L 40 21 L 31 27 L 35 38 L 26 31 L 17 38 L 21 27 L 12 21 L 23 21 Z" fill="#FFF"/>
           </svg>
           <div>
-            <div class="overlay-brand-text">原民會 官方推薦</div>
+            <div class="overlay-brand-text">原住民族委員會 官方推薦</div>
             <div class="overlay-brand-sub">CIP 台湾原住民族認定パートナー</div>
           </div>
         </div>
@@ -577,7 +585,7 @@
         </g>
         <g class="interactive-card" onclick="switchWeather('leshui');">
           <path d="M 685 220 L 590 250" stroke="#132438" stroke-width="3.5" stroke-dasharray="7,4" fill="none"/>
-          <circle cx="590" cy="250" r="6" fill="#1D3557" stroke="#FFF" stroke-width="2"/>
+          <circle cx="590" cy="250" r="7" fill="#1D3557" stroke="#FFF" stroke-width="2"/>
           <g transform="translate(685, 140)" filter="url(#tag-shadow)">
             <rect x="0" y="0" width="370" height="120" rx="20" fill="#FFFFFF" stroke="#1D3557" stroke-width="3.5"/>
             <text x="18" y="40" font-size="34" font-weight="900" fill="#132438">宜蘭・樂水部落</text>
@@ -612,7 +620,7 @@
         </g>
         <g class="interactive-card" onclick="switchWeather('ceroh');">
           <path d="M 685 530 L 585 575" stroke="#132438" stroke-width="3.5" stroke-dasharray="7,4" fill="none"/>
-          <circle cx="585" cy="575" r="6" fill="#E63946" stroke="#FFF" stroke-width="2"/>
+          <circle cx="585" cy="575" r="7" fill="#E63946" stroke="#FFF" stroke-width="2"/>
           <g transform="translate(685, 460)" filter="url(#tag-shadow)">
             <rect x="0" y="0" width="370" height="120" rx="20" fill="#FFFFFF" stroke="#E63946" stroke-width="3.5"/>
             <text x="18" y="40" font-size="34" font-weight="900" fill="#132438">花蓮・織羅部落</text>
@@ -648,7 +656,7 @@
         </g>
         <g class="interactive-card" onclick="switchWeather('saza');">
           <path d="M 685 810 L 515 870" stroke="#132438" stroke-width="3.5" stroke-dasharray="7,4" fill="none"/>
-          <circle cx="515" cy="870" r="6" fill="#2D6A4F" stroke="#FFF" stroke-width="2"/>
+          <circle cx="515" cy="870" r="7" fill="#2D6A4F" stroke="#FFF" stroke-width="2"/>
           <g transform="translate(685, 760)" filter="url(#tag-shadow)">
             <rect x="0" y="0" width="370" height="120" rx="20" fill="#FFFFFF" stroke="#2D6A4F" stroke-width="3.5"/>
             <text x="18" y="40" font-size="34" font-weight="900" fill="#132438">台東・鸞山部落</text>
@@ -666,7 +674,7 @@
         </g>
         <g class="interactive-card" onclick="switchWeather('rinari');">
           <path d="M 225 800 L 410 885" stroke="#132438" stroke-width="3.5" stroke-dasharray="7,4" fill="none"/>
-          <circle cx="410" cy="885" r="6" fill="#9D0208" stroke="#FFF" stroke-width="2"/>
+          <circle cx="410" cy="885" r="7" fill="#9D0208" stroke="#FFF" stroke-width="2"/>
           <g transform="translate(-135, 730)" filter="url(#tag-shadow)">
             <rect x="0" y="0" width="370" height="120" rx="20" fill="#FFFFFF" stroke="#9D0208" stroke-width="3.5"/>
             <text x="18" y="40" font-size="34" font-weight="900" fill="#132438">屏東・禮納里部落</text>
@@ -683,7 +691,7 @@
         </g>
         <g class="interactive-card" onclick="switchWeather('ulaljuc');">
           <path d="M 225 930 L 400 995" stroke="#132438" stroke-width="3.5" stroke-dasharray="7,4" fill="none"/>
-          <circle cx="400" cy="995" r="6" fill="#6F4E37" stroke="#FFF" stroke-width="2"/>
+          <circle cx="400" cy="995" r="7" fill="#6F4E37" stroke="#FFF" stroke-width="2"/>
           <g transform="translate(-135, 880)" filter="url(#tag-shadow)">
             <rect x="0" y="0" width="370" height="120" rx="20" fill="#FFFFFF" stroke="#6F4E37" stroke-width="3.5"/>
             <text x="18" y="40" font-size="34" font-weight="900" fill="#132438">屏東・吾拉魯滋</text>
@@ -692,14 +700,14 @@
           </g>
         </g>
 
-        <!-- 【已修正】TAIPEI 101：外移至外海安全帶，透過虛線指向台北，絕不遮擋圖案 -->
+        <!-- TAIPEI 101 (台北市・超大字) -->
         <g class="interactive-card">
           <path d="M 685 80 L 595 130" stroke="#132438" stroke-width="3.5" stroke-dasharray="7,4" fill="none"/>
-          <circle cx="595" cy="130" r="6" fill="#2D728F" stroke="#FFF" stroke-width="2"/>
-          <g transform="translate(685, 35)" filter="url(#tag-shadow)">
-            <rect x="0" y="0" width="370" height="85" rx="18" fill="#FFFFFF" stroke="#2D728F" stroke-width="3.5"/>
-            <text x="18" y="36" font-size="30" font-weight="900" fill="#132438">台北 TAIPEI 101</text>
-            <text x="18" y="68" font-size="20" font-weight="900" fill="#2D728F">台北・タイペイ101ランドマーク</text>
+          <circle cx="595" cy="130" r="7" fill="#2D728F" stroke="#FFF" stroke-width="2"/>
+          <g transform="translate(685, 30)" filter="url(#tag-shadow)">
+            <rect x="0" y="0" width="370" height="96" rx="20" fill="#FFFFFF" stroke="#2D728F" stroke-width="3.5"/>
+            <text x="18" y="38" font-size="32" font-weight="900" fill="#132438">台北 TAIPEI 101</text>
+            <text x="18" y="72" font-size="22" font-weight="900" fill="#2D728F">台北・タイペイ101ランドマーク</text>
           </g>
         </g>
         <!-- TAIPEI 101 地標建築插圖 -->
@@ -717,31 +725,31 @@
   <aside class="right-promo-panel">
     <div class="promo-highlight-tag">✨ 2026 東京旅展現場限定 ✨</div>
 
-    <!-- 標題：立減 5,000 日圓 + LINE Icon 意涵提示 (放大版) -->
+    <!-- 標題大字組合：雙行巨字排版 + 巨大 LINE Icon -->
     <div class="promo-header-combo">
       <div class="line-icon-badge">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="#FFFFFF">
+        <svg width="46" height="46" viewBox="0 0 24 24" fill="#FFFFFF">
           <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
         </svg>
       </div>
       <div class="promo-title-texts">
-        <h2>立減 5,000 日圓</h2>
-        <p>加 LINE 輸入代碼享專屬優惠</p>
+        <div class="line-1">💥 立減 5,000 日圓！</div>
+        <div class="line-2">LINE追加で 5,000円 OFF！</div>
       </div>
     </div>
 
-    <!-- 超大常駐 QR Code (320px ✕ 320px，現場立姿秒掃) -->
+    <!-- 超大常駐 QR Code (410px ✕ 410px，現場立姿秒掃) -->
     <div class="mega-qr-container">
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=380x380&margin=8&data=https%3A%2F%2Flin.ee%2FT54H2J2" alt="LINE Official Account QR Code">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=450x450&margin=8&data=https%3A%2F%2Flin.ee%2FT54H2J2" alt="LINE Official Account QR Code">
     </div>
 
-    <!-- 點擊複製代碼卡片 (超大 38px 促銷碼) -->
+    <!-- 點擊複製代碼卡片 (超大 46px 促銷碼) -->
     <div class="promo-code-card" onclick="copyPromoCode();" title="點擊複製促銷代碼">
-      <div class="code-title">📋 點擊複製發送代碼 / 送信コード</div>
+      <div class="code-title">📋 點擊複製發送代碼 / 送信するコード</div>
       <div class="code-display">tokyo2026</div>
     </div>
 
-    <!-- 垂直排列三步驟（加寬加粗，大字清晰） -->
+    <!-- 垂直排列三步驟（加寬加粗，大字清晰填滿版面） -->
     <div class="step-column-box">
       <div class="step-row">
         <span class="step-tag-pill">STEP 1</span>
@@ -755,7 +763,7 @@
         <span class="step-tag-pill gold">STEP 2</span>
         <div class="step-row-text">
           <div class="step-row-main">💬 聊天室發送代碼「tokyo2026」</div>
-          <div class="step-row-sub">トーク画面にコードを送信</div>
+          <div class="step-row-sub">トーク画面にコード「tokyo2026」を送信</div>
         </div>
       </div>
 
@@ -763,7 +771,7 @@
         <span class="step-tag-pill rose">STEP 3</span>
         <div class="step-row-text">
           <div class="step-row-main" style="color:#E11D48;">🎁 2027年6月底前行程現折 5,000 円！</div>
-          <div class="step-row-sub">出発ツアー全プランで使える割引クーポン</div>
+          <div class="step-row-sub">2027年6月末までのツアー全プラン対象</div>
         </div>
       </div>
     </div>
