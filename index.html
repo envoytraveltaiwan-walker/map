@@ -56,7 +56,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: linear-gradient(180deg, rgba(6, 21, 29, 0.95) 0%, rgba(6, 21, 29, 0.8) 75%, transparent 100%);
+      background: linear-gradient(180deg, rgba(6, 21, 29, 0.96) 0%, rgba(6, 21, 29, 0.8) 75%, transparent 100%);
       backdrop-filter: blur(14px);
       z-index: 1000;
     }
@@ -112,12 +112,12 @@
     }
     .btn-nav-line:hover { transform: scale(1.03); }
 
-    /* ==================== 2. Netflix 巨幅精選電影看板 (巨幅大圖重現) ==================== */
+    /* ==================== 2. 大氣留白電影看板 ==================== */
     .hero-billboard {
       position: relative;
       width: 100%;
-      min-height: 65vh;
-      padding: 115px 32px 46px;
+      min-height: 50vh;
+      padding: 100px 28px 34px;
       display: flex;
       align-items: flex-end;
       overflow: hidden;
@@ -136,8 +136,8 @@
     .hero-overlay-gradient {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(6, 21, 29, 0.3) 0%, rgba(6, 21, 29, 0.72) 55%, var(--bg-main) 100%),
-                  linear-gradient(90deg, rgba(6, 21, 29, 0.85) 0%, rgba(6, 21, 29, 0.35) 100%);
+      background: linear-gradient(180deg, rgba(6, 21, 29, 0.25) 0%, rgba(6, 21, 29, 0.72) 58%, var(--bg-main) 100%),
+                  linear-gradient(90deg, rgba(6, 21, 29, 0.8) 0%, rgba(6, 21, 29, 0.3) 100%);
       z-index: 2;
     }
 
@@ -150,19 +150,15 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(197, 160, 89, 0.22);
-      border: 1px solid var(--accent-gold);
       color: #FDE68A;
-      padding: 5px 14px;
-      border-radius: 18px;
       font-size: 13px;
       font-weight: 800;
-      margin-bottom: 10px;
-      backdrop-filter: blur(6px);
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
     }
     .hero-main-title {
       font-family: 'Noto Serif TC', serif;
-      font-size: clamp(27px, 5.2vw, 46px);
+      font-size: clamp(26px, 5.2vw, 44px);
       font-weight: 800;
       line-height: 1.28;
       color: #FFFFFF;
@@ -170,41 +166,39 @@
       text-shadow: 0 4px 16px rgba(0, 0, 0, 0.65);
     }
     .hero-sub-text {
-      font-size: clamp(15.5px, 2.5vw, 19px);
+      font-size: clamp(15px, 2.5vw, 18px);
       color: #BAE6FD;
-      margin-bottom: 18px;
+      margin-bottom: 12px;
       font-weight: 600;
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
     }
 
-    /* 4 個微型特色標籤 (凸顯專車、平日、小團，不壓迫畫面) */
-    .feature-badges-row {
+    .hero-clean-lead {
+      font-size: 13.5px;
+      color: #E2E8F0;
+      font-weight: 500;
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      align-items: center;
+      gap: 6px 10px;
     }
-    .badge-chip {
-      background: rgba(6, 21, 29, 0.75);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      backdrop-filter: blur(8px);
-      color: #FFFFFF;
-      font-size: 13px;
-      font-weight: 700;
-      padding: 5px 12px;
-      border-radius: 12px;
+    .hero-clean-lead span {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
+      gap: 4px;
     }
-    .badge-chip span { color: #FDE68A; }
+    .hero-clean-lead .dot {
+      color: rgba(255, 255, 255, 0.3);
+      font-size: 12px;
+    }
 
     /* ==================== 3. NETFLIX 橫向卡片滑動區 ==================== */
     .netflix-rows-wrap {
-      padding: 24px 0 55px;
+      padding: 18px 0 55px;
       width: 100%;
     }
     .row-section {
-      padding: 0 32px;
+      padding: 0 28px;
       position: relative;
     }
     
@@ -218,7 +212,7 @@
       margin-right: auto;
     }
     .row-main-title {
-      font-size: 21px;
+      font-size: 20px;
       font-weight: 900;
       color: #FFFFFF;
       display: flex;
@@ -226,7 +220,7 @@
       gap: 6px;
     }
     .row-swipe-hint {
-      font-size: 13px;
+      font-size: 12.5px;
       color: var(--accent-gold);
       font-weight: 800;
       display: flex;
@@ -241,7 +235,6 @@
       margin: 0 auto;
     }
     
-    /* 滑動軌道：卡片寬度設為 300px，手機寬度下自然露出第二張卡片 60~70px，形成滑動暗示 */
     .scroll-track {
       display: flex;
       gap: 18px;
@@ -254,11 +247,11 @@
     .scroll-track::-webkit-scrollbar { display: none; }
 
     .tour-card-real {
-      flex: 0 0 310px;
+      flex: 0 0 315px;
       background: var(--bg-card);
       border-radius: 18px;
       overflow: hidden;
-      border: 1.5px solid rgba(255, 255, 255, 0.14);
+      border: 1.5px solid rgba(255, 255, 255, 0.12);
       display: flex;
       flex-direction: column;
       text-decoration: none;
@@ -268,7 +261,7 @@
       transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
     }
     .tour-card-real:hover, .tour-card-real:active {
-      transform: translateY(-4px) scale(1.015);
+      transform: translateY(-4px);
       box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
     }
     .tour-card-real.leshui-border { border-color: rgba(69, 107, 90, 0.6); }
@@ -284,7 +277,7 @@
       background: #081B24;
     }
 
-    /* 烤肉照片專屬：放大 2.4 倍並鎖定肉塊與火光，完全切除人臉、外套與手部 */
+    /* 烤肉特寫：精準聚焦炭火肉塊 */
     .meat-cinematic-wrapper {
       width: 100%;
       height: 100%;
@@ -319,22 +312,18 @@
       transform: scale(1.05);
     }
 
-    /* 圖片上醒目的平日小標籤 */
     .card-badge-weekday {
       position: absolute;
       top: 10px; left: 10px;
-      background: rgba(6, 21, 29, 0.92);
+      background: rgba(6, 21, 29, 0.9);
       color: #6EE7B7;
       border: 1px solid var(--line-green);
       padding: 3px 9px;
-      border-radius: 10px;
+      border-radius: 8px;
       font-size: 11px;
       font-weight: 800;
       backdrop-filter: blur(6px);
       z-index: 2;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
     }
     .card-badge-weekday.pink {
       color: #FDA4AF;
@@ -355,7 +344,7 @@
     }
 
     .card-body-real {
-      padding: 15px 16px 16px;
+      padding: 16px 18px 18px;
       display: flex;
       flex-direction: column;
       flex: 1;
@@ -363,55 +352,60 @@
     }
 
     .card-title-real {
-      font-size: 18px;
+      font-size: 18.5px;
       font-weight: 800;
       line-height: 1.35;
       color: #FFF;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
-    /* 真正加分的「彩色膠囊標籤群」（無廢話、不費眼、0.5秒掌握好處） */
-    .card-pills-row {
+    /* ==================== 一眼看清的核心排版 (字級大、亮白搶眼、無雜框) ==================== */
+    .card-glance-list {
       display: flex;
       flex-direction: column;
-      gap: 6px;
-      margin-bottom: 14px;
+      gap: 10px;
+      margin-bottom: 16px;
     }
-    .pill-item {
+    .glance-item {
       display: flex;
       align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      font-weight: 700;
+      gap: 8px;
+      font-size: 14.5px;
       line-height: 1.3;
-      padding: 5px 9px;
-      border-radius: 8px;
+      white-space: nowrap;
     }
-    .pill-item.green {
-      background: rgba(6, 165, 78, 0.16);
-      color: #6EE7B7;
-      border: 1px solid rgba(6, 165, 78, 0.35);
+    .glance-item .icon {
+      font-size: 18px;
+      flex-shrink: 0;
     }
-    .pill-item.gold {
-      background: rgba(197, 160, 89, 0.16);
-      color: #FDE68A;
-      border: 1px solid rgba(197, 160, 89, 0.4);
+    /* 核心關鍵字：純白粗體大字，一眼立刻看見 */
+    .glance-item .main-kw {
+      color: #FFFFFF;
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: 0.2px;
     }
-    .pill-item.blue {
-      background: rgba(56, 189, 248, 0.14);
-      color: #BAE6FD;
-      border: 1px solid rgba(56, 189, 248, 0.35);
+    .glance-item .sep {
+      color: rgba(255, 255, 255, 0.3);
+      font-size: 11px;
+      margin: 0 1px;
+    }
+    /* 次要說明：低彩度淡灰，不搶視覺 */
+    .glance-item .sub-desc {
+      color: #94A3B8;
+      font-size: 13px;
+      font-weight: 500;
     }
 
     .card-price-row {
       margin-top: auto;
-      padding-top: 10px;
+      padding-top: 12px;
       border-top: 1px solid rgba(255, 255, 255, 0.08);
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-    .price-num { font-size: 20px; font-weight: 900; color: #6EE7B7; }
+    .price-num { font-size: 21px; font-weight: 900; color: #6EE7B7; }
     .price-num.pink { color: #FDA4AF; }
     
     .btn-card-cta {
@@ -419,7 +413,7 @@
       color: #06151D;
       font-size: 12.5px;
       font-weight: 800;
-      padding: 6px 13px;
+      padding: 6px 14px;
       border-radius: 8px;
       display: inline-flex;
       align-items: center;
@@ -447,17 +441,17 @@
       .nav-emblem-img { height: 36px; }
       .nav-brand-en { font-size: 16px; }
       .nav-brand-zh { font-size: 9.5px; }
-      .hero-billboard { padding: 95px 18px 32px; min-height: 52vh; }
-      .hero-main-title { font-size: 25px; }
-      .hero-sub-text { font-size: 15px; }
+      .hero-billboard { padding: 88px 18px 26px; min-height: 46vh; }
+      .hero-main-title { font-size: 24px; }
+      .hero-sub-text { font-size: 14.5px; margin-bottom: 8px; }
       .row-section { padding: 0 16px; }
-      .tour-card-real { flex: 0 0 295px; }
-      .card-thumb-real { height: 185px; }
+      .tour-card-real { flex: 0 0 292px; }
+      .card-thumb-real { height: 180px; }
       .et-footer { padding: 26px 16px; }
     }
 
     @media (min-width: 769px) {
-      .tour-card-real { flex: 0 0 350px; }
+      .tour-card-real { flex: 0 0 345px; }
       .card-thumb-real { height: 210px; }
       .card-title-real { font-size: 19px; }
     }
@@ -485,7 +479,7 @@
     </div>
   </header>
 
-  <!-- ==================== 2. Netflix 巨幅精選電影看板 (巨幅大圖重現) ==================== -->
+  <!-- ==================== 2. Netflix 巨幅電影看板 ==================== -->
   <section class="hero-billboard">
     <img src="/viktorija-demjanenko-uvlvyjUlwNI-unsplash.jpg"
          onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/viktorija-demjanenko-uvlvyjUlwNI-unsplash.jpg';"
@@ -498,11 +492,14 @@
       <h1 class="hero-main-title">走進山海風土 ‧ 感受原生感動</h1>
       <p class="hero-sub-text">專車原車直達 ‧ 平日避世慢行 ‧ 六人小團即可成行</p>
 
-      <div class="feature-badges-row">
-        <div class="badge-chip"><span>🚐</span> 六人小團專車出發</div>
-        <div class="badge-chip"><span>🗓️</span> 平日避開假日人潮</div>
-        <div class="badge-chip"><span>🍲</span> 部落在地熱食風味</div>
-        <div class="badge-chip"><span>✨</span> 引路人貼心打理無購物</div>
+      <div class="hero-clean-lead">
+        <span>🚐 專車原車直達</span>
+        <span class="dot">‧</span>
+        <span>🗓️ 平日避開人潮</span>
+        <span class="dot">‧</span>
+        <span>🍲 部落現炊熱食</span>
+        <span class="dot">‧</span>
+        <span>✨ 貼心打理無購物</span>
       </div>
     </div>
   </section>
@@ -518,7 +515,7 @@
       <div class="slider-container">
         <div class="scroll-track">
 
-          <!-- 卡片 1: 樂水一日遊 (放大 2.4 倍精準特寫肉塊火光，膠囊標籤) -->
+          <!-- 卡片 1: 樂水一日遊 (粗白大字秒讀關鍵字) -->
           <a href="/tours/leshui-atayal.html" class="tour-card-real leshui-border">
             <div class="card-thumb-real">
               <div class="meat-cinematic-wrapper">
@@ -527,17 +524,32 @@
                      alt="樂水部落炭火烤肉"
                      class="meat-cinematic-img">
               </div>
-              <span class="card-badge-weekday">🗓️ 平日每週四出發</span>
+              <span class="card-badge-weekday">每週四出發</span>
               <span class="card-duration-tag">一日慢旅</span>
             </div>
             <div class="card-body-real">
               <div class="card-title-real">宜蘭樂水部落 ‧ 泰雅文化深度一日慢旅</div>
 
-              <!-- 3 個清晰膠囊標籤 (無廢話、0.5 秒掌握重點) -->
-              <div class="card-pills-row">
-                <div class="pill-item green">🚐 台北專車原車直達（免轉乘）</div>
-                <div class="pill-item gold">🔥 炭火烤肉 ＋ 柴燒竹筒飯 DIY</div>
-                <div class="pill-item blue">🌲 舊森鐵 8 號百年隧道探蝠</div>
+              <!-- 一眼看清的重點清單 -->
+              <div class="card-glance-list">
+                <div class="glance-item">
+                  <span class="icon">🚐</span>
+                  <span class="main-kw">台北專車直達</span>
+                  <span class="sep">‧</span>
+                  <span class="sub-desc">原車往返免轉乘</span>
+                </div>
+                <div class="glance-item">
+                  <span class="icon">🔥</span>
+                  <span class="main-kw">炭火現烤肉串</span>
+                  <span class="sep">‧</span>
+                  <span class="sub-desc">柴燒竹筒飯 DIY</span>
+                </div>
+                <div class="glance-item">
+                  <span class="icon">🌲</span>
+                  <span class="main-kw">百年森鐵舊隧道</span>
+                  <span class="sep">‧</span>
+                  <span class="sub-desc">尋訪大葉鼻蝠</span>
+                </div>
               </div>
 
               <div class="card-price-row">
@@ -550,24 +562,39 @@
             </div>
           </a>
 
-          <!-- 卡片 2: 白蘭櫻花 2天1夜 (高鐵專車，膠囊標籤) -->
+          <!-- 卡片 2: 白蘭櫻花 2天1夜 (粗白大字秒讀關鍵字) -->
           <a href="/tours/2027_sakura-atayal.html" class="tour-card-real sakura-border">
             <div class="card-thumb-real">
               <img src="/linus-belanger-iQkLU7YgtYM-unsplash.jpg"
                    onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/linus-belanger-iQkLU7YgtYM-unsplash.jpg';"
                    alt="白蘭櫻花高山山林"
                    class="sakura-cinematic-img">
-              <span class="card-badge-weekday pink">🌸 2027 平日限定梯次</span>
+              <span class="card-badge-weekday pink">2027 平日限定</span>
               <span class="card-duration-tag">2天1夜宿遊</span>
             </div>
             <div class="card-body-real">
               <div class="card-title-real">新竹五峰白蘭 ‧ 遇見山裡的櫻花季</div>
 
-              <!-- 3 個清晰膠囊標籤 -->
-              <div class="card-pills-row">
-                <div class="pill-item green">🚅 新竹高鐵站專車直達（最速返家）</div>
-                <div class="pill-item gold">🌸 平日高山雲霧包場賞櫻</div>
-                <div class="pill-item blue">🛏️ 一泊二食部落舒心宿遊</div>
+              <!-- 一眼看清的重點清單 -->
+              <div class="card-glance-list">
+                <div class="glance-item">
+                  <span class="icon">🚅</span>
+                  <span class="main-kw">新竹高鐵專車</span>
+                  <span class="sep">‧</span>
+                  <span class="sub-desc">原車直達最速返家</span>
+                </div>
+                <div class="glance-item">
+                  <span class="icon">🌸</span>
+                  <span class="main-kw">平日高山包場</span>
+                  <span class="sep">‧</span>
+                  <span class="sub-desc">獨享武俠櫻花仙境</span>
+                </div>
+                <div class="glance-item">
+                  <span class="icon">🛏️</span>
+                  <span class="main-kw">舒心一泊二食</span>
+                  <span class="sep">‧</span>
+                  <span class="sub-desc">泰雅風味晚餐宿遊</span>
+                </div>
               </div>
 
               <div class="card-price-row">
