@@ -51,26 +51,25 @@
     .et-navbar {
       position: fixed;
       top: 0; left: 0;
-      width: 100%; height: 66px;
-      padding: 0 24px;
+      width: 100%; height: 68px;
+      padding: 0 28px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(6, 21, 29, 0.94);
-      backdrop-filter: blur(12px);
+      background: linear-gradient(180deg, rgba(6, 21, 29, 0.95) 0%, rgba(6, 21, 29, 0.8) 75%, transparent 100%);
+      backdrop-filter: blur(14px);
       z-index: 1000;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .nav-brand-lockup {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       text-decoration: none;
       cursor: pointer;
     }
     .nav-emblem-img {
-      height: 38px;
+      height: 40px;
       width: auto;
       object-fit: contain;
       display: block;
@@ -79,7 +78,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      line-height: 1.15;
+      line-height: 1.18;
     }
     .nav-brand-en {
       font-family: 'Montserrat', sans-serif;
@@ -100,63 +99,112 @@
     .btn-nav-line {
       background: var(--line-green);
       color: #FFFFFF;
-      padding: 7px 15px;
-      border-radius: 18px;
+      padding: 8px 18px;
+      border-radius: 20px;
       text-decoration: none;
       font-weight: 800;
       font-size: 13.5px;
       display: inline-flex;
       align-items: center;
-      gap: 5px;
+      gap: 6px;
       box-shadow: 0 4px 12px rgba(6, 165, 78, 0.35);
       transition: transform 0.2s;
     }
     .btn-nav-line:hover { transform: scale(1.03); }
 
-    /* ==================== 2. 極簡看板 (大幅縮減高度，留空間給卡片) ==================== */
-    .hero-compact {
+    /* ==================== 2. Netflix 巨幅精選電影看板 (巨幅大圖重現) ==================== */
+    .hero-billboard {
       position: relative;
       width: 100%;
-      padding: 84px 20px 14px;
-      background: radial-gradient(circle at 50% 10%, rgba(13, 42, 56, 0.95) 0%, var(--bg-main) 88%);
-      text-align: center;
+      min-height: 65vh;
+      padding: 115px 32px 46px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background: #0B222E;
+    }
+    .hero-bg-media {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 36%;
+      z-index: 1;
+      filter: brightness(0.85);
+    }
+    .hero-overlay-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(6, 21, 29, 0.3) 0%, rgba(6, 21, 29, 0.72) 55%, var(--bg-main) 100%),
+                  linear-gradient(90deg, rgba(6, 21, 29, 0.85) 0%, rgba(6, 21, 29, 0.35) 100%);
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 850px;
+      z-index: 10;
     }
     .hero-badge-pill {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(197, 160, 89, 0.16);
+      background: rgba(197, 160, 89, 0.22);
       border: 1px solid var(--accent-gold);
       color: #FDE68A;
-      padding: 4px 12px;
-      border-radius: 16px;
-      font-size: 12.5px;
+      padding: 5px 14px;
+      border-radius: 18px;
+      font-size: 13px;
       font-weight: 800;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      backdrop-filter: blur(6px);
     }
     .hero-main-title {
       font-family: 'Noto Serif TC', serif;
-      font-size: clamp(23px, 5.2vw, 36px);
+      font-size: clamp(27px, 5.2vw, 46px);
       font-weight: 800;
-      line-height: 1.3;
+      line-height: 1.28;
       color: #FFFFFF;
-      margin-bottom: 6px;
-      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      text-shadow: 0 4px 16px rgba(0, 0, 0, 0.65);
     }
     .hero-sub-text {
-      font-size: 14.5px;
+      font-size: clamp(15.5px, 2.5vw, 19px);
       color: #BAE6FD;
-      font-weight: 500;
-      margin-bottom: 0;
+      margin-bottom: 18px;
+      font-weight: 600;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
     }
 
-    /* ==================== 3. NETFLIX 橫向卡片滑動區 (首頁第一眼就能滑) ==================== */
+    /* 4 個微型特色標籤 (凸顯專車、平日、小團，不壓迫畫面) */
+    .feature-badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .badge-chip {
+      background: rgba(6, 21, 29, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(8px);
+      color: #FFFFFF;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .badge-chip span { color: #FDE68A; }
+
+    /* ==================== 3. NETFLIX 橫向卡片滑動區 ==================== */
     .netflix-rows-wrap {
-      padding: 14px 0 44px;
+      padding: 24px 0 55px;
       width: 100%;
     }
     .row-section {
-      padding: 0 20px;
+      padding: 0 32px;
       position: relative;
     }
     
@@ -164,13 +212,13 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       max-width: 1200px;
       margin-left: auto;
       margin-right: auto;
     }
     .row-main-title {
-      font-size: 18.5px;
+      font-size: 21px;
       font-weight: 900;
       color: #FFFFFF;
       display: flex;
@@ -178,9 +226,9 @@
       gap: 6px;
     }
     .row-swipe-hint {
-      font-size: 12.5px;
+      font-size: 13px;
       color: var(--accent-gold);
-      font-weight: 700;
+      font-weight: 800;
       display: flex;
       align-items: center;
       gap: 3px;
@@ -193,20 +241,20 @@
       margin: 0 auto;
     }
     
-    /* 滑動軌道：卡片寬度設為 295px，在 390px 手機寬度下會露出第二張卡片 70px，形成完美的滑動暗示 */
+    /* 滑動軌道：卡片寬度設為 300px，手機寬度下自然露出第二張卡片 60~70px，形成滑動暗示 */
     .scroll-track {
       display: flex;
-      gap: 16px;
+      gap: 18px;
       overflow-x: auto;
       scroll-behavior: smooth;
-      padding: 4px 4px 18px;
+      padding: 6px 4px 22px;
       scrollbar-width: none;
       -webkit-overflow-scrolling: touch;
     }
     .scroll-track::-webkit-scrollbar { display: none; }
 
     .tour-card-real {
-      flex: 0 0 300px;
+      flex: 0 0 310px;
       background: var(--bg-card);
       border-radius: 18px;
       overflow: hidden;
@@ -217,11 +265,11 @@
       color: inherit;
       cursor: pointer;
       position: relative;
-      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
     }
     .tour-card-real:hover, .tour-card-real:active {
-      transform: translateY(-4px);
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.55);
+      transform: translateY(-4px) scale(1.015);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
     }
     .tour-card-real.leshui-border { border-color: rgba(69, 107, 90, 0.6); }
     .tour-card-real.leshui-border:hover { border-color: #6EE7B7; }
@@ -230,13 +278,13 @@
 
     .card-thumb-real {
       width: 100%;
-      height: 185px;
+      height: 195px;
       position: relative;
       overflow: hidden;
       background: #081B24;
     }
 
-    /* 烤肉特寫：強效放大 2.4 倍並下移焦點，完全切掉人臉、外套與手部 */
+    /* 烤肉照片專屬：放大 2.4 倍並鎖定肉塊與火光，完全切除人臉、外套與手部 */
     .meat-cinematic-wrapper {
       width: 100%;
       height: 100%;
@@ -271,6 +319,7 @@
       transform: scale(1.05);
     }
 
+    /* 圖片上醒目的平日小標籤 */
     .card-badge-weekday {
       position: absolute;
       top: 10px; left: 10px;
@@ -283,6 +332,9 @@
       font-weight: 800;
       backdrop-filter: blur(6px);
       z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
     }
     .card-badge-weekday.pink {
       color: #FDA4AF;
@@ -303,7 +355,7 @@
     }
 
     .card-body-real {
-      padding: 14px 16px 16px;
+      padding: 15px 16px 16px;
       display: flex;
       flex-direction: column;
       flex: 1;
@@ -311,14 +363,14 @@
     }
 
     .card-title-real {
-      font-size: 17.5px;
+      font-size: 18px;
       font-weight: 800;
       line-height: 1.35;
       color: #FFF;
       margin-bottom: 10px;
     }
 
-    /* 真正加分的「彩色膠囊標籤群」（拿掉沉重長句灰框） */
+    /* 真正加分的「彩色膠囊標籤群」（無廢話、不費眼、0.5秒掌握好處） */
     .card-pills-row {
       display: flex;
       flex-direction: column;
@@ -328,15 +380,15 @@
     .pill-item {
       display: flex;
       align-items: center;
-      gap: 7px;
-      font-size: 13.5px;
+      gap: 6px;
+      font-size: 13px;
       font-weight: 700;
       line-height: 1.3;
       padding: 5px 9px;
       border-radius: 8px;
     }
     .pill-item.green {
-      background: rgba(6, 165, 78, 0.15);
+      background: rgba(6, 165, 78, 0.16);
       color: #6EE7B7;
       border: 1px solid rgba(6, 165, 78, 0.35);
     }
@@ -379,7 +431,7 @@
     .et-footer {
       background: #040e14;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 26px 20px;
+      padding: 30px 24px;
       color: #94A3B8;
       font-size: 12px;
       line-height: 1.6;
@@ -390,13 +442,24 @@
     .footer-legal-small span { margin-right: 12px; display: inline-block; }
     .footer-copyright { font-size: 11px; color: #64748B; }
 
-    @media (min-width: 768px) {
-      .hero-compact { padding: 95px 24px 20px; }
-      .row-section { padding: 0 36px; }
-      .tour-card-real { flex: 0 0 340px; }
-      .card-thumb-real { height: 205px; }
+    @media (max-width: 768px) {
+      .et-navbar { padding: 0 16px; height: 64px; }
+      .nav-emblem-img { height: 36px; }
+      .nav-brand-en { font-size: 16px; }
+      .nav-brand-zh { font-size: 9.5px; }
+      .hero-billboard { padding: 95px 18px 32px; min-height: 52vh; }
+      .hero-main-title { font-size: 25px; }
+      .hero-sub-text { font-size: 15px; }
+      .row-section { padding: 0 16px; }
+      .tour-card-real { flex: 0 0 295px; }
+      .card-thumb-real { height: 185px; }
+      .et-footer { padding: 26px 16px; }
+    }
+
+    @media (min-width: 769px) {
+      .tour-card-real { flex: 0 0 350px; }
+      .card-thumb-real { height: 210px; }
       .card-title-real { font-size: 19px; }
-      .et-footer { padding: 32px 36px; }
     }
   </style>
 </head>
@@ -422,14 +485,29 @@
     </div>
   </header>
 
-  <!-- ==================== 2. 極簡看板 (砍半高度，快速入題) ==================== -->
-  <section class="hero-compact">
-    <div class="hero-badge-pill">🌿 原鄉引路人 ‧ 莉梅姐 37 年私選</div>
-    <h1 class="hero-main-title">走進山海風土 ‧ 感受原生感動</h1>
-    <p class="hero-sub-text">專車原車直達 ‧ 平日避世小團 ‧ 六人即可成行</p>
+  <!-- ==================== 2. Netflix 巨幅精選電影看板 (巨幅大圖重現) ==================== -->
+  <section class="hero-billboard">
+    <img src="/viktorija-demjanenko-uvlvyjUlwNI-unsplash.jpg"
+         onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/viktorija-demjanenko-uvlvyjUlwNI-unsplash.jpg';"
+         alt="臺灣原鄉慢旅"
+         class="hero-bg-media">
+    <div class="hero-overlay-gradient"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge-pill">🌿 原鄉引路人 ‧ 莉梅姐 37 年私選</div>
+      <h1 class="hero-main-title">走進山海風土 ‧ 感受原生感動</h1>
+      <p class="hero-sub-text">專車原車直達 ‧ 平日避世慢行 ‧ 六人小團即可成行</p>
+
+      <div class="feature-badges-row">
+        <div class="badge-chip"><span>🚐</span> 六人小團專車出發</div>
+        <div class="badge-chip"><span>🗓️</span> 平日避開假日人潮</div>
+        <div class="badge-chip"><span>🍲</span> 部落在地熱食風味</div>
+        <div class="badge-chip"><span>✨</span> 引路人貼心打理無購物</div>
+      </div>
+    </div>
   </section>
 
-  <!-- ==================== 3. NETFLIX 橫向卡片滑動區 (第一眼直接看見卡片) ==================== -->
+  <!-- ==================== 3. NETFLIX 橫向卡片滑動區 ==================== -->
   <main class="netflix-rows-wrap">
     <section class="row-section">
       <div class="row-header-box">
@@ -440,7 +518,7 @@
       <div class="slider-container">
         <div class="scroll-track">
 
-          <!-- 卡片 1: 樂水一日遊 (特寫炭火肉塊，乾淨膠囊標籤) -->
+          <!-- 卡片 1: 樂水一日遊 (放大 2.4 倍精準特寫肉塊火光，膠囊標籤) -->
           <a href="/tours/leshui-atayal.html" class="tour-card-real leshui-border">
             <div class="card-thumb-real">
               <div class="meat-cinematic-wrapper">
@@ -455,7 +533,7 @@
             <div class="card-body-real">
               <div class="card-title-real">宜蘭樂水部落 ‧ 泰雅文化深度一日慢旅</div>
 
-              <!-- 3 個清晰膠囊標籤 (無廢話、不費眼) -->
+              <!-- 3 個清晰膠囊標籤 (無廢話、0.5 秒掌握重點) -->
               <div class="card-pills-row">
                 <div class="pill-item green">🚐 台北專車原車直達（免轉乘）</div>
                 <div class="pill-item gold">🔥 炭火烤肉 ＋ 柴燒竹筒飯 DIY</div>
@@ -472,7 +550,7 @@
             </div>
           </a>
 
-          <!-- 卡片 2: 白蘭櫻花 2天1夜 (高鐵專車，乾淨膠囊標籤) -->
+          <!-- 卡片 2: 白蘭櫻花 2天1夜 (高鐵專車，膠囊標籤) -->
           <a href="/tours/2027_sakura-atayal.html" class="tour-card-real sakura-border">
             <div class="card-thumb-real">
               <img src="/linus-belanger-iQkLU7YgtYM-unsplash.jpg"
