@@ -46,7 +46,7 @@
       justify-content: space-between;
     }
 
-    /* ==================== 1. 頂部固定導覽列 ==================== */
+    /* ==================== 1. 頂部固定導覽列 (完全移除地圖) ==================== */
     .et-navbar {
       position: fixed;
       top: 0; left: 0;
@@ -79,13 +79,6 @@
       transition: color 0.2s;
     }
     .nav-menu a:hover { color: var(--accent-gold); }
-    .nav-menu a.map-link-btn {
-      color: #7DD3FC;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .nav-menu a.map-link-btn:hover { color: #BAE6FD; }
 
     .btn-nav-line {
       background: var(--line-green);
@@ -212,16 +205,6 @@
       transition: background 0.2s, transform 0.2s;
     }
     .btn-hero-primary:hover { background: #E2E8F0; transform: translateY(-2px); }
-    .btn-hero-outline {
-      background: rgba(255, 255, 255, 0.12);
-      color: #FFF;
-      border: 1.5px solid rgba(255, 255, 255, 0.35);
-      padding: 13px 26px;
-      border-radius: 10px;
-      font-size: 16px;
-      font-weight: 900;
-      text-decoration: none;
-    }
 
     /* ==================== 3. Netflix 卡片橫向滑動區 ==================== */
     .netflix-rows-wrap { padding: 30px 0 60px; }
@@ -261,7 +244,7 @@
     }
     .scroll-track::-webkit-scrollbar { display: none; }
 
-    /* 白蘭櫻花行程卡片 (點選直達 2027_sakura-atayal.html) */
+    /* 白蘭櫻花行程卡片 (更新為 Linus Belanger 圖片與來源標註) */
     .tour-card-real {
       flex: 0 0 320px;
       background: var(--bg-card);
@@ -281,36 +264,60 @@
     }
     .card-thumb-real {
       width: 100%;
-      height: 170px;
-      background: radial-gradient(circle at 50% 50%, #f4afc1 0%, #b64f68 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      height: 180px;
       position: relative;
+      overflow: hidden;
+      background: #0B2430;
     }
-    .card-thumb-real span.emoji { font-size: 60px; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3)); }
+    .card-img-media {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .tour-card-real:hover .card-img-media {
+      transform: scale(1.06);
+    }
     .card-badge-real {
       position: absolute;
-      top: 12px; left: 12px;
+      top: 10px; left: 10px;
       background: rgba(8, 27, 36, 0.88);
       color: #FFB3C6;
       border: 1px solid var(--accent-rose);
-      padding: 4px 12px;
-      border-radius: 12px;
-      font-size: 11.5px;
+      padding: 4px 10px;
+      border-radius: 10px;
+      font-size: 11px;
       font-weight: 800;
+      backdrop-filter: blur(4px);
+      z-index: 2;
     }
     .card-duration-tag {
       position: absolute;
-      bottom: 12px; right: 12px;
+      bottom: 8px; right: 10px;
       background: rgba(0, 0, 0, 0.75);
       color: #FFF;
-      padding: 3px 10px;
+      padding: 3px 8px;
       border-radius: 6px;
-      font-size: 11.5px;
+      font-size: 11px;
       font-weight: 700;
+      backdrop-filter: blur(4px);
+      z-index: 2;
     }
+    .card-credit-tag {
+      position: absolute;
+      bottom: 8px; left: 10px;
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.75);
+      background: rgba(0, 0, 0, 0.55);
+      padding: 2px 6px;
+      border-radius: 4px;
+      backdrop-filter: blur(4px);
+      pointer-events: none;
+      letter-spacing: 0.2px;
+      z-index: 2;
+    }
+
     .card-body-real {
       padding: 18px;
       display: flex;
@@ -391,7 +398,7 @@
 </head>
 <body>
 
-  <!-- ==================== 1. 頂部固定導覽列 (臺灣原鄉地圖在新分頁開啟) ==================== -->
+  <!-- ==================== 1. 頂部固定導覽列 ==================== -->
   <header class="et-navbar">
     <a href="./index.html" class="nav-brand">
       <svg width="22" height="28" viewBox="0 0 100 140">
@@ -409,11 +416,6 @@
     <ul class="nav-menu">
       <li><a href="#trending-section">🔥 人氣熱搜</a></li>
       <li><a href="#indigenous-section">🌿 原鄉慢旅</a></li>
-      <li>
-        <a href="./map.html" target="_blank" class="map-link-btn" title="在新分頁開啟臺灣原鄉地圖">
-          🗺️ 臺灣原鄉地圖 ↗
-        </a>
-      </li>
     </ul>
 
     <div>
@@ -423,7 +425,7 @@
     </div>
   </header>
 
-  <!-- ==================== 2. Netflix 巨幅主視覺 (非分頁大標題，含 Unsplash 圖片與版權) ==================== -->
+  <!-- ==================== 2. Netflix 巨幅主視覺看板 ==================== -->
   <section class="hero-billboard">
     <!-- 背景 Unsplash 圖片 -->
     <img src="./viktorija-demjanenko-uvlvyjUlwNI-unsplash.jpg"
@@ -432,14 +434,14 @@
          class="hero-bg-media">
     <div class="hero-overlay-gradient"></div>
 
-    <!-- 圖片版權與示意標註 -->
+    <!-- 圖片版權標註 -->
     <div class="photo-credit-tag">
       <span>Photo by Viktorija Demjanenko on Unsplash</span>
       <span>｜</span>
       <span>圖片僅供示意</span>
     </div>
 
-    <!-- 主視覺內容 (首頁整體主標題) -->
+    <!-- 主視覺內容 -->
     <div class="hero-content">
       <div class="hero-series-badge">🌿 臺灣原鄉慢旅 ‧ 深度慢行系列</div>
       <h1 class="hero-title">走進山海風土 ‧ 感受原生感動</h1>
@@ -455,7 +457,6 @@
       </div>
       <div class="hero-actions">
         <a href="#trending-section" class="btn-hero-primary">▶ 探索推薦行程</a>
-        <a href="./map.html" target="_blank" class="btn-hero-outline">🗺️ 開啟原鄉地圖 ↗</a>
       </div>
     </div>
   </section>
@@ -474,9 +475,12 @@
           <!-- 點選直接跳轉白蘭行程頁面 2027_sakura-atayal.html -->
           <a href="./2027_sakura-atayal.html" class="tour-card-real">
             <div class="card-thumb-real">
-              <span class="emoji">🌸</span>
+              <img src="./linus-belanger-iQkLU7YgtYM-unsplash.jpg"
+                   onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/linus-belanger-iQkLU7YgtYM-unsplash.jpg';"
+                   alt="白蘭部落行程" class="card-img-media">
               <span class="card-badge-real">和莉梅姐一起旅行</span>
               <span class="card-duration-tag">2天1夜</span>
+              <span class="card-credit-tag">Photo by Linus Belanger on Unsplash</span>
             </div>
             <div class="card-body-real">
               <span class="card-series-tag">2027 春季限定 ‧ 白蘭部落</span>
@@ -502,7 +506,7 @@
         <div class="row-subtitle">臺灣部落深度行程巡禮</div>
       </div>
 
-      <!-- 部落篩選膠囊：僅顯示目前有行程的部落 -->
+      <!-- 部落篩選膠囊 -->
       <div class="tribe-pill-bar">
         <button class="pill-btn active">全部行程</button>
         <button class="pill-btn" onclick="location.href='./2027_sakura-atayal.html'">🌸 新竹五峰・白蘭部落 (春季限定)</button>
@@ -513,9 +517,12 @@
           <!-- 點選直接跳轉白蘭行程頁面 2027_sakura-atayal.html -->
           <a href="./2027_sakura-atayal.html" class="tour-card-real">
             <div class="card-thumb-real">
-              <span class="emoji">🌸</span>
+              <img src="./linus-belanger-iQkLU7YgtYM-unsplash.jpg"
+                   onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/linus-belanger-iQkLU7YgtYM-unsplash.jpg';"
+                   alt="白蘭部落行程" class="card-img-media">
               <span class="card-badge-real">泰雅文化 ‧ 白蘭</span>
               <span class="card-duration-tag">2天1夜</span>
+              <span class="card-credit-tag">Photo by Linus Belanger on Unsplash</span>
             </div>
             <div class="card-body-real">
               <span class="card-series-tag">新竹五峰 ‧ 雲霧之鄉</span>
@@ -536,7 +543,7 @@
 
   </main>
 
-  <!-- ==================== 4. 統一標準頁尾 (小字細緻、不放電話傳真、官方客服為 LINE) ==================== -->
+  <!-- ==================== 4. 統一標準頁尾 ==================== -->
   <footer class="et-footer">
     <div class="footer-wrapper">
       <div class="footer-brand-title">
