@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>ENVOY 安捷國際旅行社 ｜ 臺灣原鄉慢旅</title>
-  <meta name="description" content="ENVOY 安捷國際旅行社官方首頁。深耕臺灣原鄉部落慢旅，和莉梅姐一起走入在地風土與山林生活。">
+  <meta name="description" content="ENVOY 安捷國際旅行社官方首頁。深耕臺灣原鄉部落慢旅，原鄉引路人莉梅姐私選帶路，走入在地風土與山林生活。">
 
   <!-- Google tag (gtag.js) GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PPP4CT61HC"></script>
@@ -35,7 +35,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
     html { scroll-behavior: smooth; }
     
-    /* ==================== 措施 2：CSS 全站防選取與防圖片拖曳 ==================== */
+    /* 防選取與防圖片拖曳 */
     body {
       width: 100%;
       min-height: 100vh;
@@ -46,15 +46,12 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      
-      /* 禁止選取文字 */
       -webkit-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;
       user-select: none;
     }
 
-    /* 禁止圖片拖曳下載 */
     img {
       -webkit-user-drag: none;
       -khtml-user-drag: none;
@@ -63,7 +60,7 @@
       user-drag: none;
     }
 
-    /* ==================== 措施 3：視窗失焦防截圖模糊效果 ==================== */
+    /* 視窗失焦防截圖模糊效果 */
     #page-content-wrapper {
       transition: filter 0.15s ease, opacity 0.15s ease;
       width: 100%;
@@ -72,19 +69,6 @@
       filter: blur(22px) grayscale(40%) !important;
       opacity: 0.6;
       pointer-events: none;
-    }
-
-    /* ==================== 措施 4：全站覆蓋式動態防護浮水印 ==================== */
-    .watermark-overlay {
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      z-index: 9999;
-      opacity: 0.08;
-      background-repeat: repeat;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='200' viewBox='0 0 320 200'><text x='20' y='100' fill='%23FFFFFF' font-size='16' font-family='sans-serif' font-weight='bold' transform='rotate(-22 160 100)'>ENVOY TRAVEL ‧ 版權所有</text></svg>");
     }
 
     /* ==================== 1. 頂部固定導覽列 ==================== */
@@ -280,12 +264,13 @@
     .btn-hero-primary:hover { background: #E2E8F0; transform: translateY(-2px); }
 
     /* ==================== 3. Netflix 卡片橫向滑動區 ==================== */
-    .netflix-rows-wrap { padding: 30px 0 60px; }
+    .netflix-rows-wrap { padding: 30px 0 20px; }
     .row-section { padding: 24px 60px 32px; position: relative; }
     .row-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; }
     .row-title { font-size: 24px; font-weight: 900; }
     .row-subtitle { font-size: 13.5px; color: var(--text-muted); }
 
+    /* 部落篩選膠囊 */
     .tribe-pill-bar { display: flex; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
     .pill-btn {
       background: rgba(255, 255, 255, 0.08);
@@ -308,19 +293,19 @@
     .slider-container { position: relative; width: 100%; }
     .scroll-track {
       display: flex;
-      gap: 20px;
+      gap: 24px;
       overflow-x: auto;
       scroll-behavior: smooth;
-      padding: 8px 4px 18px;
+      padding: 8px 4px 20px;
       scrollbar-width: none;
     }
     .scroll-track::-webkit-scrollbar { display: none; }
 
-    /* 行程卡片 */
+    /* 行程卡片通用樣式 */
     .tour-card-real {
-      flex: 0 0 320px;
+      flex: 0 0 350px;
       background: var(--bg-card);
-      border-radius: 16px;
+      border-radius: 18px;
       overflow: hidden;
       border: 1.5px solid rgba(255, 255, 255, 0.15);
       display: flex;
@@ -331,17 +316,17 @@
     }
     .tour-card-real:hover {
       transform: translateY(-6px) scale(1.02);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
       border-color: var(--accent-gold);
     }
     .tour-card-real.sakura-border { border-color: rgba(182, 79, 104, 0.45); }
     .tour-card-real.sakura-border:hover { border-color: #FDA4AF; }
-    .tour-card-real.leshui-border { border-color: rgba(69, 107, 90, 0.5); }
+    .tour-card-real.leshui-border { border-color: rgba(69, 107, 90, 0.55); }
     .tour-card-real.leshui-border:hover { border-color: #6EE7B7; }
 
     .card-thumb-real {
       width: 100%;
-      height: 180px;
+      height: 190px;
       position: relative;
       overflow: hidden;
       background: #0B2430;
@@ -358,25 +343,28 @@
     .card-badge-real {
       position: absolute;
       top: 10px; left: 10px;
-      background: rgba(8, 27, 36, 0.88);
-      color: #FFB3C6;
+      background: rgba(8, 27, 36, 0.92);
+      color: #FEE2E2;
       border: 1px solid var(--accent-rose);
       padding: 4px 10px;
-      border-radius: 10px;
+      border-radius: 12px;
       font-size: 11px;
       font-weight: 800;
-      backdrop-filter: blur(4px);
+      backdrop-filter: blur(6px);
       z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
     }
     .card-badge-real.green {
-      color: #A7F3D0;
-      border-color: var(--leaf);
+      color: #D1FAE5;
+      border-color: var(--line-green);
     }
 
     .card-duration-tag {
       position: absolute;
       bottom: 8px; right: 10px;
-      background: rgba(0, 0, 0, 0.75);
+      background: rgba(0, 0, 0, 0.78);
       color: #FFF;
       padding: 3px 8px;
       border-radius: 6px;
@@ -385,6 +373,8 @@
       backdrop-filter: blur(4px);
       z-index: 2;
     }
+    
+    /* 卡片上的純文字來源標示（無連結干擾） */
     .card-credit-tag {
       position: absolute;
       bottom: 8px; left: 10px;
@@ -396,20 +386,90 @@
       backdrop-filter: blur(4px);
       letter-spacing: 0.2px;
       z-index: 2;
-      text-decoration: none;
+      pointer-events: none;
     }
 
     .card-body-real {
-      padding: 18px;
+      padding: 18px 20px 16px;
       display: flex;
       flex-direction: column;
       gap: 6px;
+      flex: 1;
+      justify-content: space-between;
     }
-    .card-series-tag { font-size: 12px; font-weight: 800; color: var(--accent-gold); }
-    .card-title-real { font-size: 17px; font-weight: 900; line-height: 1.35; color: #FFF; }
-    .card-meta-text { font-size: 13px; color: var(--text-muted); line-height: 1.45; }
+    
+    .card-highlight-pill-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 2px;
+    }
+    .curated-keyword-tag {
+      font-size: 11.5px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+    }
+    .curated-keyword-tag.gold {
+      background: rgba(197, 160, 89, 0.2);
+      color: #FDE68A;
+      border: 1px solid rgba(197, 160, 89, 0.4);
+    }
+    .curated-keyword-tag.rose {
+      background: rgba(182, 79, 104, 0.2);
+      color: #FDA4AF;
+      border: 1px solid rgba(182, 79, 104, 0.4);
+    }
+
+    .card-title-real {
+      font-size: 17.5px;
+      font-weight: 900;
+      line-height: 1.35;
+      color: #FFF;
+      margin: 2px 0 6px;
+    }
+
+    /* 旅程必看 ‧ 不能錯過重點模組 */
+    .must-know-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 10px 12px;
+      margin: 4px 0 10px;
+    }
+    .must-know-header {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--accent-gold);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+    .must-know-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .must-know-list li {
+      font-size: 12.5px;
+      color: #E2E8F0;
+      line-height: 1.45;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    .must-know-list li strong {
+      color: #FFFFFF;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
     .card-price-row {
-      margin-top: 10px;
+      margin-top: auto;
       padding-top: 12px;
       border-top: 1px solid rgba(255, 255, 255, 0.08);
       display: flex;
@@ -419,6 +479,29 @@
     .price-num { font-size: 20px; font-weight: 900; color: #FDA4AF; }
     .price-num.green { color: #6EE7B7; }
     .price-save { font-size: 12px; color: var(--accent-gold); font-weight: 700; }
+
+    /* ==================== 行程下方：照片引用說明區塊 ==================== */
+    .photo-attribution-box {
+      padding: 0 60px 30px;
+    }
+    .photo-attribution-inner {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 12px;
+      padding: 12px 18px;
+      font-size: 12px;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+    .attribution-label {
+      color: var(--text-muted);
+      font-weight: 700;
+      margin-right: 6px;
+    }
+    .photo-attribution-inner a {
+      color: #7DD3FC;
+      text-decoration: underline;
+    }
 
     /* ==================== 4. 統一標準頁尾 ==================== */
     .et-footer {
@@ -432,7 +515,6 @@
     .footer-wrapper { max-width: 1200px; margin: 0 auto; }
     .footer-company-full { font-size: 13.5px; font-weight: 800; color: #CBD5E1; margin-bottom: 10px; }
 
-    /* 法定資料：小字細緻 */
     .footer-legal-small {
       font-size: 11px;
       color: #64748B;
@@ -441,7 +523,6 @@
     }
     .footer-legal-small span { margin-right: 14px; display: inline-block; }
 
-    /* 快速連結列：僅保留 LINE 客服 */
     .footer-links-bar {
       display: flex;
       align-items: center;
@@ -460,6 +541,8 @@
       .nav-menu { display: none; }
       .hero-billboard { padding: 110px 24px 50px; min-height: 70vh; }
       .row-section { padding: 20px 24px; }
+      .tour-card-real { flex: 0 0 310px; }
+      .photo-attribution-box { padding: 0 24px 20px; }
       .photo-credit-tag { bottom: 12px; right: 16px; font-size: 10.5px; padding: 4px 10px; }
       .et-footer { padding: 30px 24px; }
     }
@@ -467,10 +550,7 @@
 </head>
 <body id="top">
 
-  <!-- 浮水印層 -->
-  <div class="watermark-overlay" aria-hidden="true"></div>
-
-  <!-- 頁面可視內容容器 (失焦時自動模糊保護) -->
+  <!-- 頁面可視容器 (失焦時自動模糊保護) -->
   <div id="page-content-wrapper">
 
     <!-- ==================== 1. 頂部固定導覽列 ==================== -->
@@ -513,7 +593,7 @@
       </div>
 
       <div class="hero-content">
-        <div class="hero-series-badge">🌿 臺灣原鄉慢旅 ‧ 深度慢行系列</div>
+        <div class="hero-series-badge">🌿 原鄉引路人 ‧ 莉梅姐私選</div>
         <h1 class="hero-title">走進山海風土 ‧ 感受原生感動</h1>
         <div class="hero-subtitle">探索土地的記憶 ‧ 走進部落的日常生活</div>
         <p class="hero-desc">
@@ -538,7 +618,7 @@
       <section class="row-section" id="trending-section">
         <div class="row-header">
           <div class="row-title">🔥 人氣熱搜</div>
-          <div class="row-subtitle">旅客最高好評精選慢旅</div>
+          <div class="row-subtitle">旅客最高好評 ‧ 原鄉深度私選推薦</div>
         </div>
         <div class="slider-container">
           <div class="scroll-track">
@@ -549,14 +629,28 @@
                 <img src="./linus-belanger-iQkLU7YgtYM-unsplash.jpg"
                      onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/linus-belanger-iQkLU7YgtYM-unsplash.jpg';"
                      alt="白蘭部落行程" class="card-img-media">
-                <span class="card-badge-real">和莉梅姐一起旅行</span>
+                <span class="card-badge-real">🌿 原鄉引路人 ‧ 莉梅姐私選</span>
                 <span class="card-duration-tag">2天1夜</span>
                 <span class="card-credit-tag">Photo by Linus Belanger on Unsplash</span>
               </div>
               <div class="card-body-real">
-                <span class="card-series-tag">2027 春季限定 ‧ 白蘭部落</span>
-                <div class="card-title-real">走進白蘭，遇見山裡的櫻花季</div>
-                <div class="card-meta-text">平日賞櫻 ‧ 泰雅文化 ‧ 台北專車 ‧ 一泊二食</div>
+                <div>
+                  <div class="card-highlight-pill-row">
+                    <span class="curated-keyword-tag rose">🔥 此生必去</span>
+                    <span class="curated-keyword-tag gold">🌫️ 雲霧秘境</span>
+                  </div>
+                  <div class="card-title-real">走進白蘭，遇見山裡的櫻花季</div>
+                </div>
+
+                <div class="must-know-box">
+                  <div class="must-know-header">⚡ 旅程必看 ‧ 絕不能錯過的精華</div>
+                  <ul class="must-know-list">
+                    <li>🌫️ <strong>武俠仙境：</strong>深山雲霧繚繞的高山櫻花即景，平日避開人潮慢行包場</li>
+                    <li>🗺️ <strong>山林探索：</strong>打開 Google Maps 走進山徑，尋找野生馬告與刺蔥獨特香氣</li>
+                    <li>🚐 <strong>專屬招待：</strong>台北專車接送、六人成團、一泊二食舒心夜宿，慢賞泰雅生活</li>
+                  </ul>
+                </div>
+
                 <div class="card-price-row">
                   <div>
                     <span class="price-num">NT$4,870</span>
@@ -567,24 +661,35 @@
               </div>
             </a>
 
-            <!-- 2. 樂水部落一日遊行程卡片 -->
+            <!-- 2. 樂水部落一日遊行程卡片 (卡片上為純文字標示，無點擊跳轉) -->
             <a href="./tours/leshui-atayal.html" class="tour-card-real leshui-border">
               <div class="card-thumb-real">
                 <img src="./太.jpg"
                      onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/%E5%A4%AA.jpg';"
                      alt="樂水部落行程"
-                     title="授權人：原住民族委員會原住民族文化發展中心 (CC BY-NC 3.0 TW)"
                      class="card-img-media">
-                <span class="card-badge-real green">跟著莉梅姐一起旅行</span>
+                <span class="card-badge-real green">🌿 原鄉引路人 ‧ 莉梅姐私選</span>
                 <span class="card-duration-tag">一日慢旅</span>
-                <span class="card-credit-tag" onclick="event.preventDefault(); window.open('https://cmsdb.culture.tw/person/F4270BDF-DAFC-4BE3-8606-42CE1175E5AB');">
-                  CC BY-NC 3.0 ‧ 原民會文化發展中心
-                </span>
+                <span class="card-credit-tag">CC BY-NC 3.0 ‧ 原民會文化發展中心</span>
               </div>
               <div class="card-body-real">
-                <span class="card-series-tag" style="color:#6EE7B7;">宜蘭大同 ‧ 被遺忘的部落</span>
-                <div class="card-title-real">樂水部落 ‧ 泰雅文化深度一日遊</div>
-                <div class="card-meta-text">每週四出發 ‧ 六人成團 ‧ 台北專車 ‧ 獵人竹筒飯</div>
+                <div>
+                  <div class="card-highlight-pill-row">
+                    <span class="curated-keyword-tag gold">🌲 獨家秘境</span>
+                    <span class="curated-keyword-tag rose">💎 深度私選</span>
+                  </div>
+                  <div class="card-title-real">樂水部落 ‧ 泰雅文化深度一日慢旅</div>
+                </div>
+
+                <div class="must-know-box">
+                  <div class="must-know-header">⚡ 旅程必看 ‧ 絕不能錯過的精華</div>
+                  <ul class="must-know-list">
+                    <li>🦇 <strong>百年森鐵：</strong>舊羅東森鐵 8 號檜木隧道巡禮，探訪台灣最大吃蟲類珍稀「大葉鼻蝠」</li>
+                    <li>🍚 <strong>獵人便當：</strong>體驗竹筒飯 DIY 柴火慢炊、手作紀念品攜回、午後現搗小米麻糬</li>
+                    <li>🚐 <strong>專車出發：</strong>每週四出發、六人成團、台北專車往返，享部落風味午餐與迎賓歌舞</li>
+                  </ul>
+                </div>
+
                 <div class="card-price-row">
                   <div>
                     <span class="price-num green">NT$3,370</span>
@@ -603,13 +708,13 @@
       <section class="row-section" id="indigenous-section">
         <div class="row-header">
           <div class="row-title">🌿 原鄉慢旅</div>
-          <div class="row-subtitle">臺灣部落深度行程巡禮</div>
+          <div class="row-subtitle">引路人私選 ‧ 部落深旅行程巡禮</div>
         </div>
 
         <div class="tribe-pill-bar">
           <button class="pill-btn active">全部行程</button>
-          <button class="pill-btn" onclick="location.href='./tours/2027_sakura-atayal.html'">🌸 新竹五峰・白蘭部落 (春季限定)</button>
-          <button class="pill-btn" onclick="location.href='./tours/leshui-atayal.html'">🎋 宜蘭大同・樂水部落 (每週四)</button>
+          <button class="pill-btn" onclick="location.href='./tours/2027_sakura-atayal.html'">🌸 新竹五峰・白蘭雲霧櫻花</button>
+          <button class="pill-btn" onclick="location.href='./tours/leshui-atayal.html'">🎋 宜蘭大同・樂水森鐵秘境</button>
         </div>
 
         <div class="slider-container">
@@ -621,14 +726,28 @@
                 <img src="./linus-belanger-iQkLU7YgtYM-unsplash.jpg"
                      onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/linus-belanger-iQkLU7YgtYM-unsplash.jpg';"
                      alt="白蘭部落行程" class="card-img-media">
-                <span class="card-badge-real">泰雅文化 ‧ 白蘭</span>
+                <span class="card-badge-real">🌿 原鄉引路人 ‧ 莉梅姐私選</span>
                 <span class="card-duration-tag">2天1夜</span>
                 <span class="card-credit-tag">Photo by Linus Belanger on Unsplash</span>
               </div>
               <div class="card-body-real">
-                <span class="card-series-tag">新竹五峰 ‧ 雲霧之鄉</span>
-                <div class="card-title-real">白蘭部落櫻花山林二天一夜</div>
-                <div class="card-meta-text">賞櫻 × 馬告探索 × 六人成團</div>
+                <div>
+                  <div class="card-highlight-pill-row">
+                    <span class="curated-keyword-tag rose">🔥 此生必去</span>
+                    <span class="curated-keyword-tag gold">🌫️ 雲霧秘境</span>
+                  </div>
+                  <div class="card-title-real">走進白蘭，遇見山裡的櫻花季</div>
+                </div>
+
+                <div class="must-know-box">
+                  <div class="must-know-header">⚡ 旅程必看 ‧ 絕不能錯過的精華</div>
+                  <ul class="must-know-list">
+                    <li>🌫️ <strong>武俠仙境：</strong>深山雲霧繚繞的高山櫻花即景，平日避開人潮慢行包場</li>
+                    <li>🗺️ <strong>山林探索：</strong>打開 Google Maps 走進山徑，尋找野生馬告與刺蔥獨特香氣</li>
+                    <li>🚐 <strong>專屬招待：</strong>台北專車接送、六人成團、一泊二食舒心夜宿，慢賞泰雅生活</li>
+                  </ul>
+                </div>
+
                 <div class="card-price-row">
                   <div>
                     <span class="price-num">NT$4,870</span>
@@ -639,24 +758,35 @@
               </div>
             </a>
 
-            <!-- 2. 樂水部落一日遊行程卡片 -->
+            <!-- 2. 樂水部落一日遊行程卡片 (卡片上為純文字標示，無點擊跳轉) -->
             <a href="./tours/leshui-atayal.html" class="tour-card-real leshui-border">
               <div class="card-thumb-real">
                 <img src="./太.jpg"
                      onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/%E5%A4%AA.jpg';"
                      alt="樂水部落行程"
-                     title="授權人：原住民族委員會原住民族文化發展中心 (CC BY-NC 3.0 TW)"
                      class="card-img-media">
-                <span class="card-badge-real green">泰雅文化 ‧ 樂水</span>
+                <span class="card-badge-real green">🌿 原鄉引路人 ‧ 莉梅姐私選</span>
                 <span class="card-duration-tag">一日慢旅</span>
-                <span class="card-credit-tag" onclick="event.preventDefault(); window.open('https://cmsdb.culture.tw/person/F4270BDF-DAFC-4BE3-8606-42CE1175E5AB');">
-                  CC BY-NC 3.0 ‧ 原民會文化發展中心
-                </span>
+                <span class="card-credit-tag">CC BY-NC 3.0 ‧ 原民會文化發展中心</span>
               </div>
               <div class="card-body-real">
-                <span class="card-series-tag" style="color:#6EE7B7;">宜蘭大同 ‧ 被遺忘的部落</span>
-                <div class="card-title-real">樂水部落 ‧ 泰雅文化深度一日遊</div>
-                <div class="card-meta-text">每週四出發 ‧ 六人成團 ‧ 台北專車接送</div>
+                <div>
+                  <div class="card-highlight-pill-row">
+                    <span class="curated-keyword-tag gold">🌲 獨家秘境</span>
+                    <span class="curated-keyword-tag rose">💎 深度私選</span>
+                  </div>
+                  <div class="card-title-real">樂水部落 ‧ 泰雅文化深度一日慢旅</div>
+                </div>
+
+                <div class="must-know-box">
+                  <div class="must-know-header">⚡ 旅程必看 ‧ 絕不能錯過的精華</div>
+                  <ul class="must-know-list">
+                    <li>🦇 <strong>百年森鐵：</strong>舊羅東森鐵 8 號檜木隧道巡禮，探訪台灣最大吃蟲類珍稀「大葉鼻蝠」</li>
+                    <li>🍚 <strong>獵人便當：</strong>體驗竹筒飯 DIY 柴火慢炊、手作紀念品攜回、午後現搗小米麻糬</li>
+                    <li>🚐 <strong>專車出發：</strong>每週四出發、六人成團、台北專車往返，享部落風味午餐與迎賓歌舞</li>
+                  </ul>
+                </div>
+
                 <div class="card-price-row">
                   <div>
                     <span class="price-num green">NT$3,370</span>
@@ -671,45 +801,51 @@
         </div>
       </section>
 
+      <!-- ==================== 行程下方：照片引用說明區塊 ==================== -->
+      <div class="photo-attribution-box">
+        <div class="photo-attribution-inner">
+          <span class="attribution-label">📷 照片引用說明：</span>
+          宜蘭樂水部落行程影像授權自「原住民族委員會原住民族文化發展中心」（創用 CC 姓名標示-非商業性 3.0 台灣，CC BY-NC 3.0 TW +），文化部國家文化記憶庫識別碼：<a href="https://cmsdb.culture.tw/person/F4270BDF-DAFC-4BE3-8606-42CE1175E5AB" target="_blank" rel="noopener">b64f0a52-d1fd-4926-83d8-7345f8d2fc77</a>。
+        </div>
+      </div>
+
     </main>
 
     <!-- ==================== 4. 統一標準頁尾 ==================== -->
     <footer class="et-footer">
       <div class="footer-wrapper">
-        <div class="footer-company-full">安捷國際旅行社有限公司 ｜ ENVOY INTERNATIONAL TRAVEL SERVICE CO., LTD.[cite: 1, 2]</div>
+        <div class="footer-company-full">安捷國際旅行社有限公司 ｜ ENVOY INTERNATIONAL TRAVEL SERVICE CO., LTD.</div>
 
         <div class="footer-legal-small">
-          <span>交通部觀光署註冊旅行業 ‧ 甲種 592000 號</span>[cite: 1, 2]
-          <span>交觀甲字第 5920 號</span>[cite: 1]
-          <span>統一編號：16169138</span>[cite: 1]
-          <span>代表人：楊寶惠</span>[cite: 2]
-          <span>地址：臺北市中山區長安東路2段50號5樓之1</span>[cite: 2]
+          <span>交通部觀光署註冊旅行業 ‧ 甲種 592000 號</span>
+          <span>交觀甲字第 5920 號</span>
+          <span>統一編號：16169138</span>
+          <span>代表人：楊寶惠</span>
+          <span>地址：臺北市中山區長安東路2段50號5樓之1</span>
         </div>
 
         <div class="footer-links-bar">
           <a href="https://lin.ee/Z3c7Qam" target="_blank" class="footer-link-a line-channel">
-            💬 官方客服：LINE 官方帳號[cite: 1]
+            💬 官方客服：LINE 官方帳號
           </a>
         </div>
 
         <p class="footer-copyright">
-          © 2026 ENVOY TRAVEL. All Rights Reserved.[cite: 1]
+          © 2026 ENVOY TRAVEL. All Rights Reserved.
         </p>
       </div>
     </footer>
 
   </div>
 
-  <!-- ==================== 措施 1 & 3：JS 防護與失焦模糊控制 ==================== -->
+  <!-- JS 防護與失焦模糊控制 -->
   <script>
     const contentWrapper = document.getElementById('page-content-wrapper');
 
-    // 1. 停用滑鼠右鍵選單
     document.addEventListener('contextmenu', function (e) {
       e.preventDefault();
     });
 
-    // 2. 停用文字選取與複製 / 剪下
     document.addEventListener('selectstart', function (e) {
       e.preventDefault();
     });
@@ -720,27 +856,19 @@
       e.preventDefault();
     });
 
-    // 3. 攔截常用快捷鍵 (F12、開發者工具、檢視原始碼、列印、存檔、PrintScreen)
     document.addEventListener('keydown', function (e) {
-      // 阻擋 F12
       if (e.key === 'F12') {
         e.preventDefault();
         return false;
       }
-
-      // 阻擋 Ctrl+Shift+I / Ctrl+Shift+C / Ctrl+Shift+J (開發者工具)
       if (e.ctrlKey && e.shiftKey && ['I', 'C', 'J'].includes(e.key.toUpperCase())) {
         e.preventDefault();
         return false;
       }
-
-      // 阻擋 Ctrl+U (檢視原始碼)、Ctrl+S (存檔)、Ctrl+P (列印)
       if (e.ctrlKey && ['U', 'S', 'P'].includes(e.key.toUpperCase())) {
         e.preventDefault();
         return false;
       }
-
-      // 阻擋 PrintScreen 截圖鍵並清空剪貼簿
       if (e.key === 'PrintScreen') {
         e.preventDefault();
         if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -749,7 +877,6 @@
       }
     });
 
-    // 4. 視窗失焦模糊處理（防螢幕截圖、Alt+Tab 切換、錄影捕捉）
     window.addEventListener('blur', function () {
       if (contentWrapper) contentWrapper.classList.add('blur-effect');
     });
