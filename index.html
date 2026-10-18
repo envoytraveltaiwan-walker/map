@@ -46,7 +46,7 @@
       justify-content: space-between;
     }
 
-    /* ==================== 1. 頂部固定導覽列 (完全移除地圖) ==================== */
+    /* ==================== 1. 頂部固定導覽列 (左上角放置橫式 Logo) ==================== */
     .et-navbar {
       position: fixed;
       top: 0; left: 0;
@@ -59,18 +59,26 @@
       backdrop-filter: blur(14px);
       z-index: 1000;
     }
-    .nav-brand {
+    .nav-brand-logo {
       display: flex;
       align-items: center;
-      gap: 12px;
       text-decoration: none;
-      color: #FFF;
     }
-    .brand-title-wrap { display: flex; flex-direction: column; }
-    .brand-title-en { font-size: 19px; font-weight: 900; letter-spacing: 1.5px; }
-    .brand-title-sub { font-size: 10px; color: var(--accent-gold); letter-spacing: 2px; font-weight: 700; }
-    
-    .nav-menu { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-logo-img {
+      height: 38px;
+      max-width: 220px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+      margin-left: 36px;
+      margin-right: auto;
+    }
     .nav-menu a {
       color: #E2E8F0;
       text-decoration: none;
@@ -95,7 +103,7 @@
     }
     .btn-nav-line:hover { transform: scale(1.03); }
 
-    /* ==================== 2. Netflix 巨幅精選看板 (帶底圖與版權標註) ==================== */
+    /* ==================== 2. Netflix 巨幅精選看板 ==================== */
     .hero-billboard {
       position: relative;
       width: 100%;
@@ -213,7 +221,6 @@
     .row-title { font-size: 24px; font-weight: 900; }
     .row-subtitle { font-size: 13.5px; color: var(--text-muted); }
 
-    /* 部落篩選膠囊 (僅出現有行程的部落) */
     .tribe-pill-bar { display: flex; gap: 10px; margin-bottom: 14px; }
     .pill-btn {
       background: rgba(255, 255, 255, 0.08);
@@ -232,7 +239,6 @@
       border-color: var(--accent-gold);
     }
 
-    /* 橫向軌道 */
     .slider-container { position: relative; width: 100%; }
     .scroll-track {
       display: flex;
@@ -244,7 +250,7 @@
     }
     .scroll-track::-webkit-scrollbar { display: none; }
 
-    /* 白蘭櫻花行程卡片 (更新為 Linus Belanger 圖片與來源標註) */
+    /* 白蘭櫻花行程卡片 */
     .tour-card-real {
       flex: 0 0 320px;
       background: var(--bg-card);
@@ -276,9 +282,7 @@
       display: block;
       transition: transform 0.4s ease;
     }
-    .tour-card-real:hover .card-img-media {
-      transform: scale(1.06);
-    }
+    .tour-card-real:hover .card-img-media { transform: scale(1.06); }
     .card-badge-real {
       position: absolute;
       top: 10px; left: 10px;
@@ -348,18 +352,9 @@
       line-height: 1.6;
     }
     .footer-wrapper { max-width: 1200px; margin: 0 auto; }
-    .footer-brand-title {
-      font-size: 16px;
-      font-weight: 900;
-      color: #FFFFFF;
-      margin-bottom: 4px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
     .footer-company-full { font-size: 13.5px; font-weight: 800; color: #CBD5E1; margin-bottom: 10px; }
 
-    /* 法定資料：小字細緻 (不放電話與傳真) */
+    /* 法定資料：小字細緻 */
     .footer-legal-small {
       font-size: 11px;
       color: #64748B;
@@ -368,21 +363,17 @@
     }
     .footer-legal-small span { margin-right: 14px; display: inline-block; }
 
-    /* 快速連結列：官方客服為 LINE */
+    /* 快速連結列：僅保留 LINE 客服 */
     .footer-links-bar {
       display: flex;
       align-items: center;
-      flex-wrap: wrap;
       gap: 12px;
       padding: 12px 0;
       border-top: 1px solid rgba(255, 255, 255, 0.08);
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       margin-bottom: 12px;
     }
-    .footer-link-a { color: #38BDF8; text-decoration: none; font-weight: 700; font-size: 13px; }
-    .footer-link-a:hover { color: #FFF; }
-    .footer-link-a.line-channel { color: #4ADE80; font-weight: 900; }
-    .footer-divider { color: #334155; }
+    .footer-link-a.line-channel { color: #4ADE80; font-weight: 900; text-decoration: none; font-size: 13px; }
 
     .footer-copyright { font-size: 11.5px; color: #64748B; }
 
@@ -398,19 +389,13 @@
 </head>
 <body>
 
-  <!-- ==================== 1. 頂部固定導覽列 ==================== -->
+  <!-- ==================== 1. 頂部固定導覽列 (左上角 Logo) ==================== -->
   <header class="et-navbar">
-    <a href="./index.html" class="nav-brand">
-      <svg width="22" height="28" viewBox="0 0 100 140">
-        <path d="M50 6 C51 15 52.5 21 55.5 25 C60 25.8 66 26 73 26.5 C66 28 60 29.2 56 31 C53.8 35 52 41 50 47 C48 41 46.2 35 44 31 C40 29.2 34 28 27 26.5 C34 26 40 25.8 44.5 25 C47.5 21 49 15 50 6 Z" fill="#C5A059"/>
-        <path d="M49 53.5 C45.8 63 39.5 75 30.5 86.5 C29.2 88.2 27.2 90 25.8 88.5 C24.5 86.8 26.2 85 27.8 83 C36 71.5 41.8 61 45 52.5 Z" fill="#C5A059"/>
-        <path d="M51 53.5 C54.2 63 60.5 75 69.5 86.5 C70.8 88.2 72.8 90 74.2 88.5 C75.5 86.8 73.8 85 72.2 83 C64 71.5 58.2 61 55 52.5 Z" fill="#C5A059"/>
-        <path d="M47.2 52.5 C48.8 52 51.2 52 52.8 52.5 C53.2 67 53.6 84 53.2 101 C52.8 116 53.2 126 52.6 133 C52.2 135.5 47.8 135.5 47.4 133 C46.8 126 47.2 116 46.8 101 C46.4 84 46.8 67 47.2 52.5 Z" fill="#C5A059"/>
-      </svg>
-      <div class="brand-title-wrap">
-        <span class="brand-title-en">ENVOY</span>
-        <span class="brand-title-sub">安捷國際旅行社</span>
-      </div>
+    <a href="./index.html" class="nav-brand-logo" title="ENVOY 安捷國際旅行社">
+      <img src="./ENVOY_Horizontal_Transparent.png"
+           onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/ENVOY_Horizontal_Transparent.png';"
+           alt="ENVOY 安捷國際旅行社 Logo"
+           class="nav-logo-img">
     </a>
 
     <ul class="nav-menu">
@@ -425,7 +410,7 @@
     </div>
   </header>
 
-  <!-- ==================== 2. Netflix 巨幅主視覺看板 ==================== -->
+  <!-- ==================== 2. Netflix 巨幅精選看板 ==================== -->
   <section class="hero-billboard">
     <!-- 背景 Unsplash 圖片 -->
     <img src="./viktorija-demjanenko-uvlvyjUlwNI-unsplash.jpg"
@@ -447,7 +432,7 @@
       <h1 class="hero-title">走進山海風土 ‧ 感受原生感動</h1>
       <div class="hero-subtitle">探索土地的記憶 ‧ 走進部落的日常生活</div>
       <p class="hero-desc">
-        避開假日擁擠人潮，以慢旅步調走入在地文化與山林生活。莉梅姐為您呈現最質樸真摯的風土體驗。
+        避開假日擁擠人潮，以慢旅步調走入在地文化與山林生活。
       </p>
       <div class="hero-chips">
         <span class="hero-chip-tag">部落文化深旅</span>
@@ -499,14 +484,13 @@
       </div>
     </section>
 
-    <!-- ROW 2: 原鄉慢旅 (僅出現有行程的部落小標籤) -->
+    <!-- ROW 2: 原鄉慢旅 -->
     <section class="row-section" id="indigenous-section">
       <div class="row-header">
         <div class="row-title">🌿 原鄉慢旅</div>
         <div class="row-subtitle">臺灣部落深度行程巡禮</div>
       </div>
 
-      <!-- 部落篩選膠囊 -->
       <div class="tribe-pill-bar">
         <button class="pill-btn active">全部行程</button>
         <button class="pill-btn" onclick="location.href='./2027_sakura-atayal.html'">🌸 新竹五峰・白蘭部落 (春季限定)</button>
@@ -546,15 +530,6 @@
   <!-- ==================== 4. 統一標準頁尾 ==================== -->
   <footer class="et-footer">
     <div class="footer-wrapper">
-      <div class="footer-brand-title">
-        <svg width="18" height="24" viewBox="0 0 100 140">
-          <path d="M50 6 C51 15 52.5 21 55.5 25 C60 25.8 66 26 73 26.5 C66 28 60 29.2 56 31 C53.8 35 52 41 50 47 C48 41 46.2 35 44 31 C40 29.2 34 28 27 26.5 C34 26 40 25.8 44.5 25 C47.5 21 49 15 50 6 Z" fill="#C5A059"/>
-          <path d="M49 53.5 C45.8 63 39.5 75 30.5 86.5 C29.2 88.2 27.2 90 25.8 88.5 C24.5 86.8 26.2 85 27.8 83 C36 71.5 41.8 61 45 52.5 Z" fill="#C5A059"/>
-          <path d="M51 53.5 C54.2 63 60.5 75 69.5 86.5 C70.8 88.2 72.8 90 74.2 88.5 C75.5 86.8 73.8 85 72.2 83 C64 71.5 58.2 61 55 52.5 Z" fill="#C5A059"/>
-          <path d="M47.2 52.5 C48.8 52 51.2 52 52.8 52.5 C53.2 67 53.6 84 53.2 101 C52.8 116 53.2 126 52.6 133 C52.2 135.5 47.8 135.5 47.4 133 C46.8 126 47.2 116 46.8 101 C46.4 84 46.8 67 47.2 52.5 Z" fill="#C5A059"/>
-        </svg>
-        <span>ENVOY 安捷國際旅行社</span>
-      </div>
       <div class="footer-company-full">安捷國際旅行社有限公司 ｜ ENVOY INTERNATIONAL TRAVEL SERVICE CO., LTD.</div>
 
       <!-- 法定資料：小字細緻 (不放電話與傳真) -->
@@ -566,15 +541,11 @@
         <span>地址：臺北市中山區長安東路2段50號5樓之1</span>
       </div>
 
-      <!-- 快速連結列：官方客服為 LINE -->
+      <!-- 快速連結列：僅保留 LINE 客服 -->
       <div class="footer-links-bar">
-        <a href="https://www.envoytravel.tw" target="_blank" class="footer-link-a">公司官網</a>
-        <span class="footer-divider">｜</span>
         <a href="https://lin.ee/Z3c7Qam" target="_blank" class="footer-link-a line-channel">
           💬 官方客服：LINE 官方帳號
         </a>
-        <span class="footer-divider">｜</span>
-        <a href="mailto:limei@envoytravel.tw" class="footer-link-a">limei@envoytravel.tw</a>
       </div>
 
       <p class="footer-copyright">
