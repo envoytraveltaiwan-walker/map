@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>臺灣原鄉探索地圖 ✕ 部落風土圖鑑 ｜ ENVOY 安捷國際旅行社</title>
+
+  <!-- Google tag (gtag.js) GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PPP4CT61HC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PPP4CT61HC');
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-main: #081B24;
+      --bg-card: #0D2B38;
+      --accent-gold: #C5A059;
+      --accent-rose: #B64F68;
+      --line-green: #06A54E;
+      --text-main: #FFFFFF;
+      --text-muted: #94A3B8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 100%;
+      min-height: 100vh;
+      background: var(--bg-main);
+      color: var(--text-main);
+      font-family: 'Noto Sans TC', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* 頂部導覽 */
+    .map-page-nav {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      height: 70px;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(8, 27, 36, 0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      z-index: 1000;
+    }
+    .back-home-a {
+      color: #FFF;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-nav-line {
+      background: var(--line-green);
+      color: #FFFFFF;
+      padding: 7px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 13.5px;
+    }
+
+    /* 主地圖外框 */
+    .map-content-wrap {
+      max-width: 1360px;
+      margin: 30px auto;
+      padding: 0 30px;
+    }
+    .map-header-block {
+      margin-bottom: 24px;
+    }
+    .map-header-h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .map-header-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    .map-frame-wrapper {
+      position: relative;
+      width: 100%;
+      height: 750px;
+      background: #BCE3EC;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      margin-bottom: 50px;
+    }
+    #map-svg { width: 100%; height: 100%; object-fit: contain; }
+    #fx-canvas {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 500;
+    }
+    .map-live-tag {
+      position: absolute;
+      top: 20px; right: 24px;
+      background: rgba(13, 43, 56, 0.92);
+      backdrop-filter: blur(10px);
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      border-radius: 22px;
+      padding: 8px 18px;
+      color: #FFFFFF;
+      font-size: 14px;
+      font-weight: 800;
+      z-index: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .status-pulse {
+      width: 10px; height: 10px;
+      background: var(--line-green);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--line-green);
+      animation: pulse-dot 1.2s infinite ease-in-out;
+    }
+    @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.3); } }
+    .interactive-card { cursor: pointer; transition: transform 0.15s ease; }
+    .interactive-card:active { transform: scale(0.97); }
+
+    /* 蒸汽白煙動畫 */
+    @keyframes puff-smoke {
+      0% { r: 4px; opacity: 0.95; transform: translateY(0) scale(0.8); }
+      40% { r: 12px; opacity: 0.8; transform: translateY(-10px) translateX(-6px) scale(1.3); }
+      100% { r: 22px; opacity: 0; transform: translateY(-24px) translateX(-16px) scale(2); }
+    }
+    .smoke-puff-1 { animation: puff-smoke 1.3s infinite ease-out; }
+    .smoke-puff-2 { animation: puff-smoke 1.3s infinite ease-out 0.26s; }
+    .smoke-puff-3 { animation: puff-smoke 1.3s infinite ease-out 0.52s; }
+
+    /* 九大部落圖鑑網格 */
+    .tribes-section-title {
+      font-size: 24px;
+      font-weight: 900;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .tribe-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+    .tribe-box {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 22px;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .tribe-box:hover {
+      background: #143A4B;
+      transform: translateY(-4px);
+    }
+    .tribe-box.highlight {
+      border-color: var(--accent-rose);
+      background: linear-gradient(180deg, rgba(182, 79, 104, 0.2) 0%, var(--bg-card) 100%);
+    }
+    .tribe-tag { font-size: 12px; font-weight: 800; color: var(--accent-gold); margin-bottom: 6px; }
+    .tribe-title { font-size: 19px; font-weight: 900; margin-bottom: 8px; }
+    .tribe-feature { font-size: 14px; color: #CBD5E1; line-height: 1.5; }
+
+    /* 頁尾 */
+    .et-footer {
+      background: #051218;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 36px 60px 28px;
+      color: #94A3B8;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .footer-wrapper { max-width: 1200px; margin: 0 auto; }
+    .footer-brand-title { font-size: 16px; font-weight: 900; color: #FFFFFF; margin-bottom: 4px; }
+    .footer-company-full { font-size: 13.5px; font-weight: 800; color: #CBD5E1; margin-bottom: 10px; }
+    .footer-legal-small { font-size: 11px; color: #64748B; line-height: 1.7; margin-bottom: 14px; }
+    .footer-legal-small span { margin-right: 14px; display: inline-block; }
+    .footer-links-bar { display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 12px; }
+    .footer-link-a { color: #38BDF8; text-decoration: none; font-weight: 700; font-size: 13px; }
+
+    @media (max-width: 900px) {
+      .map-page-nav { padding: 0 20px; }
+      .map-content-wrap { padding: 0 16px; }
+      .et-footer { padding: 30px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 頂部導覽 -->
+  <header class="map-page-nav">
+    <a href="./index.html" class="back-home-a">
+      ‹ 返回安捷首頁
+    </a>
+    <a href="https://lin.ee/Z3c7Qam" target="_blank" class="btn-nav-line">
+      💬 LINE 官方客服
+    </a>
+  </header>
+
+  <main class="map-content-wrap">
+    <div class="map-header-block">
+      <h1 class="map-header-h1">🗺️ 臺灣原鄉慢旅探索地圖</h1>
+      <p class="map-header-desc">點選地圖上的部落標籤，即可欣賞部落專屬動態天候雨與探索風土必玩亮點。</p>
+    </div>
+
+    <!-- 地圖主畫布 -->
+    <div class="map-frame-wrapper" id="map-stage">
+      <div class="map-live-tag">
+        <span class="status-pulse"></span>
+        <span id="live-weather-text">蒸氣火車巡禮中 ‧ 新竹白蘭櫻花雨</span>
+      </div>
+
+      <canvas id="fx-canvas"></canvas>
+
+      <svg id="map-svg" viewBox="0 0 1140 1400">
+        <defs>
+          <filter id="pop-shadow" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="2" dy="8" stdDeviation="6" flood-color="#0F333E" flood-opacity="0.3"/>
+          </filter>
+          <filter id="tag-shadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#0E4857" flood-opacity="0.25"/>
+          </filter>
+          <filter id="train-shadow" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="2" dy="5" stdDeviation="4" flood-color="#081820" flood-opacity="0.4"/>
+          </filter>
+          <filter id="hsr-shadow" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#E76F51" flood-opacity="0.45"/>
+          </filter>
+          <filter id="airport-shadow" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="2" dy="4" stdDeviation="3" flood-color="#143A47" flood-opacity="0.35"/>
+          </filter>
+          <radialGradient id="sun-glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#FFA834" stop-opacity="0.9"/>
+            <stop offset="45%" stop-color="#FF7B25" stop-opacity="0.45"/>
+            <stop offset="100%" stop-color="#FF7B25" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="island-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#A9E34B"/>
+            <stop offset="65%" stop-color="#88C930"/>
+            <stop offset="100%" stop-color="#6DAA1F"/>
+          </linearGradient>
+        </defs>
+
+        <circle cx="860" cy="850" r="190" fill="url(#sun-glow)"/>
+
+        <!-- 離島群 -->
+        <g transform="translate(60, 180)">
+          <path d="M 0 14 Q 12 4 25 12 Q 18 25 4 22 Z" fill="#8AC243" stroke="#4C8214" stroke-width="2"/>
+          <text x="-6" y="44" font-size="20" font-weight="900" fill="#132438">馬祖 Matsu</text>
+        </g>
+        <g transform="translate(60, 340)">
+          <path d="M 0 16 C 14 6, 32 6, 42 14 C 36 28, 20 30, 0 16 Z" fill="#8AC243" stroke="#4C8214" stroke-width="2"/>
+          <text x="-4" y="46" font-size="20" font-weight="900" fill="#132438">金門 Kinmen</text>
+        </g>
+        <g transform="translate(130, 600)">
+          <ellipse cx="18" cy="18" rx="12" ry="17" fill="#8AC243" stroke="#4C8214" stroke-width="2"/>
+          <text x="-14" y="56" font-size="21" font-weight="900" fill="#132438">澎湖 Penghu</text>
+        </g>
+
+        <!-- 台灣本島輪廓 -->
+        <g transform="translate(90, 20)">
+          <path d="M 542 166 L 566 152 L 594 162 L 622 182 L 646 202 L 654 216 L 636 236 L 620 256 L 602 278 L 592 308 L 588 340 L 592 374 L 602 414 L 610 466 L 614 526 L 612 588 L 604 654 L 598 716 L 590 780 L 580 844 L 568 908 L 552 970 L 528 1034 L 504 1098 L 482 1160 L 468 1218 L 460 1272 L 450 1286 L 440 1254 L 434 1214 L 426 1234 L 418 1212 L 412 1162 L 414 1102 L 408 1040 L 392 980 L 370 924 L 342 864 L 308 800 L 282 732 L 268 662 L 264 590 L 274 520 L 292 452 L 318 386 L 352 322 L 394 260 L 444 206 L 490 172 Z" fill="#3B6312"/>
+          <path d="M 538 158 L 562 144 L 590 154 L 618 174 L 642 194 L 650 208 L 632 228 L 616 248 L 598 270 L 588 300 L 584 332 L 588 366 L 598 406 L 606 458 L 610 518 L 608 580 L 600 646 L 594 708 L 586 772 L 576 836 L 564 900 L 548 962 L 524 1026 L 500 1090 L 478 1152 L 464 1210 L 456 1264 L 446 1278 L 436 1246 L 430 1206 L 422 1226 L 414 1204 L 408 1154 L 410 1094 L 404 1032 L 388 972 L 366 916 L 338 856 L 304 792 L 278 724 L 264 654 L 260 582 L 270 512 L 288 444 L 314 378 L 348 314 L 390 252 L 440 198 L 486 164 Z" fill="url(#island-grad)" stroke="#FFFFFF" stroke-width="4.5" stroke-linejoin="round"/>
+
+          <!-- 高鐵 700T -->
+          <path id="hsr-path" d="M 525 180 L 465 210 L 415 250 L 365 330 L 328 440 L 305 560 L 298 670 L 310 760 L 322 825" fill="none" stroke="#F4A261" stroke-width="3.5" stroke-dasharray="8,4" opacity="0.9"/>
+          <circle cx="322" cy="825" r="6" fill="#E76F51" stroke="#FFF" stroke-width="2"/>
+          <text x="335" y="828" font-size="16" font-weight="900" fill="#132438">高鐵左營站（高雄）</text>
+
+          <g filter="url(#hsr-shadow)">
+            <animateMotion dur="4.2s" repeatCount="indefinite" rotate="auto">
+              <mpath href="#hsr-path"/>
+            </animateMotion>
+            <g transform="translate(-22, -5)">
+              <path d="M 0 3 L 36 3 Q 48 5.5 45 9 Q 39 11 0 11 Z" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="0.8"/>
+              <path d="M 0 7 L 40 7 Q 44 8.5 38 10 L 0 10 Z" fill="#F77F00"/>
+              <rect x="5" y="4" width="28" height="2" rx="0.5" fill="#1F2937"/>
+            </g>
+          </g>
+
+          <!-- 環島軌道與蒸氣火車牽引 3 節客車 -->
+          <path id="rail-path" d="M 525 145 C 560 148, 615 178, 638 212 C 625 245, 595 295, 580 380 C 586 470, 590 560, 574 690 C 560 800, 532 920, 480 1060 C 460 1120, 435 1210, 420 1235 C 395 1190, 392 1080, 370 960 C 340 840, 275 740, 260 630 C 255 520, 280 410, 325 320 C 380 230, 450 170, 525 145 Z" fill="none" stroke="#684729" stroke-width="4" stroke-dasharray="7,7" opacity="0.6"/>
+
+          <g id="steam-train-towing-group" filter="url(#train-shadow)">
+            <g id="car-3"><g transform="translate(-6, -6)"><rect x="0" y="0" width="14" height="12" rx="2" fill="#8C1C13" stroke="#111" stroke-width="0.8"/><circle cx="3.5" cy="13" r="1.8" fill="#1F2421"/><circle cx="10.5" cy="13" r="1.8" fill="#1F2421"/></g></g>
+            <g id="car-2"><g transform="translate(-6, -6)"><rect x="0" y="0" width="14" height="12" rx="2" fill="#8C1C13" stroke="#111" stroke-width="0.8"/><circle cx="3.5" cy="13" r="1.8" fill="#1F2421"/><circle cx="10.5" cy="13" r="1.8" fill="#1F2421"/></g></g>
+            <g id="car-1"><g transform="translate(-6, -6)"><rect x="0" y="0" width="14" height="12" rx="2" fill="#8C1C13" stroke="#111" stroke-width="0.8"/><circle cx="3.5" cy="13" r="1.8" fill="#1F2421"/><circle cx="10.5" cy="13" r="1.8" fill="#1F2421"/></g></g>
+            <g id="engine-lead">
+              <g transform="translate(12, -10)"><circle cx="-3" cy="-4" fill="#FFFFFF" class="smoke-puff-1"/><circle cx="-9" cy="-10" fill="#FFFFFF" class="smoke-puff-2"/><circle cx="-16" cy="-16" fill="#F3F4F6" class="smoke-puff-3"/></g>
+              <g transform="translate(-10, -7)"><rect x="0" y="0" width="20" height="14" rx="2.5" fill="#1F2421" stroke="#111" stroke-width="1.2"/><circle cx="4" cy="15" r="3" fill="#111"/><circle cx="14" cy="15" r="3" fill="#111"/></g>
+            </g>
+          </g>
+
+          <!-- ① 白蘭部落 -->
+          <g class="interactive-card" onclick="switchWeather('bailan');">
+            <path d="M 235 220 L 390 270" stroke="#132438" stroke-width="3.5" stroke-dasharray="7,4" fill="none"/>
+            <circle cx="390" cy="270" r="7" fill="#E63946" stroke="#FFF" stroke-width="2"/>
+            <g transform="translate(-135, 140)" filter="url(#tag-shadow)">
+              <rect x="0" y="0" width="370" height="110" rx="20" fill="#FFFFFF" stroke="#E63946" stroke-width="3.5"/>
+              <text x="18" y="42" font-size="34" font-weight="900" fill="#132438">新竹・白蘭部落</text>
+              <text x="18" y="80" font-size="20" font-weight="900" fill="#E63946">🌸 漫步櫻花林 ‧ 採野生馬告</text>
+            </g>
+          </g>
+
+          <!-- 苗栗斯瓦細格部落 -->
+          <g class="interactive-card" onclick="switchWeather('swasiq');">
+            <path d="M 235 340 L 360 355" stroke="#132438" stroke-width="3.5" stroke-dasharray="7,4" fill="none"/>
+            <circle cx="360" cy="355" r="7" fill="#2A9D8F" stroke="#FFF" stroke-width="2"/>
+            <g transform="translate(-135, 275)" filter="url(#tag-shadow)">
+              <rect x="0" y="0" width="370" height="110" rx="20" fill="#FFFFFF" stroke="#2A9D8F" stroke-width="3.5"/>
+              <text x="18" y="42" font-size="34" font-weight="900" fill="#132438">苗栗・斯瓦細格</text>
+              <text x="18" y="80" font-size="19" font-weight="900" fill="#2A9D8F">♨️ 泰雅高腳屋 ‧ 龍葵菜 ‧ 泰安溫泉</text>
+            </g>
+          </g>
+
+          <!-- ② 樂水部落 -->
+          <g class="interactive-card" onclick="switchWeather('leshui');">
+            <path d="M 685 220 L 590 250" stroke="#132438" stroke-width="3.5" stroke-dasharray="7,4" fill="none"/>
+            <circle cx="590" cy="250" r="7" fill="#1D3557" stroke="#FFF" stroke-width="2"/>
+            <g transform="translate(685, 140)" filter="url(#tag-shadow)">
+              <rect x="0" y="0" width="370" height="110" rx="20" fill="#FFFFFF" stroke="#1D3557" stroke-width="3.5"/>
+              <text x="18" y="42" font-size="34" font-weight="900" fill="#132438">宜蘭・樂水部落</text>
+              <text x="18" y="80" font-size="20" font-weight="900" fill="#2A9D8F">🎋 青竹親手做 ‧ 獵人竹筒便當</text>
+            </g>
+          </g>
+
+          <!-- ③ 布拉旦部落 -->
+          <g class="interactive-card" onclick="switchWeather('pratan');">
+            <path d="M 685 360 L 635 410" stroke="#132438" stroke-width="3.5" stroke-dasharray="7,4" fill="none"/>
+            <circle cx="635" cy="410" r="7" fill="#E76F51" stroke="#FFF" stroke-width="2"/>
+            <g transform="translate(685, 290)" filter="url(#tag-shadow)">
+              <rect x="0" y="0" width="370" height="110" rx="20" fill="#FFFFFF" stroke="#E76F51" stroke-width="3.5"/>
+              <text x="18" y="42" font-size="34" font-weight="900" fill="#132438">花蓮・布拉旦部落</text>
+              <text x="18" y="80" font-size="20" font-weight="900" fill="#E76F51">🌈 越過彩虹橋 ‧ 探清澈三棧溪</text>
+            </g>
+          </g>
+
+          <!-- ④ 織羅部落 -->
+          <g class="interactive-card" onclick="switchWeather('ceroh');">
+            <path d="M 685 530 L 585 575" stroke="#132438" stroke-width="3.5" stroke-dasharray="7,4" fill="none"/>
+            <circle cx="585" cy="575" r="7" fill="#E63946" stroke="#FFF" stroke-width="2"/>
+            <g transform="translate(685, 460)" filter="url(#tag-shadow)">
+              <rect x="0" y="0" width="370" height="110" rx="20" fill="#FFFFFF" stroke="#E63946" stroke-width="3.5"/>
+              <text x="18" y="42" font-size="34" font-weight="900" fill="#132438">花蓮・織羅部落</text>
+              <text x="18" y="80" font-size="20" font-weight="900" fill="#D90429">🌾 畫五彩米 ‧ 秀姑巒溪大地宴</text>
+            </g>
+          </g>
+
+          <!-- ⑤ 永康部落 -->
+          <g class="interactive-card" onclick="switchWeather('yongkang');">
+            <path d="M 685 675 L 535 745" stroke="#132438" stroke-width="3.5" stroke-dasharray="7,4" fill="none"/>
+            <circle cx="535" cy="745" r="7" fill="#2A6F97" stroke="#FFF" stroke-width="2"/>
+            <g transform="translate(685, 610)" filter="url(#tag-shadow)">
+              <rect x="0" y="0" width="370" height="110" rx="20" fill="#FFFFFF" stroke="#2A6F97" stroke-width="3.5"/>
+              <text x="18" y="42" font-size="34" font-weight="900" fill="#132438">台東・永康部落</text>
+              <text x="18" y="80" font-size="20" font-weight="900" fill="#2A6F97">✨ 讀歲時板曆 ‧ 星空獵人營火宴</text>
+            </g>
+          </g>
+
+          <!-- ⑥ 鸞山部落 -->
+          <g class="interactive-card" onclick="switchWeather('saza');">
+            <path d="M 685 810 L 515 870" stroke="#132438" stroke-width="3.5" stroke-dasharray="7,4" fill="none"/>
+            <circle cx="515" cy="870" r="7" fill="#2D6A4F" stroke="#FFF" stroke-width="2"/>
+            <g transform="translate(685, 760)" filter="url(#tag-shadow)">
+              <rect x="0" y="0" width="370" height="110" rx="20" fill="#FFFFFF" stroke="#2D6A4F" stroke-width="3.5"/>
+              <text x="18" y="42" font-size="34" font-weight="900" fill="#132438">台東・鸞山部落</text>
+              <text x="18" y="80" font-size="20" font-weight="900" fill="#2D6A4F">🍃 爬會走路的樹 ‧ 現搗小米麻糬</text>
+            </g>
+          </g>
+
+          <!-- ⑦ 禮納里部落 -->
+          <g class="interactive-card" onclick="switchWeather('rinari');">
+            <path d="M 225 800 L 410 885" stroke="#132438" stroke-width="3.5" stroke-dasharray="7,4" fill="none"/>
+            <circle cx="410" cy="885" r="6" fill="#9D0208" stroke="#FFF" stroke-width="2"/>
+            <g transform="translate(-135, 730)" filter="url(#tag-shadow)">
+              <rect x="0" y="0" width="370" height="110" rx="20" fill="#FFFFFF" stroke="#9D0208" stroke-width="3.5"/>
+              <text x="18" y="42" font-size="34" font-weight="900" fill="#132438">屏東・禮納里部落</text>
+              <text x="18" y="80" font-size="20" font-weight="900" fill="#9D0208">🌺 佩戴百合聖花 ‧ 宿傳統石板屋</text>
+            </g>
+          </g>
+
+          <!-- ⑧ 吾拉魯滋部落 -->
+          <g class="interactive-card" onclick="switchWeather('ulaljuc');">
+            <path d="M 225 930 L 400 995" stroke="#132438" stroke-width="3.5" stroke-dasharray="7,4" fill="none"/>
+            <circle cx="400" cy="995" r="6" fill="#6F4E37" stroke="#FFF" stroke-width="2"/>
+            <g transform="translate(-135, 880)" filter="url(#tag-shadow)">
+              <rect x="0" y="0" width="370" height="110" rx="20" fill="#FFFFFF" stroke="#6F4E37" stroke-width="3.5"/>
+              <text x="18" y="42" font-size="34" font-weight="900" fill="#132438">屏東・吾拉魯滋</text>
+              <text x="18" y="80" font-size="20" font-weight="900" fill="#6F4E37">☕ 摸百步蛇陶壺 ‧ 焙大武山咖啡</text>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <!-- 九大部落風土圖鑑 -->
+    <div class="tribes-section-title">🌿 九大部落文化與風土圖鑑</div>
+    <div class="tribe-grid">
+      <div class="tribe-box highlight">
+        <div class="tribe-tag">新竹五峰 ‧ 泰雅族</div>
+        <div class="tribe-title">新竹・白蘭部落</div>
+        <div class="tribe-feature">🌸 漫步櫻花林 ‧ 採野生馬告 ‧ 泰雅竹屋山林慢行</div>
+        <a href="./2027_sakura-atayal.html" style="color:var(--accent-gold); font-size:13px; font-weight:800; text-decoration:none; display:inline-block; margin-top:8px;">查看櫻花季行程 ➔</a>
+      </div>
+      <div class="tribe-box">
+        <div class="tribe-tag">苗栗泰安 ‧ 泰雅族</div>
+        <div class="tribe-title">苗栗・斯瓦細格</div>
+        <div class="tribe-feature">♨️ 龍葵野菜之鄉 ‧ 泰雅傳統高腳屋 ‧ 橫龍古道與泰安溫泉</div>
+      </div>
+      <div class="tribe-box">
+        <div class="tribe-tag">宜蘭大同 ‧ 泰雅族</div>
+        <div class="tribe-title">宜蘭・樂水部落</div>
+        <div class="tribe-feature">🎋 青竹親手做 ‧ 獵人竹筒便當 ‧ 樟樹下口簧琴故事</div>
+      </div>
+      <div class="tribe-box">
+        <div class="tribe-tag">花蓮秀林 ‧ 太魯閣族</div>
+        <div class="tribe-title">花蓮・布拉旦部落</div>
+        <div class="tribe-feature">🌈 越過彩虹橋 ‧ 探清澈三棧溪 ‧ 獵人傳統技藝</div>
+      </div>
+      <div class="tribe-box">
+        <div class="tribe-tag">花蓮玉里 ‧ 阿美族</div>
+        <div class="tribe-title">花蓮・織羅部落</div>
+        <div class="tribe-feature">🌾 畫五彩米 ‧ 秀姑巒溪大地宴 ‧ 阿美野菜採集餐桌</div>
+      </div>
+      <div class="tribe-box">
+        <div class="tribe-tag">台東延平 ‧ 布農族</div>
+        <div class="tribe-title">台東・永康部落</div>
+        <div class="tribe-feature">✨ 讀歲時板曆 ‧ 星空獵人營火宴 ‧ 俯瞰縱谷八部合音</div>
+      </div>
+      <div class="tribe-box">
+        <div class="tribe-tag">台東延平 ‧ 布農族</div>
+        <div class="tribe-title">台東・鸞山部落</div>
+        <div class="tribe-feature">🍃 爬會走路的樹 ‧ 天然森林博物館 ‧ 柴燒獵人飯</div>
+      </div>
+      <div class="tribe-box">
+        <div class="tribe-tag">屏東瑪家 ‧ 排灣/魯凱族</div>
+        <div class="tribe-title">屏東・禮納里部落</div>
+        <div class="tribe-feature">🌺 佩戴百合聖花 ‧ 宿傳統石板屋 ‧ 脫鞋入家門體驗</div>
+      </div>
+      <div class="tribe-box">
+        <div class="tribe-tag">屏東泰武 ‧ 排灣族</div>
+        <div class="tribe-title">屏東・吾拉魯滋</div>
+        <div class="tribe-feature">☕ 摸百步蛇陶壺 ‧ 焙大武山有機咖啡 ‧ 排灣琉璃藝術</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- 頁尾 -->
+  <footer class="et-footer">
+    <div class="footer-wrapper">
+      <div class="footer-brand-title">ENVOY 安捷國際旅行社</div>
+      <div class="footer-company-full">安捷國際旅行社有限公司 ｜ ENVOY INTERNATIONAL TRAVEL SERVICE CO., LTD.</div>
+      <div class="footer-legal-small">
+        <span>交通部觀光署註冊旅行業 ‧ 甲種 592000 號</span>
+        <span>交觀甲字第 5920 號</span>
+        <span>統一編號：16169138</span>
+        <span>代表人：楊寶惠</span>
+        <span>地址：臺北市中山區長安東路2段50號5樓之1</span>
+      </div>
+      <div class="footer-links-bar">
+        <a href="https://www.envoytravel.tw" target="_blank" class="footer-link-a">公司官網</a>
+        <a href="https://lin.ee/Z3c7Qam" target="_blank" class="footer-link-a" style="color:#4ADE80;">💬 LINE 官方客服</a>
+        <a href="mailto:limei@envoytravel.tw" class="footer-link-a">limei@envoytravel.tw</a>
+      </div>
+      <p style="font-size:11.5px; color:#64748B;">© 2026 ENVOY TRAVEL. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- 動態腳本 -->
+  <script>
+    const railPath = document.getElementById('rail-path');
+    const engineLead = document.getElementById('engine-lead');
+    const car1 = document.getElementById('car-1');
+    const car2 = document.getElementById('car-2');
+    const car3 = document.getElementById('car-3');
+
+    const totalRailLen = railPath.getTotalLength();
+    let trainDist = 0;
+    const trainSpeed = 1.35;
+    const DIST_CAR1 = 28, DIST_CAR2 = 24, DIST_CAR3 = 24;
+
+    function calcPathPointAndAngle(d) {
+      let dist = d % totalRailLen;
+      if (dist < 0) dist += totalRailLen;
+      const pt = railPath.getPointAtLength(dist);
+      const nextPt = railPath.getPointAtLength((dist + 1.2) % totalRailLen);
+      const angle = Math.atan2(nextPt.y - pt.y, nextPt.x - pt.x) * 180 / Math.PI;
+      return { x: pt.x, y: pt.y, angle: angle };
+    }
+
+    function updateTrainMovement() {
+      trainDist += trainSpeed;
+      const pEngine = calcPathPointAndAngle(trainDist);
+      engineLead.setAttribute('transform', `translate(${pEngine.x}, ${pEngine.y}) rotate(${pEngine.angle})`);
+      const pCar1 = calcPathPointAndAngle(trainDist - DIST_CAR1);
+      car1.setAttribute('transform', `translate(${pCar1.x}, ${pCar1.y}) rotate(${pCar1.angle})`);
+      const pCar2 = calcPathPointAndAngle(trainDist - DIST_CAR1 - DIST_CAR2);
+      car2.setAttribute('transform', `translate(${pCar2.x}, ${pCar2.y}) rotate(${pCar2.angle})`);
+      const pCar3 = calcPathPointAndAngle(trainDist - DIST_CAR1 - DIST_CAR2 - DIST_CAR3);
+      car3.setAttribute('transform', `translate(${pCar3.x}, ${pCar3.y}) rotate(${pCar3.angle})`);
+    }
+
+    const canvas = document.getElementById('fx-canvas');
+    const ctx = canvas.getContext('2d');
+    const mapStage = document.getElementById('map-stage');
+    const liveText = document.getElementById('live-weather-text');
+
+    let currentMode = 'bailan';
+    let drops = [];
+    const DROP_COUNT = 55;
+
+    const weatherConfig = {
+      bailan:   { text: '蒸氣火車巡禮中 ‧ 新竹白蘭櫻花雨' },
+      swasiq:   { text: '蒸氣火車巡禮中 ‧ 苗栗斯瓦細格溫泉山林與龍葵綠意' },
+      leshui:   { text: '蒸氣火車巡禮中 ‧ 宜蘭樂水青竹葉雨' },
+      pratan:   { text: '蒸氣火車巡禮中 ‧ 花蓮布拉旦彩虹靈光' },
+      ceroh:    { text: '蒸氣火車巡禮中 ‧ 花蓮織羅彩繪米雨' },
+      yongkang: { text: '蒸氣火車巡禮中 ‧ 台東永康星空星芒雨' },
+      saza:     { text: '蒸氣火車巡禮中 ‧ 台東鸞山巨木雨' },
+      rinari:   { text: '蒸氣火車巡禮中 ‧ 屏東禮納里純白百合雨' },
+      ulaljuc:  { text: '蒸氣火車巡禮中 ‧ 屏東吾拉魯滋咖啡豆雨' }
+    };
+
+    function resizeCanvas() {
+      if (mapStage) {
+        canvas.width = mapStage.clientWidth;
+        canvas.height = mapStage.clientHeight;
+      }
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class DropItem {
+      constructor(init = false) { this.reset(init); }
+      reset(init = false) {
+        this.x = Math.random() * canvas.width;
+        this.y = init ? Math.random() * canvas.height : -20 - Math.random() * 40;
+        this.type = currentMode;
+        this.rot = Math.random() * Math.PI * 2;
+        this.rotSpeed = (Math.random() - 0.5) * 0.04;
+        this.alpha = Math.random() * 0.4 + 0.6;
+
+        switch(this.type) {
+          case 'bailan':
+            this.vx = Math.sin(Math.random() * Math.PI) * 1.5 + 0.5;
+            this.vy = Math.random() * 2 + 1.8;
+            this.size = Math.random() * 12 + 9;
+            this.color = Math.random() > 0.3 ? '#FFA3B8' : '#FF85A1';
+            break;
+          case 'swasiq':
+            this.vx = (Math.random() - 0.5) * 1.6;
+            this.vy = Math.random() * 2 + 1.5;
+            this.size = Math.random() * 12 + 8;
+            this.color = Math.random() > 0.5 ? '#52B788' : '#D8F3DC';
+            break;
+          case 'leshui':
+            this.vx = (Math.random() - 0.5) * 1.8;
+            this.vy = Math.random() * 2.2 + 2;
+            this.size = Math.random() * 14 + 10;
+            this.color = Math.random() > 0.5 ? '#588157' : '#8DAA72';
+            break;
+          case 'pratan':
+            const r = ['#E63946', '#FFD166', '#06D6A0', '#118AB2', '#9D4EDD'];
+            this.vx = (Math.random() - 0.5) * 1.2;
+            this.vy = Math.random() * 2.5 + 2.5;
+            this.size = Math.random() * 8 + 6;
+            this.color = r[Math.floor(Math.random() * r.length)];
+            break;
+          case 'ceroh':
+            const rc = ['#D62828', '#F4A261', '#FAF0CA', '#2A9D8F'];
+            this.vx = (Math.random() - 0.5) * 1;
+            this.vy = Math.random() * 3 + 2.8;
+            this.size = Math.random() * 8 + 5;
+            this.color = rc[Math.floor(Math.random() * rc.length)];
+            break;
+          case 'yongkang':
+            this.vx = (Math.random() - 0.5) * 1.5;
+            this.vy = Math.random() * 2 + 1.5;
+            this.size = Math.random() * 7 + 4;
+            this.color = '#FFD166';
+            break;
+          case 'saza':
+            this.vx = Math.cos(Math.random() * Math.PI) * 2;
+            this.vy = Math.random() * 2.5 + 2;
+            this.size = Math.random() * 15 + 10;
+            this.color = '#2D6A4F';
+            break;
+          case 'rinari':
+            this.vx = (Math.random() - 0.5) * 1.6;
+            this.vy = Math.random() * 2 + 1.8;
+            this.size = Math.random() * 13 + 8;
+            this.color = '#FFFFFF';
+            break;
+          case 'ulaljuc':
+          default:
+            this.vx = (Math.random() - 0.5) * 1.4;
+            this.vy = Math.random() * 2.8 + 2.2;
+            this.size = Math.random() * 11 + 7;
+            this.color = '#3D1E06';
+            break;
+        }
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.rot += this.rotSpeed;
+        if (this.y > canvas.height + 25 || this.x < -30 || this.x > canvas.width + 30) {
+          this.reset(false);
+        }
+      }
+      draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rot);
+        ctx.globalAlpha = this.alpha;
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(0, 0, this.size * 0.5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    for (let i = 0; i < DROP_COUNT; i++) drops.push(new DropItem(true));
+
+    function switchWeather(type) {
+      if (currentMode === type) return;
+      currentMode = type;
+      if (weatherConfig[type] && liveText) liveText.innerText = weatherConfig[type].text;
+      drops.forEach((d, idx) => {
+        if (idx % 2 === 0) d.reset(false);
+        else d.type = currentMode;
+      });
+    }
+
+    function renderLoop() {
+      updateTrainMovement();
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < drops.length; i++) {
+        drops[i].update();
+        drops[i].draw();
+      }
+      requestAnimationFrame(renderLoop);
+    }
+    renderLoop();
+  </script>
+</body>
+</html>
