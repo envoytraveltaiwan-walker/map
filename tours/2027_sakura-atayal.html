@@ -139,7 +139,7 @@
       color: white;
     }
 
-    /* ==================== 頁首英雄區：痛點擊破 ✕ 強烈吸引 ==================== */
+    /* ==================== 頁首英雄區 ==================== */
     .hero {
       background: linear-gradient(135deg, #fff0f3 0%, #fcf7f0 55%, #f1f8f4 100%);
       padding: 48px 0 56px;
@@ -286,7 +286,7 @@
       margin-bottom: 28px;
     }
 
-    /* ==================== 為何不能錯過：震撼九宮/四宮格 ==================== */
+    /* 為何不能錯過 */
     .must-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -328,7 +328,7 @@
       line-height: 1.65;
     }
 
-    /* 莉梅姐引路人深情故事區塊 */
+    /* 莉梅姐引路人 */
     .guide-box {
       background: #fff;
       border: 1.5px solid #ebd9db;
@@ -366,7 +366,6 @@
       line-height: 1.75;
     }
 
-    /* 部落生活哲學故事 */
     .story-card {
       background: #fff;
       border: 1px solid var(--border);
@@ -425,7 +424,6 @@
     }
     .date-card a:hover { color: var(--rose); }
 
-    /* 費用清單與安心承諾 */
     .included-card {
       background: #fff;
       border: 1px solid var(--border);
@@ -433,7 +431,6 @@
       padding: 28px 30px;
     }
 
-    /* FAQ 網格 */
     .faq-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -504,7 +501,6 @@
       line-height: 1.55;
     }
 
-    /* 結尾純淨段落 (無重複按鈕) */
     .final-clean-wrap {
       background: #eaf0e9;
       text-align: center;
@@ -519,7 +515,7 @@
       color: var(--soft);
     }
 
-    /* 頁尾 (深色標準規格) */
+    /* 頁尾 */
     .et-footer {
       background: #051218;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -563,7 +559,6 @@
     .footer-divider { color: #334155; }
     .footer-copyright { font-size: 11.5px; color: #64748B; }
 
-    /* 底部唯一常駐吸附按鈕 */
     .sticky {
       position: fixed;
       bottom: 0; left: 0; right: 0;
@@ -597,7 +592,6 @@
       z-index: 12;
     }
 
-    /* 手機版優化 */
     @media (max-width: 800px) {
       body { font-size: 17px; }
       .container { width: calc(100% - 28px); }
@@ -642,8 +636,8 @@
   <!-- ==================== 頂部導覽列 ==================== -->
   <nav class="nav">
     <div class="container navinner">
-      <a href="#top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="nav-brand-lockup" title="回到最頂端">
-        <img src="./ENVOY_Emblem_Transparent.png"
+      <a href="/" class="nav-brand-lockup" title="回到首頁">
+        <img src="/ENVOY_Emblem_Transparent.png"
              onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/ENVOY_Emblem_Transparent.png';"
              alt="ENVOY 權杖標誌"
              class="nav-emblem-img">
@@ -654,7 +648,7 @@
       </a>
 
       <div class="nav-actions">
-        <a href="./index.html" class="btn-back-home" data-i="homeBtn">‹ 回首頁</a>
+        <a href="/" class="btn-back-home" data-i="homeBtn">‹ 回首頁</a>
         <div aria-label="語言切換" class="lang-group">
           <button aria-pressed="true" id="zhBtn" type="button">中文</button>
           <button aria-pressed="false" id="jaBtn" type="button">日本語</button>
@@ -664,7 +658,7 @@
   </nav>
 
   <main>
-    <!-- ==================== 主視覺看板：滿滿的不想錯過理由 ==================== -->
+    <!-- ==================== 主視覺看板 ==================== -->
     <header class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
@@ -672,7 +666,6 @@
           <h1 data-i="title">走進白蘭，遇見山裡的櫻花季</h1>
           <p class="hero-catchphrase" data-i="catchphrase">厭倦了人擠人的走馬看花？這一次，把時間留給雲霧繚繞的武俠山林</p>
 
-          <!-- 一打開頁面就直接打中痛點的聚焦盒 -->
           <div class="hero-hook-card">
             <div class="hero-hook-title" data-i="hookTitle">⚡ 為什麼這趟櫻花慢旅，值得你特地請兩天假？</div>
             <div class="hero-hook-desc" data-i="hookDesc">
@@ -750,7 +743,7 @@
     <section class="section alt">
       <div class="container">
         <div class="guide-box">
-          <img alt="莉梅姐" src="./莉梅姐.png" onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/%E8%8E%89%E6%A2%85%E5%A7%90.png';"/>
+          <img alt="莉梅姐" src="/莉梅姐.png" onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/%E8%8E%89%E6%A2%85%E5%A7%90.png';"/>
           <div class="guide-box-content">
             <h3 data-i="hostHeader">原鄉引路人 ｜ 莉梅姐</h3>
             <span class="guide-box-title" data-i="hostSub">推薦台灣深度小旅行 ‧ 37 年旅遊資歷私選帶路</span>
@@ -857,7 +850,7 @@
       </div>
     </section>
 
-    <!-- 結尾純淨段落 (無多餘重複按鈕) -->
+    <!-- 結尾純淨段落 -->
     <section class="final-clean-wrap">
       <div class="container">
         <h2 data-i="finalTitle">2027 春天，留兩天給櫻花、雲霧與山林</h2>
@@ -866,7 +859,7 @@
     </section>
   </main>
 
-  <!-- ==================== 頁尾 (與首頁 100% 相同深色規格) ==================== -->
+  <!-- ==================== 頁尾 ==================== -->
   <footer class="et-footer">
     <div class="footer-wrapper">
       <div class="footer-company-full">安捷國際旅行社有限公司 ｜ ENVOY INTERNATIONAL TRAVEL SERVICE CO., LTD.</div>
@@ -880,7 +873,7 @@
       </div>
 
       <div class="footer-links-bar">
-        <a href="./index.html" class="footer-link-a" data-i="homeBtn">‹ 回首頁</a>
+        <a href="/" class="footer-link-a" data-i="homeBtn">‹ 回首頁</a>
         <span class="footer-divider">｜</span>
         <a href="https://lin.ee/Z3c7Qam" target="_blank" class="footer-link-a line-channel">
           💬 官方客服：LINE 官方帳號
@@ -1087,7 +1080,7 @@
     setLanguage('zh');
   </script>
 
-  <!-- 櫻花降雨特效腳本 -->
+  <!-- 櫻花雨動態畫布 -->
   <script>
     (() => {
       const canvas = document.getElementById('sakura-rain');
