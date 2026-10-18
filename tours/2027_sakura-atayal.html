@@ -1,12 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
   <meta content="#fcf8f3" name="theme-color"/>
-  <meta content="和莉梅姐一起旅行：2027新竹五峰白蘭部落櫻花山林二天一夜。平日賞櫻、六人成團、台北專車、一泊二食。" name="description"/>
-  <title>和莉梅姐一起旅行｜2027 白蘭部落櫻花山林二天一夜</title>
+  <meta content="原鄉引路人莉梅姐私選：2027新竹五峰白蘭部落櫻花山林二天一夜。避開人潮、平日包場、雲霧繚繞武俠仙境、六人成團、台北專車、一泊二食。" name="description"/>
+  <title>原鄉引路人 莉梅姐私選｜2027 白蘭部落櫻花山林二天一夜</title>
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+JP:wght@500;600;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet"/>
@@ -37,7 +36,7 @@
     a:focus-visible, button:focus-visible { outline: 3px solid #bd5470; outline-offset: 3px; }
     .container { width: min(1060px, calc(100% - 40px)); margin: auto; }
 
-    /* ==================== 頂部導覽列 (首頁權杖Logo + 雙語回首頁) ==================== */
+    /* ==================== 頂部導覽列 ==================== */
     .nav {
       background: rgba(252, 248, 243, 0.98);
       border-bottom: 1px solid var(--border);
@@ -54,7 +53,6 @@
       gap: 10px;
     }
 
-    /* 左上角：與首頁一致之權杖 Logo，點擊回頂部 */
     .nav-brand-lockup {
       display: flex;
       align-items: center;
@@ -90,7 +88,6 @@
       margin-top: 2px;
     }
 
-    /* 右上角：回首頁按鈕 + 語言群組 (中文 / 日本語) */
     .nav-actions {
       display: flex;
       align-items: center;
@@ -142,10 +139,11 @@
       color: white;
     }
 
-    /* ==================== 頁面主體排版 ==================== */
+    /* ==================== 頁首英雄區：痛點擊破 ✕ 強烈吸引 ==================== */
     .hero {
-      background: linear-gradient(120deg, #fff1f1, #fbf7f0 70%);
-      padding: 44px 0 54px;
+      background: linear-gradient(135deg, #fff0f3 0%, #fcf7f0 55%, #f1f8f4 100%);
+      padding: 48px 0 56px;
+      border-bottom: 1px solid rgba(182, 79, 104, 0.12);
     }
     .hero .hero-grid {
       display: grid;
@@ -154,107 +152,313 @@
       margin-inline: auto;
       gap: 16px;
     }
-    .eyebrow { font-size: 15.5px; color: var(--rose); font-weight: 700; letter-spacing: .04em; }
+    .eyebrow-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(182, 79, 104, 0.12);
+      border: 1px solid rgba(182, 79, 104, 0.35);
+      color: var(--rose);
+      font-size: 15px;
+      font-weight: 800;
+      padding: 5px 16px;
+      border-radius: 20px;
+      letter-spacing: .03em;
+      width: fit-content;
+    }
     .hero h1 {
       font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
-      font-size: clamp(32px, 4.2vw, 50px);
+      font-size: clamp(32px, 4.3vw, 50px);
       line-height: 1.35;
       letter-spacing: .015em;
-      margin: 12px 0;
+      margin: 14px 0 10px;
+      color: #1a2722;
       white-space: normal;
     }
-    .sub { font-size: 21px; font-weight: 700; color: var(--leaf); }
-    .intro { max-width: 660px; margin: 18px 0 22px; }
-    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0; }
+    .hero-catchphrase {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--leaf);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .hero-hook-card {
+      background: rgba(255, 255, 255, 0.85);
+      border: 1.5px solid #ebd9db;
+      border-radius: 16px;
+      padding: 18px 22px;
+      margin: 14px 0 20px;
+      box-shadow: 0 8px 24px rgba(182, 79, 104, 0.06);
+    }
+    .hero-hook-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--rose);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+    .hero-hook-desc {
+      font-size: 16.5px;
+      color: #33443d;
+      line-height: 1.68;
+    }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 24px; }
     .chip {
-      border: 1px solid #d7c6c1;
+      border: 1.5px solid #d4c8c2;
       border-radius: 30px;
-      padding: 4px 14px;
-      font-weight: 600;
+      padding: 5px 15px;
+      font-weight: 700;
       font-size: 15.5px;
       background: #fff;
+      color: var(--ink);
     }
-    .curated { font-size: 14.5px; color: var(--soft); margin: 0 0 18px; }
-    .button {
+    .chip.highlight {
+      border-color: var(--rose);
+      background: var(--roseLight);
+      color: var(--rose);
+    }
+    .button-hero-cta {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      min-height: 52px;
-      padding: 12px 24px;
-      border-radius: 12px;
+      gap: 10px;
+      min-height: 56px;
+      padding: 14px 28px;
+      border-radius: 14px;
       text-decoration: none;
       background: #06a54e;
       color: #fff;
-      font-size: 18.5px;
-      font-weight: 700;
-      border: 0;
-      cursor: pointer;
+      font-size: 19px;
+      font-weight: 800;
+      box-shadow: 0 8px 24px rgba(6, 165, 78, 0.28);
+      transition: all 0.2s ease;
+      width: fit-content;
     }
-    .button:hover { filter: brightness(.94); }
+    .button-hero-cta:hover {
+      filter: brightness(.95);
+      transform: translateY(-2px);
+    }
 
     /* 價格卡片 */
-    .price-section { margin-top: -18px; position: relative; }
+    .price-section { margin-top: -24px; position: relative; z-index: 2; }
     .price-card {
       background: #fff;
-      border: 1px solid #e6d9d2;
-      box-shadow: 0 12px 30px #24352f13;
-      border-radius: 18px;
-      padding: 26px 28px;
+      border: 1.5px solid #e2d3cc;
+      box-shadow: 0 14px 36px rgba(36, 53, 47, 0.1);
+      border-radius: 20px;
+      padding: 26px 30px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
     }
-    .price-card .label { color: var(--soft); font-size: 16px; }
-    .amount { font-size: clamp(38px, 5vw, 54px); font-weight: 700; color: var(--rose); line-height: 1.25; }
-    .old { text-decoration: line-through; color: #757a74; }
-    .small { font-size: 15.5px; color: var(--soft); }
-    .save { color: var(--rose); font-weight: 700; font-size: 16px; }
+    .price-card .label { color: var(--soft); font-size: 16px; font-weight: 600; }
+    .amount { font-size: clamp(38px, 5vw, 54px); font-weight: 800; color: var(--rose); line-height: 1.25; }
+    .old { text-decoration: line-through; color: #8a9189; }
+    .small { font-size: 15px; color: var(--soft); }
+    .save-tag {
+      display: inline-block;
+      background: var(--roseLight);
+      border: 1px solid var(--rose);
+      color: var(--rose);
+      font-weight: 800;
+      font-size: 14px;
+      padding: 2px 10px;
+      border-radius: 12px;
+      margin-top: 4px;
+    }
 
     /* 各區塊 */
-    .section { padding: 60px 0; }
+    .section { padding: 68px 0; }
     .section.alt { background: #f3efe8; }
-    h2 { font-family: 'Noto Serif TC', 'Noto Serif JP', serif; font-size: clamp(26px, 3vw, 34px); line-height: 1.4; margin: 0 0 22px; }
-    h3 { font-size: 21px; line-height: 1.5; margin: 0 0 8px; }
-    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-    .tile, .date-card, .faq { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
-    .num { font-size: 28px; margin-bottom: 12px; }
-    .story { max-width: 850px; font-size: 18.5px; }
+    h2 {
+      font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
+      font-size: clamp(26px, 3.2vw, 36px);
+      line-height: 1.4;
+      margin: 0 0 12px;
+      color: #172621;
+    }
+    .section-intro-sub {
+      font-size: 17px;
+      color: var(--soft);
+      margin-bottom: 28px;
+    }
 
-    /* 梯次卡片 */
-    .date-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 15px; }
-    .date-card strong { display: block; font-size: 23px; margin: 8px 0; }
-    .date-card .batch { color: var(--rose); font-size: 15px; font-weight: 700; }
-    .date-card a { color: var(--leaf); font-weight: 700; text-underline-offset: 4px; }
-    .notice { border-left: 4px solid var(--rose); padding: 12px 16px; background: var(--roseLight); border-radius: 4px; margin-top: 20px; font-size: 15.5px; }
-    .included { padding: 24px; background: #fff; border: 1px solid var(--border); border-radius: 16px; }
+    /* ==================== 為何不能錯過：震撼九宮/四宮格 ==================== */
+    .must-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+    .must-card {
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: 18px;
+      padding: 26px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: 0 6px 18px rgba(36, 53, 47, 0.04);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .must-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--rose);
+    }
+    .must-card-badge {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--rose);
+      background: var(--roseLight);
+      padding: 3px 10px;
+      border-radius: 8px;
+      width: fit-content;
+    }
+    .must-card h3 {
+      font-size: 21px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+    .must-card p {
+      font-size: 16px;
+      color: var(--soft);
+      line-height: 1.65;
+    }
 
-    /* FAQ */
-    .faq-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; }
-    .faq h3 { font-size: 19px; }
-    .faq-wide { grid-column: 1 / -1; }
-
-    /* 莉梅姐介紹 */
-    .hostbox {
+    /* 莉梅姐引路人深情故事區塊 */
+    .guide-box {
+      background: #fff;
+      border: 1.5px solid #ebd9db;
+      border-radius: 20px;
+      padding: 32px 30px;
       display: flex;
       align-items: center;
-      gap: 24px;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
+      gap: 28px;
+      box-shadow: 0 10px 30px rgba(182, 79, 104, 0.08);
     }
-    .hostbox img {
-      width: 120px;
-      height: 120px;
+    .guide-box img {
+      width: 140px;
+      height: 140px;
       object-fit: cover;
       border-radius: 50%;
       flex-shrink: 0;
-      border: 2px solid var(--roseLight);
+      border: 3px solid var(--roseLight);
+    }
+    .guide-box-content h3 {
+      font-size: 23px;
+      font-weight: 800;
+      color: #172621;
+      margin-bottom: 4px;
+    }
+    .guide-box-title {
+      font-size: 15px;
+      color: var(--rose);
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .guide-box-text {
+      font-size: 17px;
+      color: #2b3d36;
+      line-height: 1.75;
     }
 
-    /* ==================== 報名三步驟 (高結構卡片排版) ==================== */
+    /* 部落生活哲學故事 */
+    .story-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 32px;
+      font-size: 18px;
+      line-height: 1.85;
+      color: #2a3d35;
+    }
+
+    /* 梯次卡片 */
+    .date-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 15px;
+      margin-top: 10px;
+    }
+    .date-card {
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 22px 18px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+      transition: all 0.2s ease;
+    }
+    .date-card:hover {
+      border-color: var(--rose);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(182, 79, 104, 0.1);
+    }
+    .date-card .batch {
+      color: var(--rose);
+      font-size: 14.5px;
+      font-weight: 800;
+      background: var(--roseLight);
+      padding: 3px 10px;
+      border-radius: 12px;
+      align-self: center;
+    }
+    .date-card strong {
+      display: block;
+      font-size: 21px;
+      line-height: 1.35;
+      color: var(--ink);
+    }
+    .date-card a {
+      color: var(--leaf);
+      font-weight: 800;
+      font-size: 15px;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+    .date-card a:hover { color: var(--rose); }
+
+    /* 費用清單與安心承諾 */
+    .included-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px 30px;
+    }
+
+    /* FAQ 網格 */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .faq-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px 24px;
+    }
+    .faq-card h3 {
+      font-size: 18.5px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .faq-card p {
+      font-size: 16px;
+      color: var(--soft);
+      line-height: 1.6;
+    }
+    .faq-wide { grid-column: 1 / -1; }
+
+    /* 結構化三步驟 */
     .steps-container {
       display: flex;
       flex-direction: column;
@@ -274,10 +478,6 @@
     .step-box-card:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(36, 53, 47, 0.08);
-    }
-    .step-box-card.accent {
-      border-color: #fbcfe8;
-      background: #fffdfd;
     }
     .step-badge-pill {
       background: var(--ink);
@@ -304,15 +504,13 @@
       line-height: 1.55;
     }
 
-    /* 2027 春天結尾區段 (已移除重複的綠色按鈕) */
+    /* 結尾純淨段落 (無重複按鈕) */
     .final-clean-wrap {
       background: #eaf0e9;
       text-align: center;
-      padding: 60px 0 50px;
+      padding: 64px 0 52px;
     }
-    .final-clean-wrap h2 {
-      margin-bottom: 14px;
-    }
+    .final-clean-wrap h2 { margin-bottom: 12px; }
     .final-clean-wrap p {
       margin: 0 auto;
       max-width: 680px;
@@ -321,11 +519,11 @@
       color: var(--soft);
     }
 
-    /* ==================== 頁尾 (與首頁 100% 相同深色規格) ==================== */
+    /* 頁尾 (深色標準規格) */
     .et-footer {
       background: #051218;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 36px 40px 110px; /* 底部留白避免遮擋吸附按鈕 */
+      padding: 36px 40px 110px;
       color: #94A3B8;
       font-size: 13px;
       line-height: 1.6;
@@ -337,8 +535,6 @@
       color: #CBD5E1;
       margin-bottom: 10px;
     }
-
-    /* 法定資料：小字細緻 */
     .footer-legal-small {
       font-size: 11px;
       color: #64748B;
@@ -347,7 +543,6 @@
     }
     .footer-legal-small span { margin-right: 14px; display: inline-block; }
 
-    /* 快速連結列：回首頁 ＋ LINE 客服 */
     .footer-links-bar {
       display: flex;
       align-items: center;
@@ -363,15 +558,12 @@
       text-decoration: none;
       font-weight: 700;
       font-size: 13px;
-      transition: color 0.2s;
     }
-    .footer-link-a:hover { color: #FFF; }
     .footer-link-a.line-channel { color: #4ADE80; font-weight: 900; }
     .footer-divider { color: #334155; }
-
     .footer-copyright { font-size: 11.5px; color: #64748B; }
 
-    /* 底部唯一常駐吸附預約按鈕 */
+    /* 底部唯一常駐吸附按鈕 */
     .sticky {
       position: fixed;
       bottom: 0; left: 0; right: 0;
@@ -383,7 +575,19 @@
       justify-content: center;
       backdrop-filter: blur(8px);
     }
-    .sticky .button { width: min(100%, 500px); }
+    .sticky .button {
+      width: min(100%, 500px);
+      min-height: 52px;
+      background: #06a54e;
+      color: #fff;
+      border-radius: 12px;
+      font-size: 18.5px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
 
     #sakura-rain {
       position: fixed;
@@ -394,9 +598,9 @@
     }
 
     /* 手機版優化 */
-    @media (max-width: 750px) {
+    @media (max-width: 800px) {
       body { font-size: 17px; }
-      .container { width: calc(100% - 30px); }
+      .container { width: calc(100% - 28px); }
       .navinner { min-height: 64px; }
       .nav-emblem-img { height: 34px; }
       .nav-brand-en { font-size: 15px; letter-spacing: 2px; }
@@ -404,14 +608,15 @@
       .btn-back-home { padding: 5px 10px; font-size: 13px; }
       .lang-group button { padding: 4px 8px; font-size: 12px; }
 
-      .hero { padding: 26px 0 38px; }
+      .hero { padding: 30px 0 44px; }
+      .hero-catchphrase { font-size: 19px; }
+      .hero-hook-card { padding: 16px 18px; }
       .price-card { flex-direction: column; align-items: flex-start; padding: 20px; }
-      .section { padding: 44px 0; }
-      .grid, .faq-grid { grid-template-columns: 1fr; }
+      .section { padding: 46px 0; }
+      .must-grid, .faq-grid { grid-template-columns: 1fr; }
       .date-grid { grid-template-columns: 1fr 1fr; }
-      .hostbox { flex-direction: column; align-items: flex-start; }
-      .hostbox img { width: 100px; height: 100px; }
-
+      .guide-box { flex-direction: column; align-items: flex-start; padding: 22px; }
+      .guide-box img { width: 100px; height: 100px; }
       .step-box-card {
         flex-direction: column;
         align-items: flex-start;
@@ -459,21 +664,33 @@
   </nav>
 
   <main>
-    <!-- 主視覺看板 -->
+    <!-- ==================== 主視覺看板：滿滿的不想錯過理由 ==================== -->
     <header class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <div class="eyebrow" data-i="eyebrow"></div>
-          <h1 data-i="title"></h1>
-          <p class="sub" data-i="subtitle"></p>
-          <p class="intro" data-i="intro"></p>
-          <div class="chips">
-            <span class="chip" data-i="limited"></span>
-            <span class="chip" data-i="group"></span>
-            <span class="chip" data-i="stay"></span>
+          <div class="eyebrow-badge" data-i="badge">🌿 原鄉引路人 ‧ 莉梅姐私選</div>
+          <h1 data-i="title">走進白蘭，遇見山裡的櫻花季</h1>
+          <p class="hero-catchphrase" data-i="catchphrase">厭倦了人擠人的走馬看花？這一次，把時間留給雲霧繚繞的武俠山林</p>
+
+          <!-- 一打開頁面就直接打中痛點的聚焦盒 -->
+          <div class="hero-hook-card">
+            <div class="hero-hook-title" data-i="hookTitle">⚡ 為什麼這趟櫻花慢旅，值得你特地請兩天假？</div>
+            <div class="hero-hook-desc" data-i="hookDesc">
+              週末的賞櫻景點塞車數小時、拍照全是大合照？引路人莉梅姐堅持「只選平日出發」。六人成團、台北專車免去舟車勞頓，直上海拔千米的新竹五峰白蘭部落。沒有觀光團的吵雜，只有如武俠仙境般的深山雲霧、泰雅族的山林智慧，以及山裡住一晚才能體會的星夜寧靜。
+            </div>
           </div>
-          <p class="curated" data-i="curated"></p>
-          <a class="button" data-i="cta" href="https://lin.ee/Z3c7Qam" rel="noopener" target="_blank"></a>
+
+          <div class="chips">
+            <span class="chip highlight" data-i="c1">✨ 武俠雲霧仙境</span>
+            <span class="chip" data-i="c2">指定平日避世出發</span>
+            <span class="chip" data-i="c3">六人小團即成行</span>
+            <span class="chip" data-i="c4">台北專車往返</span>
+            <span class="chip" data-i="c5">一泊二食泰雅風味</span>
+          </div>
+
+          <a class="button-hero-cta" data-i="ctaMain" href="https://lin.ee/Z3c7Qam" rel="noopener" target="_blank">
+            💬 加入 LINE 諮詢出發梯次與專人安排 ↗
+          </a>
         </div>
       </div>
     </header>
@@ -482,122 +699,135 @@
     <div class="container price-section">
       <div class="price-card">
         <div>
-          <div class="label" data-i="priceLabel"></div>
+          <div class="label" data-i="priceLabel">限時提早預約價</div>
           <div class="amount">NT$4,870</div>
-          <div class="small" data-i="per"></div>
-          <div class="save" data-i="save"></div>
+          <div class="small" data-i="per">／人・雙人一室</div>
+          <span class="save-tag" data-i="save">提早預約現省 NT$500</span>
         </div>
         <div>
-          <div class="small"><span data-i="normal"></span> <span class="old">NT$5,370</span></div>
-          <h3 data-i="single"></h3>
-          <div class="small" data-i="singleInfo"></div>
+          <div class="small"><span data-i="normal">原價</span> <span class="old">NT$5,370</span></div>
+          <h3 data-i="singleTitle">一個人也歡迎報名</h3>
+          <div class="small" data-i="singleDesc">以雙人一室為基本安排；若需單人一室或露營需求，歡迎加入 LINE 評估報價。</div>
         </div>
       </div>
     </div>
 
-    <!-- 亮點 -->
+    <!-- ==================== 四大不可錯過的私選理由 ==================== -->
     <section class="section">
       <div class="container">
-        <h2 data-i="highTitle"></h2>
-        <div class="grid">
-          <article class="tile">
-            <div class="num">🌸</div>
-            <h3 data-i="h1"></h3>
-            <p data-i="h1d"></p>
+        <h2 data-i="whyTitle">引路人私選筆記：這趟慢旅，到底哪裡不一樣？</h2>
+        <p class="section-intro-sub" data-i="whySub">不只是看櫻花，更是一場卸下城市緊繃、走入風土深處的生活練習。</p>
+
+        <div class="must-grid">
+          <article class="must-card">
+            <span class="must-card-badge">🌫️ 武俠意境 ‧ 避世包場</span>
+            <h3 data-i="m1t">平日出發，獨享雲霧繚繞的櫻花仙境</h3>
+            <p data-i="m1d">特別避開週末車潮與遊客，在平日走進高山櫻花林。山風吹拂時雲霧翻湧，如同武俠小說裡的世外桃源，隨手一拍都是乾淨純粹的空靈景緻。</p>
           </article>
-          <article class="tile">
-            <div class="num">🗺️</div>
-            <h3 data-i="h2"></h3>
-            <p data-i="h2d"></p>
+
+          <article class="must-card">
+            <span class="must-card-badge">🗺️ Google Maps ‧ 自主探索</span>
+            <h3 data-i="m2t">打開手機地圖，尋找野生馬告與刺蔥香氣</h3>
+            <p data-i="m2d">沒有制式打卡的催促，拿著 Google Maps 漫步山林步道。沿途尋找帶有清新檸檬香氣的野生馬告果實與刺蔥獨特氣味，用自己的感官認識原鄉風土。</p>
           </article>
-          <article class="tile">
-            <div class="num">🍲</div>
-            <h3 data-i="h3"></h3>
-            <p data-i="h3d"></p>
+
+          <article class="must-card">
+            <span class="must-card-badge">🍲 舒心過夜 ‧ 一泊二食</span>
+            <h3 data-i="m3t">山裡住上一晚，星空下品嚐部落柴燒滋味</h3>
+            <p data-i="m3d">包含一晚住宿、當日原風晚餐與隔日早餐。不用當天匆忙往返，在星空蟲鳴下放空入眠，早晨在微涼的山嵐與櫻花香氣中自然醒來。</p>
           </article>
-          <article class="tile">
-            <div class="num">🚐</div>
-            <h3 data-i="h4"></h3>
-            <p data-i="h4d"></p>
+
+          <article class="must-card">
+            <span class="must-card-badge">🚐 台北專車 ‧ 六人成團</span>
+            <h3 data-i="m4t">免去自駕山路辛勞，六人精緻微團說走就走</h3>
+            <p data-i="m4d">從台北車站搭乘專車直達五峰山林，不必在蜿蜒險峻的山路耗費心神。六人即可成行，三五好友包團或一人報名認識新朋友都自在。</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- 莉梅姐介紹 (專辦訂製高質感小旅行) -->
-    <section class="section">
+    <!-- ==================== 原鄉引路人介紹 ==================== -->
+    <section class="section alt">
       <div class="container">
-        <h2 data-i="hostTitle"></h2>
-        <div class="hostbox">
+        <div class="guide-box">
           <img alt="莉梅姐" src="./莉梅姐.png" onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/%E8%8E%89%E6%A2%85%E5%A7%90.png';"/>
-          <p data-i="hostBio"></p>
+          <div class="guide-box-content">
+            <h3 data-i="hostHeader">原鄉引路人 ｜ 莉梅姐</h3>
+            <span class="guide-box-title" data-i="hostSub">推薦台灣深度小旅行 ‧ 37 年旅遊資歷私選帶路</span>
+            <p class="guide-box-text" data-i="hostBody">
+              莉梅姐擁有 37 年旅遊業豐富經驗，專辦訂製高質感、有溫度的精緻小旅行。她深信「旅行不必等別人有空」，走過無數大山大水，她現在最想做的，是替旅人引路，把值得細細欣賞的台灣部落與山林文化分享給懂生活的人。此行若希望由莉梅姐同行帶隊，請於 LINE 報名時特別備註，將由專人為您回覆最終行程安排。
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- 部落文化故事 -->
-    <section class="section alt">
+    <section class="section">
       <div class="container">
-        <h2 data-i="cultureTitle"></h2>
-        <p class="story" data-i="culture"></p>
+        <h2 data-i="cultureTitle">不只是賞櫻，更是泰雅族生活哲學的相遇</h2>
+        <div class="story-card" data-i="cultureBody">
+          白蘭部落座落於新竹五峰的深山之間，是認識泰雅族生活文化的起點。泰雅族的傳統文化重視人與土地、家族及群體之間的關係；「Gaga」所涵蓋的生活規範與祖靈價值觀，承載著世代傳遞的生命智慧。這趟旅行從櫻花花景與山林散策出發，留心山徑間野生馬告的清新氣味、刺蔥的獨特芬芳，感受自然植物與部落日常的深刻連結。放慢腳步，不只帶回照片，更帶回一段被山林洗滌的心靈記憶。
+        </div>
       </div>
     </section>
 
     <!-- 出發日期梯次 -->
-    <section class="section" id="dates">
+    <section class="section alt" id="dates">
       <div class="container">
-        <h2 data-i="datesTitle"></h2>
-        <p data-i="datesSub"></p>
+        <h2 data-i="datesTitle">2027 指定出發日期梯次</h2>
+        <p class="section-intro-sub" data-i="datesSub">週一至週四平日精選，避開週末與國定假日。請加入 LINE 告知您想參加的梯次。</p>
+        
         <div class="date-grid" id="dateGrid"></div>
-        <div class="notice" data-i="dateNote"></div>
+        <div class="notice" data-i="dateNote">🌸 櫻花花期受天候氣溫影響，無法保證特定日期滿開。建議以春季山林雲霧、部落風景與慢旅行的心情出發。</div>
       </div>
     </section>
 
     <!-- 費用包含 -->
-    <section class="section alt">
+    <section class="section">
       <div class="container">
-        <h2 data-i="includedTitle"></h2>
-        <div class="included" data-i="included"></div>
+        <h2 data-i="includedTitle">費用包含與貼心說明</h2>
+        <div class="included-card" data-i="includedBody">
+          <p style="margin-bottom:12px;"><strong>【費用包含】</strong>台北車站集合往返專車接送、二天一夜完整行程、一晚部落住宿、當日原風晚餐及隔日早餐、山林探索、旅行業責任保險。</p>
+          <p><strong>【費用說明】</strong>費用以「雙人一室」為基本計算；若需要單人一室或露營等其他住宿需求，歡迎加入官方 LINE 洽詢專人評估與報價。</p>
+        </div>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section class="section">
+    <section class="section alt">
       <div class="container">
-        <h2 data-i="faqTitle"></h2>
+        <h2 data-i="faqTitle">出發前，你可能想確認的事</h2>
         <div class="faq-grid">
-          <article class="faq">
-            <h3 data-i="q1"></h3>
-            <p data-i="a1"></p>
+          <article class="faq-card">
+            <h3 data-i="q1">一個人也可以報名嗎？</h3>
+            <p data-i="a1">當然可以！一個人非常歡迎參加。費用以雙人一室為基本安排；若希望單人一室，請加入 LINE 詢問房型及報價。</p>
           </article>
-          <article class="faq">
-            <h3 data-i="q2"></h3>
-            <p data-i="a2"></p>
+          <article class="faq-card">
+            <h3 data-i="q2">幾個人可以成團？</h3>
+            <p data-i="a2">六人成團！您可以先加入 LINE 登記希望出發的梯次，由服務團隊為您確認成團狀態與報名手續。</p>
           </article>
-          <article class="faq">
-            <h3 data-i="q3"></h3>
-            <p data-i="a3"></p>
+          <article class="faq-card">
+            <h3 data-i="q3">櫻花一定會滿開盛開嗎？</h3>
+            <p data-i="a3">櫻花受自然天候影響，無法保證絕對滿開。建議以春日深山雲霧漫遊、泰雅部落風土與慢旅行的心情出發。</p>
           </article>
-          <article class="faq">
-            <h3 data-i="q4"></h3>
-            <p data-i="a4"></p>
+          <article class="faq-card">
+            <h3 data-i="q4">取消行程如何辦理退費？</h3>
+            <p data-i="a4">取消與退費依交通部觀光署國內旅遊定型化契約相關規定辦理。如需取消或變更，請透過官方 LINE 聯繫服務團隊。</p>
           </article>
-          <article class="faq">
-            <h3 data-i="cancelQuestion"></h3>
-            <p data-i="cancelAnswer"></p>
-          </article>
-          <article class="faq faq-wide">
-            <h3 data-i="qHost"></h3>
-            <p data-i="aHost"></p>
+          <article class="faq-card faq-wide">
+            <h3 data-i="qHost">可以請莉梅姐親自帶隊同行嗎？</h3>
+            <p data-i="aHost">非常歡迎！莉梅姐專辦訂製高質感的小旅行，若希望由莉梅姐親自帶隊同行，請於 LINE 報名時特別備註「希望莉梅姐帶隊」，將由專人為您回覆最終行程安排。</p>
           </article>
         </div>
       </div>
     </section>
 
     <!-- 報名方式：高結構卡片排版 -->
-    <section class="section alt">
+    <section class="section">
       <div class="container">
         <h2 data-i="bookingTitle">報名方式 ｜ 三步驟就能詢問</h2>
+        <p class="section-intro-sub" data-i="bookingSub">專人一對一線上服務，報名、包團或特殊需求都能直接討論。</p>
         
         <div class="steps-container">
           <div class="step-box-card">
@@ -612,26 +842,26 @@
             <span class="step-badge-pill gold">STEP 2</span>
             <div class="step-body-content">
               <h4 data-i="step2Title">告知人數與希望出發日期</h4>
-              <p data-i="step2Desc">於聊天室發送想參加的人數，並提供梯次編號（如 T01 ~ T04）。</p>
+              <p data-i="step2Desc">於聊天室發送想參加的人數，並提供指定梯次編號（如 T01 ~ T04）。</p>
             </div>
           </div>
 
-          <div class="step-box-card accent">
+          <div class="step-box-card">
             <span class="step-badge-pill rose">STEP 3</span>
             <div class="step-body-content">
               <h4 data-i="step3Title">提出需求與專人確認</h4>
-              <p data-i="step3Desc">如有單人一室、露營等住宿形式，或希望莉梅姐帶隊，請一併備註，將由專人為您回覆最終行程安排。</p>
+              <p data-i="step3Desc">如有單人房、露營住宿形式需求，或希望莉梅姐帶隊，請一併備註，將由專人為您回覆最終行程安排。</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 2027 春天段落 (已完全移除重複的多餘按鈕，回歸純淨文案) -->
+    <!-- 結尾純淨段落 (無多餘重複按鈕) -->
     <section class="final-clean-wrap">
       <div class="container">
-        <h2 data-i="finalTitle">2027 春天，留兩天給櫻花與山林</h2>
-        <p data-i="finalSub">加入 LINE，告訴我們參加人數與希望出發日期；若有單人房、露營等住宿需求，或希望莉梅姐帶隊，歡迎於報名時備註，將由專人為您回覆最終行程安排。</p>
+        <h2 data-i="finalTitle">2027 春天，留兩天給櫻花、雲霧與山林</h2>
+        <p data-i="finalSub">六人即可成行，台北專車往返。加入官方 LINE，告訴我們人數與梯次，開啟一場不慌不忙的山林慢旅。</p>
       </div>
     </section>
   </main>
@@ -641,7 +871,6 @@
     <div class="footer-wrapper">
       <div class="footer-company-full">安捷國際旅行社有限公司 ｜ ENVOY INTERNATIONAL TRAVEL SERVICE CO., LTD.</div>
 
-      <!-- 法定資料：小字細緻 (不放電話與傳真) -->
       <div class="footer-legal-small">
         <span>交通部觀光署註冊旅行業 ‧ 甲種 592000 號</span>
         <span>交觀甲字第 5920 號</span>
@@ -650,7 +879,6 @@
         <span>地址：臺北市中山區長安東路2段50號5樓之1</span>
       </div>
 
-      <!-- 快速連結列：回首頁 ＋ LINE 客服 -->
       <div class="footer-links-bar">
         <a href="./index.html" class="footer-link-a" data-i="homeBtn">‹ 回首頁</a>
         <span class="footer-divider">｜</span>
@@ -667,7 +895,9 @@
 
   <!-- 螢幕底部唯一常駐吸附預約按鈕 -->
   <div class="sticky">
-    <a class="button" data-i="cta" href="https://lin.ee/Z3c7Qam" rel="noopener" target="_blank"></a>
+    <a class="button" data-i="ctaSticky" href="https://lin.ee/Z3c7Qam" rel="noopener" target="_blank">
+      💬 LINE 詢問梯次與報名 ↗
+    </a>
   </div>
 
   <canvas aria-hidden="true" id="sakura-rain"></canvas>
@@ -677,115 +907,129 @@
     const translations = {
       "zh": {
         "homeBtn": "‹ 回首頁",
-        "qHost": "可以請莉梅姐親自帶隊嗎？",
-        "aHost": "歡迎提出希望由莉梅姐帶隊的需求！莉梅姐擁有 37 年旅遊業豐富經驗，專辦客製、訂製高質感的精緻小旅行。若希望由莉梅姐親自同行，請於 LINE 報名時特別備註「希望莉梅姐帶隊」，將由專人為您回覆最終行程安排。",
-        "cancelQuestion": "取消行程如何辦理退費？",
-        "cancelAnswer": "取消與退費依交通部觀光署國內旅遊定型化契約相關規定辦理。如需取消或變更，請透過 LINE 聯繫安捷旅遊服務團隊。",
-        "eyebrow": "2027 春季限定｜新竹五峰・白蘭部落",
+        "badge": "🌿 原鄉引路人 ‧ 莉梅姐私選",
         "title": "走進白蘭，遇見山裡的櫻花季",
-        "subtitle": "賞櫻 × 泰雅文化 × 山林慢旅行",
-        "intro": "在櫻花盛開的季節，走進泰雅族的山林生活，避開假日人潮，享受二天一夜的慢旅行。",
-        "cta": "LINE 詢問梯次與報名",
+        "catchphrase": "厭倦了人擠人的走馬看花？這一次，把時間留給雲霧繚繞的武俠山林",
+        "hookTitle": "⚡ 為什麼這趟櫻花慢旅，值得你特地請兩天假？",
+        "hookDesc": "週末的賞櫻景點塞車數小時、拍照全是大合照？引路人莉梅姐堅持「只選平日出發」。六人成團、台北專車免去舟車勞頓，直上海拔千米的新竹五峰白蘭部落。沒有觀光團的吵雜，只有如武俠仙境般的深山雲霧、泰雅族的山林智慧，以及山裡住一晚才能體會的星夜寧靜。",
+        "c1": "✨ 武俠雲霧仙境",
+        "c2": "指定平日避世出發",
+        "c3": "六人小團即成行",
+        "c4": "台北專車往返",
+        "c5": "一泊二食泰雅風味",
+        "ctaMain": "💬 加入 LINE 諮詢出發梯次與專人安排 ↗",
         "priceLabel": "限時提早預約價",
-        "normal": "原價",
         "per": "／人・雙人一室",
         "save": "提早預約現省 NT$500",
-        "single": "一個人也歡迎報名",
-        "singleInfo": "以雙人一室為基本安排；需要單人一室或其他住宿形式，歡迎加入 LINE 詢問。",
-        "highTitle": "這趟旅行，剛剛好的美好",
-        "h1": "平日賞櫻，不趕人潮",
-        "h1d": "特別安排平日梯次，放慢腳步欣賞春日櫻景與山林風光。",
-        "h2": "山林探索・尋找自然的香氣",
-        "h2d": "走進山林，尋找馬告、刺蔥等具有特色的植物，讓賞櫻之旅多一份發現。",
-        "h3": "一泊二食，舒服過夜",
-        "h3d": "包含一晚住宿、當日晚餐與隔日早餐。山裡住一晚，不必匆匆來回。",
-        "h4": "台北專車・六人成團",
-        "h4d": "免去自己開山路的辛勞。歡迎單人或結伴報名，六人成團。",
-        "cultureTitle": "不只是賞櫻，也走進泰雅的山林文化",
-        "culture": "白蘭部落位於新竹五峰的山林之間，是認識泰雅族生活文化的起點。泰雅族的傳統文化重視人與土地、家族及群體之間的關係；「Gaga」所涵蓋的生活規範與價值觀，承載著世代傳遞的智慧。傳統織布與菱形紋樣，也是認識泰雅文化的線索。這趟旅行從春季櫻花與山林景色出發，留心馬告帶有清新香氣的果實、刺蔥獨特的葉片氣味，感受自然植物與原鄉飲食、日常生活的連結。放慢腳步，不只帶回照片，也多認識一點台灣山林裡的故事。",
-        "datesTitle": "2027 指定出發日期",
-        "datesSub": "週一至週四安排，避開週末與國定假日。請透過 LINE 告知想參加的梯次。",
+        "normal": "原價",
+        "singleTitle": "一個人也歡迎報名",
+        "singleDesc": "以雙人一室為基本安排；若需單人一室或露營需求，歡迎加入 LINE 評估報價。",
+        "whyTitle": "引路人私選筆記：這趟慢旅，到底哪裡不一樣？",
+        "whySub": "不只是看櫻花，更是一場卸下城市緊繃、走入風土深處的生活練習。",
+        "m1t": "平日出發，獨享雲霧繚繞的櫻花仙境",
+        "m1d": "特別避開週末車潮與遊客，在平日走進高山櫻花林。山風吹拂時雲霧翻湧，如同武俠小說裡的世外桃源，隨手一拍都是乾淨純粹的空靈景緻。",
+        "m2t": "打開手機地圖，尋找野生馬告與刺蔥香氣",
+        "m2d": "沒有制式打卡的催促，拿著 Google Maps 漫步山林步道。沿途尋找帶有清新檸檬香氣的野生馬告果實與刺蔥獨特氣味，用自己的感官認識原鄉風土。",
+        "m3t": "舒心過夜，星空下品嚐部落柴燒滋味",
+        "m3d": "包含一晚住宿、當日原風晚餐與隔日早餐。不用當天匆忙往返，在星空蟲鳴下放空入眠，早晨在微涼的山嵐與櫻花香氣中自然醒來。",
+        "m4t": "免去自駕山路辛勞，六人精緻微團說走就走",
+        "m4d": "從台北車站搭乘專車直達五峰山林，不必在蜿蜒險峻的山路耗費心神。六人即可成行，三五好友包團或一人報名認識新朋友都自在。",
+        "hostHeader": "原鄉引路人 ｜ 莉梅姐",
+        "hostSub": "推薦台灣深度小旅行 ‧ 37 年旅遊資歷私選帶路",
+        "hostBody": "莉梅姐擁有 37 年旅遊業豐富經驗，專辦訂製高質感、有溫度的精緻小旅行。她深信「旅行不必等別人有空」，走過無數大山大水，她現在最想做的，是替旅人引路，把值得細細欣賞的台灣部落與山林文化分享給懂生活的人。此行若希望由莉梅姐同行帶隊，請於 LINE 報名時特別備註，將由專人為您回覆最終行程安排。",
+        "cultureTitle": "不只是賞櫻，更是泰雅族生活哲學的相遇",
+        "cultureBody": "白蘭部落座落於新竹五峰的深山之間，是認識泰雅族生活文化的起點。泰雅族的傳統文化重視人與土地、家族及群體之間的關係；「Gaga」所涵蓋的生活規範與祖靈價值觀，承載著世代傳遞的生命智慧。這趟旅行從櫻花花景與山林散策出發，留心山徑間野生馬告的清新氣味、刺蔥的獨特芬芳，感受自然植物與部落日常的深刻連結。放慢腳步，不只帶回照片，更帶回一段被山林洗滌的心靈記憶。",
+        "datesTitle": "2027 指定出發日期梯次",
+        "datesSub": "週一至週四平日精選，避開週末與國定假日。請加入 LINE 告知您想參加的梯次。",
         "choose": "詢問這個梯次",
-        "dateNote": "櫻花花期受天候影響，無法保證特定日期滿開。建議以春季山林與慢旅行的心情出發。",
-        "includedTitle": "費用包含與報名說明",
-        "included": "台北車站集合往返專車、二天一夜行程、一晚住宿、當日晚餐及隔日早餐、山林探索。費用以雙人一室計算；其他住宿需求請透過 LINE 洽詢。",
-        "faqTitle": "出發前，你可能想知道",
-        "q1": "一個人可以報名嗎？",
-        "a1": "可以！一個人也歡迎參加。費用以雙人一室為基本安排；若希望單人一室，請加入 LINE 詢問房型及報價。",
-        "q2": "幾個人成團？",
-        "a2": "六人成團。可先登記希望出發的日期，由服務團隊確認成團及報名安排。",
-        "q3": "可以調整住宿方式嗎？",
-        "a3": "若希望安排單人一室、露營或其他住宿形式，請加入 LINE 說明需求，由服務團隊評估可行性與另行報價；是否可安排依當地條件及實際供應為準。",
-        "q4": "櫻花一定會盛開嗎？",
-        "a4": "櫻花受天候影響，無法保證滿開。建議以春季山林、部落風景與慢旅行的心情出發。",
-        "finalTitle": "2027 春天，留兩天給櫻花與山林",
-        "finalSub": "加入 LINE，告訴我們參加人數與希望出發日期；若有單人房、露營等住宿需求，或希望莉梅姐帶隊，歡迎於報名時備註，將由專人為您回覆最終行程安排。",
-        "curated": "推薦台灣深度小旅行・安捷旅遊執行長莉梅姐策劃",
-        "hostTitle": "和莉梅姐一起旅行｜旅行不必等別人有空",
-        "hostBio": "推薦台灣深度小旅行！莉梅姐是安捷旅遊執行長，擁有 37 年旅遊業豐富經驗，專辦訂製高質感、有溫度的精緻小旅行。她希望把值得細細欣賞的台灣風景與部落文化，分享給喜愛探索生活的旅人。「和莉梅姐一起旅行」是她與安捷團隊共同規劃的主題系列，未來將陸續推出更多私房行程。若希望由莉梅姐同行帶隊，請於報名時備註，將由專人為您回覆最終行程安排。",
+        "dateNote": "🌸 櫻花花期受天候氣溫影響，無法保證特定日期滿開。建議以春季山林雲霧、部落風景與慢旅行的心情出發。",
+        "includedTitle": "費用包含與貼心說明",
+        "includedBody": "<p style='margin-bottom:12px;'><strong>【費用包含】</strong>台北車站集合往返專車接送、二天一夜完整行程、一晚部落住宿、當日原風晚餐及隔日早餐、山林探索、旅行業責任保險。</p><p><strong>【費用說明】</strong>費用以「雙人一室」為基本計算；若需要單人一室或露營等其他住宿需求，歡迎加入官方 LINE 洽詢專人評估與報價。</p>",
+        "faqTitle": "出發前，你可能想確認的事",
+        "q1": "一個人也可以報名嗎？",
+        "a1": "當然可以！一個人非常歡迎參加。費用以雙人一室為基本安排；若希望單人一室，請加入 LINE 詢問房型及報價。",
+        "q2": "幾個人可以成團？",
+        "a2": "六人成團！您可以先加入 LINE 登記希望出發的梯次，由服務團隊為您確認成團狀態與報名手續。",
+        "q3": "櫻花一定會滿開盛開嗎？",
+        "a3": "櫻花受自然天候影響，無法保證絕對滿開。建議以春日深山雲霧漫遊、泰雅部落風土與慢旅行的心情出發。",
+        "q4": "取消行程如何辦理退費？",
+        "a4": "取消與退費依交通部觀光署國內旅遊定型化契約相關規定辦理。如需取消或變更，請透過官方 LINE 聯繫服務團隊。",
+        "qHost": "可以請莉梅姐親自帶隊同行嗎？",
+        "aHost": "非常歡迎！莉梅姐專辦訂製高質感的小旅行，若希望由莉梅姐親自帶隊同行，請於 LINE 報名時特別備註「希望莉梅姐帶隊」，將由專人為您回覆最終行程安排。",
         "bookingTitle": "報名方式 ｜ 三步驟就能詢問",
+        "bookingSub": "專人一對一線上服務，報名、包團或特殊需求都能直接討論。",
         "step1Title": "加入官方 LINE 帳號",
         "step1Desc": "點擊下方按鈕加入安捷國際旅行社官方 LINE 好友。",
         "step2Title": "告知人數與希望出發日期",
-        "step2Desc": "於聊天室發送想參加的人數，並提供梯次編號（如 T01 ~ T04）。",
+        "step2Desc": "於聊天室發送想參加的人數，並提供指定梯次編號（如 T01 ~ T04）。",
         "step3Title": "提出需求與專人確認",
-        "step3Desc": "如有單人一室、露營等住宿形式，或希望莉梅姐帶隊，請一併備註，將由專人為您回覆最終行程安排。"
+        "step3Desc": "如有單人房、露營住宿形式需求，或希望莉梅姐帶隊，請一併備註，將由專人為您回覆最終行程安排。",
+        "finalTitle": "2027 春天，留兩天給櫻花、雲霧與山林",
+        "finalSub": "六人即可成行，台北專車往返。加入官方 LINE，告訴我們人數與梯次，開啟一場不慌不忙的山林慢旅。",
+        "ctaSticky": "💬 LINE 詢問梯次與報名 ↗"
       },
       "ja": {
         "homeBtn": "‹ トップへ戻る",
-        "qHost": "莉梅さんに同行してもらえますか？",
-        "aHost": "莉梅さんは旅行業界37年の豊富な経験を持ち、上質で温かみのある少人数ツアーを得意としています。莉梅さんの同行をご希望の場合は、公式LINEでのお申込み時に「莉梅さんの同行希望」とお書き添えください。専任スタッフより最終的な手配をご案内いたします。",
-        "cancelQuestion": "キャンセル・返金はどうなりますか？",
-        "cancelAnswer": "キャンセル・返金は台湾交通部観光署の国内旅行標準約款に基づいて対応します。変更・キャンセルのご相談は公式LINEまでご連絡ください。",
-        "eyebrow": "2027年春限定｜新竹・五峰 白蘭集落",
+        "badge": "🌿 原郷の案内人・莉梅さん特選",
         "title": "白蘭へ、山あいの桜に出会う旅",
-        "subtitle": "桜 × タイヤル文化 × 森のスロートラベル",
-        "intro": "桜の季節にタイヤル族の山里を訪れ、週末の混雑を避けながら、ゆったりとした1泊2日の旅を楽しみます。",
-        "cta": "LINEで日程・予約を問い合わせる",
+        "catchphrase": "混雑するお花見に疲れていませんか？幽玄な霧と桜に包まれる特別なスロートラベルへ",
+        "hookTitle": "⚡ なぜ平日有休を取ってでも、この桜旅に行くべきなのか？",
+        "hookDesc": "週末の有名花見スポットの大渋滞や人混みを避け、案内人・莉梅さんは「平日限定出発」にこだわりました。6名催行・台北専用送迎車で標高1,000mの新竹・五峰白蘭集落へ直行。騒がしさとは無縁の、まるで武侠の世界のような幽玄な山霧、タイヤル族の自然の知恵、そして山に泊まるからこそ味わえる満天の星と静寂が待っています。",
+        "c1": "✨ 幽玄な山霧の桜秘境",
+        "c2": "混雑を避ける平日限定出発",
+        "c3": "6名より催行の小旅行",
+        "c4": "台北発着専用送迎",
+        "c5": "1泊2食タイヤル郷土料理",
+        "ctaMain": "💬 公式LINEで日程相談・お申し込み ↗",
         "priceLabel": "早期予約特別価格",
-        "normal": "通常価格",
         "per": "／名・2名1室",
         "save": "早期予約で NT$500 お得",
-        "single": "お一人様もお申込みいただけます",
-        "singleInfo": "料金は2名1室が基本です。1名1室やその他の宿泊スタイルはLINEでお問い合わせください。",
-        "highTitle": "ゆったり楽しむ、山里の旅",
-        "h1": "平日の桜、混雑を避けて",
-        "h1d": "平日出発で、桜と山の景色をゆっくり楽しみます。",
-        "h2": "山里の自然を探訪",
-        "h2d": "馬告や刺蔥など、山の植物を探しながら自然を楽しみます。",
-        "h3": "1泊2食付き",
-        "h3d": "宿泊1泊、初日の夕食、翌日の朝食が含まれます。",
-        "h4": "台北発・6名より催行",
-        "h4d": "山道の運転は不要。お一人様でもお友達同士でもお申し込みいただけます。",
-        "cultureTitle": "桜だけではない、タイヤル文化との出会い",
-        "culture": "白蘭集落は新竹県五峰の山間にあります。タイヤル族の文化には、土地、家族、共同体との関係を大切にする考え方が受け継がれています。「Gaga」と呼ばれる生活規範や価値観、伝統織物の菱形模様も文化を知る手がかりです。桜と山の景色を楽しみながら、爽やかな香りの馬告や個性的な香りを持つ刺蔥などの植物に目を向け、自然と食文化、暮らしのつながりを感じる旅です。",
+        "normal": "通常価格",
+        "singleTitle": "お一人様もお申込みいただけます",
+        "singleDesc": "料金は2名1室が基本です。1名1室やその他の宿泊スタイルはLINEでお気軽にご相談ください。",
+        "whyTitle": "案内人の特選ノート：この旅が特別な理由",
+        "whySub": "ただ桜を見るだけではない。都会の疲れを解き放ち、土地の深呼吸に出会う旅。",
+        "m1t": "平日出発、霧に包まれる桜の静寂を独占",
+        "m1d": "週末の渋滞や観光客を避け、静かな平日に出発。山風が吹くたび霧が湧き立ち、水墨画のような幻想的な桜景色が広がります。",
+        "m2t": "Google Mapsを片手に、原生の香りと出会う",
+        "m2d": "急かされる観光案内ではなく、地図を見ながら自分のペースで山道を散策。野生の馬告の爽やかな香りや野生植物の息吹を五感で楽しめます。",
+        "m3t": "山里に泊まり、星空の下で心安らぐ夜を",
+        "m3d": "宿泊1泊、初日の夕食、翌日の朝食付き。日帰りの慌ただしさから解放され、満天の星と澄んだ空気の中で深い休息を味わえます。",
+        "m4t": "山道の運転不要、台北発・6名催行のスロートラベル",
+        "m4d": "台北駅から専用車で直行。曲がりくねった山道を運転するストレスはありません。ご友人同士でも、お一人様でも気軽にご参加いただけます。",
+        "hostHeader": "原郷の案内人 ｜ 莉梅（リーメイ）さん",
+        "hostSub": "台湾ディープなスロートラベル推奨 ‧ 旅行業37年の目利き",
+        "hostBody": "莉梅さんは旅行業界37年の豊富な経験を持ち、上質で温かみのある少人数ツアーを得意としています。「旅は誰かを待たなくてもいい」を信条に、本当に心に残る台湾の風土と文化を分かち合いたいと願っています。莉梅さんの同行をご希望の場合は、お申込み時にお知らせください。専任スタッフより最終的な手配をご案内します。",
+        "cultureTitle": "桜だけではない、タイヤル族の暮らしの哲学との出会い",
+        "cultureBody": "白蘭集落は新竹県五峰の山あいにあります。タイヤル族の伝統文化には、土地、家族、共同体との絆を何よりも尊ぶ生活規範「Gaga」が息づいています。桜の花を愛でながら、野生植物の香りに触れ、自然と共生する暮らしの知恵を実感する。ただ写真を撮るだけではない、心洗われる旅の記憶をお持ち帰りいただけます。",
         "datesTitle": "2027年 指定出発日",
-        "datesSub": "週末と祝日を避けた平日設定。希望日をLINEでお知らせください。",
+        "datesSub": "週末と祝日を避けた平日厳選。ご希望の日程をLINEでお知らせください。",
         "choose": "この日程を相談",
-        "dateNote": "桜の開花は天候に左右されます。山里の自然と文化を含めたスロートラベルとしてお楽しみください。",
-        "includedTitle": "料金に含まれるもの・お申込み",
-        "included": "台北駅発着の往復専用車、1泊2日、宿泊1泊、初日の夕食、翌日の朝食、自然散策。料金は2名1室が基本です。その他の宿泊希望はLINEでご相談ください。",
+        "dateNote": "🌸 桜の開花は自然の気候に左右されます。山里の自然と文化を含めたスロートラベルとしてお楽しみください。",
+        "includedTitle": "料金に含まれるもの",
+        "includedBody": "<p style='margin-bottom:12px;'><strong>【料金に含まれるもの】</strong>台北駅発着往復専用送迎、1泊2日行程、集落宿泊1泊、初日夕食・翌日朝食、自然散策、旅行業責任保険。</p><p><strong>【補足】</strong>料金は「2名1室」が基本です。1名1室などをご希望の場合はLINEにてお見積りをご案内します。</p>",
         "faqTitle": "よくあるご質問",
         "q1": "一人でも参加できますか？",
-        "a1": "はい、お一人様も歓迎です。料金は2名1室が基本です。1名1室をご希望の場合はLINEでお見積りをご相談ください。",
+        "a1": "もちろん大歓迎です！2名1室を基本としておりますが、1名1室をご希望の場合はLINEでお気軽にご相談ください。",
         "q2": "何名から催行しますか？",
-        "a2": "6名より催行します。ご希望の日程を登録いただき、催行状況をご案内します。",
-        "q3": "宿泊スタイルは変更できますか？",
-        "a3": "1名1室、キャンプなどのご希望はLINEでお知らせください。手配可否と料金は現地の状況により個別にご案内します。",
-        "q4": "桜は必ず満開ですか？",
-        "a4": "開花状況は天候によって異なります。山里の風景や文化も含めてお楽しみください。",
-        "finalTitle": "2027年の春、桜と山里へ",
-        "finalSub": "公式LINEで参加人数と希望出発日をお知らせください。宿泊や莉梅さんの同行希望も併せてご相談いただけます。専任スタッフより最終日程をご案内します。",
-        "curated": "台湾ディープなスロートラベル・安捷旅行CEO莉梅さん企画",
-        "hostTitle": "莉梅さんと旅しよう｜旅は誰かを待たなくても",
-        "hostBio": "台湾のディープなスロートラベルをお届けします！安捷旅行のCEO・莉梅（リーメイ）さんは旅行業界37年の豊富な経験を持ち、上質で温かみのあるオーダーメイド小旅行を得意としています。本シリーズでは今後も魅力的な特選コースを順次お届けしてまいります。莉梅さんの同行をご希望の場合は、お申込み時にお知らせください。専任スタッフより最終的な手配をご案内します。",
+        "a2": "6名より催行いたします。ご希望の日程をLINEでお知らせいただき、催行状況をご案内します。",
+        "q3": "桜は必ず満開ですか？",
+        "a3": "開花状況は天候によって異なります。山里の風景や集落文化を含めてゆったりとお楽しみください。",
+        "q4": "キャンセル・返金はどうなりますか？",
+        "a4": "台湾交通部観光署の標準約款に基づき対応いたします。ご変更・キャンセルは公式LINEまでご連絡ください。",
+        "qHost": "莉梅さんに同行してもらえますか？",
+        "aHost": "莉梅さんの同行をご希望の場合は、LINEお申込み時に「莉梅さんの同行希望」とお書き添えください。専任スタッフより手配可否をご案内します。",
         "bookingTitle": "お申込み方法 ｜ LINEで簡単3ステップ",
-        "step1Title": "公式 LINE を追加",
-        "step1Desc": "下のボタンから安捷旅行の公式 LINE を友だち追加してください。",
+        "bookingSub": "専任スタッフが1対1でご案内いたします。グループ貸切もご相談ください。",
+        "step1Title": "公式 LINE を友だち追加",
+        "step1Desc": "ボタンから安捷旅行の公式 LINE を追加してください。",
         "step2Title": "人数とご希望の日程を送信",
         "step2Desc": "トーク画面にて参加人数とコース番号（T01〜T04）をお知らせください。",
-        "step3Title": "ご要望の確認と専任スタッフによる手配",
-        "step3Desc": "1名1室やキャンプなどの宿泊希望、莉梅さんの同行希望があればお伝えください。専任スタッフより最終手配をご案内します。"
+        "step3Title": "ご要望確認と手配完了",
+        "step3Desc": "1名1室や莉梅さんの同行希望があればお伝えください。専任スタッフより最終手配をご案内します。",
+        "finalTitle": "2027年の春、桜と山里の静寂へ",
+        "finalSub": "6名より催行・台北専用送迎車。公式LINEからお気軽にお問い合わせください。",
+        "ctaSticky": "💬 LINEで日程相談・お申し込み ↗"
       }
     };
 
@@ -800,10 +1044,17 @@
     function setLanguage(lang) {
       const t = translations[lang];
       document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : 'ja';
-      document.title = lang === 'zh' ? '和莉梅姐一起旅行｜2027 白蘭部落櫻花山林二天一夜' : '莉梅さんと旅しよう｜2027年 白蘭集落の桜旅';
+      document.title = lang === 'zh' ? '原鄉引路人 莉梅姐私選｜2027 白蘭部落櫻花山林二天一夜' : '原郷の案内人 莉梅さん特選｜2027年 白蘭集落の桜旅';
 
       document.querySelectorAll('[data-i]').forEach(el => {
-        el.textContent = t[el.dataset.i] || '';
+        const key = el.dataset.i;
+        if (t[key]) {
+          if (key === 'includedBody') {
+            el.innerHTML = t[key];
+          } else {
+            el.textContent = t[key];
+          }
+        }
       });
 
       document.getElementById('zhBtn').setAttribute('aria-pressed', String(lang === 'zh'));
