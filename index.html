@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>ENVOY 安捷國際旅行社 ｜ 臺灣原鄉慢旅 ✕ 和莉梅姐一起旅行</title>
+  <title>ENVOY 安捷國際旅行社 ｜ 臺灣原鄉慢旅</title>
   <meta name="description" content="ENVOY 安捷國際旅行社官方首頁。深耕臺灣原鄉部落慢旅，和莉梅姐一起走入在地風土與山林生活。">
 
   <!-- Google tag (gtag.js) GA4 -->
@@ -24,7 +24,6 @@
     :root {
       --bg-main: #081B24;
       --bg-card: #0D2B38;
-      --bg-card-hover: #143A4B;
       --accent-gold: #C5A059;
       --accent-rose: #B64F68;
       --line-green: #06A54E;
@@ -47,7 +46,7 @@
       justify-content: space-between;
     }
 
-    /* ==================== 1. 頂部導覽列 (地圖改至此處跳出新分頁) ==================== */
+    /* ==================== 1. 頂部固定導覽列 ==================== */
     .et-navbar {
       position: fixed;
       top: 0; left: 0;
@@ -103,45 +102,98 @@
     }
     .btn-nav-line:hover { transform: scale(1.03); }
 
-    /* ==================== 2. Netflix 巨幅精選看板 (Hero Billboard) ==================== */
+    /* ==================== 2. Netflix 巨幅精選看板 (帶底圖與版權標註) ==================== */
     .hero-billboard {
       position: relative;
       width: 100%;
-      min-height: 80vh;
-      padding: 120px 60px 60px;
+      min-height: 82vh;
+      padding: 130px 60px 70px;
       display: flex;
       align-items: center;
-      background: radial-gradient(circle at 80% 35%, rgba(182, 79, 104, 0.28), transparent 50%),
-                  linear-gradient(180deg, rgba(8, 27, 36, 0.3) 0%, rgba(8, 27, 36, 0.95) 85%, var(--bg-main) 100%),
-                  #0B222E;
+      overflow: hidden;
+      background: #0B222E;
     }
-    .hero-content { max-width: 720px; z-index: 10; }
+    .hero-bg-media {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      z-index: 1;
+    }
+    .hero-overlay-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(8, 27, 36, 0.94) 0%, rgba(8, 27, 36, 0.72) 48%, rgba(8, 27, 36, 0.35) 100%),
+                  linear-gradient(180deg, rgba(8, 27, 36, 0.35) 0%, rgba(8, 27, 36, 0.95) 88%, var(--bg-main) 100%);
+      z-index: 2;
+    }
+    .photo-credit-tag {
+      position: absolute;
+      bottom: 24px;
+      right: 32px;
+      background: rgba(8, 27, 36, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(8px);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      color: #E2E8F0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 720px;
+      z-index: 10;
+    }
     .hero-series-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(182, 79, 104, 0.25);
-      border: 1px solid var(--accent-rose);
-      color: #FFB3C6;
+      background: rgba(197, 160, 89, 0.2);
+      border: 1px solid var(--accent-gold);
+      color: var(--accent-gold);
       padding: 6px 16px;
       border-radius: 20px;
       font-size: 13.5px;
       font-weight: 800;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
     .hero-title {
       font-family: 'Noto Serif TC', serif;
-      font-size: clamp(36px, 5vw, 52px);
+      font-size: clamp(36px, 5vw, 54px);
       font-weight: 700;
       line-height: 1.25;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
     }
-    .hero-subtitle { font-size: 21px; font-weight: 700; color: var(--accent-gold); margin-bottom: 14px; }
-    .hero-desc { font-size: 16px; line-height: 1.7; color: #E2E8F0; margin-bottom: 24px; }
-    .hero-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+    .hero-subtitle {
+      font-size: 21px;
+      font-weight: 700;
+      color: #BAE6FD;
+      margin-bottom: 16px;
+    }
+    .hero-desc {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #E2E8F0;
+      margin-bottom: 26px;
+    }
+    .hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
     .hero-chip-tag {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
       padding: 5px 14px;
       border-radius: 20px;
       font-size: 13.5px;
@@ -171,29 +223,15 @@
       text-decoration: none;
     }
 
-    /* ==================== 3. Netflix 卡片橫向滑動區 (Rows) ==================== */
-    .netflix-rows-wrap {
-      padding: 20px 0 60px;
-    }
-    .row-section {
-      padding: 24px 60px 32px;
-      position: relative;
-    }
-    .row-header {
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
+    /* ==================== 3. Netflix 卡片橫向滑動區 ==================== */
+    .netflix-rows-wrap { padding: 30px 0 60px; }
+    .row-section { padding: 24px 60px 32px; position: relative; }
+    .row-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; }
     .row-title { font-size: 24px; font-weight: 900; }
     .row-subtitle { font-size: 13.5px; color: var(--text-muted); }
 
     /* 部落篩選膠囊 (僅出現有行程的部落) */
-    .tribe-pill-bar {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
+    .tribe-pill-bar { display: flex; gap: 10px; margin-bottom: 14px; }
     .pill-btn {
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.18);
@@ -211,7 +249,7 @@
       border-color: var(--accent-gold);
     }
 
-    /* 滑動軌道 */
+    /* 橫向軌道 */
     .slider-container { position: relative; width: 100%; }
     .scroll-track {
       display: flex;
@@ -223,7 +261,7 @@
     }
     .scroll-track::-webkit-scrollbar { display: none; }
 
-    /* 白蘭櫻花行程卡片 (點擊直接跳轉 2027_sakura-atayal.html) */
+    /* 白蘭櫻花行程卡片 (點選直達 2027_sakura-atayal.html) */
     .tour-card-real {
       flex: 0 0 320px;
       background: var(--bg-card);
@@ -293,7 +331,7 @@
     .price-num { font-size: 20px; font-weight: 900; color: #FDA4AF; }
     .price-save { font-size: 12px; color: var(--accent-gold); font-weight: 700; }
 
-    /* ==================== 4. 統一標準頁尾 (小字、無電話傳真、官方客服為 LINE) ==================== */
+    /* ==================== 4. 統一標準頁尾 ==================== */
     .et-footer {
       background: #051218;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -314,7 +352,7 @@
     }
     .footer-company-full { font-size: 13.5px; font-weight: 800; color: #CBD5E1; margin-bottom: 10px; }
 
-    /* 法定資料：小字細緻 */
+    /* 法定資料：小字細緻 (不放電話與傳真) */
     .footer-legal-small {
       font-size: 11px;
       color: #64748B;
@@ -344,17 +382,18 @@
     @media (max-width: 900px) {
       .et-navbar { padding: 0 20px; }
       .nav-menu { display: none; }
-      .hero-billboard { padding: 100px 24px 40px; min-height: 70vh; }
+      .hero-billboard { padding: 110px 24px 50px; min-height: 70vh; }
       .row-section { padding: 20px 24px; }
+      .photo-credit-tag { bottom: 12px; right: 16px; font-size: 10.5px; padding: 4px 10px; }
       .et-footer { padding: 30px 24px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ==================== 1. 頂部固定導覽列 (臺灣原鄉地圖移至此處跳出新分頁) ==================== -->
+  <!-- ==================== 1. 頂部固定導覽列 (臺灣原鄉地圖在新分頁開啟) ==================== -->
   <header class="et-navbar">
-    <a href="#" class="nav-brand">
+    <a href="./index.html" class="nav-brand">
       <svg width="22" height="28" viewBox="0 0 100 140">
         <path d="M50 6 C51 15 52.5 21 55.5 25 C60 25.8 66 26 73 26.5 C66 28 60 29.2 56 31 C53.8 35 52 41 50 47 C48 41 46.2 35 44 31 C40 29.2 34 28 27 26.5 C34 26 40 25.8 44.5 25 C47.5 21 49 15 50 6 Z" fill="#C5A059"/>
         <path d="M49 53.5 C45.8 63 39.5 75 30.5 86.5 C29.2 88.2 27.2 90 25.8 88.5 C24.5 86.8 26.2 85 27.8 83 C36 71.5 41.8 61 45 52.5 Z" fill="#C5A059"/>
@@ -370,9 +409,8 @@
     <ul class="nav-menu">
       <li><a href="#trending-section">🔥 人氣熱搜</a></li>
       <li><a href="#indigenous-section">🌿 原鄉慢旅</a></li>
-      <!-- 臺灣原鄉地圖：開新分頁跳轉 -->
       <li>
-        <a href="./map.html" target="_blank" class="map-link-btn" title="在新分頁開啟互動地圖">
+        <a href="./map.html" target="_blank" class="map-link-btn" title="在新分頁開啟臺灣原鄉地圖">
           🗺️ 臺灣原鄉地圖 ↗
         </a>
       </li>
@@ -385,25 +423,39 @@
     </div>
   </header>
 
-  <!-- ==================== 2. Netflix 巨幅精選主視覺 ==================== -->
+  <!-- ==================== 2. Netflix 巨幅主視覺 (非分頁大標題，含 Unsplash 圖片與版權) ==================== -->
   <section class="hero-billboard">
+    <!-- 背景 Unsplash 圖片 -->
+    <img src="./viktorija-demjanenko-uvlvyjUlwNI-unsplash.jpg"
+         onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/viktorija-demjanenko-uvlvyjUlwNI-unsplash.jpg';"
+         alt="臺灣原鄉慢旅示意圖"
+         class="hero-bg-media">
+    <div class="hero-overlay-gradient"></div>
+
+    <!-- 圖片版權與示意標註 -->
+    <div class="photo-credit-tag">
+      <span>Photo by Viktorija Demjanenko on Unsplash</span>
+      <span>｜</span>
+      <span>圖片僅供示意</span>
+    </div>
+
+    <!-- 主視覺內容 (首頁整體主標題) -->
     <div class="hero-content">
-      <div class="hero-series-badge">🌸 和莉梅姐一起旅行 ‧ 主題旅行系列</div>
-      <h1 class="hero-title">走進白蘭，遇見山裡的櫻花季</h1>
-      <div class="hero-subtitle">賞櫻 × 泰雅文化 × 山林慢旅行 2天1夜</div>
+      <div class="hero-series-badge">🌿 臺灣原鄉慢旅 ‧ 深度慢行系列</div>
+      <h1 class="hero-title">走進山海風土 ‧ 感受原生感動</h1>
+      <div class="hero-subtitle">探索土地的記憶 ‧ 走進部落的日常生活</div>
       <p class="hero-desc">
-        在櫻花盛開的季節，走進泰雅族的山林生活，避開假日人潮，享受二天一夜的慢旅行。由安捷旅遊執行長莉梅姐親自策劃。
+        避開假日擁擠人潮，以慢旅步調走入在地文化與山林生活。安捷國際旅行社攜手在地部落長老與嚮導，為您呈現最質樸真摯的風土體驗。
       </p>
       <div class="hero-chips">
-        <span class="hero-chip-tag">指定平日出發</span>
-        <span class="hero-chip-tag">六人成團</span>
-        <span class="hero-chip-tag">一泊二食</span>
-        <span class="hero-chip-tag">台北專車往返</span>
+        <span class="hero-chip-tag">部落文化深旅</span>
+        <span class="hero-chip-tag">小團慢行</span>
+        <span class="hero-chip-tag">在地風土食農</span>
+        <span class="hero-chip-tag">安捷專屬企劃</span>
       </div>
       <div class="hero-actions">
-        <!-- 直接跳轉白蘭行程頁面 -->
-        <a href="./2027_sakura-atayal.html" class="btn-hero-primary">▶ 探索白蘭行程詳情</a>
-        <a href="./map.html" target="_blank" class="btn-hero-outline">🗺️ 探索原鄉地圖 ↗</a>
+        <a href="#trending-section" class="btn-hero-primary">▶ 探索推薦行程</a>
+        <a href="./map.html" target="_blank" class="btn-hero-outline">🗺️ 開啟原鄉地圖 ↗</a>
       </div>
     </div>
   </section>
