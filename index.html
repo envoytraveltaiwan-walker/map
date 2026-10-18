@@ -60,7 +60,6 @@
       z-index: 1000;
     }
 
-    /* 權杖 + 雙層文字組合 (點擊回最上方) */
     .nav-brand-lockup {
       display: flex;
       align-items: center;
@@ -393,7 +392,6 @@
     .footer-wrapper { max-width: 1200px; margin: 0 auto; }
     .footer-company-full { font-size: 13.5px; font-weight: 800; color: #CBD5E1; margin-bottom: 10px; }
 
-    /* 法定資料：小字細緻 */
     .footer-legal-small {
       font-size: 11px;
       color: #64748B;
@@ -402,7 +400,6 @@
     }
     .footer-legal-small span { margin-right: 14px; display: inline-block; }
 
-    /* 快速連結列：僅保留 LINE 客服 */
     .footer-links-bar {
       display: flex;
       align-items: center;
@@ -492,7 +489,7 @@
   <!-- ==================== 3. Netflix 卡片橫向滑動區 ==================== -->
   <main class="netflix-rows-wrap">
 
-    <!-- ROW 1: 人氣熱搜 (包含白蘭櫻花與樂水一日遊) -->
+    <!-- ROW 1: 人氣熱搜 -->
     <section class="row-section" id="trending-section">
       <div class="row-header">
         <div class="row-title">🔥 人氣熱搜</div>
@@ -501,8 +498,8 @@
       <div class="slider-container">
         <div class="scroll-track">
 
-          <!-- 1. 白蘭櫻花行程卡片 -->
-          <a href="./2027_sakura-atayal.html" class="tour-card-real sakura-border">
+          <!-- 1. 白蘭櫻花行程卡片 (修正路徑為 ./tours/2027_sakura-atayal.html) -->
+          <a href="./tours/2027_sakura-atayal.html" class="tour-card-real sakura-border">
             <div class="card-thumb-real">
               <img src="./linus-belanger-iQkLU7YgtYM-unsplash.jpg"
                    onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/linus-belanger-iQkLU7YgtYM-unsplash.jpg';"
@@ -525,8 +522,8 @@
             </div>
           </a>
 
-          <!-- 2. 樂水部落一日遊行程卡片 (更新加入) -->
-          <a href="./leshui-atayal.html" class="tour-card-real leshui-border">
+          <!-- 2. 樂水部落一日遊行程卡片 (修正路徑為 ./tours/leshui-atayal.html) -->
+          <a href="./tours/leshui-atayal.html" class="tour-card-real leshui-border">
             <div class="card-thumb-real">
               <img src="./太.jpg"
                    onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/%E5%A4%AA.jpg';"
@@ -557,25 +554,25 @@
       </div>
     </section>
 
-    <!-- ROW 2: 原鄉慢旅 (部落小標籤切換與卡片展示) -->
+    <!-- ROW 2: 原鄉慢旅 -->
     <section class="row-section" id="indigenous-section">
       <div class="row-header">
         <div class="row-title">🌿 原鄉慢旅</div>
         <div class="row-subtitle">臺灣部落深度行程巡禮</div>
       </div>
 
-      <!-- 部落篩選膠囊 (已提供行程的部落) -->
+      <!-- 部落篩選膠囊 (修正連結路徑為 ./tours/...) -->
       <div class="tribe-pill-bar">
         <button class="pill-btn active">全部行程</button>
-        <button class="pill-btn" onclick="location.href='./2027_sakura-atayal.html'">🌸 新竹五峰・白蘭部落 (春季限定)</button>
-        <button class="pill-btn" onclick="location.href='./2027_leshui-atayal.html'">🎋 宜蘭大同・樂水部落 (每週四)</button>
+        <button class="pill-btn" onclick="location.href='./tours/2027_sakura-atayal.html'">🌸 新竹五峰・白蘭部落 (春季限定)</button>
+        <button class="pill-btn" onclick="location.href='./tours/leshui-atayal.html'">🎋 宜蘭大同・樂水部落 (每週四)</button>
       </div>
 
       <div class="slider-container">
         <div class="scroll-track">
 
           <!-- 1. 白蘭櫻花行程卡片 -->
-          <a href="./2027_sakura-atayal.html" class="tour-card-real sakura-border">
+          <a href="./tours/2027_sakura-atayal.html" class="tour-card-real sakura-border">
             <div class="card-thumb-real">
               <img src="./linus-belanger-iQkLU7YgtYM-unsplash.jpg"
                    onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/linus-belanger-iQkLU7YgtYM-unsplash.jpg';"
@@ -599,7 +596,7 @@
           </a>
 
           <!-- 2. 樂水部落一日遊行程卡片 -->
-          <a href="./leshui-atayal.html" class="tour-card-real leshui-border">
+          <a href="./tours/leshui-atayal.html" class="tour-card-real leshui-border">
             <div class="card-thumb-real">
               <img src="./太.jpg"
                    onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/%E5%A4%AA.jpg';"
@@ -635,26 +632,26 @@
   <!-- ==================== 4. 統一標準頁尾 ==================== -->
   <footer class="et-footer">
     <div class="footer-wrapper">
-      <div class="footer-company-full">安捷國際旅行社有限公司 ｜ ENVOY INTERNATIONAL TRAVEL SERVICE CO., LTD.</div>
+      <div class="footer-company-full">安捷國際旅行社有限公司 ｜ ENVOY INTERNATIONAL TRAVEL SERVICE CO., LTD.[cite: 1, 2]</div>
 
       <!-- 法定資料：小字細緻 (不放電話與傳真) -->
       <div class="footer-legal-small">
-        <span>交通部觀光署註冊旅行業 ‧ 甲種 592000 號</span>
-        <span>交觀甲字第 5920 號</span>
-        <span>統一編號：16169138</span>
-        <span>代表人：楊寶惠</span>
-        <span>地址：臺北市中山區長安東路2段50號5樓之1</span>
+        <span>交通部觀光署註冊旅行業 ‧ 甲種 592000 號</span>[cite: 1, 2]
+        <span>交觀甲字第 5920 號</span>[cite: 1]
+        <span>統一編號：16169138</span>[cite: 1]
+        <span>代表人：楊寶惠</span>[cite: 2]
+        <span>地址：臺北市中山區長安東路2段50號5樓之1</span>[cite: 2]
       </div>
 
       <!-- 快速連結列：僅保留 LINE 客服 -->
       <div class="footer-links-bar">
         <a href="https://lin.ee/Z3c7Qam" target="_blank" class="footer-link-a line-channel">
-          💬 官方客服：LINE 官方帳號
+          💬 官方客服：LINE 官方帳號[cite: 1]
         </a>
       </div>
 
       <p class="footer-copyright">
-        © 2026 ENVOY TRAVEL. All Rights Reserved.
+        © 2026 ENVOY TRAVEL. All Rights Reserved.[cite: 1]
       </p>
     </div>
   </footer>
