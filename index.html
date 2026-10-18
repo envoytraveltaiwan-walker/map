@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>ENVOY 安捷國際旅行社 ｜ 臺灣原鄉慢旅 ‧ 熟齡專車首選</title>
-  <meta name="description" content="ENVOY 安捷國際旅行社。原鄉引路人莉梅姐私選帶路，專為熟齡長輩量身企劃：台北專車直達、步道平緩輕鬆、免做功課動腦、享受熱食風土。">
+  <title>ENVOY 安捷國際旅行社 ｜ 臺灣原鄉慢旅 ‧ 小團專車出發</title>
+  <meta name="description" content="ENVOY 安捷國際旅行社。原鄉引路人莉梅姐私選帶路，平日出發、六人精緻小團專車往返，享受不趕路的在地風土食農與山林文化。">
 
   <!-- Google tag (gtag.js) GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PPP4CT61HC"></script>
@@ -111,11 +111,11 @@
       box-shadow: 0 4px 12px rgba(6, 165, 78, 0.35);
     }
 
-    /* ==================== 2. 精簡大氣的看板 (不再佔滿全螢幕) ==================== */
+    /* ==================== 2. 簡潔看板 (主打小團專車、平日避世) ==================== */
     .hero-compact {
       position: relative;
       width: 100%;
-      padding: 95px 24px 20px;
+      padding: 95px 24px 22px;
       background: radial-gradient(circle at 50% 20%, rgba(13, 38, 51, 0.9) 0%, var(--bg-main) 90%);
       text-align: center;
     }
@@ -128,39 +128,39 @@
       color: #FDE68A;
       padding: 5px 14px;
       border-radius: 20px;
-      font-size: 13px;
+      font-size: 13.5px;
       font-weight: 700;
       margin-bottom: 12px;
     }
     .hero-main-title {
       font-family: 'Noto Serif TC', serif;
-      font-size: clamp(24px, 5.5vw, 38px);
+      font-size: clamp(25px, 5.5vw, 40px);
       font-weight: 800;
       line-height: 1.35;
       color: #FFFFFF;
       margin-bottom: 8px;
     }
     .hero-sub-text {
-      font-size: 15px;
+      font-size: 15.5px;
       color: #BAE6FD;
       margin-bottom: 16px;
       font-weight: 500;
     }
 
-    /* 4 個微型安心標籤 (單行並排，完全不佔視覺高度) */
-    .senior-badges-row {
+    /* 4 個微型特色標籤 (凸顯專車、平日、小團) */
+    .feature-badges-row {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 8px;
-      max-width: 650px;
+      max-width: 680px;
       margin: 0 auto;
     }
     .badge-chip {
       background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.16);
       color: #E2E8F0;
-      font-size: 13px;
+      font-size: 13.5px;
       font-weight: 600;
       padding: 5px 12px;
       border-radius: 14px;
@@ -170,9 +170,9 @@
     }
     .badge-chip span { color: #FDE68A; }
 
-    /* ==================== 3. 行程卡片區 (第一屏直接露臉！) ==================== */
+    /* ==================== 3. 行程卡片展示區 (圖上有平日標籤) ==================== */
     .tours-showcase-wrap {
-      padding: 10px 24px 40px;
+      padding: 10px 24px 44px;
       max-width: 1100px;
       margin: 0 auto;
       width: 100%;
@@ -187,7 +187,6 @@
       margin-bottom: 14px;
     }
 
-    /* 卡片網格排版 (手機版垂直並列，大圖清晰、字級大) */
     .tour-cards-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -232,21 +231,39 @@
       transform: scale(1.05);
     }
 
-    .card-badge-floating {
+    /* 圖片上醒目的平日小標籤 */
+    .card-badge-weekday {
       position: absolute;
       top: 10px; left: 10px;
-      background: rgba(6, 21, 29, 0.88);
-      color: #D1FAE5;
+      background: rgba(6, 21, 29, 0.92);
+      color: #6EE7B7;
       border: 1px solid var(--line-green);
-      padding: 3px 10px;
+      padding: 4px 10px;
       border-radius: 12px;
+      font-size: 12px;
+      font-weight: 800;
+      backdrop-filter: blur(4px);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      z-index: 2;
+    }
+    .card-badge-weekday.pink {
+      color: #FDA4AF;
+      border-color: var(--accent-rose);
+    }
+
+    .card-duration-floating {
+      position: absolute;
+      bottom: 8px; right: 10px;
+      background: rgba(0, 0, 0, 0.75);
+      color: #FFF;
+      padding: 3px 8px;
+      border-radius: 6px;
       font-size: 11.5px;
       font-weight: 700;
       backdrop-filter: blur(4px);
-    }
-    .card-badge-floating.pink {
-      color: #FEE2E2;
-      border-color: var(--accent-rose);
+      z-index: 2;
     }
 
     .card-info-content {
@@ -307,7 +324,7 @@
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      pointer-events: none; /* 讓整個卡片都可以點擊跳轉 */
+      pointer-events: none;
     }
 
     /* ==================== 4. 頁尾 ==================== */
@@ -334,7 +351,7 @@
       .hero-main-title { font-size: 22px; }
       .hero-sub-text { font-size: 14px; margin-bottom: 12px; }
       .tours-showcase-wrap { padding: 6px 16px 36px; }
-      .tour-cards-grid { grid-template-columns: 1fr; gap: 16px; } /* 手機版單欄大卡片 */
+      .tour-cards-grid { grid-template-columns: 1fr; gap: 16px; }
       .card-title-text { font-size: 18px; }
     }
   </style>
@@ -361,22 +378,22 @@
     </div>
   </header>
 
-  <!-- ==================== 2. 首頁看板 (簡短精悍，快速入題) ==================== -->
+  <!-- ==================== 2. 首頁看板 (凸顯專車、小團、平日) ==================== -->
   <section class="hero-compact">
     <div class="hero-badge-pill">🌿 原鄉引路人 ‧ 莉梅姐 37 年私選帶路</div>
-    <h1 class="hero-main-title">旅行不必等別人有空，更不必走得氣喘吁吁</h1>
-    <p class="hero-sub-text">專為熟齡長輩企劃 ‧ 避開人潮 ‧ 台北車站專車直達的放鬆慢旅</p>
+    <h1 class="hero-main-title">旅行不必等別人有空，更不必趕路人擠人</h1>
+    <p class="hero-sub-text">專車原車接送 ‧ 平日避世慢行 ‧ 六人小團即可成行</p>
 
-    <!-- 4 大安心標籤 (單行膠囊，不遮擋卡片) -->
-    <div class="senior-badges-row">
-      <div class="badge-chip"><span>🚶‍♂️</span> 平緩步道不費力</div>
-      <div class="badge-chip"><span>🚐</span> 台北專車免開車</div>
-      <div class="badge-chip"><span>🍲</span> 部落熱食現炊飽足</div>
-      <div class="badge-chip"><span>🧠</span> 引路人全程打理</div>
+    <!-- 4 個核心標籤 -->
+    <div class="feature-badges-row">
+      <div class="badge-chip"><span>🚐</span> 六人小團專車出發</div>
+      <div class="badge-chip"><span>🗓️</span> 平日避開假日人潮</div>
+      <div class="badge-chip"><span>🍲</span> 部落在地熱食風味</div>
+      <div class="badge-chip"><span>✨</span> 引路人貼心帶路無購物</div>
     </div>
   </section>
 
-  <!-- ==================== 3. 行程卡片區 (手機第一螢幕直接看到！) ==================== -->
+  <!-- ==================== 3. 精選行程展示區 (大圖、平日標籤) ==================== -->
   <main class="tours-showcase-wrap">
     <div class="tours-section-title">
       <span>👉 請點選有興趣的行程查看詳情：</span>
@@ -384,21 +401,22 @@
 
     <div class="tour-cards-grid">
 
-      <!-- 卡片 1: 樂水一日遊 (點擊直接進入 /tours/leshui-atayal.html) -->
+      <!-- 卡片 1: 樂水一日遊 (封面換上食慾感極強的炭火烤肉實拍，標註平日) -->
       <a href="/tours/leshui-atayal.html" class="tour-card-interactive leshui">
         <div class="card-photo-box">
-          <img src="/IMG_0109.JPG"
-               onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/IMG_0109.JPG';"
-               alt="樂水部落柴燒竹筒飯">
-          <span class="card-badge-floating">每週四出發 ‧ 一日慢旅</span>
+          <img src="/IMAG0097_0.jpg"
+               onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/IMAG0097_0.jpg';"
+               alt="樂水部落炭火烤肉">
+          <span class="card-badge-weekday">🗓️ 平日每週四出發</span>
+          <span class="card-duration-floating">一日慢旅</span>
         </div>
         <div class="card-info-content">
           <div class="card-title-text">宜蘭樂水部落 ‧ 泰雅文化深度一日慢旅</div>
           
           <ul class="card-features-list">
-            <li>🍚 <strong>柴火慢炊：</strong>親做有機米竹筒飯、現烤竹籤山豬肉</li>
-            <li>🦇 <strong>平緩林道：</strong>探尋森鐵百年檜木隧道，步道好走不累</li>
-            <li>🚐 <strong>台北專車：</strong>原車往返免開雪隧，六人即成團</li>
+            <li>🚐 <strong>小團專車：</strong>六人即成團，台北車站專車原車往返免開車</li>
+            <li>🔥 <strong>原風食農：</strong>泰雅炭火烤肉、柴燒竹筒飯 DIY、現搗熱麻糬</li>
+            <li>🌲 <strong>秘境漫步：</strong>舊森鐵 8 號百年隧道，探尋珍稀大葉鼻蝠生態</li>
           </ul>
 
           <div class="card-action-bar">
@@ -406,26 +424,27 @@
               <span class="card-price-text">NT$3,370</span>
               <span style="font-size:12px; color:#94A3B8;">/人起</span>
             </div>
-            <span class="btn-card-cta">點擊查看行程內容 ↗</span>
+            <span class="btn-card-cta">查看行程內容 ↗</span>
           </div>
         </div>
       </a>
 
-      <!-- 卡片 2: 白蘭櫻花 2天1夜 (點擊直接進入 /tours/2027_sakura-atayal.html) -->
+      <!-- 卡片 2: 白蘭櫻花 2天1夜 (標註平日梯次、高鐵專車) -->
       <a href="/tours/2027_sakura-atayal.html" class="tour-card-interactive sakura">
         <div class="card-photo-box">
           <img src="/linus-belanger-iQkLU7YgtYM-unsplash.jpg"
                onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/linus-belanger-iQkLU7YgtYM-unsplash.jpg';"
                alt="白蘭櫻花高山山林">
-          <span class="card-badge-floating pink">2027 春季限定 ‧ 2天1夜</span>
+          <span class="card-badge-weekday pink">🌸 2027 平日限定梯次</span>
+          <span class="card-duration-floating">2天1夜宿遊</span>
         </div>
         <div class="card-info-content">
           <div class="card-title-text">新竹五峰白蘭 ‧ 遇見山裡的櫻花季</div>
           
           <ul class="card-features-list">
-            <li>🌸 <strong>平日包場：</strong>避開週末塞車，獨享高山雲霧櫻花秘境</li>
-            <li>🛏️ <strong>舒心過夜：</strong>山裡住一晚、一泊二食泰雅風味晚餐</li>
-            <li>🚐 <strong>專車接送：</strong>台北直達五峰山林，免自駕開山路</li>
+            <li>🚅 <strong>高鐵專車：</strong>新竹高鐵站專車直達，舒適避開國道塞車</li>
+            <li>🌸 <strong>平日包場：</strong>平日避開假日人車潮，獨享雲霧高山櫻花秘境</li>
+            <li>🛏️ <strong>舒心宿遊：</strong>一泊二食泰雅風味晚餐，山中過夜不匆忙趕路</li>
           </ul>
 
           <div class="card-action-bar">
@@ -433,7 +452,7 @@
               <span class="card-price-text pink">NT$4,870</span>
               <span style="font-size:12px; color:#94A3B8;">/人起</span>
             </div>
-            <span class="btn-card-cta">點擊查看行程內容 ↗</span>
+            <span class="btn-card-cta">查看行程內容 ↗</span>
           </div>
         </div>
       </a>
