@@ -1,27 +1,762 @@
-<!-- 樂水部落卡片 -->
-<a href="./tours/leshui-atayal.html" class="tour-card-real leshui-border">
-  <div class="card-thumb-real">
-    <img src="./太.jpg"
-         onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/%E5%A4%AA.jpg';"
-         alt="樂水部落行程"
-         title="授權人：原住民族委員會原住民族文化發展中心 (CC BY-NC 3.0 TW)"
-         class="card-img-media">
-    <span class="card-badge-real green">跟著莉梅姐一起旅行</span>
-    <span class="card-duration-tag">一日慢旅</span>
-    <span class="card-credit-tag" onclick="event.preventDefault(); window.open('https://cmsdb.culture.tw/person/F4270BDF-DAFC-4BE3-8606-42CE1175E5AB');">
-      CC BY-NC 3.0 ‧ 原民會文化發展中心
-    </span>
-  </div>
-  <div class="card-body-real">
-    <span class="card-series-tag" style="color:#6EE7B7;">宜蘭大同 ‧ 被遺忘的部落</span>
-    <div class="card-title-real">樂水部落 ‧ 泰雅文化深度一日遊</div>
-    <div class="card-meta-text">每週四出發 ‧ 六人成團 ‧ 台北專車 ‧ 獵人竹筒飯</div>
-    <div class="card-price-row">
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>ENVOY 安捷國際旅行社 ｜ 臺灣原鄉慢旅</title>
+  <meta name="description" content="ENVOY 安捷國際旅行社官方首頁。深耕臺灣原鄉部落慢旅，和莉梅姐一起走入在地風土與山林生活。">
+
+  <!-- Google tag (gtag.js) GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PPP4CT61HC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PPP4CT61HC');
+  </script>
+
+  <!-- Google Fonts: Montserrat & Noto Sans TC / Noto Serif TC -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-main: #081B24;
+      --bg-card: #0D2B38;
+      --accent-gold: #C5A059;
+      --accent-rose: #B64F68;
+      --line-green: #06A54E;
+      --text-main: #FFFFFF;
+      --text-muted: #94A3B8;
+      --text-dim: #64748B;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    html { scroll-behavior: smooth; }
+    
+    /* ==================== 措施 2：CSS 全站防選取與防圖片拖曳 ==================== */
+    body {
+      width: 100%;
+      min-height: 100vh;
+      background: var(--bg-main);
+      color: var(--text-main);
+      font-family: 'Noto Sans TC', sans-serif;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      
+      /* 禁止選取文字 */
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    /* 禁止圖片拖曳下載 */
+    img {
+      -webkit-user-drag: none;
+      -khtml-user-drag: none;
+      -moz-user-drag: none;
+      -o-user-drag: none;
+      user-drag: none;
+    }
+
+    /* ==================== 措施 3：視窗失焦防截圖模糊效果 ==================== */
+    #page-content-wrapper {
+      transition: filter 0.15s ease, opacity 0.15s ease;
+      width: 100%;
+    }
+    .blur-effect {
+      filter: blur(22px) grayscale(40%) !important;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    /* ==================== 措施 4：全站覆蓋式動態防護浮水印 ==================== */
+    .watermark-overlay {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.08;
+      background-repeat: repeat;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='200' viewBox='0 0 320 200'><text x='20' y='100' fill='%23FFFFFF' font-size='16' font-family='sans-serif' font-weight='bold' transform='rotate(-22 160 100)'>ENVOY TRAVEL ‧ 版權所有</text></svg>");
+    }
+
+    /* ==================== 1. 頂部固定導覽列 ==================== */
+    .et-navbar {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 76px;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(180deg, rgba(8, 27, 36, 0.96) 0%, rgba(8, 27, 36, 0.8) 70%, transparent 100%);
+      backdrop-filter: blur(14px);
+      z-index: 1000;
+    }
+
+    .nav-brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .nav-emblem-img {
+      height: 46px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+    .nav-brand-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      line-height: 1.25;
+    }
+    .nav-brand-en {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: #FFFFFF;
+    }
+    .nav-brand-zh {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      color: var(--accent-gold);
+      margin-top: 3px;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+      margin-left: 40px;
+      margin-right: auto;
+    }
+    .nav-menu a {
+      color: #E2E8F0;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      transition: color 0.2s;
+    }
+    .nav-menu a:hover { color: var(--accent-gold); }
+
+    .btn-nav-line {
+      background: var(--line-green);
+      color: #FFFFFF;
+      padding: 8px 18px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s;
+    }
+    .btn-nav-line:hover { transform: scale(1.03); }
+
+    /* ==================== 2. Netflix 巨幅精選看板 ==================== */
+    .hero-billboard {
+      position: relative;
+      width: 100%;
+      min-height: 82vh;
+      padding: 130px 60px 70px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: #0B222E;
+    }
+    .hero-bg-media {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      z-index: 1;
+    }
+    .hero-overlay-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(8, 27, 36, 0.94) 0%, rgba(8, 27, 36, 0.72) 48%, rgba(8, 27, 36, 0.35) 100%),
+                  linear-gradient(180deg, rgba(8, 27, 36, 0.35) 0%, rgba(8, 27, 36, 0.95) 88%, var(--bg-main) 100%);
+      z-index: 2;
+    }
+    .photo-credit-tag {
+      position: absolute;
+      bottom: 24px;
+      right: 32px;
+      background: rgba(8, 27, 36, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(8px);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      color: #E2E8F0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 720px;
+      z-index: 10;
+    }
+    .hero-series-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(197, 160, 89, 0.2);
+      border: 1px solid var(--accent-gold);
+      color: var(--accent-gold);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 13.5px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+    .hero-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(36px, 5vw, 54px);
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+    }
+    .hero-subtitle {
+      font-size: 21px;
+      font-weight: 700;
+      color: #BAE6FD;
+      margin-bottom: 16px;
+    }
+    .hero-desc {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #E2E8F0;
+      margin-bottom: 26px;
+    }
+    .hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    .hero-chip-tag {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #FFF;
+    }
+    .hero-actions { display: flex; gap: 16px; align-items: center; }
+    .btn-hero-primary {
+      background: #FFFFFF;
+      color: #081B24;
+      padding: 13px 30px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 900;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-hero-primary:hover { background: #E2E8F0; transform: translateY(-2px); }
+
+    /* ==================== 3. Netflix 卡片橫向滑動區 ==================== */
+    .netflix-rows-wrap { padding: 30px 0 60px; }
+    .row-section { padding: 24px 60px 32px; position: relative; }
+    .row-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; }
+    .row-title { font-size: 24px; font-weight: 900; }
+    .row-subtitle { font-size: 13.5px; color: var(--text-muted); }
+
+    .tribe-pill-bar { display: flex; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+    .pill-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #E2E8F0;
+      padding: 7px 18px;
+      border-radius: 20px;
+      font-size: 13.5px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .pill-btn.active, .pill-btn:hover {
+      background: var(--accent-gold);
+      color: #081B24;
+      border-color: var(--accent-gold);
+    }
+
+    .slider-container { position: relative; width: 100%; }
+    .scroll-track {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 8px 4px 18px;
+      scrollbar-width: none;
+    }
+    .scroll-track::-webkit-scrollbar { display: none; }
+
+    /* 行程卡片 */
+    .tour-card-real {
+      flex: 0 0 320px;
+      background: var(--bg-card);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1.5px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    }
+    .tour-card-real:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+      border-color: var(--accent-gold);
+    }
+    .tour-card-real.sakura-border { border-color: rgba(182, 79, 104, 0.45); }
+    .tour-card-real.sakura-border:hover { border-color: #FDA4AF; }
+    .tour-card-real.leshui-border { border-color: rgba(69, 107, 90, 0.5); }
+    .tour-card-real.leshui-border:hover { border-color: #6EE7B7; }
+
+    .card-thumb-real {
+      width: 100%;
+      height: 180px;
+      position: relative;
+      overflow: hidden;
+      background: #0B2430;
+    }
+    .card-img-media {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .tour-card-real:hover .card-img-media { transform: scale(1.06); }
+    
+    .card-badge-real {
+      position: absolute;
+      top: 10px; left: 10px;
+      background: rgba(8, 27, 36, 0.88);
+      color: #FFB3C6;
+      border: 1px solid var(--accent-rose);
+      padding: 4px 10px;
+      border-radius: 10px;
+      font-size: 11px;
+      font-weight: 800;
+      backdrop-filter: blur(4px);
+      z-index: 2;
+    }
+    .card-badge-real.green {
+      color: #A7F3D0;
+      border-color: var(--leaf);
+    }
+
+    .card-duration-tag {
+      position: absolute;
+      bottom: 8px; right: 10px;
+      background: rgba(0, 0, 0, 0.75);
+      color: #FFF;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      backdrop-filter: blur(4px);
+      z-index: 2;
+    }
+    .card-credit-tag {
+      position: absolute;
+      bottom: 8px; left: 10px;
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.85);
+      background: rgba(0, 0, 0, 0.65);
+      padding: 2px 7px;
+      border-radius: 4px;
+      backdrop-filter: blur(4px);
+      letter-spacing: 0.2px;
+      z-index: 2;
+      text-decoration: none;
+    }
+
+    .card-body-real {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .card-series-tag { font-size: 12px; font-weight: 800; color: var(--accent-gold); }
+    .card-title-real { font-size: 17px; font-weight: 900; line-height: 1.35; color: #FFF; }
+    .card-meta-text { font-size: 13px; color: var(--text-muted); line-height: 1.45; }
+    .card-price-row {
+      margin-top: 10px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+    .price-num { font-size: 20px; font-weight: 900; color: #FDA4AF; }
+    .price-num.green { color: #6EE7B7; }
+    .price-save { font-size: 12px; color: var(--accent-gold); font-weight: 700; }
+
+    /* ==================== 4. 統一標準頁尾 ==================== */
+    .et-footer {
+      background: #051218;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 36px 60px 28px;
+      color: #94A3B8;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .footer-wrapper { max-width: 1200px; margin: 0 auto; }
+    .footer-company-full { font-size: 13.5px; font-weight: 800; color: #CBD5E1; margin-bottom: 10px; }
+
+    /* 法定資料：小字細緻 */
+    .footer-legal-small {
+      font-size: 11px;
+      color: #64748B;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .footer-legal-small span { margin-right: 14px; display: inline-block; }
+
+    /* 快速連結列：僅保留 LINE 客服 */
+    .footer-links-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 12px;
+    }
+    .footer-link-a.line-channel { color: #4ADE80; font-weight: 900; text-decoration: none; font-size: 13px; }
+
+    .footer-copyright { font-size: 11.5px; color: #64748B; }
+
+    @media (max-width: 900px) {
+      .et-navbar { padding: 0 20px; }
+      .nav-menu { display: none; }
+      .hero-billboard { padding: 110px 24px 50px; min-height: 70vh; }
+      .row-section { padding: 20px 24px; }
+      .photo-credit-tag { bottom: 12px; right: 16px; font-size: 10.5px; padding: 4px 10px; }
+      .et-footer { padding: 30px 24px; }
+    }
+  </style>
+</head>
+<body id="top">
+
+  <!-- 浮水印層 -->
+  <div class="watermark-overlay" aria-hidden="true"></div>
+
+  <!-- 頁面可視內容容器 (失焦時自動模糊保護) -->
+  <div id="page-content-wrapper">
+
+    <!-- ==================== 1. 頂部固定導覽列 ==================== -->
+    <header class="et-navbar">
+      <a href="#top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="nav-brand-lockup" title="回到最頂端">
+        <img src="./ENVOY_Emblem_Transparent.png"
+             onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/ENVOY_Emblem_Transparent.png';"
+             alt="ENVOY 權杖標誌"
+             class="nav-emblem-img">
+        <div class="nav-brand-text">
+          <span class="nav-brand-en">ENVOY</span>
+          <span class="nav-brand-zh">安捷國際旅行社</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="#trending-section">🔥 人氣熱搜</a></li>
+        <li><a href="#indigenous-section">🌿 原鄉慢旅</a></li>
+      </ul>
+
       <div>
-        <span class="price-num green">NT$3,370</span>
-        <span style="font-size:11.5px; color:#94A3B8;">/人起</span>
+        <a href="https://lin.ee/Z3c7Qam" target="_blank" class="btn-nav-line">
+          💬 LINE 官方客服
+        </a>
       </div>
-      <span class="price-save">現省 NT$500</span>
-    </div>
+    </header>
+
+    <!-- ==================== 2. Netflix 巨幅精選看板 ==================== -->
+    <section class="hero-billboard">
+      <img src="./viktorija-demjanenko-uvlvyjUlwNI-unsplash.jpg"
+           onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/viktorija-demjanenko-uvlvyjUlwNI-unsplash.jpg';"
+           alt="臺灣原鄉慢旅示意圖"
+           class="hero-bg-media">
+      <div class="hero-overlay-gradient"></div>
+
+      <div class="photo-credit-tag">
+        <span>Photo by Viktorija Demjanenko on Unsplash</span>
+        <span>｜</span>
+        <span>圖片僅供示意</span>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-series-badge">🌿 臺灣原鄉慢旅 ‧ 深度慢行系列</div>
+        <h1 class="hero-title">走進山海風土 ‧ 感受原生感動</h1>
+        <div class="hero-subtitle">探索土地的記憶 ‧ 走進部落的日常生活</div>
+        <p class="hero-desc">
+          避開假日擁擠人潮，以慢旅步調走入在地文化與山林生活。
+        </p>
+        <div class="hero-chips">
+          <span class="hero-chip-tag">部落文化深旅</span>
+          <span class="hero-chip-tag">小團慢行</span>
+          <span class="hero-chip-tag">在地風土食農</span>
+          <span class="hero-chip-tag">安捷專屬企劃</span>
+        </div>
+        <div class="hero-actions">
+          <a href="#trending-section" class="btn-hero-primary">▶ 探索推薦行程</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 3. Netflix 卡片橫向滑動區 ==================== -->
+    <main class="netflix-rows-wrap">
+
+      <!-- ROW 1: 人氣熱搜 -->
+      <section class="row-section" id="trending-section">
+        <div class="row-header">
+          <div class="row-title">🔥 人氣熱搜</div>
+          <div class="row-subtitle">旅客最高好評精選慢旅</div>
+        </div>
+        <div class="slider-container">
+          <div class="scroll-track">
+
+            <!-- 1. 白蘭櫻花行程卡片 -->
+            <a href="./tours/2027_sakura-atayal.html" class="tour-card-real sakura-border">
+              <div class="card-thumb-real">
+                <img src="./linus-belanger-iQkLU7YgtYM-unsplash.jpg"
+                     onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/linus-belanger-iQkLU7YgtYM-unsplash.jpg';"
+                     alt="白蘭部落行程" class="card-img-media">
+                <span class="card-badge-real">和莉梅姐一起旅行</span>
+                <span class="card-duration-tag">2天1夜</span>
+                <span class="card-credit-tag">Photo by Linus Belanger on Unsplash</span>
+              </div>
+              <div class="card-body-real">
+                <span class="card-series-tag">2027 春季限定 ‧ 白蘭部落</span>
+                <div class="card-title-real">走進白蘭，遇見山裡的櫻花季</div>
+                <div class="card-meta-text">平日賞櫻 ‧ 泰雅文化 ‧ 台北專車 ‧ 一泊二食</div>
+                <div class="card-price-row">
+                  <div>
+                    <span class="price-num">NT$4,870</span>
+                    <span style="font-size:11.5px; color:#94A3B8;">/人起</span>
+                  </div>
+                  <span class="price-save">現省 NT$500</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- 2. 樂水部落一日遊行程卡片 -->
+            <a href="./tours/leshui-atayal.html" class="tour-card-real leshui-border">
+              <div class="card-thumb-real">
+                <img src="./太.jpg"
+                     onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/%E5%A4%AA.jpg';"
+                     alt="樂水部落行程"
+                     title="授權人：原住民族委員會原住民族文化發展中心 (CC BY-NC 3.0 TW)"
+                     class="card-img-media">
+                <span class="card-badge-real green">跟著莉梅姐一起旅行</span>
+                <span class="card-duration-tag">一日慢旅</span>
+                <span class="card-credit-tag" onclick="event.preventDefault(); window.open('https://cmsdb.culture.tw/person/F4270BDF-DAFC-4BE3-8606-42CE1175E5AB');">
+                  CC BY-NC 3.0 ‧ 原民會文化發展中心
+                </span>
+              </div>
+              <div class="card-body-real">
+                <span class="card-series-tag" style="color:#6EE7B7;">宜蘭大同 ‧ 被遺忘的部落</span>
+                <div class="card-title-real">樂水部落 ‧ 泰雅文化深度一日遊</div>
+                <div class="card-meta-text">每週四出發 ‧ 六人成團 ‧ 台北專車 ‧ 獵人竹筒飯</div>
+                <div class="card-price-row">
+                  <div>
+                    <span class="price-num green">NT$3,370</span>
+                    <span style="font-size:11.5px; color:#94A3B8;">/人起</span>
+                  </div>
+                  <span class="price-save">現省 NT$500</span>
+                </div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ROW 2: 原鄉慢旅 -->
+      <section class="row-section" id="indigenous-section">
+        <div class="row-header">
+          <div class="row-title">🌿 原鄉慢旅</div>
+          <div class="row-subtitle">臺灣部落深度行程巡禮</div>
+        </div>
+
+        <div class="tribe-pill-bar">
+          <button class="pill-btn active">全部行程</button>
+          <button class="pill-btn" onclick="location.href='./tours/2027_sakura-atayal.html'">🌸 新竹五峰・白蘭部落 (春季限定)</button>
+          <button class="pill-btn" onclick="location.href='./tours/leshui-atayal.html'">🎋 宜蘭大同・樂水部落 (每週四)</button>
+        </div>
+
+        <div class="slider-container">
+          <div class="scroll-track">
+
+            <!-- 1. 白蘭櫻花行程卡片 -->
+            <a href="./tours/2027_sakura-atayal.html" class="tour-card-real sakura-border">
+              <div class="card-thumb-real">
+                <img src="./linus-belanger-iQkLU7YgtYM-unsplash.jpg"
+                     onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/linus-belanger-iQkLU7YgtYM-unsplash.jpg';"
+                     alt="白蘭部落行程" class="card-img-media">
+                <span class="card-badge-real">泰雅文化 ‧ 白蘭</span>
+                <span class="card-duration-tag">2天1夜</span>
+                <span class="card-credit-tag">Photo by Linus Belanger on Unsplash</span>
+              </div>
+              <div class="card-body-real">
+                <span class="card-series-tag">新竹五峰 ‧ 雲霧之鄉</span>
+                <div class="card-title-real">白蘭部落櫻花山林二天一夜</div>
+                <div class="card-meta-text">賞櫻 × 馬告探索 × 六人成團</div>
+                <div class="card-price-row">
+                  <div>
+                    <span class="price-num">NT$4,870</span>
+                    <span style="font-size:11.5px; color:#94A3B8;">/人起</span>
+                  </div>
+                  <span class="price-save">旅展優惠</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- 2. 樂水部落一日遊行程卡片 -->
+            <a href="./tours/leshui-atayal.html" class="tour-card-real leshui-border">
+              <div class="card-thumb-real">
+                <img src="./太.jpg"
+                     onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/%E5%A4%AA.jpg';"
+                     alt="樂水部落行程"
+                     title="授權人：原住民族委員會原住民族文化發展中心 (CC BY-NC 3.0 TW)"
+                     class="card-img-media">
+                <span class="card-badge-real green">泰雅文化 ‧ 樂水</span>
+                <span class="card-duration-tag">一日慢旅</span>
+                <span class="card-credit-tag" onclick="event.preventDefault(); window.open('https://cmsdb.culture.tw/person/F4270BDF-DAFC-4BE3-8606-42CE1175E5AB');">
+                  CC BY-NC 3.0 ‧ 原民會文化發展中心
+                </span>
+              </div>
+              <div class="card-body-real">
+                <span class="card-series-tag" style="color:#6EE7B7;">宜蘭大同 ‧ 被遺忘的部落</span>
+                <div class="card-title-real">樂水部落 ‧ 泰雅文化深度一日遊</div>
+                <div class="card-meta-text">每週四出發 ‧ 六人成團 ‧ 台北專車接送</div>
+                <div class="card-price-row">
+                  <div>
+                    <span class="price-num green">NT$3,370</span>
+                    <span style="font-size:11.5px; color:#94A3B8;">/人起</span>
+                  </div>
+                  <span class="price-save">旅展優惠</span>
+                </div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ==================== 4. 統一標準頁尾 ==================== -->
+    <footer class="et-footer">
+      <div class="footer-wrapper">
+        <div class="footer-company-full">安捷國際旅行社有限公司 ｜ ENVOY INTERNATIONAL TRAVEL SERVICE CO., LTD.[cite: 1, 2]</div>
+
+        <div class="footer-legal-small">
+          <span>交通部觀光署註冊旅行業 ‧ 甲種 592000 號</span>[cite: 1, 2]
+          <span>交觀甲字第 5920 號</span>[cite: 1]
+          <span>統一編號：16169138</span>[cite: 1]
+          <span>代表人：楊寶惠</span>[cite: 2]
+          <span>地址：臺北市中山區長安東路2段50號5樓之1</span>[cite: 2]
+        </div>
+
+        <div class="footer-links-bar">
+          <a href="https://lin.ee/Z3c7Qam" target="_blank" class="footer-link-a line-channel">
+            💬 官方客服：LINE 官方帳號[cite: 1]
+          </a>
+        </div>
+
+        <p class="footer-copyright">
+          © 2026 ENVOY TRAVEL. All Rights Reserved.[cite: 1]
+        </p>
+      </div>
+    </footer>
+
   </div>
-</a>
+
+  <!-- ==================== 措施 1 & 3：JS 防護與失焦模糊控制 ==================== -->
+  <script>
+    const contentWrapper = document.getElementById('page-content-wrapper');
+
+    // 1. 停用滑鼠右鍵選單
+    document.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+    });
+
+    // 2. 停用文字選取與複製 / 剪下
+    document.addEventListener('selectstart', function (e) {
+      e.preventDefault();
+    });
+    document.addEventListener('copy', function (e) {
+      e.preventDefault();
+    });
+    document.addEventListener('cut', function (e) {
+      e.preventDefault();
+    });
+
+    // 3. 攔截常用快捷鍵 (F12、開發者工具、檢視原始碼、列印、存檔、PrintScreen)
+    document.addEventListener('keydown', function (e) {
+      // 阻擋 F12
+      if (e.key === 'F12') {
+        e.preventDefault();
+        return false;
+      }
+
+      // 阻擋 Ctrl+Shift+I / Ctrl+Shift+C / Ctrl+Shift+J (開發者工具)
+      if (e.ctrlKey && e.shiftKey && ['I', 'C', 'J'].includes(e.key.toUpperCase())) {
+        e.preventDefault();
+        return false;
+      }
+
+      // 阻擋 Ctrl+U (檢視原始碼)、Ctrl+S (存檔)、Ctrl+P (列印)
+      if (e.ctrlKey && ['U', 'S', 'P'].includes(e.key.toUpperCase())) {
+        e.preventDefault();
+        return false;
+      }
+
+      // 阻擋 PrintScreen 截圖鍵並清空剪貼簿
+      if (e.key === 'PrintScreen') {
+        e.preventDefault();
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText('');
+        }
+      }
+    });
+
+    // 4. 視窗失焦模糊處理（防螢幕截圖、Alt+Tab 切換、錄影捕捉）
+    window.addEventListener('blur', function () {
+      if (contentWrapper) contentWrapper.classList.add('blur-effect');
+    });
+
+    window.addEventListener('focus', function () {
+      if (contentWrapper) contentWrapper.classList.remove('blur-effect');
+    });
+  </script>
+</body>
+</html>
