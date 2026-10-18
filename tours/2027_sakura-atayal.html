@@ -178,7 +178,7 @@
       backdrop-filter: blur(6px);
     }
     .hero-title {
-      font-family: 'Noto Serif TC', serif;
+      font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
       font-size: clamp(28px, 5.5vw, 44px);
       font-weight: 800;
       line-height: 1.25;
@@ -214,7 +214,7 @@
     }
     .hero-pill-item span { color: #FDA4AF; }
 
-    /* ==================== 3. 4 大慢旅特色排版 (乾淨真實) ==================== */
+    /* ==================== 3. 4 大慢旅特色排版 ==================== */
     .features-clean-section {
       padding: 30px 0 20px;
     }
@@ -288,7 +288,7 @@
       line-height: 1.65;
     }
 
-    /* ==================== 5. 下拉手風琴折疊區 (費用折疊＋出發梯次＋FAQ＋報名) ==================== */
+    /* ==================== 5. 下拉手風琴折疊區 ==================== */
     .accordion-section { padding: 10px 0 30px; }
     .accordion-group {
       display: flex;
@@ -552,49 +552,48 @@
         <h1 class="hero-title" data-i="title">走進白蘭 ‧ 遇見山裡的櫻花季</h1>
         <p class="hero-sub" data-i="catchphrase">新竹高鐵站專車直達 ‧ 平日高山雲霧包場 ‧ 兩天一夜舒心宿遊</p>
 
-        <!-- 3 個核心標籤：0.5 秒看完重點 -->
+        <!-- 3 個核心標籤 (已加入 data-i 翻譯綁定) -->
         <div class="hero-pills-row">
-          <div class="hero-pill-item"><span>🚅</span> 新竹高鐵站專車直達（最速返家）</div>
-          <div class="hero-pill-item"><span>🌸</span> 平日避開人車潮包場賞櫻</div>
-          <div class="hero-pill-item"><span>🛏️</span> 一泊二食部落泰雅美饌</div>
+          <div class="hero-pill-item" data-i="pill1"><span>🚅</span> 新竹高鐵站專車直達（最速返家）</div>
+          <div class="hero-pill-item" data-i="pill2"><span>🌸</span> 平日避開人車潮包場賞櫻</div>
+          <div class="hero-pill-item" data-i="pill3"><span>🛏️</span> 一泊二食部落泰雅美饌</div>
         </div>
       </div>
     </header>
 
-    <!-- ==================== 3. 4 大慢旅亮點 (已移除柴燒字眼) ==================== -->
+    <!-- ==================== 3. 4 大慢旅亮點 (已補齊所有 data-i 翻譯綁定) ==================== -->
     <section class="features-clean-section">
       <div class="container">
         <div class="features-grid">
           
           <div class="feature-clean-box">
             <div class="feature-icon-badge">🌸</div>
-            <div class="feature-clean-title">平日出發 ‧ 獨享雲霧繚繞的櫻花仙境</div>
-            <div class="feature-clean-desc">
+            <div class="feature-clean-title" data-i="f1Title">平日出發 ‧ 獨享雲霧繚繞的櫻花仙境</div>
+            <div class="feature-clean-desc" data-i="f1Desc">
               特別安排平日梯次，避開週末塞車與擁擠遊客。山風吹拂時高山雲霧翻湧，隨手一拍都是純淨空靈的武俠山嵐之美。
             </div>
           </div>
 
           <div class="feature-clean-box">
             <div class="feature-icon-badge">🗺️</div>
-            <div class="feature-clean-title">山林漫步 ‧ 尋找野生馬告與刺蔥香氣</div>
-            <div class="feature-clean-desc">
+            <div class="feature-clean-title" data-i="f2Title">山林漫步 ‧ 尋找野生馬告與刺蔥香氣</div>
+            <div class="feature-clean-desc" data-i="f2Desc">
               打開手機地圖漫步山徑，不被趕路催促。沿途感受帶有清新檸檬香氣的野生馬告果實，認識泰雅日常與自然植物的連結。
             </div>
           </div>
 
-          <!-- 已修正：拿掉柴燒字眼 -->
           <div class="feature-clean-box">
             <div class="feature-icon-badge">🍲</div>
-            <div class="feature-clean-title">山裡住上一晚 ‧ 星空下品嚐部落原風晚餐</div>
-            <div class="feature-clean-desc">
+            <div class="feature-clean-title" data-i="f3Title">山裡住上一晚 ‧ 星空下品嚐部落原風晚餐</div>
+            <div class="feature-clean-desc" data-i="f3Desc">
               包含一晚部落舒適住宿、當日泰雅風味晚餐與翌日早餐。不必當天匆忙奔波，在星空蟲鳴下舒心入眠，晨起迎接微涼櫻花山嵐。
             </div>
           </div>
 
           <div class="feature-clean-box">
             <div class="feature-icon-badge">🚅</div>
-            <div class="feature-clean-title">新竹高鐵專車接駁 ‧ 舒適去回、最速返家</div>
-            <div class="feature-clean-desc">
+            <div class="feature-clean-title" data-i="f4Title">新竹高鐵專車接駁 ‧ 舒適去回、最速返家</div>
+            <div class="feature-clean-desc" data-i="f4Desc">
               於新竹高鐵站集合搭乘專車直達五峰山林，避開國道塞車疲憊。搭乘高鐵平穩舒適，回程專車直達高鐵站，以最快速度回到溫暖的家。
             </div>
           </div>
@@ -637,7 +636,7 @@
           </div>
         </details>
 
-        <!-- 下拉 2：費用包含、特惠價與說明 (摺疊收合) -->
+        <!-- 下拉 2：費用包含、特惠價與說明 (摺疊收合，已加入 data-i 翻譯綁定) -->
         <details class="accordion-item">
           <summary class="accordion-header">
             <div class="accordion-title-box">
@@ -649,13 +648,13 @@
           <div class="accordion-content">
             <div class="folded-price-box">
               <div>
-                <div style="font-size:13px; color:var(--soft); font-weight:700;">限時提早預約價</div>
-                <div class="folded-price-amount">NT$4,870 <span style="font-size:14px; color:var(--soft); font-weight:500;">/人（雙人一室）</span></div>
-                <div style="font-size:12.5px; color:var(--rose); font-weight:700;">提早預約現省 NT$500 <span style="text-decoration:line-through; color:#8a9189;">NT$5,370</span></div>
+                <div style="font-size:13px; color:var(--soft); font-weight:700;" data-i="priceCardLabel">限時提早預約價</div>
+                <div class="folded-price-amount">NT$4,870 <span style="font-size:14px; color:var(--soft); font-weight:500;" data-i="pricePer">/人（雙人一室）</span></div>
+                <div style="font-size:12.5px; color:var(--rose); font-weight:700;"><span data-i="priceSave">提早預約現省 NT$500</span> <span style="text-decoration:line-through; color:#8a9189;">NT$5,370</span></div>
               </div>
               <div style="text-align:right;">
-                <div class="folded-benefit-lead">🚅 新竹高鐵站專車直達</div>
-                <div class="folded-benefit-title">二天一夜 ‧ 一泊二食舒心宿遊</div>
+                <div class="folded-benefit-lead" data-i="priceLead">🚅 新竹高鐵站專車直達</div>
+                <div class="folded-benefit-title" data-i="priceBenefit">二天一夜 ‧ 一泊二食舒心宿遊</div>
               </div>
             </div>
 
@@ -759,7 +758,7 @@
       <div class="footer-links-bar">
         <a href="/" class="footer-link-a" data-i="homeBtn">‹ 回首頁</a>
         <span style="color:#334155;">｜</span>
-        <a href="https://lin.ee/Z3c7Qam" target="_blank" class="footer-link-a line-channel">
+        <a href="https://lin.ee/Z3c7Qam" target="_blank" class="footer-link-a line-channel" data-i="lineService">
           💬 官方客服：LINE 官方帳號
         </a>
       </div>
@@ -778,7 +777,7 @@
 
   <canvas aria-hidden="true" id="sakura-rain"></canvas>
 
-  <!-- 雙語切換腳本 -->
+  <!-- 雙語切換腳本 (已全面補齊日文對照表) -->
   <script>
     const translations = {
       "zh": {
@@ -786,6 +785,17 @@
         "badge": "🌿 原鄉引路人 ‧ 莉梅姐 37 年私選",
         "title": "走進白蘭 ‧ 遇見山裡的櫻花季",
         "catchphrase": "新竹高鐵站專車直達 ‧ 平日高山雲霧包場 ‧ 兩天一夜舒心宿遊",
+        "pill1": "🚅 新竹高鐵站專車直達（最速返家）",
+        "pill2": "🌸 平日避開人車潮包場賞櫻",
+        "pill3": "🛏️ 一泊二食部落泰雅美饌",
+        "f1Title": "平日出發 ‧ 獨享雲霧繚繞的櫻花仙境",
+        "f1Desc": "特別安排平日梯次，避開週末塞車與擁擠遊客。山風吹拂時高山雲霧翻湧，隨手一拍都是純淨空靈的武俠山嵐之美。",
+        "f2Title": "山林漫步 ‧ 尋找野生馬告與刺蔥香氣",
+        "f2Desc": "打開手機地圖漫步山徑，不被趕路催促。沿途感受帶有清新檸檬香氣的野生馬告果實，認識泰雅日常與自然植物的連結。",
+        "f3Title": "山裡住上一晚 ‧ 星空下品嚐部落原風晚餐",
+        "f3Desc": "包含一晚部落舒適住宿、當日泰雅風味晚餐與翌日早餐。不必當天匆忙奔波，在星空蟲鳴下舒心入眠，晨起迎接微涼櫻花山嵐。",
+        "f4Title": "新竹高鐵專車接駁 ‧ 舒適去回、最速返家",
+        "f4Desc": "於新竹高鐵站集合搭乘專車直達五峰山林，避開國道塞車疲憊。搭乘高鐵平穩舒適，回程專車直達高鐵站，以最快速度回到溫暖的家。",
         "datesTitle": "2027 指定出發日期梯次",
         "datesSub": "週一至週四平日精選，避開週末與國定假日。請加入 LINE 告知您想參加的梯次：",
         "dateNote": "🌸 櫻花花期受自然天候氣溫影響，無法保證特定日期滿開。建議以春季山林雲霧、部落生活體驗與慢旅行的心情出發。",
@@ -794,6 +804,11 @@
         "hostSub": "推薦台灣深度小旅行 ‧ 37 年旅遊資歷私選帶路",
         "hostBody": "莉梅姐擁有 37 年旅遊業豐富經驗，專辦訂製高質感、有溫度的精緻小旅行。她深信「旅行不必等別人有空」，走過無數大山大水，她現在最想做的，是替旅人引路，把值得細細欣賞的台灣部落與山林文化分享給懂生活的人。此行若希望由莉梅姐同行帶隊，請於 LINE 報名時特別備註，將由專人為您回覆最終行程安排。",
         "includedTitle": "旅展特惠價 ‧ 費用包含與說明",
+        "priceCardLabel": "限時提早預約價",
+        "pricePer": "/人（雙人一室）",
+        "priceSave": "提早預約現省 NT$500",
+        "priceLead": "🚅 新竹高鐵站專車直達",
+        "priceBenefit": "二天一夜 ‧ 一泊二食舒心宿遊",
         "includedBody": "<p style='margin-bottom:10px;'><strong>【費用包含】</strong>新竹高鐵站集合往返專車接送車資、二天一夜完整行程、一晚部落住宿、當日原風晚餐及隔日早餐、山林探索、旅行業責任保險。（旅客可自理往返新竹高鐵站之車票，搭乘高鐵平穩舒適）</p><p><strong>【費用說明】</strong>費用以「雙人一室」為基本計算；一個人也歡迎報名！若需要單人一室或露營等其他住宿需求，歡迎加入官方 LINE 洽詢專人評估與報價。</p>",
         "faqTitle": "出發前，你可能想確認的事",
         "qTransport": "集合地點在哪裡？為什麼安排新竹高鐵站？",
@@ -815,13 +830,25 @@
         "step2Desc": "於聊天室發送想參加的人數，並提供指定梯次編號（如 T01 ~ T04）。",
         "step3Title": "提出需求與專人確認",
         "step3Desc": "如有單人房、露營住宿形式需求，或希望莉梅姐帶隊，請一併備註，將由專人為您回覆最終行程安排。",
+        "lineService": "💬 官方客服：LINE 官方帳號",
         "ctaSticky": "💬 LINE 詢問梯次與報名 ↗"
       },
       "ja": {
         "homeBtn": "‹ トップへ戻る",
         "badge": "🌿 原郷の案内人・莉梅さん 37年の目利き",
         "title": "白蘭へ ‧ 山あいの桜に出会う旅",
-        "catchphrase": "新竹高鉄駅集合・専用車直行 ‧ 平日貸切の桜 ‧ 1泊2日のスロートラベル",
+        "catchphrase": "新竹高鉄駅集合・専用車直行 ‧ 平日限定・山霧の桜 ‧ 1泊2日のスロートラベル",
+        "pill1": "🚅 新竹高鉄駅より直行送迎（最速で帰宅）",
+        "pill2": "🌸 平日限定・混雑を避けたお花見",
+        "pill3": "🛏️ 1泊2食・タイヤル郷土料理",
+        "f1Title": "平日出発 ‧ 霧に包まれる桜の静寂を独占",
+        "f1Desc": "週末の渋滞や混雑を避けた平日限定設定。山風が吹くたび霧が湧き立ち、水墨画のような幻想的な桜景色が広がります。",
+        "f2Title": "山里の散策 ‧ 原生の馬告と香草の息吹",
+        "f2Desc": "急かされることなく、地図を片手に山道をのんびり散策。爽やかなレモンの香りがする野生の馬告に触れ、自然と共生するタイヤルの暮らしを体感します。",
+        "f3Title": "山里に泊まる ‧ 星空の下で味わうタイヤル郷土料理",
+        "f3Desc": "集落の快適な宿泊1泊、初日の夕食、翌日の朝食付き。日帰りの慌ただしさから解放され、満天の星と澄んだ空気の中で深い休息を味わえます。",
+        "f4Title": "新竹高鉄駅送迎 ‧ 快適な往復・最速で帰宅",
+        "f4Desc": "新竹高鉄駅集合・専用車で五峰へ直行。高速道路の渋滞を避け、高鉄で快適に移動。帰りも最短時間でご自宅に戻れます。",
         "datesTitle": "2027年 指定出発日",
         "datesSub": "週末と祝日を避けた平日厳選。希望日をLINEでお知らせください：",
         "dateNote": "🌸 桜の開花は天候に左右されます。山里の自然と文化を含めたスロートラベルとしてお楽しみください。",
@@ -829,13 +856,18 @@
         "hostHeader": "原郷の案内人 ｜ 莉梅（リーメイ）さん",
         "hostSub": "台湾ディープなスロートラベル推奨 ‧ 旅行業37年の目利き",
         "hostBody": "莉梅さんは旅行業界37年の豊富な経験を持ち、上質で温かみのある少人数ツアーを得意としています。「旅は誰かを待たなくてもいい」を信条に、本当に心に残る台湾の風土と文化を分かち合いたいと願っています。莉梅さんの同行をご希望の場合は、お申込み時にお知らせください。専任スタッフより最終的な手配をご案内します。",
-        "includedTitle": "特別価格 ‧ 料金に含まれるもの・お申込み",
-        "includedBody": "<p style='margin-bottom:10px;'><strong>【料金に含まれるもの】</strong>新竹高鉄駅発着往復専用送迎、1泊2日行程、集落宿泊1泊、初日夕食・翌日朝食、自然散策、旅行業責任保険。（高鉄チケットは各自手配となります）</p><p><strong>【補足】</strong>料金は「2名1室」が基本です。1名1室などをご希望の場合はLINEにてお見積りをご案内します。</p>",
+        "includedTitle": "特別価格 ‧ 料金に含まれるもの・注意事項",
+        "priceCardLabel": "早期予約特別価格",
+        "pricePer": "/名（2名1室）",
+        "priceSave": "早期予約で NT$500 お得",
+        "priceLead": "🚅 新竹高鉄駅より直行送迎",
+        "priceBenefit": "1泊2日 ‧ 心安らぐタイヤル郷土の旅",
+        "includedBody": "<p style='margin-bottom:10px;'><strong>【料金に含まれるもの】</strong>新竹高鉄駅発着往復専用送迎、1泊2日行程、集落宿泊1泊、初日夕食・翌日朝食、自然散策、旅行業責任保険。（高鉄チケットは各自手配となります）</p><p><strong>【補足】</strong>料金は「2名1室」が基本です。お一人様のご参加も大歓迎です！1名1室などをご希望の場合はLINEにてお見積りをご案内します。</p>",
         "faqTitle": "よくあるご質問",
         "qTransport": "集合場所はどこですか？なぜ新竹高鉄駅なのですか？",
-        "aTransport": "集合場所は「新竹高鉄駅」です。高鉄を利用することで渋滞を回避し、帰りも最速でご帰宅いただけます。",
+        "aTransport": "集合場所は「新竹高鉄駅」です。高鉄を利用することで高速道路の渋滞を回避し、帰りも最速でご帰宅いただけます。",
         "q1": "一人でも参加できますか？",
-        "a1": "もちろん大歓迎です！2名1室を基本としておりますが、1名1室をご希望の場合はLINEでお気軽にご相談ください。",
+        "a1": "もちろん大歓迎です！料金は2名1室が基本ですが、1名1室をご希望の場合はLINEでお気軽にご相談ください。",
         "q2": "何名から催行しますか？",
         "a2": "6名より催行いたします。ご希望の日程をLINEでお知らせいただき、催行状況をご案内します。",
         "q3": "桜は必ず満開ですか？",
@@ -851,6 +883,7 @@
         "step2Desc": "トーク画面にて参加人数とコース番号（T01〜T04）をお知らせください。",
         "step3Title": "ご要望確認と手配完了",
         "step3Desc": "1名1室や莉梅さんの同行希望があればお伝えください。専任スタッフより最終手配をご案内します。",
+        "lineService": "💬 公式LINEカスタマーサポート",
         "ctaSticky": "💬 LINEで日程相談・お申し込み ↗"
       }
     };
@@ -874,7 +907,14 @@
           if (key === 'includedBody') {
             el.innerHTML = t[key];
           } else {
-            el.textContent = t[key];
+            // 若元素內含有 span 圖標，僅替換後續文字或保持內部結構
+            if (el.querySelector('span') && (key === 'pill1' || key === 'pill2' || key === 'pill3')) {
+              const icon = el.querySelector('span').outerHTML;
+              const textOnly = t[key].replace(/^[\uD800-\uDBFF\uDC00-\uDFFF\u2600-\u27BF]+\s*/, '');
+              el.innerHTML = icon + ' ' + textOnly;
+            } else {
+              el.textContent = t[key];
+            }
           }
         }
       });
