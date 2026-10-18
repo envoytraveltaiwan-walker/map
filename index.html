@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>ENVOY 安捷國際旅行社 ｜ 臺灣原鄉慢旅 ‧ 小團專車出發</title>
-  <meta name="description" content="ENVOY 安捷國際旅行社。原鄉引路人莉梅姐私選帶路，平日出發、六人精緻小團專車往返，享受不趕路的在地風土食農與山林文化。">
+  <meta name="description" content="ENVOY 安捷國際旅行社。原鄉引路人莉梅姐私選帶路，平日出發、六人小團專車直達，享受不趕路的在地風土食農與山林文化。">
 
   <!-- Google tag (gtag.js) GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PPP4CT61HC"></script>
@@ -32,7 +32,7 @@
       --text-dim: #64748B;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: rgba(0,0,0,0); }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
     html { scroll-behavior: smooth; }
     
     body {
@@ -51,13 +51,13 @@
     .et-navbar {
       position: fixed;
       top: 0; left: 0;
-      width: 100%; height: 70px;
-      padding: 0 30px;
+      width: 100%; height: 72px;
+      padding: 0 36px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       background: rgba(6, 21, 29, 0.95);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(14px);
       z-index: 1000;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
@@ -100,7 +100,7 @@
     .btn-nav-line {
       background: var(--line-green);
       color: #FFFFFF;
-      padding: 8px 16px;
+      padding: 8px 18px;
       border-radius: 20px;
       text-decoration: none;
       font-weight: 800;
@@ -109,14 +109,16 @@
       align-items: center;
       gap: 6px;
       box-shadow: 0 4px 12px rgba(6, 165, 78, 0.35);
+      transition: transform 0.2s;
     }
+    .btn-nav-line:hover { transform: scale(1.03); }
 
-    /* ==================== 2. 簡潔看板 (主打小團專車、平日避世) ==================== */
+    /* ==================== 2. 首頁看板 (簡短精準，直切小團專車) ==================== */
     .hero-compact {
       position: relative;
       width: 100%;
-      padding: 95px 24px 22px;
-      background: radial-gradient(circle at 50% 20%, rgba(13, 38, 51, 0.9) 0%, var(--bg-main) 90%);
+      padding: 105px 24px 22px;
+      background: radial-gradient(circle at 50% 15%, rgba(13, 38, 51, 0.95) 0%, var(--bg-main) 92%);
       text-align: center;
     }
     .hero-badge-pill {
@@ -126,7 +128,7 @@
       background: rgba(197, 160, 89, 0.15);
       border: 1px solid var(--accent-gold);
       color: #FDE68A;
-      padding: 5px 14px;
+      padding: 5px 15px;
       border-radius: 20px;
       font-size: 13.5px;
       font-weight: 700;
@@ -134,7 +136,7 @@
     }
     .hero-main-title {
       font-family: 'Noto Serif TC', serif;
-      font-size: clamp(25px, 5.5vw, 40px);
+      font-size: clamp(24px, 5.5vw, 40px);
       font-weight: 800;
       line-height: 1.35;
       color: #FFFFFF;
@@ -147,7 +149,6 @@
       font-weight: 500;
     }
 
-    /* 4 個微型特色標籤 (凸顯專車、平日、小團) */
     .feature-badges-row {
       display: flex;
       flex-wrap: wrap;
@@ -160,7 +161,7 @@
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.16);
       color: #E2E8F0;
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 600;
       padding: 5px 12px;
       border-radius: 14px;
@@ -170,30 +171,60 @@
     }
     .badge-chip span { color: #FDE68A; }
 
-    /* ==================== 3. 行程卡片展示區 (圖上有平日標籤) ==================== */
-    .tours-showcase-wrap {
-      padding: 10px 24px 44px;
-      max-width: 1100px;
-      margin: 0 auto;
+    /* ==================== 3. NETFLIX 橫向卡片滑動區 ==================== */
+    .netflix-rows-wrap {
+      padding: 10px 0 50px;
       width: 100%;
     }
-    .tours-section-title {
-      font-size: 19px;
-      font-weight: 800;
+    .row-section {
+      padding: 16px 36px 30px;
+      position: relative;
+    }
+    
+    .row-header-box {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 16px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .row-main-title {
+      font-size: 21px;
+      font-weight: 900;
       color: #FFFFFF;
       display: flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 14px;
+    }
+    .row-main-sub {
+      font-size: 14px;
+      color: #94A3B8;
+      font-weight: 500;
     }
 
-    .tour-cards-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+    .slider-container {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
     }
+    
+    /* Netflix 橫向滑動軌道 (支援手機觸控滑動) */
+    .scroll-track {
+      display: flex;
+      gap: 22px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 8px 4px 18px;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .scroll-track::-webkit-scrollbar { display: none; }
 
-    .tour-card-interactive {
+    .tour-card-real {
+      flex: 0 0 350px;
       background: var(--bg-card);
       border-radius: 18px;
       overflow: hidden;
@@ -204,34 +235,57 @@
       color: inherit;
       cursor: pointer;
       position: relative;
-      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
     }
-    .tour-card-interactive:hover, .tour-card-interactive:active {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    .tour-card-real:hover, .tour-card-real:active {
+      transform: translateY(-5px) scale(1.015);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55);
     }
-    .tour-card-interactive.leshui { border-color: rgba(69, 107, 90, 0.5); }
-    .tour-card-interactive.sakura { border-color: rgba(182, 79, 104, 0.45); }
+    .tour-card-real.leshui-border { border-color: rgba(69, 107, 90, 0.55); }
+    .tour-card-real.leshui-border:hover { border-color: #6EE7B7; }
+    .tour-card-real.sakura-border { border-color: rgba(182, 79, 104, 0.45); }
+    .tour-card-real.sakura-border:hover { border-color: #FDA4AF; }
 
-    .card-photo-box {
+    .card-thumb-real {
       width: 100%;
-      aspect-ratio: 16/10;
+      height: 205px;
       position: relative;
       overflow: hidden;
       background: #081B24;
     }
-    .card-photo-box img {
+
+    /* 烤肉照片專屬：排除人臉與手指 ＋ 電影感暖色濾鏡 */
+    .meat-cinematic-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: 45% 78%; /* 關鍵定位：精準避開上方人臉與側面手指，聚焦炭火與竹籤肉串 */
+      transform: scale(1.3);    /* 關鍵放大：切除邊緣手指干擾 */
+      transform-origin: 45% 78%;
+      filter: contrast(1.15) saturate(1.22) brightness(0.96) sepia(0.08); /* 暖色煙燻電影感濾鏡 */
       display: block;
-      transition: transform 0.3s ease;
+      transition: transform 0.4s ease, filter 0.4s ease;
     }
-    .tour-card-interactive:hover .card-photo-box img {
-      transform: scale(1.05);
+    .tour-card-real:hover .meat-cinematic-img {
+      transform: scale(1.38);
+      filter: contrast(1.18) saturate(1.28) brightness(1.0) sepia(0.05);
     }
 
-    /* 圖片上醒目的平日小標籤 */
+    /* 櫻花照片標準濾鏡 */
+    .sakura-cinematic-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      filter: contrast(1.08) saturate(1.12) brightness(0.96);
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .tour-card-real:hover .sakura-cinematic-img {
+      transform: scale(1.06);
+    }
+
+    /* 圖片上浮動的平日小標籤 */
     .card-badge-weekday {
       position: absolute;
       top: 10px; left: 10px;
@@ -240,86 +294,103 @@
       border: 1px solid var(--line-green);
       padding: 4px 10px;
       border-radius: 12px;
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 800;
-      backdrop-filter: blur(4px);
+      backdrop-filter: blur(5px);
+      z-index: 2;
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      z-index: 2;
     }
     .card-badge-weekday.pink {
       color: #FDA4AF;
       border-color: var(--accent-rose);
     }
 
-    .card-duration-floating {
+    .card-duration-tag {
       position: absolute;
       bottom: 8px; right: 10px;
-      background: rgba(0, 0, 0, 0.75);
+      background: rgba(0, 0, 0, 0.78);
       color: #FFF;
       padding: 3px 8px;
       border-radius: 6px;
-      font-size: 11.5px;
+      font-size: 11px;
       font-weight: 700;
       backdrop-filter: blur(4px);
       z-index: 2;
     }
 
-    .card-info-content {
-      padding: 16px 18px 18px;
+    .card-body-real {
+      padding: 16px 18px 16px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 6px;
       flex: 1;
       justify-content: space-between;
     }
-    .card-title-text {
-      font-size: 19px;
-      font-weight: 800;
-      color: #FFFFFF;
+
+    .card-title-real {
+      font-size: 18px;
+      font-weight: 900;
       line-height: 1.35;
+      color: #FFF;
+      margin: 2px 0 6px;
     }
-    
-    .card-features-list {
+
+    .must-know-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 11px 12px;
+      margin: 4px 0 10px;
+    }
+    .must-know-header {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--accent-gold);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+    .must-know-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 6px;
-      background: rgba(255, 255, 255, 0.04);
-      padding: 10px 12px;
-      border-radius: 10px;
+      gap: 5px;
     }
-    .card-features-list li {
-      font-size: 13.5px;
+    .must-know-list li {
+      font-size: 12.5px;
       color: #E2E8F0;
+      line-height: 1.45;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 6px;
-      line-height: 1.4;
+    }
+    .must-know-list li strong {
+      color: #FFFFFF;
+      font-weight: 800;
+      flex-shrink: 0;
     }
 
-    .card-action-bar {
-      margin-top: 6px;
-      padding-top: 12px;
+    .card-price-row {
+      margin-top: auto;
+      padding-top: 10px;
       border-top: 1px solid rgba(255, 255, 255, 0.08);
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-    .card-price-text {
-      font-size: 21px;
-      font-weight: 900;
-      color: #6EE7B7;
-    }
-    .card-price-text.pink { color: #FDA4AF; }
+    .price-num { font-size: 21px; font-weight: 900; color: #6EE7B7; }
+    .price-num.pink { color: #FDA4AF; }
     
     .btn-card-cta {
       background: #FFFFFF;
       color: #06151D;
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 800;
-      padding: 6px 14px;
+      padding: 5px 12px;
       border-radius: 8px;
       display: inline-flex;
       align-items: center;
@@ -331,12 +402,12 @@
     .et-footer {
       background: #040e14;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 30px 24px;
+      padding: 32px 36px;
       color: #94A3B8;
       font-size: 12.5px;
       line-height: 1.6;
     }
-    .footer-wrapper { max-width: 1100px; margin: 0 auto; }
+    .footer-wrapper { max-width: 1200px; margin: 0 auto; }
     .footer-company-full { font-size: 13.5px; font-weight: 800; color: #CBD5E1; margin-bottom: 8px; }
     .footer-legal-small { font-size: 11px; color: #64748B; margin-bottom: 12px; line-height: 1.6; }
     .footer-legal-small span { margin-right: 12px; display: inline-block; }
@@ -347,12 +418,12 @@
       .nav-emblem-img { height: 36px; }
       .nav-brand-en { font-size: 16px; }
       .nav-brand-zh { font-size: 9.5px; }
-      .hero-compact { padding: 80px 16px 18px; }
+      .hero-compact { padding: 82px 16px 18px; }
       .hero-main-title { font-size: 22px; }
-      .hero-sub-text { font-size: 14px; margin-bottom: 12px; }
-      .tours-showcase-wrap { padding: 6px 16px 36px; }
-      .tour-cards-grid { grid-template-columns: 1fr; gap: 16px; }
-      .card-title-text { font-size: 18px; }
+      .row-section { padding: 12px 16px 26px; }
+      .tour-card-real { flex: 0 0 310px; } /* 手機端卡片寬度適配，露出一角提示可橫向滑動 */
+      .card-thumb-real { height: 190px; }
+      .et-footer { padding: 30px 16px; }
     }
   </style>
 </head>
@@ -378,86 +449,103 @@
     </div>
   </header>
 
-  <!-- ==================== 2. 首頁看板 (凸顯專車、小團、平日) ==================== -->
+  <!-- ==================== 2. 首頁看板 (突顯專車、平日、小團) ==================== -->
   <section class="hero-compact">
     <div class="hero-badge-pill">🌿 原鄉引路人 ‧ 莉梅姐 37 年私選帶路</div>
     <h1 class="hero-main-title">旅行不必等別人有空，更不必趕路人擠人</h1>
-    <p class="hero-sub-text">專車原車接送 ‧ 平日避世慢行 ‧ 六人小團即可成行</p>
+    <p class="hero-sub-text">專車直達山林 ‧ 平日避世慢行 ‧ 六人小團即可成行</p>
 
-    <!-- 4 個核心標籤 -->
+    <!-- 4 個特色標籤 -->
     <div class="feature-badges-row">
       <div class="badge-chip"><span>🚐</span> 六人小團專車出發</div>
       <div class="badge-chip"><span>🗓️</span> 平日避開假日人潮</div>
       <div class="badge-chip"><span>🍲</span> 部落在地熱食風味</div>
-      <div class="badge-chip"><span>✨</span> 引路人貼心帶路無購物</div>
+      <div class="badge-chip"><span>✨</span> 引路人貼心打理無購物</div>
     </div>
   </section>
 
-  <!-- ==================== 3. 精選行程展示區 (大圖、平日標籤) ==================== -->
-  <main class="tours-showcase-wrap">
-    <div class="tours-section-title">
-      <span>👉 請點選有興趣的行程查看詳情：</span>
-    </div>
+  <!-- ==================== 3. NETFLIX 橫向卡片滑動區 ==================== -->
+  <main class="netflix-rows-wrap">
+    <section class="row-section">
+      <div class="row-header-box">
+        <div class="row-main-title">🌿 引路人私選 ‧ 原鄉慢旅行程</div>
+        <div class="row-main-sub">👈 左右滑動瀏覽行程 ‧ 點擊卡片直接查看行程詳情 👉</div>
+      </div>
 
-    <div class="tour-cards-grid">
+      <div class="slider-container">
+        <div class="scroll-track">
 
-      <!-- 卡片 1: 樂水一日遊 (封面換上食慾感極強的炭火烤肉實拍，標註平日) -->
-      <a href="/tours/leshui-atayal.html" class="tour-card-interactive leshui">
-        <div class="card-photo-box">
-          <img src="/IMAG0097_0.jpg"
-               onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/IMAG0097_0.jpg';"
-               alt="樂水部落炭火烤肉">
-          <span class="card-badge-weekday">🗓️ 平日每週四出發</span>
-          <span class="card-duration-floating">一日慢旅</span>
-        </div>
-        <div class="card-info-content">
-          <div class="card-title-text">宜蘭樂水部落 ‧ 泰雅文化深度一日慢旅</div>
-          
-          <ul class="card-features-list">
-            <li>🚐 <strong>小團專車：</strong>六人即成團，台北車站專車原車往返免開車</li>
-            <li>🔥 <strong>原風食農：</strong>泰雅炭火烤肉、柴燒竹筒飯 DIY、現搗熱麻糬</li>
-            <li>🌲 <strong>秘境漫步：</strong>舊森鐵 8 號百年隧道，探尋珍稀大葉鼻蝠生態</li>
-          </ul>
-
-          <div class="card-action-bar">
-            <div>
-              <span class="card-price-text">NT$3,370</span>
-              <span style="font-size:12px; color:#94A3B8;">/人起</span>
+          <!-- 卡片 1: 樂水一日遊 (已切除人臉與手指，套用暖色電影感濾鏡，標註平日) -->
+          <a href="/tours/leshui-atayal.html" class="tour-card-real leshui-border">
+            <div class="card-thumb-real">
+              <img src="/IMAG0097_0.jpg"
+                   onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/IMAG0097_0.jpg';"
+                   alt="樂水部落炭火烤肉"
+                   class="meat-cinematic-img">
+              <span class="card-badge-weekday">🗓️ 平日每週四出發</span>
+              <span class="card-duration-tag">一日慢旅</span>
             </div>
-            <span class="btn-card-cta">查看行程內容 ↗</span>
-          </div>
-        </div>
-      </a>
+            <div class="card-body-real">
+              <div>
+                <div class="card-title-real">宜蘭樂水部落 ‧ 泰雅文化深度一日慢旅</div>
+              </div>
 
-      <!-- 卡片 2: 白蘭櫻花 2天1夜 (標註平日梯次、高鐵專車) -->
-      <a href="/tours/2027_sakura-atayal.html" class="tour-card-interactive sakura">
-        <div class="card-photo-box">
-          <img src="/linus-belanger-iQkLU7YgtYM-unsplash.jpg"
-               onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/linus-belanger-iQkLU7YgtYM-unsplash.jpg';"
-               alt="白蘭櫻花高山山林">
-          <span class="card-badge-weekday pink">🌸 2027 平日限定梯次</span>
-          <span class="card-duration-floating">2天1夜宿遊</span>
-        </div>
-        <div class="card-info-content">
-          <div class="card-title-text">新竹五峰白蘭 ‧ 遇見山裡的櫻花季</div>
-          
-          <ul class="card-features-list">
-            <li>🚅 <strong>高鐵專車：</strong>新竹高鐵站專車直達，舒適避開國道塞車</li>
-            <li>🌸 <strong>平日包場：</strong>平日避開假日人車潮，獨享雲霧高山櫻花秘境</li>
-            <li>🛏️ <strong>舒心宿遊：</strong>一泊二食泰雅風味晚餐，山中過夜不匆忙趕路</li>
-          </ul>
+              <div class="must-know-box">
+                <div class="must-know-header">⚡ 小團慢旅精選</div>
+                <ul class="must-know-list">
+                  <li>🚐 <strong>專車往返：</strong>台北車站專車原車接送直達，免開雪隧疲憊</li>
+                  <li>🔥 <strong>炭火食農：</strong>泰雅竹籤烤肉、柴燒竹筒飯 DIY、現搗熱麻糬</li>
+                  <li>🌲 <strong>秘境漫步：</strong>舊森鐵 8 號百年隧道，探尋珍稀大葉鼻蝠</li>
+                </ul>
+              </div>
 
-          <div class="card-action-bar">
-            <div>
-              <span class="card-price-text pink">NT$4,870</span>
-              <span style="font-size:12px; color:#94A3B8;">/人起</span>
+              <div class="card-price-row">
+                <div>
+                  <span class="price-num">NT$3,370</span>
+                  <span style="font-size:11.5px; color:#94A3B8;">/人起</span>
+                </div>
+                <span class="btn-card-cta">查看內容 ↗</span>
+              </div>
             </div>
-            <span class="btn-card-cta">查看行程內容 ↗</span>
-          </div>
-        </div>
-      </a>
+          </a>
 
-    </div>
+          <!-- 卡片 2: 白蘭櫻花 2天1夜 (標註平日梯次、高鐵專車接駁) -->
+          <a href="/tours/2027_sakura-atayal.html" class="tour-card-real sakura-border">
+            <div class="card-thumb-real">
+              <img src="/linus-belanger-iQkLU7YgtYM-unsplash.jpg"
+                   onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/linus-belanger-iQkLU7YgtYM-unsplash.jpg';"
+                   alt="白蘭櫻花高山山林"
+                   class="sakura-cinematic-img">
+              <span class="card-badge-weekday pink">🌸 2027 平日限定梯次</span>
+              <span class="card-duration-tag">2天1夜宿遊</span>
+            </div>
+            <div class="card-body-real">
+              <div>
+                <div class="card-title-real">新竹五峰白蘭 ‧ 遇見山裡的櫻花季</div>
+              </div>
+
+              <div class="must-know-box">
+                <div class="must-know-header">⚡ 小團慢旅精選</div>
+                <ul class="must-know-list">
+                  <li>🚅 <strong>高鐵專車：</strong>新竹高鐵站專車直達，舒適避開國道塞車</li>
+                  <li>🌸 <strong>平日包場：</strong>平日避開假日人車潮，獨享雲霧高山櫻花秘境</li>
+                  <li>🛏️ <strong>舒心宿遊：</strong>一泊二食泰雅風味晚餐，山中過夜不匆忙趕路</li>
+                </ul>
+              </div>
+
+              <div class="card-price-row">
+                <div>
+                  <span class="price-num pink">NT$4,870</span>
+                  <span style="font-size:11.5px; color:#94A3B8;">/人起</span>
+                </div>
+                <span class="btn-card-cta">查看內容 ↗</span>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- ==================== 4. 統一標準頁尾 ==================== -->
