@@ -15,10 +15,10 @@
     gtag('config', 'G-PPP4CT61HC');
   </script>
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Montserrat & Noto Sans TC / Noto Serif TC -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -46,11 +46,11 @@
       justify-content: space-between;
     }
 
-    /* ==================== 1. 頂部固定導覽列 (左上角放置橫式 Logo) ==================== */
+    /* ==================== 1. 頂部固定導覽列 ==================== */
     .et-navbar {
       position: fixed;
       top: 0; left: 0;
-      width: 100%; height: 72px;
+      width: 100%; height: 76px;
       padding: 0 40px;
       display: flex;
       align-items: center;
@@ -59,16 +59,41 @@
       backdrop-filter: blur(14px);
       z-index: 1000;
     }
-    .nav-brand-logo {
+
+    /* 權杖 + 雙層文字組合 (點擊回最上方) */
+    .nav-brand-lockup {
       display: flex;
       align-items: center;
+      gap: 14px;
       text-decoration: none;
+      cursor: pointer;
     }
-    .nav-logo-img {
-      height: 38px;
-      max-width: 220px;
+    .nav-emblem-img {
+      height: 46px;
+      width: auto;
       object-fit: contain;
       display: block;
+    }
+    .nav-brand-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      line-height: 1.25;
+    }
+    .nav-brand-en {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: #FFFFFF;
+    }
+    .nav-brand-zh {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      color: var(--accent-gold);
+      margin-top: 3px;
     }
 
     .nav-menu {
@@ -76,7 +101,7 @@
       align-items: center;
       gap: 28px;
       list-style: none;
-      margin-left: 36px;
+      margin-left: 40px;
       margin-right: auto;
     }
     .nav-menu a {
@@ -387,15 +412,19 @@
     }
   </style>
 </head>
-<body>
+<body id="top">
 
-  <!-- ==================== 1. 頂部固定導覽列 (左上角 Logo) ==================== -->
+  <!-- ==================== 1. 頂部固定導覽列 (點擊 Logo 平滑回到最上方) ==================== -->
   <header class="et-navbar">
-    <a href="./index.html" class="nav-brand-logo" title="ENVOY 安捷國際旅行社">
-      <img src="./ENVOY_Horizontal_Transparent.png"
-           onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/ENVOY_Horizontal_Transparent.png';"
-           alt="ENVOY 安捷國際旅行社 Logo"
-           class="nav-logo-img">
+    <a href="#top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="nav-brand-lockup" title="回到最頂端">
+      <img src="./ENVOY_Emblem_Transparent.png"
+           onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/ENVOY_Emblem_Transparent.png';"
+           alt="ENVOY 權杖標誌"
+           class="nav-emblem-img">
+      <div class="nav-brand-text">
+        <span class="nav-brand-en">ENVOY</span>
+        <span class="nav-brand-zh">安捷國際旅行社</span>
+      </div>
     </a>
 
     <ul class="nav-menu">
@@ -410,7 +439,7 @@
     </div>
   </header>
 
-  <!-- ==================== 2. Netflix 巨幅精選看板 ==================== -->
+  <!-- ==================== 2. Netflix 巨幅精選看板 (已刪除指定文句) ==================== -->
   <section class="hero-billboard">
     <!-- 背景 Unsplash 圖片 -->
     <img src="./viktorija-demjanenko-uvlvyjUlwNI-unsplash.jpg"
