@@ -8,7 +8,7 @@
   <title>和莉梅姐一起旅行｜2027 白蘭部落櫻花山林二天一夜</title>
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+JP:wght@500;600;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+JP:wght@500;600;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet"/>
 
   <style>
     :root {
@@ -19,61 +19,95 @@
       --cream: #fcf8f3;
       --leaf: #456b5a;
       --border: #e6dfd5;
+      --accent-gold: #C5A059;
     }
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      margin: 0;
       background: var(--cream);
       color: var(--ink);
       font-family: 'Noto Sans TC', 'Noto Sans JP', sans-serif;
       font-size: 18px;
       line-height: 1.8;
+      overflow-x: hidden;
     }
     button, a { font: inherit; }
     a { color: inherit; }
     a:focus-visible, button:focus-visible { outline: 3px solid #bd5470; outline-offset: 3px; }
     .container { width: min(1060px, calc(100% - 40px)); margin: auto; }
 
-    /* 頂部導覽列 */
+    /* ==================== 頂部導覽列 (首頁權杖Logo + 雙語回首頁) ==================== */
     .nav {
-      background: rgba(252, 248, 243, 0.97);
+      background: rgba(252, 248, 243, 0.98);
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 100;
+      backdrop-filter: blur(10px);
     }
     .navinner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      min-height: 74px;
-      flex-wrap: wrap;
-      column-gap: 12px;
+      min-height: 70px;
+      gap: 10px;
     }
-    .brand { font-size: 18px; font-weight: 700; text-decoration: none; letter-spacing: .02em; }
-    .brand-series { font-size: 13px; color: var(--soft); margin-right: auto; }
-    
-    .nav-actions {
+
+    /* 左上角：與首頁一致之權杖 Logo，點擊回頂部 */
+    .nav-brand-lockup {
       display: flex;
       align-items: center;
       gap: 10px;
+      text-decoration: none;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .nav-emblem-img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+    .nav-brand-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      line-height: 1.2;
+    }
+    .nav-brand-en {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: var(--ink);
+    }
+    .nav-brand-zh {
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      color: var(--accent-gold);
+      margin-top: 2px;
+    }
+
+    /* 右上角：回首頁按鈕 + 語言群組 (中文 / 日本語) */
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
     .btn-back-home {
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 3px;
       background: white;
       border: 1px solid #c7c7c0;
       border-radius: 20px;
-      padding: 7px 15px;
-      min-height: 42px;
-      cursor: pointer;
-      font-size: 15px;
+      padding: 6px 13px;
+      font-size: 14px;
       font-weight: 600;
       text-decoration: none;
       color: var(--ink);
+      white-space: nowrap;
       transition: all 0.2s ease;
     }
     .btn-back-home:hover {
@@ -82,67 +116,76 @@
       border-color: var(--ink);
     }
 
-    .lang { display: flex; gap: 6px; }
-    .lang button {
+    .lang-group {
+      display: inline-flex;
       background: white;
       border: 1px solid #c7c7c0;
       border-radius: 20px;
-      padding: 7px 13px;
-      min-height: 42px;
-      cursor: pointer;
-      font-size: 15px;
+      padding: 2px;
+      gap: 2px;
     }
-    .lang button[aria-pressed=true] {
+    .lang-group button {
+      background: transparent;
+      border: none;
+      border-radius: 16px;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--soft);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .lang-group button[aria-pressed=true] {
       background: var(--ink);
       color: white;
-      border-color: var(--ink);
     }
 
-    /* 主視覺 */
+    /* ==================== 頁面主體排版 ==================== */
     .hero {
       background: linear-gradient(120deg, #fff1f1, #fbf7f0 70%);
-      padding: 48px 0 58px;
+      padding: 44px 0 54px;
     }
     .hero .hero-grid {
       display: grid;
       grid-template-columns: minmax(0, 1fr) !important;
       max-width: 920px;
       margin-inline: auto;
-      gap: 20px;
+      gap: 16px;
     }
-    .eyebrow { font-size: 16px; color: var(--rose); font-weight: 700; letter-spacing: .04em; }
+    .eyebrow { font-size: 15.5px; color: var(--rose); font-weight: 700; letter-spacing: .04em; }
     .hero h1 {
       font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
-      font-size: clamp(32px, 4.2vw, 52px);
+      font-size: clamp(32px, 4.2vw, 50px);
       line-height: 1.35;
       letter-spacing: .015em;
-      margin: 15px 0;
+      margin: 12px 0;
       white-space: normal;
     }
     .sub { font-size: 21px; font-weight: 700; color: var(--leaf); }
-    .intro { max-width: 660px; margin: 20px 0 25px; }
-    .chips { display: flex; flex-wrap: wrap; gap: 9px; margin: 22px 0; }
+    .intro { max-width: 660px; margin: 18px 0 22px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0; }
     .chip {
       border: 1px solid #d7c6c1;
       border-radius: 30px;
-      padding: 5px 14px;
+      padding: 4px 14px;
       font-weight: 600;
-      font-size: 16px;
+      font-size: 15.5px;
       background: #fff;
     }
-    .curated { font-size: 15px; color: var(--soft); margin: 0 0 18px; }
+    .curated { font-size: 14.5px; color: var(--soft); margin: 0 0 18px; }
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      min-height: 54px;
+      min-height: 52px;
       padding: 12px 24px;
       border-radius: 12px;
       text-decoration: none;
       background: #06a54e;
       color: #fff;
-      font-size: 19px;
+      font-size: 18.5px;
       font-weight: 700;
       border: 0;
       cursor: pointer;
@@ -156,43 +199,42 @@
       border: 1px solid #e6d9d2;
       box-shadow: 0 12px 30px #24352f13;
       border-radius: 18px;
-      padding: 28px;
+      padding: 26px 28px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
     }
-    .price-card .label { color: var(--soft); font-size: 17px; }
+    .price-card .label { color: var(--soft); font-size: 16px; }
     .amount { font-size: clamp(38px, 5vw, 54px); font-weight: 700; color: var(--rose); line-height: 1.25; }
     .old { text-decoration: line-through; color: #757a74; }
-    .small { font-size: 16px; color: var(--soft); }
-    .save { color: var(--rose); font-weight: 700; font-size: 17px; }
+    .small { font-size: 15.5px; color: var(--soft); }
+    .save { color: var(--rose); font-weight: 700; font-size: 16px; }
 
-    /* 區塊排版 */
-    .section { padding: 66px 0; }
+    /* 各區塊 */
+    .section { padding: 60px 0; }
     .section.alt { background: #f3efe8; }
-    h2 { font-family: 'Noto Serif TC', 'Noto Serif JP', serif; font-size: clamp(28px, 3vw, 36px); line-height: 1.4; margin: 0 0 24px; }
-    h3 { font-size: 22px; line-height: 1.5; margin: 0 0 9px; }
+    h2 { font-family: 'Noto Serif TC', 'Noto Serif JP', serif; font-size: clamp(26px, 3vw, 34px); line-height: 1.4; margin: 0 0 22px; }
+    h3 { font-size: 21px; line-height: 1.5; margin: 0 0 8px; }
     .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-    .tile, .date-card, .faq { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 25px; }
-    .tile p, .faq p { margin: 0; }
+    .tile, .date-card, .faq { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
     .num { font-size: 28px; margin-bottom: 12px; }
-    .story { max-width: 850px; font-size: 19px; }
+    .story { max-width: 850px; font-size: 18.5px; }
 
-    /* 日期梯次 */
+    /* 梯次卡片 */
     .date-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 15px; }
-    .date-card strong { display: block; font-size: 24px; margin: 8px 0; }
-    .date-card .batch { color: var(--rose); font-size: 16px; font-weight: 700; }
+    .date-card strong { display: block; font-size: 23px; margin: 8px 0; }
+    .date-card .batch { color: var(--rose); font-size: 15px; font-weight: 700; }
     .date-card a { color: var(--leaf); font-weight: 700; text-underline-offset: 4px; }
-    .notice { border-left: 4px solid var(--rose); padding: 12px 17px; background: var(--roseLight); border-radius: 4px; margin-top: 22px; font-size: 16px; }
-    .included { padding: 25px; background: #fff; border: 1px solid var(--border); border-radius: 16px; }
+    .notice { border-left: 4px solid var(--rose); padding: 12px 16px; background: var(--roseLight); border-radius: 4px; margin-top: 20px; font-size: 15.5px; }
+    .included { padding: 24px; background: #fff; border: 1px solid var(--border); border-radius: 16px; }
 
     /* FAQ */
     .faq-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; }
     .faq h3 { font-size: 19px; }
     .faq-wide { grid-column: 1 / -1; }
 
-    /* 莉梅姐專屬區塊 */
+    /* 莉梅姐介紹 */
     .hostbox {
       display: flex;
       align-items: center;
@@ -211,97 +253,211 @@
       border: 2px solid var(--roseLight);
     }
 
-    .final { background: #eaf0e9; text-align: center; }
-    .final p { margin: 0 auto 24px; max-width: 680px; }
+    /* ==================== 報名三步驟 (高結構卡片排版) ==================== */
+    .steps-container {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 10px;
+    }
+    .step-box-card {
+      background: #ffffff;
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .step-box-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(36, 53, 47, 0.08);
+    }
+    .step-box-card.accent {
+      border-color: #fbcfe8;
+      background: #fffdfd;
+    }
+    .step-badge-pill {
+      background: var(--ink);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: 20px;
+      flex-shrink: 0;
+      letter-spacing: 0.5px;
+    }
+    .step-badge-pill.gold { background: #d97706; }
+    .step-badge-pill.rose { background: var(--rose); }
 
-    /* 頁尾 */
-    .footer {
-      background: #fff;
-      border-top: 1px solid var(--border);
-      padding: 42px 0 120px;
+    .step-body-content h4 {
+      font-size: 18.5px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
     }
-    .footer-logo-wrap {
-      display: inline-block;
-      background: #081B24;
-      padding: 8px 16px;
-      border-radius: 8px;
-      margin-bottom: 16px;
+    .step-body-content p {
+      font-size: 16px;
+      color: var(--soft);
+      line-height: 1.55;
     }
-    .footer-logo {
-      max-width: 200px;
-      max-height: 46px;
-      object-fit: contain;
-      display: block;
-    }
-    .footerlinks { display: flex; flex-wrap: wrap; gap: 12px 24px; margin: 16px 0; }
-    .footerlinks a { color: var(--leaf); text-decoration: underline; text-underline-offset: 4px; }
 
+    /* 2027 春天結尾區段 (已移除重複的綠色按鈕) */
+    .final-clean-wrap {
+      background: #eaf0e9;
+      text-align: center;
+      padding: 60px 0 50px;
+    }
+    .final-clean-wrap h2 {
+      margin-bottom: 14px;
+    }
+    .final-clean-wrap p {
+      margin: 0 auto;
+      max-width: 680px;
+      font-size: 17.5px;
+      line-height: 1.7;
+      color: var(--soft);
+    }
+
+    /* ==================== 頁尾 (與首頁 100% 相同深色規格) ==================== */
+    .et-footer {
+      background: #051218;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 36px 40px 110px; /* 底部留白避免遮擋吸附按鈕 */
+      color: #94A3B8;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .footer-wrapper { max-width: 1060px; margin: 0 auto; }
+    .footer-company-full {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #CBD5E1;
+      margin-bottom: 10px;
+    }
+
+    /* 法定資料：小字細緻 */
+    .footer-legal-small {
+      font-size: 11px;
+      color: #64748B;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .footer-legal-small span { margin-right: 14px; display: inline-block; }
+
+    /* 快速連結列：回首頁 ＋ LINE 客服 */
+    .footer-links-bar {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 12px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 12px;
+    }
+    .footer-link-a {
+      color: #38BDF8;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+      transition: color 0.2s;
+    }
+    .footer-link-a:hover { color: #FFF; }
+    .footer-link-a.line-channel { color: #4ADE80; font-weight: 900; }
+    .footer-divider { color: #334155; }
+
+    .footer-copyright { font-size: 11.5px; color: #64748B; }
+
+    /* 底部唯一常駐吸附預約按鈕 */
     .sticky {
       position: fixed;
       bottom: 0; left: 0; right: 0;
-      z-index: 20;
-      background: #fffefcf5;
-      box-shadow: 0 -3px 20px #24352f1c;
-      padding: 12px max(20px, env(safe-area-inset-left)) calc(12px + env(safe-area-inset-bottom));
+      z-index: 200;
+      background: rgba(255, 254, 252, 0.96);
+      box-shadow: 0 -4px 20px rgba(36, 53, 47, 0.15);
+      padding: 10px max(20px, env(safe-area-inset-left)) calc(10px + env(safe-area-inset-bottom));
       display: flex;
       justify-content: center;
+      backdrop-filter: blur(8px);
     }
     .sticky .button { width: min(100%, 500px); }
 
     #sakura-rain {
       position: fixed;
       inset: 0;
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       pointer-events: none;
       z-index: 12;
     }
 
+    /* 手機版優化 */
     @media (max-width: 750px) {
-      body { font-size: 18px; line-height: 1.85; }
-      .container { width: calc(100% - 32px); }
-      .navinner { min-height: 66px; padding: 8px 0; }
-      .brand { font-size: 17px; }
-      .brand-series { width: 100%; order: 3; margin-top: -6px; }
-      .hero { padding: 28px 0 44px; }
-      .price-card { flex-direction: column; align-items: flex-start; padding: 22px; }
-      .section { padding: 48px 0; }
+      body { font-size: 17px; }
+      .container { width: calc(100% - 30px); }
+      .navinner { min-height: 64px; }
+      .nav-emblem-img { height: 34px; }
+      .nav-brand-en { font-size: 15px; letter-spacing: 2px; }
+      .nav-brand-zh { font-size: 9px; letter-spacing: 1px; }
+      .btn-back-home { padding: 5px 10px; font-size: 13px; }
+      .lang-group button { padding: 4px 8px; font-size: 12px; }
+
+      .hero { padding: 26px 0 38px; }
+      .price-card { flex-direction: column; align-items: flex-start; padding: 20px; }
+      .section { padding: 44px 0; }
       .grid, .faq-grid { grid-template-columns: 1fr; }
       .date-grid { grid-template-columns: 1fr 1fr; }
-      .date-card { padding: 18px; }
-      .date-card strong { font-size: 20px; }
       .hostbox { flex-direction: column; align-items: flex-start; }
-      .hostbox img { width: 110px; height: 110px; }
+      .hostbox img { width: 100px; height: 100px; }
+
+      .step-box-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 16px 18px;
+      }
+      .et-footer { padding: 30px 20px 100px; }
     }
-    @media (max-width: 390px) {
+
+    @media (max-width: 375px) {
+      .nav-brand-zh { display: none; }
       .date-grid { grid-template-columns: 1fr; }
-      .brand { font-size: 16px; }
-      .chip { font-size: 15px; }
     }
+
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       #sakura-rain { display: none; }
     }
   </style>
 </head>
-<body>
+<body id="top">
 
-  <!-- 頂部固定導覽 (含回首頁與語言切換) -->
+  <!-- ==================== 頂部導覽列 ==================== -->
   <nav class="nav">
     <div class="container navinner">
-      <a class="brand" href="./index.html" id="brand" data-i="brand">ENVOY TRAVEL｜安捷旅遊</a>
-      <span class="brand-series" data-i="series">和莉梅姐一起旅行・主題旅行系列</span>
+      <a href="#top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="nav-brand-lockup" title="回到最頂端">
+        <img src="./ENVOY_Emblem_Transparent.png"
+             onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/ENVOY_Emblem_Transparent.png';"
+             alt="ENVOY 權杖標誌"
+             class="nav-emblem-img">
+        <div class="nav-brand-text">
+          <span class="nav-brand-en">ENVOY</span>
+          <span class="nav-brand-zh">安捷國際旅行社</span>
+        </div>
+      </a>
+
       <div class="nav-actions">
         <a href="./index.html" class="btn-back-home" data-i="homeBtn">‹ 回首頁</a>
-        <div aria-label="語言切換" class="lang">
-          <button aria-pressed="true" id="zhBtn" type="button">繁中</button>
+        <div aria-label="語言切換" class="lang-group">
+          <button aria-pressed="true" id="zhBtn" type="button">中文</button>
           <button aria-pressed="false" id="jaBtn" type="button">日本語</button>
         </div>
       </div>
     </div>
   </nav>
 
-  <main id="top">
+  <main>
     <!-- 主視覺看板 -->
     <header class="hero">
       <div class="container hero-grid">
@@ -367,7 +523,7 @@
       </div>
     </section>
 
-    <!-- 莉梅姐介紹 -->
+    <!-- 莉梅姐介紹 (專辦訂製高質感小旅行) -->
     <section class="section">
       <div class="container">
         <h2 data-i="hostTitle"></h2>
@@ -437,62 +593,93 @@
       </div>
     </section>
 
-    <!-- 報名方式 -->
+    <!-- 報名方式：高結構卡片排版 -->
     <section class="section alt">
       <div class="container">
-        <h2 data-i="bookingTitle"></h2>
-        <p data-i="bookingSteps"></p>
+        <h2 data-i="bookingTitle">報名方式 ｜ 三步驟就能詢問</h2>
+        
+        <div class="steps-container">
+          <div class="step-box-card">
+            <span class="step-badge-pill">STEP 1</span>
+            <div class="step-body-content">
+              <h4 data-i="step1Title">加入官方 LINE 帳號</h4>
+              <p data-i="step1Desc">點擊下方按鈕加入安捷國際旅行社官方 LINE 好友。</p>
+            </div>
+          </div>
+
+          <div class="step-box-card">
+            <span class="step-badge-pill gold">STEP 2</span>
+            <div class="step-body-content">
+              <h4 data-i="step2Title">告知人數與希望出發日期</h4>
+              <p data-i="step2Desc">於聊天室發送想參加的人數，並提供梯次編號（如 T01 ~ T04）。</p>
+            </div>
+          </div>
+
+          <div class="step-box-card accent">
+            <span class="step-badge-pill rose">STEP 3</span>
+            <div class="step-body-content">
+              <h4 data-i="step3Title">提出需求與專人確認</h4>
+              <p data-i="step3Desc">如有單人一室、露營等住宿形式，或希望莉梅姐帶隊，請一併備註，將由專人為您回覆最終行程安排。</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- 底部行動召集 -->
-    <section class="section final">
+    <!-- 2027 春天段落 (已完全移除重複的多餘按鈕，回歸純淨文案) -->
+    <section class="final-clean-wrap">
       <div class="container">
-        <h2 data-i="finalTitle"></h2>
-        <p data-i="finalSub"></p>
-        <a class="button" data-i="cta" href="https://lin.ee/Z3c7Qam" rel="noopener" target="_blank"></a>
+        <h2 data-i="finalTitle">2027 春天，留兩天給櫻花與山林</h2>
+        <p data-i="finalSub">加入 LINE，告訴我們參加人數與希望出發日期；若有單人房、露營等住宿需求，或希望莉梅姐帶隊，歡迎於報名時備註，將由專人為您回覆最終行程安排。</p>
       </div>
     </section>
   </main>
 
-  <!-- 頁尾 (已完全刪除原民會識別與預約聲明) -->
-  <footer class="footer">
-    <div class="container">
-      <a href="./index.html" class="footer-logo-wrap" title="返回安捷首頁">
-        <img alt="ENVOY TRAVEL 安捷國際旅行社 Logo" class="footer-logo" src="./ENVOY_Horizontal_White.png" onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/ENVOY_Horizontal_White.png';"/>
-      </a>
-      <strong data-i="company"></strong>
-      <p class="small">交通部觀光署註冊旅行業・甲種 5920 號｜統一編號 16169138｜交觀甲字第 5920 號</p>
+  <!-- ==================== 頁尾 (與首頁 100% 相同深色規格) ==================== -->
+  <footer class="et-footer">
+    <div class="footer-wrapper">
+      <div class="footer-company-full">安捷國際旅行社有限公司 ｜ ENVOY INTERNATIONAL TRAVEL SERVICE CO., LTD.</div>
 
-      <div class="footerlinks">
-        <a href="./index.html" data-i="homeBtn">‹ 回首頁</a>
-        <a data-i="site" href="https://www.envoytravel.tw/" rel="noopener" target="_blank">公司官網</a>
-        <a href="mailto:limei@envoytravel.tw">limei@envoytravel.tw</a>
-        <a href="https://lin.ee/Z3c7Qam" rel="noopener" target="_blank">LINE 官方帳號</a>
+      <!-- 法定資料：小字細緻 (不放電話與傳真) -->
+      <div class="footer-legal-small">
+        <span>交通部觀光署註冊旅行業 ‧ 甲種 592000 號</span>
+        <span>交觀甲字第 5920 號</span>
+        <span>統一編號：16169138</span>
+        <span>代表人：楊寶惠</span>
+        <span>地址：臺北市中山區長安東路2段50號5樓之1</span>
       </div>
 
-      <p class="small">© 2026 ENVOY TRAVEL</p>
+      <!-- 快速連結列：回首頁 ＋ LINE 客服 -->
+      <div class="footer-links-bar">
+        <a href="./index.html" class="footer-link-a" data-i="homeBtn">‹ 回首頁</a>
+        <span class="footer-divider">｜</span>
+        <a href="https://lin.ee/Z3c7Qam" target="_blank" class="footer-link-a line-channel">
+          💬 官方客服：LINE 官方帳號
+        </a>
+      </div>
+
+      <p class="footer-copyright">
+        © 2026 ENVOY TRAVEL. All Rights Reserved.
+      </p>
     </div>
   </footer>
 
-  <!-- 底部固定吸附預約按鈕 -->
+  <!-- 螢幕底部唯一常駐吸附預約按鈕 -->
   <div class="sticky">
     <a class="button" data-i="cta" href="https://lin.ee/Z3c7Qam" rel="noopener" target="_blank"></a>
   </div>
 
-  <!-- 櫻花動態畫布 -->
   <canvas aria-hidden="true" id="sakura-rain"></canvas>
 
-  <!-- 雙語翻譯與腳本 -->
+  <!-- 雙語翻譯字典與切換腳本 -->
   <script>
     const translations = {
       "zh": {
         "homeBtn": "‹ 回首頁",
         "qHost": "可以請莉梅姐親自帶隊嗎？",
-        "aHost": "歡迎提出希望由莉梅姐帶隊的需求！莉梅姐是安捷旅遊執行長，擁有37年旅遊業經驗，喜歡和旅伴分享沿途見聞。如果有機會一起出發，期待在山林裡賞櫻、夜晚在星空下聊人生、聊旅途。若有此需求，請在 LINE 報名時特別備註「希望莉梅姐帶隊」，將由專人為您回覆最終行程安排。",
+        "aHost": "歡迎提出希望由莉梅姐帶隊的需求！莉梅姐擁有 37 年旅遊業豐富經驗，專辦客製、訂製高質感的精緻小旅行。若希望由莉梅姐親自同行，請於 LINE 報名時特別備註「希望莉梅姐帶隊」，將由專人為您回覆最終行程安排。",
         "cancelQuestion": "取消行程如何辦理退費？",
         "cancelAnswer": "取消與退費依交通部觀光署國內旅遊定型化契約相關規定辦理。如需取消或變更，請透過 LINE 聯繫安捷旅遊服務團隊。",
-        "brand": "ENVOY TRAVEL｜安捷旅遊",
         "eyebrow": "2027 春季限定｜新竹五峰・白蘭部落",
         "title": "走進白蘭，遇見山裡的櫻花季",
         "subtitle": "賞櫻 × 泰雅文化 × 山林慢旅行",
@@ -532,23 +719,23 @@
         "a4": "櫻花受天候影響，無法保證滿開。建議以春季山林、部落風景與慢旅行的心情出發。",
         "finalTitle": "2027 春天，留兩天給櫻花與山林",
         "finalSub": "加入 LINE，告訴我們參加人數與希望出發日期；若有單人房、露營等住宿需求，或希望莉梅姐帶隊，歡迎於報名時備註，將由專人為您回覆最終行程安排。",
-        "company": "安捷國際旅行社有限公司",
-        "site": "公司官網",
-        "email": "電子郵件",
-        "series": "和莉梅姐一起旅行・主題旅行系列",
-        "curated": "由安捷旅遊執行長莉梅姐策劃的主題旅行",
+        "curated": "推薦台灣深度小旅行・安捷旅遊執行長莉梅姐策劃",
         "hostTitle": "和莉梅姐一起旅行｜旅行不必等別人有空",
-        "hostBio": "莉梅姐是安捷旅遊執行長，擁有 37 年旅遊業經驗。她喜歡有溫度、有故事的旅行，希望把值得慢慢欣賞的台灣風景與部落文化，分享給同樣喜歡探索生活的旅人。「和莉梅姐一起旅行」是她與安捷團隊共同規劃的旅行系列；若希望莉梅姐同行，請於報名時備註，將由專人為您回覆最終行程安排。",
-        "bookingTitle": "報名方式｜三步驟就能詢問",
-        "bookingSteps": "① 加入安捷旅遊 LINE 官方帳號。② 告訴我們參加人數、希望出發日期（可提供梯次編號）。③ 如有單人一室、露營或其他住宿需求，或希望莉梅姐帶隊，請在 LINE 報名時一併備註，將由專人為您回覆最終行程安排。"
+        "hostBio": "推薦台灣深度小旅行！莉梅姐是安捷旅遊執行長，擁有 37 年旅遊業豐富經驗，專辦訂製高質感、有溫度的精緻小旅行。她希望把值得細細欣賞的台灣風景與部落文化，分享給喜愛探索生活的旅人。「和莉梅姐一起旅行」是她與安捷團隊共同規劃的主題系列，未來將陸續推出更多私房行程。若希望由莉梅姐同行帶隊，請於報名時備註，將由專人為您回覆最終行程安排。",
+        "bookingTitle": "報名方式 ｜ 三步驟就能詢問",
+        "step1Title": "加入官方 LINE 帳號",
+        "step1Desc": "點擊下方按鈕加入安捷國際旅行社官方 LINE 好友。",
+        "step2Title": "告知人數與希望出發日期",
+        "step2Desc": "於聊天室發送想參加的人數，並提供梯次編號（如 T01 ~ T04）。",
+        "step3Title": "提出需求與專人確認",
+        "step3Desc": "如有單人一室、露營等住宿形式，或希望莉梅姐帶隊，請一併備註，將由專人為您回覆最終行程安排。"
       },
       "ja": {
         "homeBtn": "‹ トップへ戻る",
         "qHost": "莉梅さんに同行してもらえますか？",
-        "aHost": "莉梅さんは安捷旅行のCEOで、旅行業界37年の経験があります。同行が実現すれば、桜を楽しみ、星空の下で人生や旅の思い出を語り合う特別なひとときを目指します。莉梅さんの同行をご希望の場合は、公式LINEでお申込みの際に「莉梅さんの同行希望」とご記入ください。専任スタッフより最終的なスケジュールをご案内いたします。",
+        "aHost": "莉梅さんは旅行業界37年の豊富な経験を持ち、上質で温かみのある少人数ツアーを得意としています。莉梅さんの同行をご希望の場合は、公式LINEでのお申込み時に「莉梅さんの同行希望」とお書き添えください。専任スタッフより最終的な手配をご案内いたします。",
         "cancelQuestion": "キャンセル・返金はどうなりますか？",
         "cancelAnswer": "キャンセル・返金は台湾交通部観光署の国内旅行標準約款に基づいて対応します。変更・キャンセルのご相談は公式LINEまでご連絡ください。",
-        "brand": "ENVOY TRAVEL｜安捷旅行",
         "eyebrow": "2027年春限定｜新竹・五峰 白蘭集落",
         "title": "白蘭へ、山あいの桜に出会う旅",
         "subtitle": "桜 × タイヤル文化 × 森のスロートラベル",
@@ -588,15 +775,16 @@
         "a4": "開花状況は天候によって異なります。山里の風景や文化も含めてお楽しみください。",
         "finalTitle": "2027年の春、桜と山里へ",
         "finalSub": "公式LINEで参加人数と希望出発日をお知らせください。宿泊や莉梅さんの同行希望も併せてご相談いただけます。専任スタッフより最終日程をご案内します。",
-        "company": "安捷國際旅行社有限公司",
-        "site": "公式サイト",
-        "email": "メール",
-        "series": "莉梅さんと旅する・テーマ旅行シリーズ",
-        "curated": "安捷旅行CEO・莉梅さんが企画するテーマ旅行",
+        "curated": "台湾ディープなスロートラベル・安捷旅行CEO莉梅さん企画",
         "hostTitle": "莉梅さんと旅しよう｜旅は誰かを待たなくても",
-        "hostBio": "莉梅さんは安捷旅行のCEO（執行長）で、旅行業界で37年の経験があります。自然や地域の文化をゆっくり味わう旅を大切にし、旅仲間とその魅力を分かち合いたいと考えています。「莉梅さんと旅しよう」は安捷チームと企画する旅行シリーズです。莉梅さんの同行をご希望の場合はお申込み時にお知らせください。専任スタッフより最終的な手配をご案内します。",
-        "bookingTitle": "お申込み方法｜LINEで簡単相談",
-        "bookingSteps": "① 安捷旅行の公式LINEを追加。② 参加人数と希望出発日（コース番号）をお知らせください。③ 1名1室、キャンプなどの宿泊希望や莉梅さんの同行希望があれば、LINEで併せてお知らせください。専任スタッフより最終的な手配をご案内します。"
+        "hostBio": "台湾のディープなスロートラベルをお届けします！安捷旅行のCEO・莉梅（リーメイ）さんは旅行業界37年の豊富な経験を持ち、上質で温かみのあるオーダーメイド小旅行を得意としています。本シリーズでは今後も魅力的な特選コースを順次お届けしてまいります。莉梅さんの同行をご希望の場合は、お申込み時にお知らせください。専任スタッフより最終的な手配をご案内します。",
+        "bookingTitle": "お申込み方法 ｜ LINEで簡単3ステップ",
+        "step1Title": "公式 LINE を追加",
+        "step1Desc": "下のボタンから安捷旅行の公式 LINE を友だち追加してください。",
+        "step2Title": "人数とご希望の日程を送信",
+        "step2Desc": "トーク画面にて参加人数とコース番号（T01〜T04）をお知らせください。",
+        "step3Title": "ご要望の確認と専任スタッフによる手配",
+        "step3Desc": "1名1室やキャンプなどの宿泊希望、莉梅さんの同行希望があればお伝えください。専任スタッフより最終手配をご案内します。"
       }
     };
 
@@ -612,8 +800,7 @@
       const t = translations[lang];
       document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : 'ja';
       document.title = lang === 'zh' ? '和莉梅姐一起旅行｜2027 白蘭部落櫻花山林二天一夜' : '莉梅さんと旅しよう｜2027年 白蘭集落の桜旅';
-      document.getElementById('brand').textContent = t.brand;
-      
+
       document.querySelectorAll('[data-i]').forEach(el => {
         el.textContent = t[el.dataset.i] || '';
       });
