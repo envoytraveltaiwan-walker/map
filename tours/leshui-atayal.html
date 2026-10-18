@@ -128,7 +128,7 @@
     }
     .lang-group button[aria-pressed=true] { background: #FFFFFF; color: #06151D; }
 
-    /* ==================== 2. 頁首電影級巨幅看板 (緊湊大氣，為下方卡片留出空間) ==================== */
+    /* ==================== 2. 頁首電影級巨幅看板 ==================== */
     .hero-cinematic {
       position: relative;
       width: 100%;
@@ -179,7 +179,7 @@
       backdrop-filter: blur(6px);
     }
     .hero-title {
-      font-family: 'Noto Serif TC', serif;
+      font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
       font-size: clamp(26px, 5.2vw, 42px);
       font-weight: 800;
       line-height: 1.25;
@@ -195,7 +195,6 @@
       text-shadow: 0 2px 8px rgba(0,0,0,0.6);
     }
 
-    /* 頂部 3 個核心標籤 (第一眼看清爽點) */
     .hero-pills-row {
       display: flex;
       flex-wrap: wrap;
@@ -214,9 +213,8 @@
       align-items: center;
       gap: 5px;
     }
-    .hero-pill-item span { color: #FDE68A; }
 
-    /* ==================== 3. 行程卡片與卡片橫向滑動區 (第一眼直接看見！) ==================== */
+    /* ==================== 3. 5 大行程卡片橫向滑動區 ==================== */
     .slider-section {
       padding: 24px 0 20px;
       width: 100%;
@@ -245,7 +243,6 @@
       gap: 4px;
     }
 
-    /* 滑動軌道：卡片寬度 295px，右側露出一小角形成強烈滑動暗示 */
     .cards-slider-track {
       display: flex;
       gap: 16px;
@@ -284,14 +281,12 @@
       object-fit: cover;
       display: block;
     }
-    /* 烤肉特寫：強效放大 2.4 倍裁除人臉與手部 */
     .meat-crop-focus {
       object-position: 50% 68% !important;
       transform: scale(2.4);
       transform-origin: 50% 68%;
       filter: contrast(1.15) saturate(1.25) brightness(0.95);
     }
-    /* 檜木隧道照片濾鏡 */
     .tunnel-photo-focus {
       object-position: center center;
       filter: contrast(1.08) saturate(1.15) brightness(0.96);
@@ -393,7 +388,7 @@
       line-height: 1.65;
     }
 
-    /* ==================== 5. 下拉手風琴折疊區 (費用折疊＋FAQ＋報名) ==================== */
+    /* ==================== 5. 下拉手風琴折疊區 ==================== */
     .accordion-section { padding: 10px 0 30px; }
     .accordion-group {
       display: flex;
@@ -436,7 +431,6 @@
       background: #faf8f5;
     }
 
-    /* 費用卡片內嵌在折疊區內的精緻排版 */
     .folded-price-box {
       background: #fff;
       border: 1.5px solid #d4e3da;
@@ -606,21 +600,21 @@
         <h1 class="hero-title" data-i="title">走進被遺忘的部落 ‧ 樂水泰雅文化一日慢旅</h1>
         <p class="hero-sub" data-i="catchphrase">避開假日人潮 ‧ 台北車站專車原車直達 ‧ 六人成團全包式慢旅</p>
 
-        <!-- 3 個核心標籤：0.5 秒看完重點 -->
+        <!-- 3 個核心標籤 (已加上 data-i 翻譯綁定) -->
         <div class="hero-pills-row">
-          <div class="hero-pill-item"><span>🚐</span> 台北專車原車往返（免轉乘）</div>
-          <div class="hero-pill-item"><span>🔥</span> 柴燒竹筒飯 ＋ 炭火現烤肉</div>
-          <div class="hero-pill-item"><span>🌲</span> 舊森鐵 8 號百年隧道秘境</div>
+          <div class="hero-pill-item" data-i="pill1"><span>🚐</span> 台北專車原車往返（免轉乘）</div>
+          <div class="hero-pill-item" data-i="pill2"><span>🔥</span> 柴燒竹筒飯 ＋ 炭火現烤肉</div>
+          <div class="hero-pill-item" data-i="pill3"><span>🌲</span> 舊森鐵 8 號百年隧道秘境</div>
         </div>
       </div>
     </header>
 
-    <!-- ==================== 3. 行程卡片與卡片橫向滑動區 (首頁第一眼直接看到！) ==================== -->
+    <!-- ==================== 3. 行程卡片與卡片橫向滑動區 (全面補齊 data-i 翻譯) ==================== -->
     <section class="slider-section">
       <div class="container">
         <div class="section-header-row">
-          <div class="section-title-bold">📸 一日體驗亮點 ‧ 卡片滑動巡禮</div>
-          <div class="swipe-indicator">左右滑動看行程 👉</div>
+          <div class="section-title-bold" data-i="sliderTitle">📸 一日體驗亮點 ‧ 卡片滑動巡禮</div>
+          <div class="swipe-indicator" data-i="swipeHint">左右滑動看行程 👉</div>
         </div>
 
         <div class="cards-slider-track">
@@ -632,15 +626,15 @@
                    onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/FB_IMG_1493801100772_0.jpg';"
                    alt="泰雅迎賓盛禮"
                    class="card-photo-img">
-              <span class="card-photo-badge">🎋 文化相遇</span>
+              <span class="card-photo-badge" data-i="c1Badge">🎋 文化相遇</span>
               <span class="card-step-num">01 / 05</span>
             </div>
             <div class="card-info-wrap">
-              <div class="card-info-title">泰雅迎賓盛禮 ‧ 傳統服飾與口簧琴</div>
+              <div class="card-info-title" data-i="c1Title">泰雅迎賓盛禮 ‧ 傳統服飾與口簧琴</div>
               <ul class="card-bullets-list">
-                <li>✨ <strong>換穿織布：</strong>換穿傳統泰雅織布服裝合照留念</li>
-                <li>印 <strong>文面印記：</strong>體驗成年禮文面（ptasal）族群象徵</li>
-                <li>🎵 <strong>古調傳唱：</strong>聆聽耆老傳唱古調與演奏口簧琴</li>
+                <li data-i="c1b1">✨ <strong>換穿織布：</strong>換穿傳統泰雅織布服裝合照留念</li>
+                <li data-i="c1b2">印 <strong>文面印記：</strong>體驗成年禮文面（ptasal）族群象徵</li>
+                <li data-i="c1b3">🎵 <strong>古調傳唱：</strong>聆聽耆老傳唱古調與演奏口簧琴</li>
               </ul>
             </div>
           </div>
@@ -652,15 +646,15 @@
                    onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/IMG_0109.JPG';"
                    alt="柴火慢炊竹筒飯"
                    class="card-photo-img">
-              <span class="card-photo-badge">🍚 風土手作</span>
+              <span class="card-photo-badge" data-i="c2Badge">🍚 風土手作</span>
               <span class="card-step-num">02 / 05</span>
             </div>
             <div class="card-info-wrap">
-              <div class="card-info-title">親採桂竹 ‧ 獵人竹筒便當 DIY</div>
+              <div class="card-info-title" data-i="c2Title">親採桂竹 ‧ 獵人竹筒便當 DIY</div>
               <ul class="card-bullets-list">
-                <li>🌾 <strong>有機日曬米：</strong>親手裝填有機米與天然山泉水</li>
-                <li>🔥 <strong>柴火慢炊：</strong>炭火蒸炊散發原始竹膜與稻米撲鼻清香</li>
-                <li>😋 <strong>午後點心：</strong>親手製作的竹筒飯留作下午茶享用</li>
+                <li data-i="c2b1">🌾 <strong>有機日曬米：</strong>親手裝填有機米與天然山泉水</li>
+                <li data-i="c2b2">🔥 <strong>柴火慢炊：</strong>炭火蒸炊散發原始竹膜與稻米撲鼻清香</li>
+                <li data-i="c2b3">😋 <strong>午後點心：</strong>親手製作的竹筒飯留作下午茶享用</li>
               </ul>
             </div>
           </div>
@@ -672,35 +666,35 @@
                    onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/IMAG0097_0.jpg';"
                    alt="泰雅炭火烤肉"
                    class="card-photo-img meat-crop-focus">
-              <span class="card-photo-badge">🔥 原風熱食</span>
+              <span class="card-photo-badge" data-i="c3Badge">🔥 原風熱食</span>
               <span class="card-step-num">03 / 05</span>
             </div>
             <div class="card-info-wrap">
-              <div class="card-info-title">炭火原木烤肉 ‧ 在地採集風味午宴</div>
+              <div class="card-info-title" data-i="c3Title">炭火原木烤肉 ‧ 在地採集風味午宴</div>
               <ul class="card-bullets-list">
-                <li>🍖 <strong>竹籤慢烤：</strong>柴火原木慢烤噴香山豬肉，香氣撲鼻</li>
-                <li>🥗 <strong>在地採集：</strong>在地媽媽現煮野菜、小米等原風美饌</li>
-                <li>🍲 <strong>熱騰騰正餐：</strong>遠離商業團餐，享受最純粹的大地滋味</li>
+                <li data-i="c3b1">🍖 <strong>竹籤慢烤：</strong>柴火原木慢烤噴香山豬肉，香氣撲鼻</li>
+                <li data-i="c3b2">🥗 <strong>在地採集：</strong>在地媽媽現煮野菜、小米等原風美饌</li>
+                <li data-i="c3b3">🍲 <strong>熱騰騰正餐：</strong>遠離商業團餐，享受最純粹的大地滋味</li>
               </ul>
             </div>
           </div>
 
-          <!-- 卡片 4: 百年森鐵舊8號隧道 (已換上您提供的 245558_0.jpg 檜木隧道真實照片) -->
+          <!-- 卡片 4: 百年森鐵舊8號隧道 -->
           <div class="tour-swipe-card">
             <div class="card-photo-wrapper">
               <img src="/245558_0.jpg"
                    onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/245558_0.jpg';"
                    alt="舊羅東森鐵8號檜木隧道實景"
                    class="card-photo-img tunnel-photo-focus">
-              <span class="card-photo-badge">🌲 百年森鐵實景</span>
+              <span class="card-photo-badge" data-i="c4Badge">🌲 百年森鐵實景</span>
               <span class="card-step-num">04 / 05</span>
             </div>
             <div class="card-info-wrap">
-              <div class="card-info-title">舊森鐵 8 號檜木隧道巡禮</div>
+              <div class="card-info-title" data-i="c4Title">舊森鐵 8 號檜木隧道巡禮</div>
               <ul class="card-bullets-list">
-                <li>🚂 <strong>百年檜木：</strong>走訪舊羅東森林鐵路珍貴檜木隧道遺跡</li>
-                <li>🦇 <strong>稀有蝙蝠：</strong>漫步原始自然山徑，探尋大葉鼻蝠生態</li>
-                <li>🍃 <strong>芬多精洗禮：</strong>林蔭原始步道深呼吸，感受山林智慧</li>
+                <li data-i="c4b1">🚂 <strong>百年檜木：</strong>走訪舊羅東森林鐵路珍貴檜木隧道遺跡</li>
+                <li data-i="c4b2">🦇 <strong>稀有蝙蝠：</strong>漫步原始自然山徑，探尋大葉鼻蝠生態</li>
+                <li data-i="c4b3">🍃 <strong>芬多精洗禮：</strong>林蔭原始步道深呼吸，感受山林智慧</li>
               </ul>
             </div>
           </div>
@@ -712,15 +706,15 @@
                    onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/FB_IMG_1494389295456_0.jpg';"
                    alt="木弓射箭"
                    class="card-photo-img">
-              <span class="card-photo-badge">🏹 山林技藝</span>
+              <span class="card-photo-badge" data-i="c5Badge">🏹 山林技藝</span>
               <span class="card-step-num">05 / 05</span>
             </div>
             <div class="card-info-wrap">
-              <div class="card-info-title">木弓射箭競賽 ‧ 手搗熱騰騰小米麻糬</div>
+              <div class="card-info-title" data-i="c5Title">木弓射箭競賽 ‧ 手搗熱騰騰小米麻糬</div>
               <ul class="card-bullets-list">
-                <li>🏹 <strong>獵人神射：</strong>拉開傳統木弓體驗山林神射手挑戰</li>
-                <li>🌾 <strong>全場同樂：</strong>剛起鍋的小米熱騰騰合力手搗</li>
-                <li>🎁 <strong>紀念品帶回：</strong>4~11月樹葉拓染 / 12~3月手做祖靈竹杯</li>
+                <li data-i="c5b1">🏹 <strong>獵人神射：</strong>拉開傳統木弓體驗山林神射手挑戰</li>
+                <li data-i="c5b2">🌾 <strong>全場同樂：</strong>剛起鍋的小米熱騰騰合力手搗</li>
+                <li data-i="c5b3">🎁 <strong>紀念品帶回：</strong>4~11月樹葉拓染 / 12~3月手做祖靈竹杯</li>
               </ul>
             </div>
           </div>
@@ -743,11 +737,11 @@
       </div>
     </section>
 
-    <!-- ==================== 5. 下拉手風琴折疊區 (費用已完全摺疊收合) ==================== -->
+    <!-- ==================== 5. 下拉手風琴折疊區 (全面補齊 data-i 翻譯) ==================== -->
     <section class="container accordion-section">
       <div class="accordion-group">
 
-        <!-- 下拉 1：費用包含、特惠價與貼心提醒 (已摺疊收合起來，預設不展開) -->
+        <!-- 下拉 1：費用包含、特惠價與貼心提醒 -->
         <details class="accordion-item">
           <summary class="accordion-header">
             <div class="accordion-title-box">
@@ -758,16 +752,15 @@
           </summary>
           <div class="accordion-content">
             
-            <!-- 內嵌精緻價格與台北專車好處卡 -->
             <div class="folded-price-box">
               <div>
-                <div style="font-size:13px; color:var(--soft); font-weight:700;">旅展早鳥預約特惠價</div>
-                <div class="folded-price-amount">NT$3,370 <span style="font-size:14px; color:var(--soft); font-weight:500;">/人（六人成團）</span></div>
-                <div style="font-size:12.5px; color:var(--rose); font-weight:700;">旅展提早預約現省 NT$500 <span style="text-decoration:line-through; color:#8a9189;">NT$3,870</span></div>
+                <div style="font-size:13px; color:var(--soft); font-weight:700;" data-i="priceCardLabel">旅展早鳥預約特惠價</div>
+                <div class="folded-price-amount">NT$3,370 <span style="font-size:14px; color:var(--soft); font-weight:500;" data-i="pricePer">/人（六人成團）</span></div>
+                <div style="font-size:12.5px; color:var(--rose); font-weight:700;"><span data-i="priceSave">旅展提早預約現省 NT$500</span> <span style="text-decoration:line-through; color:#8a9189;">NT$3,870</span></div>
               </div>
               <div style="text-align:right;">
-                <div class="folded-benefit-lead">🚐 全程專車 ‧ 台北車站原車直達</div>
-                <div class="folded-benefit-title">全包式一日慢旅 ‧ 免搶票免轉車</div>
+                <div class="folded-benefit-lead" data-i="priceLead">🚐 全程專車 ‧ 台北車站原車直達</div>
+                <div class="folded-benefit-title" data-i="priceBenefit">全包式一日慢旅 ‧ 免搶票免轉車</div>
               </div>
             </div>
 
@@ -778,7 +771,7 @@
           </div>
         </details>
 
-        <!-- 下拉 2：出發前 FAQ (真實解答，摺疊收合) -->
+        <!-- 下拉 2：出發前 FAQ -->
         <details class="accordion-item">
           <summary class="accordion-header">
             <div class="accordion-title-box">
@@ -813,7 +806,7 @@
           </div>
         </details>
 
-        <!-- 下拉 3：報名方式 3 步驟 (摺疊收合) -->
+        <!-- 下拉 3：報名方式 3 步驟 -->
         <details class="accordion-item">
           <summary class="accordion-header">
             <div class="accordion-title-box">
@@ -831,7 +824,7 @@
                   <p data-i="step1Desc">點擊螢幕最下方的綠色按鈕，加入安捷國際旅行社官方 LINE 好友。</p>
                 </div>
               </div>
-              <div class="step-box-card">
+              <div class="step-box-card gold">
                 <span class="step-badge-pill gold">STEP 2</span>
                 <div class="step-body-content">
                   <h4 data-i="step2Title">告知人數與希望出發日期</h4>
@@ -867,7 +860,7 @@
       <div class="footer-links-bar">
         <a href="/" class="footer-link-a" data-i="homeBtn">‹ 回首頁</a>
         <span style="color:#334155;">｜</span>
-        <a href="https://lin.ee/Z3c7Qam" target="_blank" class="footer-link-a line-channel">
+        <a href="https://lin.ee/Z3c7Qam" target="_blank" class="footer-link-a line-channel" data-i="lineService">
           💬 官方客服：LINE 官方帳號
         </a>
       </div>
@@ -884,7 +877,7 @@
     </a>
   </div>
 
-  <!-- 雙語切換腳本 -->
+  <!-- 雙語切換腳本 (已全面補齊日文對照表) -->
   <script>
     const translations = {
       "zh": {
@@ -892,10 +885,45 @@
         "badge": "🌿 原鄉引路人 ‧ 莉梅姐 37 年私選",
         "title": "走進被遺忘的部落 ‧ 樂水泰雅文化一日慢旅",
         "catchphrase": "避開假日人潮 ‧ 台北車站專車原車直達 ‧ 六人成團全包式慢旅",
+        "pill1": "<span>🚐</span> 台北專車原車往返（免轉乘）",
+        "pill2": "<span>🔥</span> 柴燒竹筒飯 ＋ 炭火現烤肉",
+        "pill3": "<span>🌲</span> 舊森鐵 8 號百年隧道秘境",
+        "sliderTitle": "📸 一日體驗亮點 ‧ 卡片滑動巡禮",
+        "swipeHint": "左右滑動看行程 👉",
+        "c1Badge": "🎋 文化相遇",
+        "c1Title": "泰雅迎賓盛禮 ‧ 傳統服飾與口簧琴",
+        "c1b1": "✨ <strong>換穿織布：</strong>換穿傳統泰雅織布服裝合照留念",
+        "c1b2": "印 <strong>文面印記：</strong>體驗成年禮文面（ptasal）族群象徵",
+        "c1b3": "🎵 <strong>古調傳唱：</strong>聆聽耆老傳唱古調與演奏口簧琴",
+        "c2Badge": "🍚 風土手作",
+        "c2Title": "親採桂竹 ‧ 獵人竹筒便當 DIY",
+        "c2b1": "🌾 <strong>有機日曬米：</strong>親手裝填有機米與天然山泉水",
+        "c2b2": "🔥 <strong>柴火慢炊：</strong>炭火蒸炊散發原始竹膜與稻米撲鼻清香",
+        "c2b3": "😋 <strong>午後點心：</strong>親手製作的竹筒飯留作下午茶享用",
+        "c3Badge": "🔥 原風熱食",
+        "c3Title": "炭火原木烤肉 ‧ 在地採集風味午宴",
+        "c3b1": "🍖 <strong>竹籤慢烤：</strong>柴火原木慢烤噴香山豬肉，香氣撲鼻",
+        "c3b2": "🥗 <strong>在地採集：</strong>在地媽媽現煮野菜、小米等原風美饌",
+        "c3b3": "🍲 <strong>熱騰騰正餐：</strong>遠離商業團餐，享受最純粹的大地滋味",
+        "c4Badge": "🌲 百年森鐵實景",
+        "c4Title": "舊森鐵 8 號檜木隧道巡禮",
+        "c4b1": "🚂 <strong>百年檜木：</strong>走訪舊羅東森林鐵路珍貴檜木隧道遺跡",
+        "c4b2": "🦇 <strong>稀有蝙蝠：</strong>漫步原始自然山徑，探尋大葉鼻蝠生態",
+        "c4b3": "🍃 <strong>芬多精洗禮：</strong>林蔭原始步道深呼吸，感受山林智慧",
+        "c5Badge": "🏹 山林技藝",
+        "c5Title": "木弓射箭競賽 ‧ 手搗熱騰騰小米麻糬",
+        "c5b1": "🏹 <strong>獵人神射：</strong>拉開傳統木弓體驗山林神射手挑戰",
+        "c5b2": "🌾 <strong>全場同樂：</strong>剛起鍋的小米熱騰騰合力手搗",
+        "c5b3": "🎁 <strong>紀念品帶回：</strong>4~11月樹葉拓染 / 12~3月手做祖靈竹杯",
         "hostHeader": "原鄉引路人 ｜ 莉梅姐",
         "hostSub": "推薦台灣深度小旅行 ‧ 37 年旅遊資歷私選帶路",
         "hostBody": "莉梅姐擁有 37 年旅遊業豐富經驗，專辦訂製高質感、有溫度的精緻小旅行。她深信「旅行不必等別人有空」，走過無數大山大水，她現在最想做的，是替旅人引路，把值得細細欣賞的台灣部落與山林文化分享給懂生活的人。此行若希望由莉梅姐同行帶隊，請於 LINE 報名時特別備註，將由專人為您回覆最終行程安排。",
         "includedTitle": "旅展特惠價 ‧ 費用包含與貼心提醒",
+        "priceCardLabel": "旅展早鳥預約特惠價",
+        "pricePer": "/人（六人成團）",
+        "priceSave": "旅展提早預約現省 NT$500",
+        "priceLead": "🚐 全程專車 ‧ 台北車站原車直達",
+        "priceBenefit": "全包式一日慢旅 ‧ 免搶票免轉車",
         "includedBody": "<p style='margin-bottom:10px;'><strong>【費用包含】</strong>台北車站來回專車接送車資、樂水部落迎賓全套體驗、獵人竹筒飯DIY、工藝手作（拓染或竹杯紀念品）、部落風味午宴、百年隧道/步道導覽講師、射箭競賽、現搗小米麻糬、下午竹筒飯與烤肉點心、旅行業責任保險。</p><p><strong>【貼心提醒與路況說明】</strong>部落步道屬於自然山林與碎石原始路段，部分區域偶有泥土與自然起伏，無法保證極度平坦。建議務必穿著包覆性高且具防滑鞋底之休閒球鞋、運動鞋或健行鞋，並著輕便長袖長褲；建議自備保暖外套、個人雨具與環保水壺。如有特殊飲食需求（如素食），請於報名時先行告知。</p>",
         "faqTitle": "出發前，你可能想確認的事",
         "q1": "一個人也可以報名嗎？",
@@ -915,6 +943,7 @@
         "step2Desc": "於聊天室發送想參加的人數，並告知希望出發的「週四」日期（每週四出發，六人成團）。",
         "step3Title": "提出需求與專人確認",
         "step3Desc": "如有素食飲食需求或希望莉梅姐同行帶隊，請於報名時一併備註，將由專人為您回覆最終行程安排。",
+        "lineService": "💬 官方客服：LINE 官方帳號",
         "ctaSticky": "💬 LINE 詢問每週四梯次與報名 ↗"
       },
       "ja": {
@@ -922,10 +951,45 @@
         "badge": "🌿 原郷の案内人・莉梅さん 37年の目利き",
         "title": "忘れられた集落へ ‧ 樂水タイヤル文化1日スロートラベル",
         "catchphrase": "週末の混雑を避けて ‧ 台北駅発着専用車直行 ‧ 6名催行オールインクルーシブ",
+        "pill1": "<span>🚐</span> 台北発着専用送迎（乗換なし直行）",
+        "pill2": "<span>🔥</span> 伝統の竹筒飯作り ＋ 炭火焼き肉",
+        "pill3": "<span>🌲</span> 旧森林鉄道8号トンネルの秘境",
+        "sliderTitle": "📸 1日体験ハイライト ‧ スライドツアー",
+        "swipeHint": "左右にスワイプ 👉",
+        "c1Badge": "🎋 文化の出会い",
+        "c1Title": "タイヤル歓迎の儀 ‧ 伝統衣装と口簧琴",
+        "c1b1": "✨ <strong>伝統織物：</strong>鮮やかなタイヤル伝統衣装をまとって記念撮影",
+        "c1b2": "印 <strong>文面の印：</strong>成人礼の文面（ptasal）体験で文化に触れる",
+        "c1b3": "🎵 <strong>古調の調べ：</strong>長老が歌い継ぐ古調と口簧琴の音色に浸る",
+        "c2Badge": "🍚 郷土の知恵",
+        "c2Title": "天然の竹を伐り出す ‧ 狩人の竹筒弁当DIY",
+        "c2b1": "🌾 <strong>天日干し有機米：</strong>竹筒に米と清らかな湧水を詰める体験",
+        "c2b2": "🔥 <strong>炭火蒸し焼き：</strong>立ち上る竹の香りとふっくら炊きあがるご飯",
+        "c2b3": "😋 <strong>午後のおやつ：</strong>手作りした竹筒ご飯を午後のお楽しみに",
+        "c3Badge": "🔥 出来立て熱々",
+        "c3Title": "原木の炭火焼き肉 ‧ 採れたて旬の郷土ランチ",
+        "c3b1": "🍖 <strong>竹串焼き：</strong>炭火でじっくり香ばしく焼き上げる名物山豚肉",
+        "c3b2": "🥗 <strong>山里の恵み：</strong>地元の母たちが腕を振るう旬の山菜と家庭料理",
+        "c3b3": "🍲 <strong>心温まる正餐：</strong>ツアー料理とは一線を画す、本物の風土の味",
+        "c4Badge": "🌲 100年の鉄道跡",
+        "c4Title": "旧森林鉄道8号ヒノキトンネル探訪",
+        "c4b1": "🚂 <strong>歴史の遺構：</strong>旧羅東森林鉄道の貴重なヒノキトンネルを歩く",
+        "c4b2": "🦇 <strong>希少コウモリ：</strong>豊かな原生林を散策し、大葉鼻蝠の生態を観察",
+        "c4b3": "🍃 <strong>森林浴：</strong>澄んだ山の空気を胸いっぱいに深呼吸",
+        "c5Badge": "🏹 狩人の技",
+        "c5Title": "伝統の木弓射撃大会 ‧ つきたて熱々のお餅",
+        "c5b1": "🏹 <strong>木弓体験：</strong>昔ながらの弓矢を構えて狩人の腕比べ",
+        "c5b2": "🌾 <strong>みんなでお餅つき：</strong>蒸したてのもち米をみんなで元気に搗く",
+        "c5b3": "🎁 <strong>手作り記念品：</strong>草木染め（4〜11月）または竹コップ作り（12〜3月）",
         "hostHeader": "原郷の案内人 ｜ 莉梅（リーメイ）さん",
         "hostSub": "台湾ディープなスロートラベル推奨 ‧ 旅行業37年の目利き",
         "hostBody": "莉梅さんは旅行業界37年の豊富な経験を持ち、上質で温かみのある少人数ツアーを得意としています。「旅は誰かを待たなくてもいい」を信条に、本当に心に残る台湾の風土と文化を分かち合いたいと願っています。莉梅さんの同行をご希望の場合は、お申込み時にお知らせください。専任スタッフより最終的な手配をご案内します。",
         "includedTitle": "特別価格 ‧ 料金に含まれるもの・注意事項",
+        "priceCardLabel": "早期予約特別価格",
+        "pricePer": "/名（6名より催行）",
+        "priceSave": "早期予約で NT$500 お得",
+        "priceLead": "🚐 全行程専用車送迎 ‧ 台北駅直行",
+        "priceBenefit": "切符予約や乗換不要 ‧ オールインクルーシブの旅",
         "includedBody": "<p style='margin-bottom:10px;'><strong>【料金に含まれるもの】</strong>台北駅発着往復専用車送迎、樂水集落体験一式、竹筒飯DIY、伝統工芸手作り、集落特製ランチ、ガイド講師料、射撃体験、お餅つき、午後のおやつ・焼き肉、旅行業責任保険。</p><p><strong>【注意事項】</strong>散策路には自然の山道や砂利道が含まれ、完全な平坦路ではございません。滑りにくく歩きやすいスニーカーや軽登山靴、長袖長ズボンでご参加ください。ベジタリアンなど食事のご要望は事前にお知らせください。</p>",
         "faqTitle": "よくあるご質問",
         "q1": "一人でも参加できますか？",
@@ -945,6 +1009,7 @@
         "step2Desc": "トーク画面にて参加人数とご希望の木曜日をお知らせください（毎週木曜出発・6名催行）。",
         "step3Title": "ご要望確認と手配完了",
         "step3Desc": "食事制限や莉梅さんの同行希望があればお伝えください。専任スタッフより最終手配をご案内します。",
+        "lineService": "💬 公式LINEカスタマーサポート",
         "ctaSticky": "💬 LINEで木曜出発の相談・お申し込み ↗"
       }
     };
@@ -957,7 +1022,8 @@
       document.querySelectorAll('[data-i]').forEach(el => {
         const key = el.dataset.i;
         if (t[key]) {
-          if (key === 'includedBody') {
+          // 若內容包含 HTML 標籤（如 <span> 或 <strong>），採用 innerHTML 渲染以保留結構與圖標
+          if (t[key].includes('<')) {
             el.innerHTML = t[key];
           } else {
             el.textContent = t[key];
