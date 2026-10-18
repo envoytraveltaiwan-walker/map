@@ -35,7 +35,6 @@
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
     html { scroll-behavior: smooth; }
     
-    /* 防選取與防圖片拖曳 */
     body {
       width: 100%;
       min-height: 100vh;
@@ -54,13 +53,10 @@
 
     img {
       -webkit-user-drag: none;
-      -khtml-user-drag: none;
-      -moz-user-drag: none;
-      -o-user-drag: none;
       user-drag: none;
     }
 
-    /* 視窗失焦防截圖模糊效果 */
+    /* 視窗失焦防截圖模糊效果（已移除 pointer-events: none，確保點擊有效） */
     #page-content-wrapper {
       transition: filter 0.15s ease, opacity 0.15s ease;
       width: 100%;
@@ -68,7 +64,6 @@
     .blur-effect {
       filter: blur(22px) grayscale(40%) !important;
       opacity: 0.6;
-      pointer-events: none;
     }
 
     /* ==================== 1. 頂部固定導覽列 ==================== */
@@ -263,14 +258,13 @@
     }
     .btn-hero-primary:hover { background: #E2E8F0; transform: translateY(-2px); }
 
-    /* ==================== 3. Netflix 卡片橫向滑動區 ==================== */
+    /* ==================== 3. 卡片橫向滑動區 ==================== */
     .netflix-rows-wrap { padding: 30px 0 20px; }
     .row-section { padding: 24px 60px 32px; position: relative; }
     .row-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; }
     .row-title { font-size: 24px; font-weight: 900; }
     .row-subtitle { font-size: 13.5px; color: var(--text-muted); }
 
-    /* 部落篩選膠囊 */
     .tribe-pill-bar { display: flex; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
     .pill-btn {
       background: rgba(255, 255, 255, 0.08);
@@ -283,6 +277,7 @@
       cursor: pointer;
       transition: all 0.2s;
       text-decoration: none;
+      display: inline-block;
     }
     .pill-btn.active, .pill-btn:hover {
       background: var(--accent-gold);
@@ -301,7 +296,6 @@
     }
     .scroll-track::-webkit-scrollbar { display: none; }
 
-    /* 行程卡片通用樣式 */
     .tour-card-real {
       flex: 0 0 350px;
       background: var(--bg-card);
@@ -312,6 +306,7 @@
       flex-direction: column;
       text-decoration: none;
       color: inherit;
+      cursor: pointer;
       transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
     }
     .tour-card-real:hover {
@@ -352,9 +347,6 @@
       font-weight: 800;
       backdrop-filter: blur(6px);
       z-index: 2;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
     }
     .card-badge-real.green {
       color: #D1FAE5;
@@ -374,7 +366,6 @@
       z-index: 2;
     }
     
-    /* 卡片上的純文字來源標示（無連結干擾） */
     .card-credit-tag {
       position: absolute;
       bottom: 8px; left: 10px;
@@ -430,7 +421,6 @@
       margin: 2px 0 6px;
     }
 
-    /* 旅程必看 ‧ 不能錯過重點模組 */
     .must-know-box {
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -480,7 +470,6 @@
     .price-num.green { color: #6EE7B7; }
     .price-save { font-size: 12px; color: var(--accent-gold); font-weight: 700; }
 
-    /* ==================== 行程下方：照片引用說明區塊 ==================== */
     .photo-attribution-box {
       padding: 0 60px 30px;
     }
@@ -503,7 +492,7 @@
       text-decoration: underline;
     }
 
-    /* ==================== 4. 統一標準頁尾 ==================== */
+    /* ==================== 4. 頁尾 ==================== */
     .et-footer {
       background: #051218;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -550,13 +539,12 @@
 </head>
 <body id="top">
 
-  <!-- 頁面可視容器 (失焦時自動模糊保護) -->
   <div id="page-content-wrapper">
 
     <!-- ==================== 1. 頂部固定導覽列 ==================== -->
     <header class="et-navbar">
       <a href="#top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="nav-brand-lockup" title="回到最頂端">
-        <img src="./ENVOY_Emblem_Transparent.png"
+        <img src="/ENVOY_Emblem_Transparent.png"
              onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/ENVOY_Emblem_Transparent.png';"
              alt="ENVOY 權杖標誌"
              class="nav-emblem-img">
@@ -580,7 +568,7 @@
 
     <!-- ==================== 2. Netflix 巨幅精選看板 ==================== -->
     <section class="hero-billboard">
-      <img src="./viktorija-demjanenko-uvlvyjUlwNI-unsplash.jpg"
+      <img src="/viktorija-demjanenko-uvlvyjUlwNI-unsplash.jpg"
            onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/viktorija-demjanenko-uvlvyjUlwNI-unsplash.jpg';"
            alt="臺灣原鄉慢旅示意圖"
            class="hero-bg-media">
@@ -624,9 +612,9 @@
           <div class="scroll-track">
 
             <!-- 1. 白蘭櫻花行程卡片 -->
-            <a href="./tours/2027_sakura-atayal.html" class="tour-card-real sakura-border">
+            <a href="/tours/2027_sakura-atayal.html" class="tour-card-real sakura-border">
               <div class="card-thumb-real">
-                <img src="./linus-belanger-iQkLU7YgtYM-unsplash.jpg"
+                <img src="/linus-belanger-iQkLU7YgtYM-unsplash.jpg"
                      onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/linus-belanger-iQkLU7YgtYM-unsplash.jpg';"
                      alt="白蘭部落行程" class="card-img-media">
                 <span class="card-badge-real">🌿 原鄉引路人 ‧ 莉梅姐私選</span>
@@ -661,10 +649,10 @@
               </div>
             </a>
 
-            <!-- 2. 樂水部落一日遊行程卡片 (卡片上為純文字標示，無點擊跳轉) -->
-            <a href="./tours/leshui-atayal.html" class="tour-card-real leshui-border">
+            <!-- 2. 樂水部落一日遊行程卡片 -->
+            <a href="/tours/leshui-atayal.html" class="tour-card-real leshui-border">
               <div class="card-thumb-real">
-                <img src="./太.jpg"
+                <img src="/太.jpg"
                      onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/%E5%A4%AA.jpg';"
                      alt="樂水部落行程"
                      class="card-img-media">
@@ -712,18 +700,18 @@
         </div>
 
         <div class="tribe-pill-bar">
-          <button class="pill-btn active">全部行程</button>
-          <button class="pill-btn" onclick="location.href='./tours/2027_sakura-atayal.html'">🌸 新竹五峰・白蘭雲霧櫻花</button>
-          <button class="pill-btn" onclick="location.href='./tours/leshui-atayal.html'">🎋 宜蘭大同・樂水森鐵秘境</button>
+          <a href="#indigenous-section" class="pill-btn active">全部行程</a>
+          <a href="/tours/2027_sakura-atayal.html" class="pill-btn">🌸 新竹五峰・白蘭雲霧櫻花</a>
+          <a href="/tours/leshui-atayal.html" class="pill-btn">🎋 宜蘭大同・樂水森鐵秘境</a>
         </div>
 
         <div class="slider-container">
           <div class="scroll-track">
 
             <!-- 1. 白蘭櫻花行程卡片 -->
-            <a href="./tours/2027_sakura-atayal.html" class="tour-card-real sakura-border">
+            <a href="/tours/2027_sakura-atayal.html" class="tour-card-real sakura-border">
               <div class="card-thumb-real">
-                <img src="./linus-belanger-iQkLU7YgtYM-unsplash.jpg"
+                <img src="/linus-belanger-iQkLU7YgtYM-unsplash.jpg"
                      onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/linus-belanger-iQkLU7YgtYM-unsplash.jpg';"
                      alt="白蘭部落行程" class="card-img-media">
                 <span class="card-badge-real">🌿 原鄉引路人 ‧ 莉梅姐私選</span>
@@ -758,10 +746,10 @@
               </div>
             </a>
 
-            <!-- 2. 樂水部落一日遊行程卡片 (卡片上為純文字標示，無點擊跳轉) -->
-            <a href="./tours/leshui-atayal.html" class="tour-card-real leshui-border">
+            <!-- 2. 樂水部落一日遊行程卡片 -->
+            <a href="/tours/leshui-atayal.html" class="tour-card-real leshui-border">
               <div class="card-thumb-real">
-                <img src="./太.jpg"
+                <img src="/太.jpg"
                      onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/%E5%A4%AA.jpg';"
                      alt="樂水部落行程"
                      class="card-img-media">
@@ -801,7 +789,7 @@
         </div>
       </section>
 
-      <!-- ==================== 行程下方：照片引用說明區塊 ==================== -->
+      <!-- ==================== 照片引用說明 ==================== -->
       <div class="photo-attribution-box">
         <div class="photo-attribution-inner">
           <span class="attribution-label">📷 照片引用說明：</span>
@@ -838,7 +826,7 @@
 
   </div>
 
-  <!-- JS 防護與失焦模糊控制 -->
+  <!-- 防護腳本 -->
   <script>
     const contentWrapper = document.getElementById('page-content-wrapper');
 
@@ -847,6 +835,8 @@
     });
 
     document.addEventListener('selectstart', function (e) {
+      // 避免阻擋連結點擊
+      if (e.target.closest('a') || e.target.closest('button')) return true;
       e.preventDefault();
     });
     document.addEventListener('copy', function (e) {
