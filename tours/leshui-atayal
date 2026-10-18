@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+  <meta content="#fcf8f3" name="theme-color"/>
+  <meta content="跟著莉梅姐一起旅行：宜蘭樂水部落・泰雅文化深度一日遊。每週四出發、六人成團、台北專車接送。" name="description"/>
+  <title>跟著莉梅姐一起旅行｜宜蘭樂水部落・泰雅文化深度一日遊</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+JP:wght@500;600;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --ink: #24352f;
+      --soft: #526158;
+      --rose: #b64f68;
+      --roseLight: #fff0f2;
+      --cream: #fcf8f3;
+      --leaf: #456b5a;
+      --border: #e6dfd5;
+      --accent-gold: #C5A059;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Noto Sans TC', 'Noto Sans JP', sans-serif;
+      font-size: 18px;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+    button, a { font: inherit; }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible { outline: 3px solid #bd5470; outline-offset: 3px; }
+    .container { width: min(1060px, calc(100% - 40px)); margin: auto; }
+
+    /* ==================== 頂部導覽列 ==================== */
+    .nav {
+      background: rgba(252, 248, 243, 0.98);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+    .navinner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 70px;
+      gap: 10px;
+    }
+
+    .nav-brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .nav-emblem-img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+    .nav-brand-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      line-height: 1.2;
+    }
+    .nav-brand-en {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: var(--ink);
+    }
+    .nav-brand-zh {
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      color: var(--accent-gold);
+      margin-top: 2px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      background: white;
+      border: 1px solid #c7c7c0;
+      border-radius: 20px;
+      padding: 6px 13px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--ink);
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+    .btn-back-home:hover {
+      background: var(--ink);
+      color: white;
+      border-color: var(--ink);
+    }
+
+    .lang-group {
+      display: inline-flex;
+      background: white;
+      border: 1px solid #c7c7c0;
+      border-radius: 20px;
+      padding: 2px;
+      gap: 2px;
+    }
+    .lang-group button {
+      background: transparent;
+      border: none;
+      border-radius: 16px;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--soft);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .lang-group button[aria-pressed=true] {
+      background: var(--ink);
+      color: white;
+    }
+
+    /* ==================== 頁面主體 ==================== */
+    .hero {
+      background: linear-gradient(120deg, #eef5f0, #fbf7f0 70%);
+      padding: 44px 0 54px;
+    }
+    .hero .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) !important;
+      max-width: 920px;
+      margin-inline: auto;
+      gap: 16px;
+    }
+    .eyebrow { font-size: 15.5px; color: var(--leaf); font-weight: 700; letter-spacing: .04em; }
+    .hero h1 {
+      font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
+      font-size: clamp(30px, 4.2vw, 48px);
+      line-height: 1.35;
+      letter-spacing: .015em;
+      margin: 12px 0;
+      white-space: normal;
+    }
+    .sub { font-size: 20px; font-weight: 700; color: var(--leaf); }
+    .intro { max-width: 680px; margin: 18px 0 22px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0; }
+    .chip {
+      border: 1px solid #c4d7cd;
+      border-radius: 30px;
+      padding: 4px 14px;
+      font-weight: 600;
+      font-size: 15.5px;
+      background: #fff;
+    }
+
+    /* 價格卡片 */
+    .price-section { margin-top: -18px; position: relative; }
+    .price-card {
+      background: #fff;
+      border: 1px solid #d4e3da;
+      box-shadow: 0 12px 30px rgba(36, 53, 47, 0.08);
+      border-radius: 18px;
+      padding: 26px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .price-card .label { color: var(--soft); font-size: 16px; }
+    .amount { font-size: clamp(38px, 5vw, 54px); font-weight: 700; color: var(--leaf); line-height: 1.25; }
+    .old { text-decoration: line-through; color: #757a74; }
+    .small { font-size: 15.5px; color: var(--soft); }
+    .save { color: var(--rose); font-weight: 700; font-size: 16px; }
+
+    /* 各區塊樣式 */
+    .section { padding: 60px 0; }
+    .section.alt { background: #f3efe8; }
+    h2 { font-family: 'Noto Serif TC', 'Noto Serif JP', serif; font-size: clamp(26px, 3vw, 34px); line-height: 1.4; margin: 0 0 22px; }
+    h3 { font-size: 21px; line-height: 1.5; margin: 0 0 8px; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .tile { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
+    .num { font-size: 28px; margin-bottom: 12px; }
+    .story { max-width: 850px; font-size: 18.5px; }
+
+    /* 體驗內容結構卡片 (無具體時間點，無車型承諾) */
+    .departure-badge-box {
+      background: #eef7f2;
+      border-left: 4px solid var(--leaf);
+      border-radius: 8px;
+      padding: 14px 20px;
+      margin-bottom: 24px;
+      font-size: 16.5px;
+      color: var(--ink);
+      font-weight: 600;
+    }
+    .departure-badge-box span { color: var(--leaf); font-weight: 800; margin-right: 6px; }
+
+    .experience-list-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .experience-card-item {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px 26px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .experience-card-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(36, 53, 47, 0.07);
+    }
+    .exp-icon-box {
+      width: 48px;
+      height: 48px;
+      background: #f4faf6;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+      border: 1px solid #d4e8dd;
+    }
+    .exp-body h4 {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .exp-body h4 .tag-mini {
+      font-size: 12.5px;
+      color: var(--leaf);
+      background: #eef7f2;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    .exp-body p {
+      font-size: 16px;
+      color: var(--soft);
+      line-height: 1.6;
+    }
+
+    /* 莉梅姐介紹 */
+    .hostbox {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+    }
+    .hostbox img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      flex-shrink: 0;
+      border: 2px solid #d4e3da;
+    }
+
+    /* 報名三步驟卡片 */
+    .steps-container {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 10px;
+    }
+    .step-box-card {
+      background: #ffffff;
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .step-box-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(36, 53, 47, 0.08);
+    }
+    .step-badge-pill {
+      background: var(--ink);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: 20px;
+      flex-shrink: 0;
+      letter-spacing: 0.5px;
+    }
+    .step-badge-pill.gold { background: #d97706; }
+    .step-badge-pill.leaf { background: var(--leaf); }
+
+    .step-body-content h4 {
+      font-size: 18.5px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .step-body-content p {
+      font-size: 16px;
+      color: var(--soft);
+      line-height: 1.55;
+    }
+
+    /* 結尾純淨段落 */
+    .final-clean-wrap {
+      background: #eaf0e9;
+      text-align: center;
+      padding: 60px 0 50px;
+    }
+    .final-clean-wrap h2 { margin-bottom: 14px; }
+    .final-clean-wrap p {
+      margin: 0 auto;
+      max-width: 680px;
+      font-size: 17.5px;
+      line-height: 1.7;
+      color: var(--soft);
+    }
+
+    /* ==================== 頁尾 (與首頁 100% 相同深色規格) ==================== */
+    .et-footer {
+      background: #051218;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 36px 40px 110px;
+      color: #94A3B8;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .footer-wrapper { max-width: 1060px; margin: 0 auto; }
+    .footer-company-full {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #CBD5E1;
+      margin-bottom: 10px;
+    }
+
+    .footer-legal-small {
+      font-size: 11px;
+      color: #64748B;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .footer-legal-small span { margin-right: 14px; display: inline-block; }
+
+    .footer-links-bar {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 12px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 12px;
+    }
+    .footer-link-a { color: #38BDF8; text-decoration: none; font-weight: 700; font-size: 13px; }
+    .footer-link-a:hover { color: #FFF; }
+    .footer-link-a.line-channel { color: #4ADE80; font-weight: 900; }
+    .footer-divider { color: #334155; }
+
+    .footer-cc-source {
+      font-size: 11px;
+      color: #64748B;
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+    .footer-cc-source a { color: #94A3B8; text-decoration: underline; }
+    .footer-copyright { font-size: 11.5px; color: #64748B; }
+
+    /* 底部唯一吸附按鈕 */
+    .sticky {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 200;
+      background: rgba(255, 254, 252, 0.96);
+      box-shadow: 0 -4px 20px rgba(36, 53, 47, 0.15);
+      padding: 10px max(20px, env(safe-area-inset-left)) calc(10px + env(safe-area-inset-bottom));
+      display: flex;
+      justify-content: center;
+      backdrop-filter: blur(8px);
+    }
+    .sticky .button {
+      width: min(100%, 500px);
+      min-height: 52px;
+      background: #06a54e;
+      color: #fff;
+      border-radius: 12px;
+      font-size: 18.5px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+
+    @media (max-width: 750px) {
+      body { font-size: 17px; }
+      .container { width: calc(100% - 30px); }
+      .navinner { min-height: 64px; }
+      .nav-emblem-img { height: 34px; }
+      .nav-brand-en { font-size: 15px; letter-spacing: 2px; }
+      .nav-brand-zh { font-size: 9px; letter-spacing: 1px; }
+      .btn-back-home { padding: 5px 10px; font-size: 13px; }
+      .lang-group button { padding: 4px 8px; font-size: 12px; }
+
+      .hero { padding: 26px 0 38px; }
+      .price-card { flex-direction: column; align-items: flex-start; padding: 20px; }
+      .section { padding: 44px 0; }
+      .grid { grid-template-columns: 1fr; }
+      
+      .experience-card-item {
+        flex-direction: column;
+        gap: 12px;
+        padding: 18px 20px;
+      }
+      .hostbox { flex-direction: column; align-items: flex-start; }
+      .hostbox img { width: 100px; height: 100px; }
+
+      .step-box-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 16px 18px;
+      }
+      .et-footer { padding: 30px 20px 100px; }
+    }
+
+    @media (max-width: 375px) {
+      .nav-brand-zh { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body id="top">
+
+  <!-- ==================== 頂部導覽列 ==================== -->
+  <nav class="nav">
+    <div class="container navinner">
+      <a href="#top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="nav-brand-lockup" title="回到最頂端">
+        <img src="./ENVOY_Emblem_Transparent.png"
+             onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/ENVOY_Emblem_Transparent.png';"
+             alt="ENVOY 權杖標誌"
+             class="nav-emblem-img">
+        <div class="nav-brand-text">
+          <span class="nav-brand-en">ENVOY</span>
+          <span class="nav-brand-zh">安捷國際旅行社</span>
+        </div>
+      </a>
+
+      <div class="nav-actions">
+        <a href="./index.html" class="btn-back-home">‹ 回首頁</a>
+        <div aria-label="語言切換" class="lang-group">
+          <button aria-pressed="true" id="zhBtn" type="button">中文</button>
+          <button aria-pressed="false" id="jaBtn" type="button">日本語</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- 主視覺看板 -->
+    <header class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">跟著莉梅姐一起旅行 ｜ 宜蘭大同・樂水部落</div>
+          <h1>走進被遺忘的部落・樂水泰雅文化一日慢旅</h1>
+          <p class="sub">泰雅迎賓 × 竹筒飯DIY × 森鐵百年隧道 × 獵人射箭體驗</p>
+          <p class="intro">
+            每週四出發，六人成團！約朋友來一趟不一樣的深度小旅行。台北專車接送，走進宜蘭樂水部落。欣賞泰雅迎賓歌舞、親手體驗傳統工藝、品嚐部落風味午餐，聽在地人分享山林與生活故事。
+          </p>
+          <div class="chips">
+            <span class="chip">每週四出發</span>
+            <span class="chip">六人成團</span>
+            <span class="chip">台北專車往返</span>
+            <span class="chip">深度一日慢旅</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 價格卡片 -->
+    <div class="container price-section">
+      <div class="price-card">
+        <div>
+          <div class="label">旅展早鳥預約特惠價</div>
+          <div class="amount">NT$3,370</div>
+          <div class="small">／人・六人成團</div>
+          <div class="save">旅展提早預約現省 NT$500</div>
+        </div>
+        <div>
+          <div class="small"><span>原價</span> <span class="old">NT$3,870</span></div>
+          <h3>每週四出發・六人成團</h3>
+          <div class="small">台北專車往返接送，歡迎親友包團或結伴報名。</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 亮點四宮格 -->
+    <section class="section">
+      <div class="container">
+        <h2>這趟一日慢旅，剛剛好的美好</h2>
+        <div class="grid">
+          <article class="tile">
+            <div class="num">🎋</div>
+            <h3>泰雅迎賓・文面與傳統歌舞</h3>
+            <p>換穿泰雅傳統織布服飾，體驗成年禮文面印記，齊跳迎賓舞步並聆聽泰雅古調與口簧琴悠揚樂聲。</p>
+          </article>
+          <article class="tile">
+            <div class="num">🍚</div>
+            <h3>親採桂竹・獵人竹筒便當手作</h3>
+            <p>親手裝填有機日曬米與天然山泉水，柴火蒸烤撲鼻米香，下午茶品嚐最純粹的獵人野趣。</p>
+          </article>
+          <article class="tile">
+            <div class="num">🦇</div>
+            <h3>森鐵巡禮・舊8號隧道大葉鼻蝠</h3>
+            <p>走進舊羅東森林鐵路百年檜木遺跡，一窺全台最大吃蟲類蝙蝠生態，領略泰雅族千年生態智慧。</p>
+          </article>
+          <article class="tile">
+            <div class="num">🏹</div>
+            <h3>神射競賽・現搗小米麻糬</h3>
+            <p>拿起傳統木弓挑戰泰雅神射手競賽，合力手搗剛起鍋的香甜小米麻糬，搭配熱騰騰烤肉點心。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 一日深度體驗內容 (無時間軸，無車型承諾) ==================== -->
+    <section class="section alt">
+      <div class="container">
+        <h2>一日深度體驗內容</h2>
+        
+        <!-- 專車出發資訊 -->
+        <div class="departure-badge-box">
+          <span>🚐 專車出發資訊：</span> 於台北車站東三門集合搭乘專車直達，免去自行開車疲憊，行程結束後專車接送返回台北車站。
+        </div>
+
+        <div class="experience-list-wrap">
+          <div class="experience-card-item">
+            <div class="exp-icon-box">🎋</div>
+            <div class="exp-body">
+              <h4>泰雅迎賓盛禮 ‧ 傳統服飾與古調口簧琴 <span class="tag-mini">文化體驗</span></h4>
+              <p>換穿泰雅傳統織布服飾合照、體驗額頭文面（ptasal）族群印記、學習泰雅問候語並齊跳迎賓舞；聆聽耆老傳唱泰雅古調（lmuhuw）與演奏口簧琴（tlbux），深刻品味百年文化底蘊。</p>
+            </div>
+          </div>
+
+          <div class="experience-card-item">
+            <div class="exp-icon-box">🍚</div>
+            <div class="exp-body">
+              <h4>親採桂竹 ‧ 獵人竹筒便當（竹筒飯）DIY <span class="tag-mini">風土手作</span></h4>
+              <p>親手裝填有機日曬米與天然山泉水入竹筒，放入蒸鍋柴燒慢炊，散發原始竹膜與稻米撲鼻清香，留作下午的特色點心。</p>
+            </div>
+          </div>
+
+          <div class="experience-card-item">
+            <div class="exp-icon-box">🎨</div>
+            <div class="exp-body">
+              <h4>泰雅傳統工藝手作（紀念品攜回） <span class="tag-mini">工藝留念</span></h4>
+              <p>4至11月安排「泰雅樹葉拓染」，體驗最初服飾圖騰之美；12至3月安排「手做祖靈桂竹杯」，感受祭儀與祖靈對話的神聖工藝。</p>
+            </div>
+          </div>
+
+          <div class="experience-card-item">
+            <div class="exp-icon-box">🍲</div>
+            <div class="exp-body">
+              <h4>在地採集 ‧ 部落特色風味午宴 <span class="tag-mini">部落美饌</span></h4>
+              <p>品嚐在地媽媽運用當季野菜、小米與山林原味食材細心烹調的風味料理，感受最真摯的大地滋味。</p>
+            </div>
+          </div>
+
+          <div class="experience-card-item">
+            <div class="exp-icon-box">🦇</div>
+            <div class="exp-body">
+              <h4>百年森鐵舊8號隧道巡禮 或 飛鼠步道生態探秘 <span class="tag-mini">自然探索</span></h4>
+              <p>走訪舊羅東森林鐵路百年檜木隧道史詩，一窺珍稀的大葉鼻蝠生態；或漫步飛鼠步道進行入山祈福、野生動物求生技能與泰雅千年生態智慧導覽。</p>
+            </div>
+          </div>
+
+          <div class="experience-card-item">
+            <div class="exp-icon-box">🏹</div>
+            <div class="exp-body">
+              <h4>泰雅傳統木弓射箭競賽 ‧ 手搗小米麻糬享用點心 <span class="tag-mini">傳統競賽</span></h4>
+              <p>拉起傳統木弓體驗山林獵人神射競賽，親手合力搗打熱騰騰小米麻糬，並享用早晨親製的香氣竹筒飯與原木烤肉點心。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 莉梅姐介紹 (專辦訂製高質感小旅行) -->
+    <section class="section">
+      <div class="container">
+        <h2>跟著莉梅姐一起旅行｜旅行不必等別人有空</h2>
+        <div class="hostbox">
+          <img alt="莉梅姐" src="./莉梅姐.png" onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/%E8%8E%89%E6%A2%85%E5%A7%90.png';"/>
+          <p>
+            推薦台灣深度小旅行！莉梅姐是安捷旅遊執行長，擁有 37 年旅遊業豐富經驗，專辦訂製高質感、有溫度的精緻小旅行。她希望把值得細細欣賞的台灣風景與部落文化，分享給喜愛探索生活的旅人。「跟著莉梅姐一起旅行」是她與安捷團隊共同規劃的主題系列，未來將陸續推出更多私房行程。若希望由莉梅姐同行帶隊，請於報名時備註，將由專人為您回覆最終行程安排。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 部落生活哲學 -->
+    <section class="section alt">
+      <div class="container">
+        <h2>走進被遺忘的部落・樂水泰雅生活哲學</h2>
+        <p class="story">
+          與樂水部落的自然期遇，有著許多動人的歷史情節。透過細膩的在地連結，融合風土人文、森鐵生態與部落產業，編織出難以忘懷的原鄉意境。泰雅傳統文化重視人與土地的承諾，在生活哲學中領略知足的豐美。來到這裡，放慢腳步親手做竹筒飯、拉起木弓、觸摸古隧道岩壁，不只是一趟旅行，更是一場深刻的生活文化啟發。
+        </p>
+      </div>
+    </section>
+
+    <!-- 費用包含 -->
+    <section class="section">
+      <div class="container">
+        <h2>費用包含與貼心提醒</h2>
+        <div class="included">
+          <p style="margin-bottom:12px;"><strong>【費用包含】</strong>台北車站來回專車接送車資、樂水部落迎賓全套體驗、獵人竹筒飯DIY、工藝手作（拓染或竹杯紀念品）、部落風味午宴、百年隧道/步道導覽講師、射箭競賽、現搗小米麻糬、下午竹筒飯與烤肉點心、旅行業責任保險。</p>
+          <p><strong>【貼心提醒】</strong>建議穿著輕便長袖長褲與硬底防滑鞋（登山鞋或運動鞋），並自備保暖外衣、輕便雨衣與環保水壺。如有特殊飲食需求（如素食），請於報名時先行告知。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 報名方式：結構化三步驟 -->
+    <section class="section alt">
+      <div class="container">
+        <h2>報名方式 ｜ 三步驟就能詢問</h2>
+        
+        <div class="steps-container">
+          <div class="step-box-card">
+            <span class="step-badge-pill">STEP 1</span>
+            <div class="step-body-content">
+              <h4>加入官方 LINE 帳號</h4>
+              <p>點擊下方按鈕加入安捷國際旅行社官方 LINE 好友。</p>
+            </div>
+          </div>
+
+          <div class="step-box-card">
+            <span class="step-badge-pill gold">STEP 2</span>
+            <div class="step-body-content">
+              <h4>告知人數與希望出發日期</h4>
+              <p>於聊天室發送想參加的人數，並告知希望出發的「週四」日期（每週四出發，六人成團）。</p>
+            </div>
+          </div>
+
+          <div class="step-box-card leaf">
+            <span class="step-badge-pill leaf">STEP 3</span>
+            <div class="step-body-content">
+              <h4>提出需求與專人確認</h4>
+              <p>如有素食需求或希望莉梅姐同行帶隊，請於報名時一併備註，將由專人為您回覆最終行程安排。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 結尾純淨段落 (無重複按鈕) -->
+    <section class="final-clean-wrap">
+      <div class="container">
+        <h2>留一天給自己，走進泰雅山林</h2>
+        <p>每週四出發，六人成團，台北專車直達。加入官方 LINE 即可快速諮詢報名與包團服務。</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== 頁尾 (與首頁相同標準規格) ==================== -->
+  <footer class="et-footer">
+    <div class="footer-wrapper">
+      <div class="footer-company-full">安捷國際旅行社有限公司 ｜ ENVOY INTERNATIONAL TRAVEL SERVICE CO., LTD.</div>
+
+      <!-- 法定資料：小字細緻 -->
+      <div class="footer-legal-small">
+        <span>交通部觀光署註冊旅行業 ‧ 甲種 592000 號</span>
+        <span>交觀甲字第 5920 號</span>
+        <span>統一編號：16169138</span>
+        <span>代表人：楊寶惠</span>
+        <span>地址：臺北市中山區長安東路2段50號5樓之1</span>
+      </div>
+
+      <!-- 快速連結列 -->
+      <div class="footer-links-bar">
+        <a href="./index.html" class="footer-link-a">‹ 回首頁</a>
+        <span class="footer-divider">｜</span>
+        <a href="https://lin.ee/Z3c7Qam" target="_blank" class="footer-link-a line-channel">
+          💬 官方客服：LINE 官方帳號
+        </a>
+      </div>
+
+      <!-- 創用 CC 影像授權來源完整標註 -->
+      <p class="footer-cc-source">
+        卡片影像授權來源：原住民族委員會原住民族文化發展中心（創用 CC 姓名標示-非商業性 3.0 台灣，CC BY-NC 3.0 TW +），國家文化記憶庫識別碼：<a href="https://cmsdb.culture.tw/person/F4270BDF-DAFC-4BE3-8606-42CE1175E5AB" target="_blank" rel="noopener">b64f0a52-d1fd-4926-83d8-7345f8d2fc77</a>。
+      </p>
+
+      <p class="footer-copyright">
+        © 2026 ENVOY TRAVEL. All Rights Reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- 螢幕底部唯一常駐吸附預約按鈕 -->
+  <div class="sticky">
+    <a class="button" href="https://lin.ee/Z3c7Qam" rel="noopener" target="_blank">
+      💬 LINE 詢問每週四梯次與報名 ↗
+    </a>
+  </div>
+
+  <script>
+    const zhBtn = document.getElementById('zhBtn');
+    const jaBtn = document.getElementById('jaBtn');
+    zhBtn.addEventListener('click', () => {
+      zhBtn.setAttribute('aria-pressed', 'true');
+      jaBtn.setAttribute('aria-pressed', 'false');
+    });
+    jaBtn.addEventListener('click', () => {
+      jaBtn.setAttribute('aria-pressed', 'true');
+      zhBtn.setAttribute('aria-pressed', 'false');
+    });
+  </script>
+</body>
+</html>
