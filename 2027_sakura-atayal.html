@@ -6,6 +6,17 @@
   <meta content="#fcf8f3" name="theme-color"/>
   <meta content="和莉梅姐一起旅行：2027新竹五峰白蘭部落櫻花山林二天一夜。平日賞櫻、六人成團、台北專車、一泊二食。" name="description"/>
   <title>和莉梅姐一起旅行｜2027 白蘭部落櫻花山林二天一夜</title>
+
+  <!-- ==================== GA4 網站流量追蹤代碼 ==================== -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PPP4CT61HC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-PPP4CT61HC');
+  </script>
+
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+JP:wght@500;600;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet"/>
@@ -53,7 +64,6 @@
       gap: 10px;
     }
 
-    /* 左上角：與首頁一致之權杖 Logo，點擊回頂部 */
     .nav-brand-lockup {
       display: flex;
       align-items: center;
@@ -89,7 +99,6 @@
       margin-top: 2px;
     }
 
-    /* 右上角：回首頁按鈕 + 語言群組 (中文 / 日本語) */
     .nav-actions {
       display: flex;
       align-items: center;
@@ -253,7 +262,7 @@
       border: 2px solid var(--roseLight);
     }
 
-    /* ==================== 報名三步驟 (高結構卡片排版) ==================== */
+    /* 報名三步驟 */
     .steps-container {
       display: flex;
       flex-direction: column;
@@ -303,7 +312,7 @@
       line-height: 1.55;
     }
 
-    /* 2027 春天結尾區段 (已移除重複的綠色按鈕) */
+    /* 2027 春天結尾區段 */
     .final-clean-wrap {
       background: #eaf0e9;
       text-align: center;
@@ -320,11 +329,11 @@
       color: var(--soft);
     }
 
-    /* ==================== 頁尾 (與首頁 100% 相同深色規格) ==================== */
+    /* ==================== 頁尾 (與首頁一致深色規格) ==================== */
     .et-footer {
       background: #051218;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 36px 40px 110px; /* 底部留白避免遮擋吸附按鈕 */
+      padding: 36px 40px 110px;
       color: #94A3B8;
       font-size: 13px;
       line-height: 1.6;
@@ -337,7 +346,6 @@
       margin-bottom: 10px;
     }
 
-    /* 法定資料：小字細緻 */
     .footer-legal-small {
       font-size: 11px;
       color: #64748B;
@@ -346,7 +354,6 @@
     }
     .footer-legal-small span { margin-right: 14px; display: inline-block; }
 
-    /* 快速連結列：回首頁 ＋ LINE 客服 */
     .footer-links-bar {
       display: flex;
       align-items: center;
@@ -370,7 +377,6 @@
 
     .footer-copyright { font-size: 11.5px; color: #64748B; }
 
-    /* 底部唯一常駐吸附預約按鈕 */
     .sticky {
       position: fixed;
       bottom: 0; left: 0; right: 0;
@@ -392,7 +398,7 @@
       z-index: 12;
     }
 
-    /* 手機版優化 */
+    /* 手機版適應性 */
     @media (max-width: 750px) {
       body { font-size: 17px; }
       .container { width: calc(100% - 30px); }
@@ -523,7 +529,7 @@
       </div>
     </section>
 
-    <!-- 莉梅姐介紹 (專辦訂製高質感小旅行) -->
+    <!-- 莉梅姐介紹 -->
     <section class="section">
       <div class="container">
         <h2 data-i="hostTitle"></h2>
@@ -626,7 +632,7 @@
       </div>
     </section>
 
-    <!-- 2027 春天段落 (已完全移除重複的多餘按鈕，回歸純淨文案) -->
+    <!-- 2027 春天段落 -->
     <section class="final-clean-wrap">
       <div class="container">
         <h2 data-i="finalTitle">2027 春天，留兩天給櫻花與山林</h2>
@@ -635,21 +641,18 @@
     </section>
   </main>
 
-  <!-- ==================== 頁尾 (與首頁 100% 相同深色規格) ==================== -->
+  <!-- ==================== 頁尾 ==================== -->
   <footer class="et-footer">
     <div class="footer-wrapper">
       <div class="footer-company-full">安捷國際旅行社有限公司 ｜ ENVOY INTERNATIONAL TRAVEL SERVICE CO., LTD.</div>
 
-      <!-- 法定資料：小字細緻 (不放電話與傳真) -->
       <div class="footer-legal-small">
-        <span>交通部觀光署註冊旅行業 ‧ 甲種 592000 號</span>
-        <span>交觀甲字第 5920 號</span>
+        <span>交通部觀光署註冊旅行業 ‧ 交觀甲字第 5920 號</span>
         <span>統一編號：16169138</span>
         <span>代表人：楊寶惠</span>
         <span>地址：臺北市中山區長安東路2段50號5樓之1</span>
       </div>
 
-      <!-- 快速連結列：回首頁 ＋ LINE 客服 -->
       <div class="footer-links-bar">
         <a href="./index.html" class="footer-link-a" data-i="homeBtn">‹ 回首頁</a>
         <span class="footer-divider">｜</span>
