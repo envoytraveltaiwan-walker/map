@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta content="#06151D" name="theme-color"/>
+  <title>專屬行程企劃書 ｜ 宜蘭樂水部落・泰雅文化深度一日慢旅 - 安捷國際旅行社</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Noto+Sans+TC:wght@400;500;600;700;800;900&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --ink: #16241E;           /* 深度墨綠，文字銳利不刺眼 */
+      --soft: #3D4E46;          /* 次要文字深灰綠 */
+      --rose: #A32845;          /* 泰雅楓紅織布色 */
+      --leaf: #23533E;          /* 原鄉自然森林綠 */
+      --leaf-light: #EEF7F2;    /* 淺綠高亮 */
+      --gold: #A98235;          /* 啞光香檳金 */
+      --gold-light: #FBF8F1;    /* 溫潤象牙米白 */
+      --paper-white: #FFFFFF;
+      --border-line: #DFD7C7;
+      --atayal-dark: #1E1B18;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    
+    body {
+      background: #4B5563; /* 背景襯底深色，突顯信紙 */
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.75;
+      padding: 70px 12px 100px;
+    }
+
+    /* 頂部功能操作列 (手機與桌機皆適應，列印時自動隱藏) */
+    .top-action-bar {
+      position: fixed;
+      top: 10px; left: 50%;
+      transform: translateX(-50%);
+      background: rgba(17, 30, 24, 0.94);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--gold);
+      border-radius: 30px;
+      padding: 6px 16px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      z-index: 9999;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+      max-width: 95%;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .top-action-bar::-webkit-scrollbar { display: none; }
+    .bar-label {
+      color: #F7E7CE;
+      font-size: 13px;
+      font-weight: 800;
+      margin-right: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .action-btn {
+      background: #273F33;
+      color: #FFF;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 20px;
+      padding: 5px 13px;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .action-btn:hover { background: var(--gold); color: #000; }
+    .action-btn.gold-btn {
+      background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%);
+      color: #0F1713;
+      border: none;
+      font-weight: 900;
+    }
+
+    /* ==================== 信紙本體容器 (手機流體自適應 ＋ 桌機大器 ＋ 列印A4) ==================== */
+    .proposal-sheet {
+      max-width: 860px;
+      width: 100%;
+      margin: 0 auto;
+      background: var(--paper-white);
+      border-radius: 4px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.28);
+      position: relative;
+      overflow: hidden;
+      padding: 40px 42px;
+    }
+
+    /* 雙層防偽微紋浮水印 (抗 AI 抹除：交織幾何細線 + 密集微縮文字) */
+    .proposal-sheet::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.055;
+      background-image: 
+        repeating-linear-gradient(45deg, #A98235 0, #A98235 1px, transparent 0, transparent 38px),
+        repeating-linear-gradient(-45deg, #23533E 0, #23533E 1px, transparent 0, transparent 38px),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='160'><text x='20' y='60' fill='%23000' font-size='12' font-family='serif' transform='rotate(-20 20,60)' font-weight='bold'>ENVOY 安捷國際旅行社 ‧ 嚴禁轉載抄襲</text><text x='100' y='130' fill='%23A98235' font-size='11' font-family='serif' transform='rotate(-20 100,130)'>莉梅姐原鄉私選 ‧ 版權所有 盜用必究</text></svg>");
+      background-size: 38px 38px, 38px 38px, 320px 160px;
+    }
+
+    .sheet-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ==================== 1. 信紙抬頭 (權杖 Logo ＋ 執照資訊 ＋ 加入 LINE QR Code) ==================== */
+    .letterhead-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 14px;
+      margin-bottom: 14px;
+      gap: 16px;
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    /* 權杖標誌圖示 */
+    .emblem-scepter {
+      width: 44px;
+      height: 60px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .brand-text-block {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name-en {
+      font-family: 'Cinzel', 'Montserrat', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+    .brand-name-zh {
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      color: var(--gold);
+      margin-top: 2px;
+    }
+    .license-block {
+      font-size: 11px;
+      color: #64748B;
+      line-height: 1.45;
+      margin-top: 4px;
+    }
+
+    /* 頂部快速加入 LINE QR Code (印出或桌機看皆可直接掃碼) */
+    .header-line-join {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold-light);
+      border: 1.5px solid #E8DECA;
+      border-radius: 8px;
+      padding: 6px 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .qr-img {
+      width: 58px;
+      height: 58px;
+      border-radius: 4px;
+      display: block;
+      background: #FFF;
+      border: 1px solid #DDD;
+    }
+    .qr-text-desc {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.25;
+      text-align: left;
+    }
+    .qr-tag {
+      font-size: 10px;
+      font-weight: 800;
+      color: #FFF;
+      background: #06A54E;
+      padding: 2px 6px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 3px;
+    }
+    .qr-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--ink);
+    }
+    .qr-id {
+      font-size: 11px;
+      color: #64748B;
+      font-weight: 600;
+    }
+
+    /* 泰雅原鄉幾何織帶飾條 */
+    .atayal-divider-ribbon {
+      height: 6px;
+      background: repeating-linear-gradient(90deg, 
+        var(--rose) 0, var(--rose) 14px, 
+        #FFF 14px, #FFF 17px, 
+        var(--ink) 17px, var(--ink) 31px, 
+        var(--gold) 31px, var(--gold) 45px
+      );
+      margin-bottom: 20px;
+    }
+
+    /* 企劃受文者欄 (主揪與家族尊榮資訊) */
+    .client-memo-bar {
+      background: #FAF8F5;
+      border: 1px solid #EBE4D8;
+      border-radius: 8px;
+      padding: 12px 18px;
+      margin-bottom: 22px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 13.5px;
+    }
+    .memo-item strong {
+      color: #8C6D31;
+      font-size: 11.5px;
+      letter-spacing: 0.5px;
+      display: block;
+    }
+    .memo-item span {
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    /* ==================== 2. 主標題區 ==================== */
+    .doc-hero-section {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .doc-pre-pill {
+      display: inline-block;
+      background: var(--leaf-light);
+      border: 1px solid #C5E2D2;
+      color: var(--leaf);
+      font-size: 13px;
+      font-weight: 800;
+      padding: 3px 14px;
+      border-radius: 16px;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+    .doc-main-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(24px, 3.8vw, 32px);
+      font-weight: 900;
+      color: var(--ink);
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+    .doc-sub-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--soft);
+    }
+
+    /* ==================== 3. 口耳相傳重點盒 (長輩轉述專用) ==================== */
+    .pitch-highlight-box {
+      background: #FDF9F2;
+      border: 2px solid #E5D0B0;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 22px;
+    }
+    .pitch-title-h3 {
+      font-size: 16.5px;
+      font-weight: 900;
+      color: #92400E;
+      margin-bottom: 8px;
+      border-bottom: 1px dashed #E2CFAF;
+      padding-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .pitch-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .pitch-list li {
+      font-size: 16px; /* 熟齡長輩首選 16px 大字級 */
+      line-height: 1.55;
+      color: var(--ink);
+      position: relative;
+      padding-left: 26px;
+    }
+    .pitch-list li strong {
+      color: var(--rose);
+      font-weight: 800;
+    }
+    .pitch-list li::before {
+      content: "💬";
+      position: absolute;
+      left: 0;
+      top: 1px;
+      font-size: 15px;
+    }
+
+    /* 熟齡四大安心承諾卡片 (如廁、平緩、專車、小團) */
+    .safety-badges-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .safety-badge-item {
+      background: #F1F6F3;
+      border: 1px solid #CCE2D6;
+      border-radius: 8px;
+      padding: 10px 6px;
+      text-align: center;
+    }
+    .safety-icon { font-size: 20px; margin-bottom: 3px; }
+    .safety-t { font-size: 14px; font-weight: 800; color: var(--leaf); }
+    .safety-s { font-size: 11.5px; color: #52665B; margin-top: 1px; }
+
+    /* ==================== 4. 詳細行程時間軸 ==================== */
+    .section-h2-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 22px 0 12px;
+      border-bottom: 1.5px solid var(--border-line);
+      padding-bottom: 8px;
+    }
+    .section-h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--ink);
+    }
+    .section-pill-meta {
+      background: var(--ink);
+      color: #FFF;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 4px;
+    }
+
+    .itinerary-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 22px;
+    }
+    .itinerary-table td {
+      padding: 11px 8px;
+      vertical-align: top;
+      border-bottom: 1px solid #ECE7DC;
+    }
+    .time-slot {
+      width: 115px;
+      font-weight: 800;
+      color: var(--leaf);
+      font-size: 15px;
+      white-space: nowrap;
+    }
+    .wc-tag {
+      display: inline-block;
+      background: #EBF5FF;
+      color: #1E40AF;
+      border: 1px solid #BFDBFE;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 1px 6px;
+      border-radius: 4px;
+      margin-top: 4px;
+    }
+    .event-main-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+    .event-desc {
+      font-size: 15px;
+      color: var(--soft);
+      line-height: 1.6;
+    }
+
+    /* ==================== 5. 費用明細與全包規格 ==================== */
+    .pricing-spec-box {
+      background: #FAF8F5;
+      border: 1.5px solid var(--border-line);
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin-bottom: 22px;
+    }
+    .price-headline-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      border-bottom: 1px dashed #DDD1BD;
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .price-big-number {
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--rose);
+      font-family: 'Montserrat', sans-serif;
+    }
+    .price-big-number span {
+      font-size: 14.5px;
+      color: var(--soft);
+      font-weight: 600;
+    }
+    .price-discount-note {
+      font-size: 13.5px;
+      color: #8C6212;
+      font-weight: 800;
+    }
+
+    .included-grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      font-size: 14.5px;
+    }
+    .inc-col-title {
+      font-weight: 800;
+      color: var(--leaf);
+      margin-bottom: 6px;
+      font-size: 15px;
+    }
+    .included-grid-2col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      color: #3B4D44;
+    }
+    .included-grid-2col ul li::before {
+      content: "✓ ";
+      color: var(--leaf);
+      font-weight: 900;
+    }
+
+    /* 貼心叮嚀盒 */
+    .reminder-callout-box {
+      font-size: 14px;
+      color: #495950;
+      background: #FFF;
+      border: 1px solid var(--border-line);
+      border-radius: 8px;
+      padding: 12px 18px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .reminder-callout-box strong { color: var(--ink); }
+
+    /* ==================== 6. 信紙簽核 ＆ 大版面加入 LINE 專案卡 ==================== */
+    .line-reserve-card {
+      background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+      border: 2px solid #86EFAC;
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 14px;
+    }
+    .reserve-left-content {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .reserve-badge {
+      font-size: 11.5px;
+      font-weight: 800;
+      color: #15803D;
+      background: #BBF7D0;
+      padding: 2px 8px;
+      border-radius: 4px;
+      align-self: flex-start;
+    }
+    .reserve-title {
+      font-size: 18px;
+      font-weight: 900;
+      color: #064E3B;
+    }
+    .reserve-subtitle {
+      font-size: 13.5px;
+      color: #166534;
+    }
+    .reserve-right-qr {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+    .qr-large {
+      width: 82px;
+      height: 82px;
+      background: #FFF;
+      border: 2px solid #86EFAC;
+      border-radius: 8px;
+      padding: 3px;
+    }
+    .qr-caption {
+      font-size: 11px;
+      font-weight: 800;
+      color: #15803D;
+    }
+
+    /* 正式簽署頁尾 */
+    .official-sign-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-top: 24px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-line);
+      font-size: 12.5px;
+      color: #64748B;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .sign-person strong {
+      font-size: 15px;
+      color: var(--ink);
+    }
+    .sign-seal-corp {
+      font-family: 'Cinzel', serif;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: 1.5px;
+      text-align: right;
+    }
+
+    /* ==================== 7. 全站共通頁尾 (完全遵循既有規範) ==================== */
+    .et-page-footer {
+      background: #051218;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 30px 20px 90px;
+      color: #94A3B8;
+      font-size: 12px;
+      line-height: 1.6;
+      margin: 40px -12px -100px;
+    }
+    .footer-container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .footer-company-name {
+      font-size: 13px;
+      font-weight: 800;
+      color: #CBD5E1;
+      margin-bottom: 6px;
+    }
+    .footer-reg-details {
+      font-size: 11px;
+      color: #64748B;
+      margin-bottom: 12px;
+    }
+    .footer-reg-details span {
+      margin-right: 14px;
+      display: inline-block;
+    }
+    .footer-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 10px;
+    }
+    .footer-nav-links a {
+      color: #38BDF8;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .footer-nav-links a.line-link {
+      color: #4ADE80;
+      font-weight: 900;
+    }
+
+    /* 螢幕底部唯一常駐按鈕 (手機上直接點擊即開 LINE) */
+    .fixed-floating-cta {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(255, 254, 252, 0.98);
+      box-shadow: 0 -4px 18px rgba(36, 53, 47, 0.15);
+      padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+      display: flex;
+      justify-content: center;
+      backdrop-filter: blur(8px);
+    }
+    .floating-cta-btn {
+      width: min(100%, 500px);
+      min-height: 50px;
+      background: #06a54e;
+      color: #FFF;
+      border-radius: 12px;
+      font-size: 17.5px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(6, 165, 78, 0.3);
+    }
+
+    /* ==================== 8. 手機端適應性與 A4 列印設定 ==================== */
+    @media (max-width: 768px) {
+      body { padding: 60px 8px 90px; }
+      .proposal-sheet { padding: 24px 16px; border-radius: 0; }
+      .letterhead-top { flex-direction: column; align-items: flex-start; gap: 14px; }
+      .header-line-join { width: 100%; justify-content: space-between; }
+      .safety-badges-row { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+      .included-grid-2col { grid-template-columns: 1fr; }
+      .itinerary-table td { padding: 9px 4px; }
+      .time-slot { width: 95px; font-size: 13.5px; }
+      .line-reserve-card { flex-direction: column; text-align: center; }
+      .reserve-badge { align-self: center; }
+    }
+
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 12mm 14mm;
+      }
+      body {
+        background: transparent !important;
+        padding: 0 !important;
+        color: #000 !important;
+      }
+      .top-action-bar, .fixed-floating-cta, .et-page-footer {
+        display: none !important;
+      }
+      .proposal-sheet {
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+      }
+      /* 列印時保持微紋浮水印 */
+      .proposal-sheet::before {
+        opacity: 0.06 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      [contenteditable="true"] { outline: none !important; background: transparent !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 頂部操作工具列 (離線可用、支援一鍵下載 Word/PPT/列印) -->
+  <div class="top-action-bar">
+    <span class="bar-label">📄 專屬行程企劃</span>
+    <button class="action-btn gold-btn" onclick="downloadWordDoc()">📥 下載 Word 檔 (.doc)</button>
+    <button class="action-btn" onclick="downloadPPTSlide()">📊 下載 PPT 檔</button>
+    <button class="action-btn" onclick="window.print()">🖨️ 列印 / 存為 A4 PDF</button>
+    <button class="action-btn" onclick="toggleEditMode()" id="editToggleBtn">✏️ 預覽模式</button>
+  </div>
+
+  <!-- 信紙主體 (手機上滑順自適應，列印時精確為 A4 比例) -->
+  <main class="proposal-sheet" id="printableArea">
+    <div class="sheet-inner" contenteditable="true" spellcheck="false" id="editableSheet">
+      
+      <!-- 1. 信紙抬頭 (置入公司權杖 Logo ＋ 執照編號 ＋ 快速加入 LINE QR Code) -->
+      <header class="letterhead-top">
+        <div class="brand-group">
+          <!-- 權杖標誌圖片 (具備本地與 GitHub 容錯路徑) -->
+          <img src="https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/ENVOY_Emblem_Transparent.png"
+               alt="ENVOY 權杖標誌"
+               class="emblem-scepter"
+               onerror="this.onerror=null; this.src='/ENVOY_Emblem_Transparent.png';"/>
+          <div class="brand-text-block">
+            <div class="brand-name-en">ENVOY TRAVEL</div>
+            <div class="brand-name-zh">安捷國際旅行社 ‧ 原鄉引路人企劃</div>
+            <div class="license-block">
+              甲種 592000 號 ｜ 交觀甲字第 5920 號 ｜ 統編 16169138[cite: 5]
+            </div>
+          </div>
+        </div>
+
+        <!-- 抬頭直接掃描／點擊加入 LINE (解決轉出後無法加 LINE 的痛點) -->
+        <a href="https://lin.ee/Z3c7Qam" target="_blank" rel="noopener" class="header-line-join" title="點擊或掃描加入 LINE 專人諮詢">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://lin.ee/Z3c7Qam" 
+               alt="LINE QR Code" 
+               class="qr-img"/>
+          <div class="qr-text-desc">
+            <span class="qr-tag">💬 專人一對一</span>
+            <span class="qr-title">掃碼加入 LINE</span>
+            <span class="qr-id">ID: @envoytravel</span>
+          </div>
+        </a>
+      </header>
+
+      <!-- 泰雅幾何飾條 -->
+      <div class="atayal-divider-ribbon"></div>
+
+      <!-- 企劃受文者備忘欄 -->
+      <div class="client-memo-bar">
+        <div class="memo-item">
+          <strong>PROPOSAL FOR / 預約貴賓</strong>
+          <span>LINE 貴賓諮詢專屬企劃案（家庭／親友包團）</span>
+        </div>
+        <div class="memo-item">
+          <strong>DEPARTURE / 出團方式</strong>
+          <span>台北車站專車直達 ‧ 滿 6 人成團[cite: 5, 8]</span>
+        </div>
+        <div class="memo-item">
+          <strong>CURATOR / 原鄉引路人</strong>
+          <span>莉梅姐 37 年資歷親選帶路
