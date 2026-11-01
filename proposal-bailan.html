@@ -4,7 +4,7 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
   <meta content="#06151D" name="theme-color"/>
-  <title>專屬行程企劃書 ｜ 新竹五峰白蘭・2027高山櫻花季二天一夜慢旅 - 安捷國際旅行社</title>
+  <title>專屬行程企劃書 ｜ 走進白蘭・遇見山裡的櫻花季 - 安捷國際旅行社</title>
 
   <!-- ==================== GA4 網站流量追蹤代碼 ==================== -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PPP4CT61HC"></script>
@@ -17,11 +17,11 @@
   </script>
 
   <!-- ==================== LINE / FB 社群分享預覽卡片 (Open Graph) ==================== -->
-  <meta name="description" content="平日限定・高鐵新竹站專車直達・六人成團全包式宿遊。五峰白蘭櫻花秘境包場、雲海星空舒心宿遊、泰雅高山風味慢食。"/>
+  <meta name="description" content="解鎖深山交通不易・高鐵＋專車一秒傳送櫻花山林・平日雲海包場慢旅。在盛開高山櫻花林下尋找野生馬告與刺蔥香氣，享泰雅星空一泊二食。"/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://envoytravel.tw/proposal-bailan.html"/>
-  <meta property="og:title" content="原鄉引路人 莉梅姐私選｜新竹五峰白蘭・2027高山櫻花季二天一夜慢旅"/>
-  <meta property="og:description" content="平日限定・高鐵新竹站專車直達・六人成團全包式宿遊。五峰白蘭櫻花秘境包場、雲海星空舒心宿遊、泰雅高山風味慢食。"/>
+  <meta property="og:title" content="原鄉引路人 莉梅姐私選｜走進白蘭・遇見山裡的櫻花季 二天一夜慢旅"/>
+  <meta property="og:description" content="解鎖深山交通不易・高鐵＋專車一秒傳送櫻花山林・平日雲海包場慢旅。在盛開高山櫻花林下尋找野生馬告與刺蔥香氣，享泰雅星空一泊二食。"/>
   <meta property="og:image" content="https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/245558_0.jpg"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
@@ -90,7 +90,7 @@
       z-index: 2;
     }
 
-    /* 1. 信紙抬頭 (權杖 Logo ＋ 執照資訊 ＋ LINE 條碼) */
+    /* 1. 信紙抬頭 (權杖 Logo ＋ 執照編號 ＋ LINE QR Code) */
     .letterhead-top {
       display: flex;
       justify-content: space-between;
@@ -251,24 +251,25 @@
       margin-bottom: 6px;
     }
     .doc-sub-title {
-      font-size: 16.5px;
+      font-size: 16px;
       font-weight: 700;
       color: var(--soft);
+      line-height: 1.5;
     }
 
-    /* 3. 莉梅姐私選筆記 (體面大氣視角) */
+    /* 3. 莉梅姐私選筆記 (深化櫻花、雲霧、刺蔥馬告故事) */
     .pitch-highlight-box {
       background: #FDF9F2;
       border: 2px solid #E5D0B0;
       border-radius: 10px;
-      padding: 16px 20px;
+      padding: 20px 22px;
       margin-bottom: 24px;
     }
     .pitch-title-h3 {
       font-size: 16.5px;
       font-weight: 900;
       color: #92400E;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       border-bottom: 1px dashed #E2CFAF;
       padding-bottom: 6px;
       display: flex;
@@ -279,11 +280,11 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 12px;
     }
     .pitch-list li {
-      font-size: 16px;
-      line-height: 1.6;
+      font-size: 15.5px;
+      line-height: 1.65;
       color: var(--ink);
       position: relative;
       padding-left: 28px;
@@ -392,7 +393,7 @@
       line-height: 1.65;
     }
 
-    /* 5. 費用明細與全包規格 */
+    /* 5. 費用明細與梯次規格 */
     .pricing-spec-box {
       background: #FAF8F5;
       border: 1.5px solid var(--border-line);
@@ -427,6 +428,48 @@
       font-weight: 800;
     }
 
+    /* 2027 指定出發梯次卡 */
+    .batches-container {
+      background: #FFF;
+      border: 1.5px solid #E8DECA;
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin: 16px 0;
+    }
+    .batches-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .batches-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      font-size: 14.5px;
+    }
+    .batch-item {
+      background: var(--gold-light);
+      padding: 10px 14px;
+      border-radius: 6px;
+      border: 1px solid #ECE3D2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .batch-code {
+      font-weight: 900;
+      color: var(--rose);
+      background: #FEE2E2;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+    .batch-date { font-weight: 800; color: var(--ink); }
+
     .included-grid-2col {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -452,50 +495,34 @@
       font-weight: 900;
     }
 
-    /* 梯次清單卡 */
-    .batches-container {
-      background: #FFF;
-      border: 1.5px solid #E8DECA;
-      border-radius: 8px;
-      padding: 14px 18px;
-      margin: 16px 0;
+    /* 6. 出發前常見問題與提醒 */
+    .faq-accordion-box {
+      margin-bottom: 24px;
     }
-    .batches-title {
-      font-size: 15px;
-      font-weight: 800;
-      color: var(--ink);
-      margin-bottom: 10px;
-    }
-    .batches-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
-      font-size: 14px;
-    }
-    .batch-item {
-      background: var(--gold-light);
-      padding: 8px 12px;
-      border-radius: 6px;
-      border: 1px solid #ECE3D2;
-      display: flex;
-      justify-content: space-between;
-    }
-    .batch-code { font-weight: 800; color: var(--rose); }
-
-    /* 行前提醒盒 */
-    .reminder-callout-box {
-      font-size: 14.5px;
-      color: #495950;
+    .faq-item {
       background: #FFF;
       border: 1px solid var(--border-line);
       border-radius: 8px;
-      padding: 14px 20px;
-      line-height: 1.7;
-      margin-bottom: 24px;
+      padding: 14px 18px;
+      margin-bottom: 10px;
     }
-    .reminder-callout-box strong { color: var(--ink); }
+    .faq-q {
+      font-size: 15.5px;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .faq-a {
+      font-size: 14.5px;
+      color: var(--soft);
+      line-height: 1.6;
+      padding-left: 24px;
+    }
 
-    /* 6. 大版面加入 LINE 專案卡 (純 LINE 專屬，無電話分流) */
+    /* 7. 大版面加入 LINE 專案卡 (純 LINE，無電話分流) */
     .line-reserve-card {
       background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
       border: 2px solid #86EFAC;
@@ -600,7 +627,7 @@
       text-align: right;
     }
 
-    /* 7. 全站共通頁尾 */
+    /* 8. 全站共通頁尾 */
     .et-page-footer {
       background: #051218;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -648,7 +675,7 @@
       font-weight: 900;
     }
 
-    /* 8. 手機端底部常駐單一按鈕 (純 LINE 入口) */
+    /* 9. 手機端底部常駐單一按鈕 */
     .fixed-floating-cta {
       position: fixed;
       bottom: 0; left: 0; right: 0;
@@ -691,6 +718,7 @@
       .reserve-badge { align-self: center; }
       .reserve-actions-row { justify-content: center; width: 100%; }
       .btn-action-line { width: 100%; justify-content: center; }
+      .faq-a { padding-left: 0; margin-top: 4px; }
     }
 
     @media print {
@@ -765,7 +793,7 @@
         </div>
         <div class="memo-item">
           <strong>DEPARTURE / 出團方式</strong>
-          <span>高鐵新竹站專車直達 ‧ 滿 6 人成團</span>
+          <span>新竹高鐵站專車直達 ‧ 滿 6 人成團</span>
         </div>
         <div class="memo-item">
           <strong>CURATOR / 原鄉引路人</strong>
@@ -775,193 +803,223 @@
 
       <!-- 2. 行程大標題 -->
       <div class="doc-hero-section">
-        <span class="doc-pre-pill">🌸 2027 春季限定 ‧ 平日避開人潮包場宿遊</span>
-        <h1 class="doc-main-title">雲海上的粉紅秘境 ‧ 新竹五峰白蘭櫻花二天一夜慢旅</h1>
-        <p class="doc-sub-title">高鐵新竹站專車直達 ‧ 泰雅星空一泊四食 ‧ 巨木芬多精平緩森呼吸</p>
+        <span class="doc-pre-pill">🌸 2027 春季平日限定 ‧ 高山雲霧包場賞櫻</span>
+        <h1 class="doc-main-title">走進白蘭 ‧ 遇見山裡的櫻花季</h1>
+        <p class="doc-sub-title">解鎖深山交通不易 ‧ 高鐵＋專車一秒傳送櫻花山林 ‧ 一泊二食泰雅舒心宿遊</p>
       </div>
 
-      <!-- 3. 【莉梅姐的私選筆記】(體面視角) -->
+      <!-- 3. 【莉梅姐的私選筆記】(深入櫻花、雲海、刺蔥馬告故事) -->
       <section class="pitch-highlight-box">
         <div class="pitch-title-h3">
           <span>✦ 莉梅姐的私選筆記 ｜ 為什麼推薦您走這一趟？</span>
         </div>
         <ul class="pitch-list">
-          <li><strong>高鐵專車直達，免長途開車：</strong>搭高鐵輕鬆抵達新竹站，專屬合格專車直上五峰白蘭部落，避開國道塞車與自己開高山路的勞頓。</li>
-          <li><strong>平日限定包場，櫻花樹下漫步：</strong>避開週末如織車潮，平日私享整座高山櫻花林；林蔭步道地勢平緩，走走停停隨處皆有清幽座位。</li>
-          <li><strong>六人成團整車自己人，節奏舒心：</strong>親友同行湊滿 6 位即可獨立出團包車，沿途如廁與用餐節奏全依同行家人彈性安排。</li>
+          <li><strong>解鎖高山交通不易，專車接送時間精準掌握：</strong>五峰山路蜿蜒會車困難，自由行往往開得提心吊膽。我們安排「高鐵新竹站專屬專車接送」，去程時間精準拿捏，讓您一秒傳送到雲霧櫻花山林；回程直達高鐵站，免受國道長途塞車之苦，以最快速度舒適返家。</li>
+          <li><strong>浮在雲海上的粉紅秘境，平日包場櫻花仙境：</strong>白蘭部落坐落於海拔千米雲霧帶。每逢初春，漫山粉櫻伴隨雪霸山嵐盛開，山風拂過時雲海如波浪湧入花間，隨手一拍皆是空靈如畫的武俠山嵐之美。平日出發更避開擁擠車潮，整座花海彷彿為您私密包場。</li>
+          <li><strong>山林漫步不趕路，尋找野生馬告與刺蔥香氣：</strong>步調從容悠閒，隨族人漫步林間小徑。輕揉一片「刺蔥」葉，感受撲鼻的清新柑橘香；咬破一顆顆小小的黑珍珠「野生馬告」，在唇齒間迸發檸檬與山胡椒的多層次辛香，親身體驗泰雅族世代相傳的山林共生智慧。</li>
+          <li><strong>部落住上一晚，星空下的一泊二食舒心享受：</strong>行程包含一晚部落舒適景觀民宿、當日泰雅原風晚餐與翌日活力早餐。不必當天匆忙奔波下山，夜裡圍坐炭火旁仰望無光害星空，在蟲鳴與微涼山嵐中安然入眠。</li>
         </ul>
       </section>
 
-      <!-- 4. 四大安心保障卡片 (化解洗手間、體力痛點) -->
+      <!-- 4. 四大安心保障卡片 -->
       <section class="safety-badges-row">
         <div class="safety-badge-item">
           <div class="safety-icon">🚄</div>
-          <div class="safety-t">高鐵專車直達</div>
-          <div class="safety-s">免自己開高山路</div>
+          <div class="safety-t">高鐵＋專車接駁</div>
+          <div class="safety-s">解鎖山路・掌控時間</div>
         </div>
         <div class="safety-badge-item">
-          <div class="safety-icon">🚻</div>
-          <div class="safety-t">每60-80分有廁所</div>
-          <div class="safety-s">途經竹東清泉皆停靠</div>
+          <div class="safety-icon">🌸</div>
+          <div class="safety-t">平日高山櫻花林</div>
+          <div class="safety-s">雲霧繚繞包場漫步</div>
         </div>
         <div class="safety-badge-item">
-          <div class="safety-icon">🚶</div>
-          <div class="safety-t">平緩森林步道</div>
-          <div class="safety-s">巨木芬多精無陡坡</div>
+          <div class="safety-icon">🍲</div>
+          <div class="safety-t">部落一泊二食</div>
+          <div class="safety-s">當日晚餐＋翌日早餐</div>
         </div>
         <div class="safety-badge-item">
-          <div class="safety-icon">🏡</div>
-          <div class="safety-t">景觀民宿一泊四食</div>
-          <div class="safety-s">坐看雲海星空慢活</div>
+          <div class="safety-icon">👥</div>
+          <div class="safety-t">六人即成精緻團</div>
+          <div class="safety-s">整車親友自在出遊</div>
         </div>
       </section>
 
-      <!-- 5. 詳細行程時間表 (兩天一夜) -->
+      <!-- 5. 詳細行程時間表 (兩天一夜：清楚標註隔日午餐自選加購) -->
       <section>
         <div class="section-h2-wrap">
           <h2 class="section-h2">舒心宿遊行程時刻表</h2>
-          <span class="section-pill-meta">2027 春季平日指定梯次 ｜ 亦可自選平日獨立包車</span>
+          <span class="section-pill-meta">平日指定梯次 ｜ 滿 6 人可自選平日獨立包車</span>
         </div>
 
-        <div class="day-badge-title">📌 第一天：高鐵出發 ‧ 漫步清泉溫泉幽谷 ‧ 白蘭櫻花夕陽雲海</div>
+        <div class="day-badge-title">📌 第一天：高鐵集合 ‧ 一秒傳送櫻花山林 ‧ 尋訪刺蔥馬告 ‧ 星空晚餐</div>
         <table class="itinerary-table">
           <tr>
             <td class="time-slot">09:30 - 09:45<br/><span class="wc-tag">高鐵站內廁所</span></td>
             <td>
-              <div class="event-main-title">新竹高鐵站集合 ‧ 舒適專車直發五峰原鄉</div>
-              <div class="event-desc">專人於新竹高鐵站引導上車。搭乘合格專屬專車啟程，沿途綠意漸濃，免自駕勞頓，輕鬆愜意進入竹東山區。</div>
+              <div class="event-main-title">新竹高鐵站集合 ‧ 舒適專車直上五峰原鄉</div>
+              <div class="event-desc">專人於新竹高鐵站引導集合上車。搭乘合格專屬專車啟程，時間精準掌控，免除自駕開高山路的緊繃與長途開車疲累。</div>
             </td>
           </tr>
           <tr>
-            <td class="time-slot">10:45 - 11:45<br/><span class="wc-tag">園區乾淨洗手間</span></td>
+            <td class="time-slot">10:45 - 12:00<br/><span class="wc-tag">風景區洗手間</span></td>
             <td>
-              <div class="event-main-title">清泉部落尋幽 ‧ 張學良故居平緩散步 ‧ 吊橋風光</div>
-              <div class="event-desc">停留歷史幽靜的清泉風景區，步道平緩寬敞無陡階。漫步於將軍文學步道與清泉吊橋，清風徐徐，感受深山清澈溪流與林木芬多精。</div>
+              <div class="event-main-title">途經山林中繼散策 ‧ 吊橋溪谷深呼吸</div>
+              <div class="event-desc">停留山林中繼休息區舒展筋骨，步道平緩寬闊無陡階。遠眺群山溪谷風光，洗滌城市喧囂。</div>
             </td>
           </tr>
           <tr>
-            <td class="time-slot">12:15 - 13:30<br/><span class="wc-tag">餐廳洗手間</span></td>
+            <td class="time-slot">12:30 - 13:30<br/><span class="wc-tag">餐廳洗手間</span></td>
             <td>
-              <div class="event-main-title">部落媽媽私房菜 ‧ 在地山林採集風味午宴（足足 75 分鐘慢食）</div>
-              <div class="event-desc">享用由在地族人烹調的高山時令野菜、土雞、刺蔥美饌，口味純淨少油鹽，備有完整素食套餐。</div>
+              <div class="event-main-title">山間小憩 ‧ 享用在地輕食午間時光</div>
+              <div class="event-desc">於山林沿途餐廳稍作停留用餐休息，以輕鬆的心情準備進入白蘭櫻花核心秘境。</div>
             </td>
           </tr>
           <tr>
             <td class="time-slot">14:00 - 16:30<br/><span class="wc-tag">民宿休憩洗手間</span></td>
             <td>
-              <div class="event-main-title">抵達白蘭部落 ‧ 櫻花秘境包場漫步 ‧ 入住高山雲海民宿</div>
-              <div class="event-desc">專車直達白蘭部落核心櫻花園區。滿山粉櫻盛開，隨引路人走入平緩櫻花小徑拍照留影；隨後入住精緻景觀民宿，於景觀陽台坐看雲海翻湧。</div>
+              <div class="event-main-title">抵達白蘭部落 ‧ 櫻花仙境漫步 ‧ 尋找野生馬告與刺蔥香氣</div>
+              <div class="event-desc">專車直達白蘭部落核心園區。滿山粉櫻盛開，隨引路人走入平緩櫻花小徑；沿途由族人帶路尋訪帶有檸檬清香的野生馬告與刺蔥葉，認識泰雅山林智慧。隨後入住部落舒適民宿，在陽台坐看雲海山嵐。</div>
             </td>
           </tr>
           <tr>
             <td class="time-slot">18:00 - 19:30</td>
             <td>
-              <div class="event-main-title">泰雅星空晚宴 ‧ 炭火柴燒風味饗宴</div>
-              <div class="event-desc">圍坐溫暖炭火旁享用高山特色晚餐，聆聽族人彈奏口簧琴與泰雅古調歌謠，在無光害的深山繁星下度過寧靜夜晚。</div>
+              <div class="event-main-title">泰雅星空晚宴 ‧ 品嚐部落原風美饌（行程包含）</div>
+              <div class="event-desc">圍坐溫暖炭火旁享用泰雅風味晚餐，在無光害的深山星空下度過寧靜夜晚，在蟲鳴與微風中舒心入眠。</div>
             </td>
           </tr>
         </table>
 
-        <div class="day-badge-title">📌 第二天：晨起觀雲海 ‧ 巨木林道森呼吸 ‧ 原味滿載平穩賦歸</div>
+        <div class="day-badge-title">📌 第二天：晨起觀櫻花山嵐 ‧ 悠閒漫步 ‧ 原風午宴（加購）‧ 專車返程</div>
         <table class="itinerary-table">
           <tr>
             <td class="time-slot">08:00 - 09:15<br/><span class="wc-tag">客房洗手間</span></td>
             <td>
-              <div class="event-main-title">高山景觀早餐 ‧ 櫻花晨光散策</div>
-              <div class="event-desc">在清脆鳥鳴與薄霧晨曦中享用溫熱養生早餐，於櫻花樹下舒展筋骨深呼吸，享受高海拔純淨空氣。</div>
+              <div class="event-main-title">晨起觀雲海 ‧ 享用民宿活力早餐（行程包含）</div>
+              <div class="event-desc">迎接微涼櫻花山嵐與薄霧晨曦，享用熱騰騰的活力早餐，於櫻花樹下舒展筋骨，享受純淨芬多精。</div>
             </td>
           </tr>
           <tr>
             <td class="time-slot">09:30 - 11:30<br/><span class="wc-tag">步道口洗手間</span></td>
             <td>
-              <div class="event-main-title">白蘭部落傳統文化巡禮 ‧ 獵人手作紀念品體驗</div>
-              <div class="event-desc">跟隨在地導覽老師認識泰雅植物智慧；親手體驗傳統手作工藝（櫻花竹杯手作/手搗熱騰騰小米麻糬），親自帶回家作留念。</div>
+              <div class="event-main-title">櫻花樹下自由散策 ‧ 泰雅生活文化體驗</div>
+              <div class="event-desc">悠閒漫步於部落山徑，拍照留影，深入感受與自然共生的平靜力量，步調緩慢舒心不催趕。</div>
             </td>
           </tr>
           <tr>
             <td class="time-slot">12:00 - 13:15<br/><span class="wc-tag">餐廳洗手間</span></td>
             <td>
-              <div class="event-main-title">山中惜別午宴 ‧ 泰雅竹筒香米野味舒食</div>
-              <div class="event-desc">享用午間原風套餐，品嚐部落當季時蔬與純淨山泉料理，為兩天豐富的心靈旅程充飽元氣。</div>
+              <div class="event-main-title">山中惜別 ‧ 部落媽媽原風採集午宴（自選加購）</div>
+              <div class="event-desc">品嚐部落媽媽親手烹調的時令野菜與山泉料理，為兩天一夜充飽元氣。（※ 隔日午餐為彈性自選加購項目，可於報名時事先預約）</div>
             </td>
           </tr>
           <tr>
             <td class="time-slot">13:30 - 15:30<br/><span class="wc-tag">途經竹東休息站</span></td>
             <td>
-              <div class="event-main-title">互道珍重 ‧ 專車平穩送返新竹高鐵站</div>
-              <div class="event-desc">原車平穩下山，中途視需求彈性停留洗手間休息，約 15:30 返抵新竹高鐵站，輕鬆轉乘高鐵最速回到溫暖的家。</div>
+              <div class="event-main-title">互道珍重 ‧ 專車平穩送返新竹高鐵站（最速回到溫暖的家）</div>
+              <div class="event-desc">專車直達新竹高鐵站，時間精準掌控，避開國道下班塞車潮，轉乘高鐵平穩舒適返家。</div>
             </td>
           </tr>
         </table>
       </section>
 
-      <!-- 6. 費用明細與梯次規格 -->
+      <!-- 6. 費用明細與梯次規格 (清晰列出包含與加購) -->
       <section class="pricing-spec-box">
         <div class="price-headline-row">
           <div>
-            <div style="font-size:14px; color:var(--soft); font-weight:700;">2027 櫻花季早鳥專案特惠價</div>
-            <div class="price-big-number">NT$ 8,800 <span>/人（一泊四食全包式）</span></div>
+            <div style="font-size:14px; color:var(--soft); font-weight:700;">限時提早預約價</div>
+            <div class="price-big-number">NT$ 4,870 <span>/人（雙人一室）</span></div>
           </div>
-          <div class="price-discount-note">★ 提早預約現省 NT$ 1,000（原價 NT$ 9,800）</div>
+          <div class="price-discount-note">★ 提早預約現省 NT$ 500（原價 NT$ 5,370）</div>
         </div>
 
-        <!-- 平日指定出發梯次 -->
+        <!-- 2027 指定出發梯次 -->
         <div class="batches-container">
-          <div class="batches-title">📅 2027 春季平日指定梯次清單（6人成團）：</div>
+          <div class="batches-title">📅 2027 指定出發日期梯次（週一至週四平日精選）：</div>
           <div class="batches-grid">
             <div class="batch-item">
-              <span>第一梯次（T01）</span>
-              <span class="batch-code">02/15（一）－ 02/16（二）</span>
+              <span class="batch-date">02/15（一）－ 02/16（二）</span>
+              <span class="batch-code">T01</span>
             </div>
             <div class="batch-item">
-              <span>第二梯次（T02）</span>
-              <span class="batch-code">02/17（三）－ 02/18（四）</span>
+              <span class="batch-date">02/17（三）－ 02/18（四）</span>
+              <span class="batch-code">T02</span>
             </div>
             <div class="batch-item">
-              <span>第三梯次（T03）</span>
-              <span class="batch-code">02/22（一）－ 02/23（二）</span>
+              <span class="batch-date">02/22（一）－ 02/23（二）</span>
+              <span class="batch-code">T03</span>
             </div>
             <div class="batch-item">
-              <span>第四梯次（T04）</span>
-              <span class="batch-code">02/24（三）－ 02/25（四）</span>
+              <span class="batch-date">02/24（三）－ 02/25（四）</span>
+              <span class="batch-code">T04</span>
             </div>
           </div>
-          <div style="font-size:12px; color:#8C6D31; margin-top:8px;">※ 滿 6 位親友亦可自選 2-3 月平日日期獨立出團包車。</div>
+          <div style="font-size:12.5px; color:#8C6D31; margin-top:8px;">
+            🌸 櫻花花期受自然氣候影響，無法保證特定日期滿開。建議以春季山林雲霧、部落生活體驗與慢旅行的心情出發。
+          </div>
         </div>
 
         <div class="included-grid-2col">
           <div>
             <div class="inc-col-title">【費用全數包含】</div>
             <ul>
-              <li>高鐵新竹站來回全程合格專車接送車資</li>
-              <li>白蘭高山景觀民宿舒適住宿一晚（雙人房）</li>
-              <li>一泊四食：兩天午餐、星空晚餐、景觀早餐</li>
-              <li>白蘭櫻花林生態與清泉園區專業導覽講師</li>
-              <li>泰雅工藝紀念品手作與手搗麻糬材料費</li>
-              <li>部落文化祈福、迎賓與古調口簧琴交流</li>
-              <li>500萬責任險＋20萬意外醫療保險</li>
+              <li>新竹高鐵站集合往返專車接送車資</li>
+              <li>二天一夜完整行程專車接駁與掌握</li>
+              <li>一晚部落舒適民宿住宿（雙人一室為基準）</li>
+              <li><strong>當日原風晚餐 ＋ 隔日活力早餐（一泊二食）</strong></li>
+              <li>白蘭櫻花林山林探索與馬告刺蔥生態導覽</li>
+              <li>旅行業責任保險</li>
             </ul>
           </div>
           <div>
-            <div class="inc-col-title">【貼心出團規範】</div>
+            <div class="inc-col-title">【自理與加購項目】</div>
             <ul>
-              <li><strong>成團人數：</strong>6 人即可成團（上限16人精緻小團）</li>
-              <li><strong>平日限定：</strong>避開假日塞車人潮，享受包場品質</li>
-              <li><strong>房型配置：</strong>預設安排雙人房（一大床或兩小床）</li>
-              <li><strong>飲食客製：</strong>素食／不吃特定肉品可事先客製安排</li>
-              <li><strong>專人帶隊：</strong>可備註指名莉梅姐親自同行帶隊</li>
+              <li><strong>高鐵車票自理：</strong>旅客可自理往返新竹高鐵站之車票</li>
+              <li><strong>隔日風味午宴：</strong>第二天中餐為彈性加購項目，歡迎預訂</li>
+              <li><strong>一人成行：</strong>一個人非常歡迎報名！單人房差另計</li>
+              <li><strong>獨立包車：</strong>滿 6 位親友亦可自選平日日期獨立出發</li>
+              <li><strong>專人帶隊：</strong>可特別備註「希望莉梅姐帶隊」</li>
             </ul>
           </div>
         </div>
       </section>
 
-      <!-- 7. 行前貼心提醒 -->
-      <section class="reminder-callout-box">
-        <strong>【引路人莉梅姐貼心叮嚀】：</strong><br/>
-        ① 高山氣溫較平地約低 5-8 度，早晚溫差顯著，請務必攜帶<strong>保暖防風厚外套與毛帽</strong>。<br/>
-        ② 步道平緩好走，但仍屬山林碎石小徑，請穿著<strong>包覆防滑之健行鞋或運動鞋</strong>。<br/>
-        ③ 高山紫外線較強，建議自備<strong>遮陽帽、太陽眼鏡、保溫水瓶與個人常備藥物</strong>。<br/>
-        ④ 茹素者請於報名時提前告知以利備餐。
+      <!-- 7. 出發前常見問題與提醒 (FAQ) -->
+      <section class="faq-accordion-box">
+        <div class="section-h2-wrap">
+          <h2 class="section-h2">出發前，你可能想確認的事</h2>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">❓ 集合地點在哪裡？為什麼安排新竹高鐵站？</div>
+          <div class="faq-a">集合地點為「新竹高鐵站」。五峰深山路況不易自行駕駛，安排高鐵直達新竹轉乘專車，可避開長途國道塞車與車程疲憊；行程結束專車送返新竹高鐵站後，旅客能以最快速度回到溫暖的家，體力負擔最低。</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">❓ 第二天的午餐有包含在費用內嗎？</div>
+          <div class="faq-a">本行程包含「第一天晚餐」與「第二天早餐」（一泊二食）。第二天中午的部落媽媽採集風味午宴為自選加購項目，若希望由團隊統一安排預訂，請在加入 LINE 諮詢時一併備註告知即可！</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">❓ 一個人也可以報名嗎？</div>
+          <div class="faq-a">當然可以！一個人非常歡迎參加。費用以雙人一室為基本安排；若希望單人一室，請加入 LINE 詢問房型及報價。</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">❓ 幾個人可以成團？</div>
+          <div class="faq-a">六人成團！您可以先加入 LINE 登記希望出發的梯次，由服務團隊為您確認成團狀態與報名手續。滿 6 位親友亦可自選平日獨立包團出發。</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">❓ 櫻花一定會滿開盛開嗎？</div>
+          <div class="faq-a">櫻花受自然氣候影響，無法保證絕對滿開。建議以春日深山雲霧漫遊、泰雅部落風土與慢旅行的心情出發。</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">❓ 可以請莉梅姐親自帶隊同行嗎？</div>
+          <div class="faq-a">非常歡迎！莉梅姐專辦訂製高質感的小旅行，若希望由莉梅姐親自帶隊同行，請於 LINE 報名時特別備註「希望莉梅姐帶隊」，將由專人為您回覆最終行程安排。</div>
+        </div>
       </section>
 
       <!-- 8. 專案簽核 ＆ 官方 LINE 一對一諮詢區 -->
@@ -970,7 +1028,7 @@
           <span class="reserve-badge">官方一對一服務窗口</span>
           <div class="reserve-title">預約櫻花梯次 ‧ 家族包團 ‧ 專人即時確認</div>
           <div class="reserve-subtitle">
-            手機可直接點擊下方綠色按鈕加入 LINE，專人為您即時保留梯次與房間。
+            加入安捷官方 LINE，發送您想參加的人數與指定梯次編號（T01～T04），專人為您即時確認名額。
           </div>
           <div class="reserve-actions-row">
             <a href="https://lin.ee/Z3c7Qam" target="_blank" rel="noopener" class="btn-action-line">
@@ -1027,7 +1085,7 @@
     </div>
   </footer>
 
-  <!-- 手機端底部常駐單一按鈕 (純 LINE 入口) -->
+  <!-- 手機端底部常駐單一按鈕 -->
   <div class="fixed-floating-cta">
     <a href="https://lin.ee/Z3c7Qam" target="_blank" rel="noopener" class="floating-cta-btn">
       💬 LINE 詢問櫻花梯次與報名 ↗
