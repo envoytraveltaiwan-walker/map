@@ -1,1050 +1,759 @@
+
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
-  <meta content="#06151D" name="theme-color"/>
-  <meta content="原鄉引路人莉梅姐私選：2027新竹五峰白蘭部落櫻花山林二天一夜。台北車站集合專車直達、欣賞沿途山景、平日山林慢旅、一泊二食宿遊。" name="description"/>
-  <title>原鄉引路人 莉梅姐私選｜2027 白蘭部落櫻花山林二天一夜</title>
-  <link href="https://fonts.googleapis.com" rel="preconnect"/>
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700;800&family=Noto+Serif+JP:wght@500;600;700&family=Noto+Serif+TC:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#06151D">
+<meta name="description" content="原鄉引路人莉梅姐私選：2027新竹五峰白蘭部落櫻花山林兩天一夜。台北專車往返、平日山林慢旅、一泊三食。旅展優惠價NT$7,570。">
+<title>原鄉引路人 莉梅姐私選｜2027 白蘭部落櫻花山林兩天一夜</title>
 
-  <style>
-    :root {
-      --ink: #11221b;
-      --soft: #4a5c53;
-      --rose: #b64f68;
-      --roseLight: #fff0f2;
-      --cream: #fcf8f3;
-      --leaf: #2e604a;
-      --leaf-light: #eef7f2;
-      --border: #e2dbce;
-      --accent-gold: #C5A059;
-      --dark-bg: #06151D;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--cream);
-      color: var(--ink);
-      font-family: 'Noto Sans TC', 'Noto Sans JP', sans-serif;
-      font-size: 18px;
-      line-height: 1.75;
-      overflow-x: hidden;
-    }
-    button, a { font: inherit; }
-    a { color: inherit; }
-    .container { width: min(1000px, calc(100% - 36px)); margin: auto; }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Noto+Sans+TC:wght@400;500;600;700;800&family=Noto+Serif+TC:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-    /* ==================== 1. 頂部固定導覽列 ==================== */
-    .nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      background: rgba(6, 21, 29, 0.94);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      z-index: 1000;
-      backdrop-filter: blur(12px);
-    }
-    .navinner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 64px;
-      padding: 0 20px;
-    }
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PPP4CT61HC"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-PPP4CT61HC');
+</script>
 
-    .nav-brand-lockup {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      cursor: pointer;
-    }
-    .nav-emblem-img {
-      height: 38px;
-      width: auto;
-      object-fit: contain;
-      display: block;
-    }
-    .nav-brand-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      line-height: 1.15;
-    }
-    .nav-brand-en {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 17px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      color: #FFFFFF;
-    }
-    .nav-brand-zh {
-      font-size: 10.5px;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      color: var(--accent-gold);
-      margin-top: 1px;
-    }
+<style>
+:root {
+  --ink:#11221b;
+  --soft:#4a5c53;
+  --rose:#b64f68;
+  --roseLight:#fff0f2;
+  --cream:#fcf8f3;
+  --leaf:#2e604a;
+  --border:#e2dbce;
+  --gold:#c5a059;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'Noto Sans TC',sans-serif;
+  font-size:17px;
+  line-height:1.75;
+  overflow-x:hidden;
+}
+a{color:inherit}
+button{font:inherit}
+.container{width:min(1000px,calc(100% - 36px));margin:auto}
 
-    .nav-actions { display: flex; align-items: center; gap: 8px; }
-    .btn-back-home {
-      display: inline-flex;
-      align-items: center;
-      gap: 3px;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      border-radius: 20px;
-      padding: 5px 13px;
-      font-size: 13.5px;
-      font-weight: 700;
-      text-decoration: none;
-      color: #FFFFFF;
-      white-space: nowrap;
-      transition: all 0.2s ease;
-    }
-    .btn-back-home:hover { background: #FFFFFF; color: #06151D; }
+/* 頂部導覽 */
+.nav{
+  position:fixed;top:0;left:0;right:0;
+  background:rgba(6,21,29,.95);
+  border-bottom:1px solid rgba(255,255,255,.1);
+  z-index:1000;
+  backdrop-filter:blur(12px);
+}
+.navinner{
+  max-width:1040px;margin:auto;
+  display:flex;align-items:center;
+  justify-content:space-between;
+  min-height:64px;padding:0 20px;
+}
+.brand{
+  display:flex;align-items:center;gap:10px;
+  text-decoration:none;
+}
+.brand img{height:38px;width:auto;object-fit:contain}
+.brand-en{
+  font:700 17px Montserrat,sans-serif;
+  letter-spacing:3px;color:white;
+}
+.brand-zh{
+  color:var(--gold);font-size:10px;
+  font-weight:700;letter-spacing:1px;
+}
+.home-link{
+  color:white;text-decoration:none;
+  border:1px solid #64748b;
+  border-radius:24px;
+  padding:5px 14px;font-size:13px;
+  font-weight:700;
+}
 
-    .lang-group {
-      display: inline-flex;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 20px;
-      padding: 2px;
-      gap: 2px;
-    }
-    .lang-group button {
-      background: transparent;
-      border: none;
-      border-radius: 16px;
-      padding: 4px 9px;
-      cursor: pointer;
-      font-size: 12.5px;
-      font-weight: 700;
-      color: #CBD5E1;
-      white-space: nowrap;
-    }
-    .lang-group button[aria-pressed=true] { background: #FFFFFF; color: #06151D; }
+/* 主視覺 */
+.hero{
+  position:relative;min-height:52vh;
+  display:flex;align-items:flex-end;
+  padding:110px 24px 38px;
+  background:#0b222e;
+  overflow:hidden;
+}
+.hero-image{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;object-position:center 32%;
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(180deg,rgba(6,21,29,.25),rgba(6,21,29,.76) 80%,var(--cream)),
+    linear-gradient(90deg,rgba(6,21,29,.75),transparent);
+}
+.hero-content{
+  position:relative;z-index:2;
+  max-width:920px;width:100%;margin:auto;
+  color:white;
+}
+.hero-badge{
+  display:inline-block;
+  background:rgba(182,79,104,.3);
+  border:1px solid #df879d;
+  color:#ffd0da;
+  padding:5px 13px;border-radius:20px;
+  font-size:13px;font-weight:800;
+  margin-bottom:12px;
+}
+.hero h1{
+  font-family:'Noto Serif TC',serif;
+  font-size:clamp(29px,5vw,44px);
+  line-height:1.3;
+  margin-bottom:10px;
+  text-shadow:0 3px 12px #0008;
+}
+.hero-sub{
+  color:#bae6fd;font-weight:700;
+  font-size:clamp(15px,2.5vw,19px);
+  margin-bottom:16px;
+}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{
+  background:rgba(6,21,29,.83);
+  border:1px solid #ffffff50;
+  padding:6px 13px;border-radius:12px;
+  font-size:13px;font-weight:700;
+}
 
-    /* ==================== 2. 高山櫻花巨幅電影級看板 ==================== */
-    .hero-cinematic {
-      position: relative;
-      width: 100%;
-      min-height: 52vh;
-      padding: 105px 24px 34px;
-      display: flex;
-      align-items: flex-end;
-      overflow: hidden;
-      background: #0B222E;
-    }
-    .hero-bg-media {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 32%;
-      z-index: 1;
-      filter: brightness(0.85);
-    }
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(6, 21, 29, 0.35) 0%, rgba(6, 21, 29, 0.72) 55%, var(--cream) 100%),
-                  linear-gradient(90deg, rgba(6, 21, 29, 0.85) 0%, rgba(6, 21, 29, 0.35) 100%);
-      z-index: 2;
-    }
-    .hero-content {
-      position: relative;
-      max-width: 920px;
-      margin: 0 auto;
-      width: 100%;
-      z-index: 10;
-      color: #FFFFFF;
-    }
-    .hero-badge-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(182, 79, 104, 0.3);
-      border: 1px solid var(--accent-rose);
-      color: #FDA4AF;
-      padding: 4px 13px;
-      border-radius: 18px;
-      font-size: 13px;
-      font-weight: 800;
-      margin-bottom: 8px;
-      backdrop-filter: blur(6px);
-    }
-    .hero-title {
-      font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
-      font-size: clamp(28px, 5.5vw, 44px);
-      font-weight: 800;
-      line-height: 1.25;
-      color: #FFFFFF;
-      margin-bottom: 8px;
-      text-shadow: 0 4px 16px rgba(0,0,0,0.6);
-    }
-    .hero-sub {
-      font-size: clamp(15px, 2.5vw, 19px);
-      color: #BAE6FD;
-      font-weight: 600;
-      margin-bottom: 14px;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-    }
+/* 四大特色 */
+.features{padding:34px 0 24px}
+.features-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+}
+.feature{
+  background:white;border:1.5px solid var(--border);
+  border-radius:16px;padding:23px;
+  box-shadow:0 4px 14px #24352f09;
+}
+.feature-icon{font-size:26px;margin-bottom:8px}
+.feature h2{font-size:19px;line-height:1.45;margin-bottom:7px}
+.feature p{font-size:15px;color:var(--soft);line-height:1.75}
 
-    .hero-pills-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .hero-pill-item {
-      background: rgba(6, 21, 29, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      color: #FFFFFF;
-      font-size: 13.5px;
-      font-weight: 700;
-      padding: 5px 13px;
-      border-radius: 12px;
-      backdrop-filter: blur(6px);
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-    }
-    .hero-pill-item span { color: #FDA4AF; }
+/* 莉梅姐 */
+.guide{
+  background:white;
+  border:1.5px solid #ebd9db;
+  border-radius:18px;
+  padding:22px;
+  display:flex;gap:20px;
+  align-items:center;
+  margin:12px 0 25px;
+}
+.guide img{
+  width:100px;height:100px;
+  border-radius:50%;object-fit:cover;
+  border:3px solid var(--roseLight);
+  flex-shrink:0;
+}
+.guide h2{font-size:21px}
+.guide-sub{
+  color:var(--rose);
+  font-size:13px;font-weight:800;
+  margin-bottom:8px;
+}
+.guide p{font-size:15px;color:#2b3d36}
 
-    /* ==================== 3. 4 大慢旅特色排版 ==================== */
-    .features-clean-section {
-      padding: 30px 0 20px;
-    }
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-    .feature-clean-box {
-      background: #FFFFFF;
-      border: 1.5px solid var(--border);
-      border-radius: 16px;
-      padding: 22px 24px;
-      box-shadow: 0 4px 14px rgba(36, 53, 47, 0.04);
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .feature-icon-badge {
-      font-size: 24px;
-      margin-bottom: 2px;
-    }
-    .feature-clean-title {
-      font-size: 18.5px;
-      font-weight: 800;
-      color: var(--ink);
-      line-height: 1.35;
-    }
-    .feature-clean-desc {
-      font-size: 15px;
-      color: var(--soft);
-      line-height: 1.6;
-    }
+/* 摺疊內容 */
+.accordions{padding:0 0 35px}
+.accordion{
+  background:white;
+  border:1.5px solid var(--border);
+  border-radius:16px;
+  overflow:hidden;
+  margin-bottom:14px;
+}
+.accordion[open]{border-color:var(--rose)}
+.accordion summary{
+  list-style:none;cursor:pointer;
+  padding:18px 22px;
+  font-size:18px;font-weight:800;
+  display:flex;align-items:center;
+  justify-content:space-between;
+}
+.accordion summary::-webkit-details-marker{display:none}
+.accordion summary::after{
+  content:"▼";color:var(--rose);
+  font-size:13px;transition:transform .2s;
+}
+.accordion[open] summary::after{transform:rotate(180deg)}
+.accordion-content{
+  border-top:1px solid #f1ece4;
+  background:#faf8f5;
+  padding:18px 22px 22px;
+}
+.section-note{
+  font-size:14px;color:var(--soft);
+  margin-bottom:12px;
+}
 
-    /* ==================== 4. 引路人莉梅姐介紹 ==================== */
-    .guide-box {
-      background: #fff;
-      border: 1.5px solid #ebd9db;
-      border-radius: 18px;
-      padding: 22px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      box-shadow: 0 8px 24px rgba(182, 79, 104, 0.06);
-      margin: 10px 0 20px;
-    }
-    .guide-box img {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 50%;
-      flex-shrink: 0;
-      border: 3px solid var(--roseLight);
-    }
-    .guide-box-content h3 {
-      font-size: 20px;
-      font-weight: 800;
-      color: var(--ink);
-      margin-bottom: 2px;
-    }
-    .guide-box-title {
-      font-size: 13.5px;
-      color: var(--rose);
-      font-weight: 800;
-      margin-bottom: 8px;
-      display: block;
-    }
-    .guide-box-text {
-      font-size: 15.5px;
-      color: #2b3d36;
-      line-height: 1.65;
-    }
+/* 出發梯次 */
+.date-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+.date-card{
+  background:white;
+  border:1.5px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  display:flex;flex-direction:column;
+  align-items:center;gap:7px;
+  text-align:center;
+}
+.batch{
+  background:var(--roseLight);
+  color:var(--rose);
+  border-radius:12px;
+  font-size:13px;font-weight:800;
+  padding:3px 10px;
+}
+.date-card strong{font-size:17px}
+.date-card a{
+  color:var(--leaf);
+  font-size:14px;font-weight:800;
+  text-decoration:underline;
+}
+.notice{
+  margin-top:14px;
+  padding:12px;
+  border-radius:9px;
+  background:var(--roseLight);
+  color:#8d3d53;font-size:13px;
+}
 
-    /* ==================== 5. 下拉手風琴折疊區 ==================== */
-    .accordion-section { padding: 10px 0 30px; }
-    .accordion-group {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-    .accordion-item {
-      background: #ffffff;
-      border: 1.5px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(36, 53, 47, 0.04);
-    }
-    .accordion-item[open] { border-color: var(--rose); }
-    .accordion-header {
-      list-style: none;
-      padding: 18px 22px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      user-select: none;
-      background: #fff;
-      font-size: 18.5px;
-      font-weight: 800;
-      color: var(--ink);
-    }
-    .accordion-header::-webkit-details-marker { display: none; }
-    .accordion-title-box { display: flex; align-items: center; gap: 10px; }
-    .accordion-arrow {
-      color: var(--rose);
-      transition: transform 0.25s ease;
-      font-weight: 900;
-      font-size: 14px;
-    }
-    .accordion-item[open] .accordion-arrow { transform: rotate(180deg); }
-    .accordion-content {
-      padding: 0 22px 20px;
-      border-top: 1px solid #f1ece4;
-      background: #faf8f5;
-    }
+/* 價格 */
+.price-box{
+  display:flex;justify-content:space-between;
+  align-items:center;gap:20px;
+  flex-wrap:wrap;
+  background:white;
+  border:1.5px solid #ebd9db;
+  border-radius:14px;
+  padding:19px;margin-bottom:16px;
+}
+.price-label{font-size:14px;color:var(--soft);font-weight:700}
+.price-original{
+  color:#87918b;
+  font-size:15px;
+  text-decoration:line-through;
+}
+.price-special{
+  color:var(--rose);
+  font-size:34px;font-weight:900;
+  line-height:1.35;
+}
+.price-special small{
+  color:var(--soft);
+  font-size:13px;font-weight:500;
+}
+.price-save{
+  color:var(--rose);
+  font-size:13px;font-weight:800;
+}
+.price-benefit{
+  font-weight:800;
+  font-size:17px;
+}
+.included p{
+  font-size:15px;
+  margin-bottom:12px;
+}
+.included p:last-child{margin-bottom:0}
 
-    /* 費用折疊排版 */
-    .folded-price-box {
-      background: #fff;
-      border: 1.5px solid #ebd9db;
-      border-radius: 14px;
-      padding: 16px 18px;
-      margin: 14px 0 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-    .folded-price-amount {
-      font-size: 32px;
-      font-weight: 900;
-      color: var(--rose);
-      line-height: 1.1;
-    }
-    .folded-benefit-lead {
-      font-size: 13.5px;
-      color: var(--rose);
-      font-weight: 800;
-      margin-bottom: 2px;
-    }
-    .folded-benefit-title {
-      font-size: 16.5px;
-      color: var(--ink);
-      font-weight: 800;
-    }
+/* FAQ 與步驟 */
+.info-card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:15px 17px;
+  margin-bottom:10px;
+}
+.info-card h3{font-size:16px;margin-bottom:4px}
+.info-card p{font-size:14px;color:var(--soft)}
+.step{
+  display:flex;gap:14px;
+  align-items:flex-start;
+}
+.step-label{
+  flex-shrink:0;
+  background:var(--ink);
+  color:white;
+  padding:4px 10px;
+  border-radius:15px;
+  font-size:12px;font-weight:800;
+}
+.step:nth-child(2) .step-label{background:#d97706}
+.step:nth-child(3) .step-label{background:var(--rose)}
 
-    /* 梯次卡片格 */
-    .date-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-top: 14px;
-    }
-    .date-card {
-      background: #fff;
-      border: 1.5px solid var(--border);
-      border-radius: 14px;
-      padding: 14px 16px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .date-card .batch {
-      color: var(--rose);
-      font-size: 13px;
-      font-weight: 800;
-      background: var(--roseLight);
-      padding: 2px 8px;
-      border-radius: 10px;
-      align-self: center;
-    }
-    .date-card strong {
-      font-size: 16.5px;
-      color: var(--ink);
-    }
-    .date-card a {
-      color: var(--leaf);
-      font-weight: 800;
-      font-size: 13.5px;
-      text-decoration: underline;
-    }
+/* 頁尾 */
+.footer{
+  background:#051218;
+  color:#94a3b8;
+  padding:30px 20px 110px;
+  font-size:12px;
+}
+.footer-inner{max-width:1000px;margin:auto}
+.footer strong{color:#cbd5e1;font-size:13px}
+.footer a{color:#4ade80}
+.footer p{margin:7px 0}
 
-    /* 報名 3 步驟小卡 */
-    .steps-container { display: flex; flex-direction: column; gap: 10px; padding-top: 14px; }
-    .step-box-card {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .step-badge-pill {
-      background: var(--ink);
-      color: #fff;
-      font-size: 12px;
-      font-weight: 800;
-      padding: 4px 10px;
-      border-radius: 14px;
-      flex-shrink: 0;
-    }
-    .step-badge-pill.gold { background: #d97706; }
-    .step-badge-pill.rose { background: var(--rose); }
-    .step-body-content h4 { font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 2px; }
-    .step-body-content p { font-size: 14px; color: var(--soft); line-height: 1.45; }
+/* 固定 LINE */
+.sticky{
+  position:fixed;bottom:0;left:0;right:0;
+  z-index:200;
+  background:rgba(255,254,252,.98);
+  padding:10px 18px calc(10px + env(safe-area-inset-bottom));
+  display:flex;justify-content:center;
+  box-shadow:0 -4px 18px #24352f25;
+}
+.sticky a{
+  display:flex;align-items:center;
+  justify-content:center;
+  width:min(100%,500px);
+  min-height:51px;
+  border-radius:12px;
+  background:#06a54e;
+  color:white;
+  font-size:18px;font-weight:800;
+  text-decoration:none;
+}
 
-    /* FAQ 卡片 */
-    .faq-inner-grid { display: grid; grid-template-columns: 1fr; gap: 10px; padding-top: 14px; }
-    .faq-item-card {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 14px 16px;
-    }
-    .faq-item-card h4 { font-size: 16.5px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
-    .faq-item-card p { font-size: 14.5px; color: var(--soft); line-height: 1.55; }
-
-    .included-inner-box { padding-top: 6px; font-size: 15px; line-height: 1.7; color: #2b3d36; }
-
-    /* ==================== 6. 頁尾 ==================== */
-    .et-footer {
-      background: #051218;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 28px 20px 105px;
-      color: #94A3B8;
-      font-size: 12px;
-      line-height: 1.6;
-    }
-    .footer-wrapper { max-width: 1000px; margin: 0 auto; }
-    .footer-company-full { font-size: 13px; font-weight: 800; color: #CBD5E1; margin-bottom: 6px; }
-    .footer-legal-small { font-size: 11px; color: #64748B; line-height: 1.6; margin-bottom: 10px; }
-    .footer-legal-small span { margin-right: 12px; display: inline-block; }
-    .footer-links-bar {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 8px 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      margin-bottom: 8px;
-    }
-    .footer-link-a { color: #38BDF8; text-decoration: none; font-weight: 700; }
-    .footer-link-a.line-channel { color: #4ADE80; font-weight: 900; }
-    .footer-copyright { font-size: 11px; color: #64748B; }
-
-    /* ==================== 7. 螢幕底部唯一常駐吸附按鈕 ==================== */
-    .sticky {
-      position: fixed;
-      bottom: 0; left: 0; right: 0;
-      z-index: 200;
-      background: rgba(255, 254, 252, 0.98);
-      box-shadow: 0 -4px 18px rgba(36, 53, 47, 0.15);
-      padding: 10px max(18px, env(safe-area-inset-left)) calc(10px + env(safe-area-inset-bottom));
-      display: flex;
-      justify-content: center;
-      backdrop-filter: blur(8px);
-    }
-    .sticky .button {
-      width: min(100%, 500px);
-      min-height: 50px;
-      background: #06a54e;
-      color: #fff;
-      border-radius: 12px;
-      font-size: 18px;
-      font-weight: 800;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      text-decoration: none;
-      box-shadow: 0 4px 14px rgba(6, 165, 78, 0.3);
-    }
-
-    #sakura-rain {
-      position: fixed;
-      inset: 0;
-      width: 100%; height: 100%;
-      pointer-events: none;
-      z-index: 12;
-    }
-
-    @media (max-width: 768px) {
-      .hero-cinematic { padding: 88px 18px 24px; min-height: 48vh; }
-      .features-grid { grid-template-columns: 1fr; gap: 12px; }
-      .folded-price-box { flex-direction: column; align-items: flex-start; gap: 10px; }
-      .guide-box { flex-direction: column; align-items: flex-start; }
-      .guide-box img { width: 90px; height: 90px; }
-      .date-grid { grid-template-columns: 1fr; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      #sakura-rain { display: none; }
-    }
-  </style>
+/* 櫻花動畫 */
+#sakura-rain{
+  position:fixed;inset:0;
+  width:100%;height:100%;
+  pointer-events:none;
+  z-index:12;
+}
+@media(max-width:768px){
+  .hero{min-height:48vh;padding:90px 18px 27px}
+  .features-grid,.date-grid{grid-template-columns:1fr}
+  .guide{flex-direction:column;align-items:flex-start}
+  .guide img{width:90px;height:90px}
+  .price-box{align-items:flex-start}
+}
+@media(prefers-reduced-motion:reduce){
+  #sakura-rain{display:none}
+}
+</style>
 </head>
-<body id="top">
 
-  <!-- ==================== 1. 頂部固定導覽列 ==================== -->
-  <nav class="nav">
-    <div class="navinner">
-      <a href="/" class="nav-brand-lockup" title="回到首頁">
-        <img src="/ENVOY_Emblem_Transparent.png"
-             onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/ENVOY_Emblem_Transparent.png';"
-             alt="ENVOY 權杖標誌"
-             class="nav-emblem-img">
-        <div class="nav-brand-text">
-          <span class="nav-brand-en">ENVOY</span>
-          <span class="nav-brand-zh">安捷國際旅行社</span>
-        </div>
-      </a>
+<body>
 
-      <div class="nav-actions">
-        <a href="/" class="btn-back-home" data-i="homeBtn">‹ 回首頁</a>
-        <div aria-label="語言切換" class="lang-group">
-          <button aria-pressed="true" id="zhBtn" type="button">中文</button>
-          <button aria-pressed="false" id="jaBtn" type="button">日本語</button>
-        </div>
+<!-- 導覽列 -->
+<nav class="nav">
+  <div class="navinner">
+    <a href="/" class="brand">
+      <img src="/ENVOY_Emblem_Transparent.png"
+           onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/ENVOY_Emblem_Transparent.png';"
+           alt="ENVOY 標誌">
+      <div>
+        <div class="brand-en">ENVOY</div>
+        <div class="brand-zh">安捷國際旅行社</div>
       </div>
-    </div>
-  </nav>
-
-  <main>
-    <!-- ==================== 2. 櫻花雲霧巨幅電影級看板 ==================== -->
-    <header class="hero-cinematic">
-      <img src="/linus-belanger-iQkLU7YgtYM-unsplash.jpg"
-           onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/linus-belanger-iQkLU7YgtYM-unsplash.jpg';"
-           alt="白蘭高山櫻花風景"
-           class="hero-bg-media">
-      <div class="hero-overlay"></div>
-
-      <div class="hero-content">
-        <div class="hero-badge-pill" data-i="badge">🌿 原鄉引路人 ‧ 莉梅姐 37 年私選</div>
-        <h1 class="hero-title" data-i="title">走進白蘭 ‧ 遇見山裡的櫻花季</h1>
-        <p class="hero-sub" data-i="catchphrase">台北專車直達 ‧ 平日山林自由探索 ‧ 兩天一夜舒心宿遊</p>
-
-        <!-- 3 個核心標籤 (已加入 data-i 翻譯綁定) -->
-        <div class="hero-pills-row">
-          <div class="hero-pill-item" data-i="pill1"><span>🚐</span> 台北專車直達（最速返家）</div>
-          <div class="hero-pill-item" data-i="pill2"><span>🌸</span> 平日避開人潮自在賞櫻</div>
-          <div class="hero-pill-item" data-i="pill3"><span>🛏️</span> 一晚住宿・含晚餐與早餐</div>
-        </div>
-      </div>
-    </header>
-
-    <!-- ==================== 3. 4 大慢旅亮點 (已補齊所有 data-i 翻譯綁定) ==================== -->
-    <section class="features-clean-section">
-      <div class="container">
-        <div class="features-grid">
-          
-          <div class="feature-clean-box">
-            <div class="feature-icon-badge">🌸</div>
-            <div class="feature-clean-title" data-i="f1Title">平日出發 ‧ 自在欣賞山林櫻花與雲霧</div>
-            <div class="feature-clean-desc" data-i="f1Desc">
-              安排平日梯次，避開週末人潮；依當日花況與天氣，自由欣賞櫻花、山景及雲霧。
-            </div>
-          </div>
-
-          <div class="feature-clean-box">
-            <div class="feature-icon-badge">🗺️</div>
-            <div class="feature-clean-title" data-i="f2Title">白蘭自由探索 ‧ 欣賞山林與部落風景</div>
-            <div class="feature-clean-desc" data-i="f2Desc">
-              依自己的步調欣賞山林風景、櫻花與部落周邊景致；請留意步道安全及私人土地界線。
-            </div>
-          </div>
-
-          <div class="feature-clean-box">
-            <div class="feature-icon-badge">🍲</div>
-            <div class="feature-clean-title" data-i="f3Title">山裡住上一晚 ‧ 星空散步</div>
-            <div class="feature-clean-desc" data-i="f3Desc">
-              包含一晚部落民宿住宿、第一天晚餐與第二天早餐。不必當天匆忙奔波，在星空蟲鳴下舒心入眠，晨起迎接微涼櫻花山嵐。
-            </div>
-          </div>
-
-          <div class="feature-clean-box">
-            <div class="feature-icon-badge">🚅</div>
-            <div class="feature-clean-title" data-i="f4Title">台北專車往返 ‧ 輕鬆走訪白蘭</div>
-            <div class="feature-clean-desc" data-i="f4Desc">
-              08:30於台北集合、08:40出發，約10:00抵達竹東市區，自行於竹東市區午餐，約11:10出發至白蘭部落；第二天13:30搭專車返回台北。實際車程依路況調整。
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== 4. 引路人莉梅姐介紹 ==================== -->
-    <section class="container">
-      <div class="guide-box">
-        <img alt="莉梅姐" src="/莉梅姐.png" onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/%E8%8E%89%E6%A2%85%E5%A7%90.png';"/>
-        <div class="guide-box-content">
-          <h3 data-i="hostHeader">原鄉引路人 ｜ 莉梅姐</h3>
-          <span class="guide-box-title" data-i="hostSub">推薦台灣深度小旅行 ‧ 37 年旅遊資歷私選帶路</span>
-          <p class="guide-box-text" data-i="hostBody">
-            莉梅姐擁有 37 年旅遊業豐富經驗，專辦訂製高質感、有溫度的精緻小旅行。她深信「旅行不必等別人有空」，走過無數大山大水，她現在最想做的，是替旅人引路，把值得細細欣賞的台灣部落與山林文化分享給懂生活的人。此行若希望由莉梅姐同行帶隊，請於 LINE 報名時特別備註，將由專人為您回覆最終行程安排。
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== 5. 下拉手風琴折疊區 (費用折疊＋出發梯次＋FAQ＋報名) ==================== -->
-    <section class="container accordion-section">
-      <div class="accordion-group">
-
-        <!-- 下拉 1：出發梯次日期 -->
-        <details class="accordion-item" open>
-          <summary class="accordion-header">
-            <div class="accordion-title-box">
-              <span>📅</span>
-              <span data-i="datesTitle">2027 指定出發日期梯次</span>
-            </div>
-            <span class="accordion-arrow">▼</span>
-          </summary>
-          <div class="accordion-content">
-            <p style="font-size:14.5px; color:var(--soft); margin:12px 0 6px;" data-i="datesSub">週一至週四平日精選，避開週末與國定假日。請加入 LINE 告知您想參加的梯次：</p>
-            <div class="date-grid" id="dateGrid"></div>
-            <div style="margin-top:14px; font-size:13.5px; color:var(--rose); background:var(--roseLight); padding:8px 12px; border-radius:8px;" data-i="dateNote">🌸 櫻花花期受自然天候氣溫影響，無法保證特定日期滿開。建議以春季山林雲霧、部落生活體驗與慢旅行的心情出發。</div>
-          </div>
-        </details>
-
-        <!-- 下拉 2：費用包含、特惠價與說明 (摺疊收合，已加入 data-i 翻譯綁定) -->
-        <details class="accordion-item">
-          <summary class="accordion-header">
-            <div class="accordion-title-box">
-              <span>💰</span>
-              <span data-i="includedTitle">旅展特惠價 ‧ 費用包含與說明</span>
-            </div>
-            <span class="accordion-arrow">▼</span>
-          </summary>
-          <div class="accordion-content">
-            <div class="folded-price-box">
-              <div>
-                <div style="font-size:13px; color:var(--soft); font-weight:700;" data-i="priceCardLabel">ITF 旅展優惠價</div>
-                <div class="folded-price-amount">NT$7,070 <span style="font-size:14px; color:var(--soft); font-weight:500;" data-i="pricePer">/人（雙人一室）</span></div>
-                <div style="font-size:12.5px; color:var(--rose); font-weight:700;"><span data-i="priceSave">旅展優惠現省 NT$530</span> <span style="text-decoration:line-through; color:#8a9189;">NT$7,600</span></div>
-              </div>
-              <div style="text-align:right;">
-                <div class="folded-benefit-lead" data-i="priceLead">🚐 台北專車直達</div>
-                <div class="folded-benefit-title" data-i="priceBenefit">二天一夜 ‧ 一泊二食舒心宿遊</div>
-              </div>
-            </div>
-
-            <div class="included-inner-box" data-i="includedBody">
-              <p style="margin-bottom:10px;"><strong>【費用包含】</strong>台北集合往返專車車資、一晚部落民宿住宿、第一天晚餐及第二天早餐、旅行業責任保險。兩天午餐均自理；自由探索期間的個人消費不包含在團費內。</p>
-              <p><strong>【費用說明】</strong>費用以「雙人一室」為基本計算；一個人也歡迎報名！若需要單人一室或指定其他住宿地點，請透過官方 LINE 洽詢，將另行報價。</p>
-            </div>
-          </div>
-        </details>
-
-        <!-- 下拉 3：出發前 FAQ (真實解答) -->
-        <details class="accordion-item">
-          <summary class="accordion-header">
-            <div class="accordion-title-box">
-              <span>❓</span>
-              <span data-i="faqTitle">出發前，你可能想確認的事</span>
-            </div>
-            <span class="accordion-arrow">▼</span>
-          </summary>
-          <div class="accordion-content">
-            <div class="faq-inner-grid">
-              <article class="faq-item-card">
-                <h4 data-i="qTransport">集合時間與交通安排為何？</h4>
-                <p data-i="aTransport">台北08:30集合、08:40專車出發，約10:00抵達竹東、11:10抵達白蘭；第二天12:30由白蘭返回台北。實際時間依路況調整。</p>
-              </article>
-              <article class="faq-item-card">
-                <h4 data-i="q1">一個人也可以報名嗎？</h4>
-                <p data-i="a1">當然可以！一個人非常歡迎參加。費用以雙人一室為基本安排；若希望單人一室或指定其他住宿地點，請加入 LINE 洽詢，將另行報價。</p>
-              </article>
-              <article class="faq-item-card">
-                <h4 data-i="q2">幾個人可以成團？</h4>
-                <p data-i="a2">六人成團！您可以先加入 LINE 登記希望出發的梯次，由服務團隊為您確認成團狀態與報名手續。</p>
-              </article>
-              <article class="faq-item-card">
-                <h4 data-i="q3">櫻花一定會滿開盛開嗎？</h4>
-                <p data-i="a3">櫻花受自然天候影響，無法保證絕對滿開。建議以春日深山雲霧漫遊、泰雅部落風土與慢旅行的心情出發。</p>
-              </article>
-              <article class="faq-item-card">
-                <h4 data-i="q4">取消行程如何辦理退費？</h4>
-                <p data-i="a4">取消與退費依交通部觀光署國內旅遊定型化契約相關規定辦理。如需取消或變更，請透過官方 LINE 聯繫服務團隊。</p>
-              </article>
-              <article class="faq-item-card">
-                <h4 data-i="qHost">可以請莉梅姐親自帶隊同行嗎？</h4>
-                <p data-i="aHost">非常歡迎！莉梅姐專辦訂製高質感的小旅行，若希望由莉梅姐親自帶隊同行，請於 LINE 報名時特別備註「希望莉梅姐帶隊」，將由專人為您回覆最終行程安排。</p>
-              </article>
-            </div>
-          </div>
-        </details>
-
-        <!-- 下拉 4：報名方式 3 步驟 -->
-        <details class="accordion-item">
-          <summary class="accordion-header">
-            <div class="accordion-title-box">
-              <span>📝</span>
-              <span data-i="bookingTitle">報名方式 ｜ 三步驟就能詢問</span>
-            </div>
-            <span class="accordion-arrow">▼</span>
-          </summary>
-          <div class="accordion-content">
-            <div class="steps-container">
-              <div class="step-box-card">
-                <span class="step-badge-pill">STEP 1</span>
-                <div class="step-body-content">
-                  <h4 data-i="step1Title">加入官方 LINE 帳號</h4>
-                  <p data-i="step1Desc">點擊螢幕最下方的綠色按鈕，加入安捷國際旅行社官方 LINE 好友。</p>
-                </div>
-              </div>
-              <div class="step-box-card">
-                <span class="step-badge-pill gold">STEP 2</span>
-                <div class="step-body-content">
-                  <h4 data-i="step2Title">告知人數與希望出發日期</h4>
-                  <p data-i="step2Desc">於聊天室發送想參加的人數，並提供指定梯次編號（如 T01 ~ T04）。</p>
-                </div>
-              </div>
-              <div class="step-box-card">
-                <span class="step-badge-pill rose">STEP 3</span>
-                <div class="step-body-content">
-                  <h4 data-i="step3Title">提出需求與專人確認</h4>
-                  <p data-i="step3Desc">如有單人房或指定其他住宿地點需求，或希望莉梅姐帶隊，請一併備註，將由專人為您回覆最終行程安排。</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </details>
-
-      </div>
-    </section>
-  </main>
-
-  <!-- ==================== 6. 頁尾 ==================== -->
-  <footer class="et-footer">
-    <div class="footer-wrapper">
-      <div class="footer-company-full">安捷國際旅行社有限公司 ｜ ENVOY INTERNATIONAL TRAVEL SERVICE CO., LTD.</div>
-      <div class="footer-legal-small">
-        <span>交通部觀光署註冊旅行業 ‧ 甲種 592000 號</span>
-        <span>交觀甲字第 5920 號</span>
-        <span>統一編號：16169138</span>
-        <span>代表人：楊寶惠</span>
-        <span>地址：臺北市中山區長安東路2段50號5樓之1</span>
-      </div>
-      <div class="footer-links-bar">
-        <a href="/" class="footer-link-a" data-i="homeBtn">‹ 回首頁</a>
-        <span style="color:#334155;">｜</span>
-        <a href="https://lin.ee/Z3c7Qam" target="_blank" class="footer-link-a line-channel" data-i="lineService">
-          💬 官方客服：LINE 官方帳號
-        </a>
-      </div>
-      <p class="footer-copyright">
-        © 2026 ENVOY TRAVEL. All Rights Reserved.
-      </p>
-    </div>
-  </footer>
-
-  <!-- ==================== 7. 螢幕底部唯一常駐吸附按鈕 ==================== -->
-  <div class="sticky">
-    <a class="button" data-i="ctaSticky" href="https://lin.ee/Z3c7Qam" rel="noopener" target="_blank">
-      💬 LINE 詢問梯次與報名 ↗
     </a>
+    <a href="/" class="home-link">‹ 回首頁</a>
   </div>
+</nav>
 
-  <canvas aria-hidden="true" id="sakura-rain"></canvas>
+<main>
 
-  <!-- 雙語切換腳本 (已全面補齊日文對照表) -->
-  <script>
-    const translations = {
-      "zh": {
-        "homeBtn": "‹ 回首頁",
-        "badge": "🌿 原鄉引路人 ‧ 莉梅姐 37 年私選",
-        "title": "走進白蘭 ‧ 遇見山裡的櫻花季",
-        "catchphrase": "台北專車直達 ‧ 平日山林自由探索 ‧ 兩天一夜舒心宿遊",
-        "pill1": "🚐 台北專車往返",
-        "pill2": "🌸 平日避開人潮自在賞櫻",
-        "pill3": "🛏️ 一晚住宿・含晚餐與早餐",
-        "f1Title": "平日出發 ‧ 自在欣賞山林櫻花與雲霧",
-        "f1Desc": "安排平日梯次，避開週末人潮；依當日花況與天氣，自由欣賞櫻花、山景及雲霧。",
-        "f2Title": "白蘭自由探索 ‧ 欣賞山林與部落風景",
-        "f2Desc": "打開手機地圖漫步山徑，不被趕路催促。依自己的步調欣賞山林風景、櫻花與部落周邊景致；請留意步道安全及私人土地界線。",
-        "f3Title": "山裡住上一晚 ‧ 放慢腳步欣賞星空",
-        "f3Desc": "包含一晚部落民宿住宿、第一天晚餐與第二天早餐。不必當天匆忙奔波，在星空蟲鳴下舒心入眠，晨起迎接微涼櫻花山嵐。",
-        "f4Title": "台北專車往返 ‧ 輕鬆走訪白蘭",
-        "f4Desc": "08:30於台北集合、08:40出發，約10:00抵達竹東市區，約11:10出發白蘭部落；第二天12:30搭專車返回台北。實際車程依路況調整。",
-        "datesTitle": "2027 指定出發日期梯次",
-        "datesSub": "週一至週四平日精選，避開週末與國定假日。請加入 LINE 告知您想參加的梯次：",
-        "dateNote": "🌸 櫻花花期受自然天候氣溫影響，無法保證特定日期滿開。建議以春季山林雲霧、部落生活體驗與慢旅行的心情出發。",
-        "choose": "詢問這個梯次",
-        "hostHeader": "原鄉引路人 ｜ 莉梅姐",
-        "hostSub": "推薦台灣深度小旅行 ‧ 37 年旅遊資歷私選帶路",
-        "hostBody": "莉梅姐擁有 37 年旅遊業豐富經驗，專辦訂製高質感、有溫度的精緻小旅行。她深信「旅行不必等別人有空」，走過無數大山大水，她現在最想做的，是替旅人引路，把值得細細欣賞的台灣部落與山林文化分享給懂生活的人。此行若希望由莉梅姐同行帶隊，請於 LINE 報名時特別備註，將由專人為您回覆最終行程安排。",
-        "includedTitle": "旅展特惠價 ‧ 費用包含與說明",
-        "priceCardLabel": "ITF 旅展優惠價",
-        "pricePer": "/人（雙人一室）",
-        "priceSave": "旅展優惠現省 NT$530",
-        "priceLead": "🚐 台北專車直達",
-        "priceBenefit": "二天一夜 ‧ 一泊三食舒心宿遊",
-        "includedBody": "<p style='margin-bottom:10px;'><strong>【費用包含】</strong>台北集合往返專車車資、一晚部落民宿住宿、第一天晚餐及第二天早餐、第二天中午簡餐、旅行業責任保險。兩天午餐均自理；自由探索期間的個人消費不包含在團費內。</p><p><strong>【費用說明】</strong>費用以「雙人一室」為基本計算；一個人也歡迎報名！若需要單人一室或指定其他住宿地點，請透過官方 LINE 洽詢，將另行報價。</p>",
-        "faqTitle": "出發前，你可能想確認的事",
-        "qTransport": "集合時間與交通安排為何？",
-        "aTransport": "台北08:30集合、08:40專車出發，約10:00抵達竹東、11:10出發白蘭部落；第二天13:30由白蘭返回台北。實際時間依路況調整。",
-        "q1": "一個人也可以報名嗎？",
-        "a1": "當然可以！一個人非常歡迎參加。費用以雙人一室為基本安排；若希望單人一室或指定其他住宿地點，請加入 LINE 洽詢，將另行報價。",
-        "q2": "幾個人可以成團？",
-        "a2": "六人成團！您可以先加入 LINE 登記希望出發的梯次，由服務團隊為您確認成團狀態與報名手續。",
-        "q3": "櫻花一定會滿開盛開嗎？",
-        "a3": "櫻花受自然天候影響，無法保證絕對滿開。建議以春日深山雲霧漫遊、泰雅部落風土與慢旅行的心情出發。",
-        "q4": "取消行程如何辦理退費？",
-        "a4": "取消與退費依交通部觀光署國內旅遊定型化契約相關規定辦理。如需取消或變更，請透過官方 LINE 聯繫服務團隊。",
-        "qHost": "可以請莉梅姐親自帶隊同行嗎？",
-        "aHost": "非常歡迎！莉梅姐專辦訂製高質感的小旅行，若希望由莉梅姐親自帶隊同行，請於 LINE 報名時特別備註「希望莉梅姐帶隊」，將由專人為您回覆最終行程安排。",
-        "bookingTitle": "報名方式 ｜ 三步驟就能詢問",
-        "step1Title": "加入官方 LINE 帳號",
-        "step1Desc": "點擊螢幕最下方的綠色按鈕，加入安捷國際旅行社官方 LINE 好友。",
-        "step2Title": "告知人數與希望出發日期",
-        "step2Desc": "於聊天室發送想參加的人數，並提供指定梯次編號（如 T01 ~ T04）。",
-        "step3Title": "提出需求與專人確認",
-        "step3Desc": "如有單人房或指定其他住宿地點需求，或希望莉梅姐帶隊，請一併備註，將由專人為您回覆最終行程安排。",
-        "lineService": "💬 官方客服：LINE 官方帳號",
-        "ctaSticky": "💬 LINE 詢問梯次與報名 ↗"
-      },
-      "ja": {
-        "homeBtn": "‹ トップへ戻る",
-        "badge": "🌿 原郷の案内人・莉梅さん 37年の目利き",
-        "title": "白蘭へ ‧ 山あいの桜に出会う旅",
-        "catchphrase": "台北発着・専用車で往復 ‧ 平日限定・自由散策と山里の桜 ‧ 1泊2日のスロートラベル",
-        "pill1": "🚐 台北発着・専用車で往復",
-        "pill2": "🌸 平日限定・混雑を避けたお花見",
-        "pill3": "🛏️ 1泊・夕食と朝食付き",
-        "f1Title": "平日出発 ‧ 山里の桜と霧景色をゆったり満喫",
-        "f1Desc": "混雑しやすい週末を避けた平日出発。開花状況や天候に合わせて、山里の景色をゆっくり楽しめます。",
-        "f2Title": "白蘭で自由散策 ‧ 山里の風景を楽しむ",
-        "f2Desc": "ご自身のペースで桜や山里の景色をお楽しみください。散策の際は足元や私有地への立ち入りにご注意ください。",
-        "f3Title": "山里に泊まる ‧ 星空の下でゆっくり過ごす",
-        "f3Desc": "集落の民宿に1泊、初日の夕食と翌日の朝食付き。日帰りの慌ただしさから解放され、満天の星と澄んだ空気の中で深い休息を味わえます。",
-        "f4Title": "台北発着・専用車で快適に往復",
-        "f4Desc": "台北で8:30集合、8:40出発。10:00頃に竹東、11:10頃に白蘭へ到着予定。2日目は12:30に台北へ向けて出発します。交通状況により変更となる場合があります。",
-        "datesTitle": "2027年 指定出発日",
-        "datesSub": "週末と祝日を避けた平日厳選。希望日をLINEでお知らせください：",
-        "dateNote": "🌸 桜の開花は天候に左右されます。山里の自然と文化を含めたスロートラベルとしてお楽しみください。",
-        "choose": "この日程を相談",
-        "hostHeader": "原郷の案内人 ｜ 莉梅（リーメイ）さん",
-        "hostSub": "台湾ディープなスロートラベル推奨 ‧ 旅行業37年の目利き",
-        "hostBody": "莉梅さんは旅行業界37年の豊富な経験を持ち、上質で温かみのある少人数ツアーを得意としています。「旅は誰かを待たなくてもいい」を信条に、本当に心に残る台湾の風土と文化を分かち合いたいと願っています。莉梅さんの同行をご希望の場合は、お申込み時にお知らせください。専任スタッフより最終的な手配をご案内します。",
-        "includedTitle": "特別価格 ‧ 料金に含まれるもの・注意事項",
-        "priceCardLabel": "ITF旅行博特別価格",
-        "pricePer": "/名（2名1室）",
-        "priceSave": "通常料金より NT$530 お得",
-        "priceLead": "🚐 台北発着・専用車往復",
-        "priceBenefit": "1泊2日 ‧ 山里で過ごすゆったり旅",
-        "includedBody": "<p style='margin-bottom:10px;'><strong>【料金に含まれるもの】</strong>台北発着の往復専用車、集落の民宿1泊、初日の夕食・翌日の朝食、旅行業責任保険。両日の昼食は各自負担です。自由散策中の個人的な費用は含まれません。</p><p><strong>【補足】</strong>料金は「2名1室」が基本です。お一人様のご参加も大歓迎です！1名1室や宿泊施設の指定などをご希望の場合はLINEにてお見積りをご案内します。</p>",
-        "faqTitle": "よくあるご質問",
-        "qTransport": "集合・出発時刻を教えてください。",
-        "aTransport": "台北で8:30集合、8:40出発。10:00頃に竹東、11:10頃に白蘭へ到着予定です。2日目は12:30に台北へ向けて出発します。交通状況により変更となる場合があります。",
-        "q1": "一人でも参加できますか？",
-        "a1": "もちろん大歓迎です！料金は2名1室が基本ですが、1名1室や宿泊施設の指定をご希望の場合は、LINEにて別途お見積りいたします。",
-        "q2": "何名から催行しますか？",
-        "a2": "6名より催行いたします。ご希望の日程をLINEでお知らせいただき、催行状況をご案内します。",
-        "q3": "桜は必ず満開ですか？",
-        "a3": "開花状況は天候によって異なります。山里の風景や集落文化を含めてゆったりとお楽しみください。",
-        "q4": "キャンセル・返金はどうなりますか？",
-        "a4": "台湾交通部観光署の標準約款に基づき対応いたします。ご変更・キャンセルは公式LINEまでご連絡ください。",
-        "qHost": "莉梅さんに同行してもらえますか？",
-        "aHost": "莉梅さんの同行をご希望の場合は、LINEお申込み時に「莉梅さんの同行希望」とお書き添えください。専任スタッフより手配可否をご案内します。",
-        "bookingTitle": "お申込み方法 ｜ LINEで簡単3ステップ",
-        "step1Title": "公式 LINE を友だち追加",
-        "step1Desc": "画面下の緑のボタンから安捷旅行の公式 LINE を追加してください。",
-        "step2Title": "人数とご希望の日程を送信",
-        "step2Desc": "トーク画面にて参加人数とコース番号（T01〜T04）をお知らせください。",
-        "step3Title": "ご要望確認と手配完了",
-        "step3Desc": "1名1室・宿泊施設の指定や莉梅さんの同行希望があればお伝えください。専任スタッフより最終手配をご案内します。",
-        "lineService": "💬 公式LINEカスタマーサポート",
-        "ctaSticky": "💬 LINEで日程相談・お申し込み ↗"
-      }
-    };
+<!-- 主視覺 -->
+<header class="hero">
+  <img class="hero-image"
+       src="/linus-belanger-iQkLU7YgtYM-unsplash.jpg"
+       onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/linus-belanger-iQkLU7YgtYM-unsplash.jpg';"
+       alt="白蘭高山櫻花風景">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🌿 原鄉引路人 ‧ 莉梅姐 37 年私選</div>
+    <h1>走進白蘭 ‧ 遇見山裡的櫻花季</h1>
+    <p class="hero-sub">台北專車直達 ‧ 平日山林自由探索 ‧ 兩天一夜舒心宿遊</p>
+    <div class="pills">
+      <span class="pill">🚐 台北專車往返</span>
+      <span class="pill">🌸 平日避開人潮自在賞櫻</span>
+      <span class="pill">🛏️ 一泊三食・山林舒心宿遊</span>
+    </div>
+  </div>
+</header>
 
-    const batches = [
-      ["T01", "02/15（一）－02/16（二）", "02/15（月）－02/16（火）"],
-      ["T02", "02/17（三）－02/18（四）", "02/17（水）－02/18（木）"],
-      ["T03", "02/22（一）－02/23（二）", "02/22（月）－02/23（火）"],
-      ["T04", "02/24（三）－02/25（四）", "02/24（水）－02/25（木）"]
-    ];
-    const lineUrl = 'https://lin.ee/Z3c7Qam';
+<!-- 四大特色 -->
+<section class="features">
+  <div class="container">
+    <div class="features-grid">
 
-    function setLanguage(lang) {
-      const t = translations[lang];
-      document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : 'ja';
-      document.title = lang === 'zh' ? '原鄉引路人 莉梅姐私選｜2027 白蘭部落櫻花山林二天一夜' : '原郷の案内人 莉梅さん特選｜2027年 白蘭集落の桜旅';
+      <article class="feature">
+        <div class="feature-icon">🌸</div>
+        <h2>平日出發 ‧ 自在欣賞山林櫻花與雲霧</h2>
+        <p>安排平日梯次，避開週末人潮；依當日花況與天氣，自由欣賞櫻花、山景及雲霧。</p>
+      </article>
 
-      document.querySelectorAll('[data-i]').forEach(el => {
-        const key = el.dataset.i;
-        if (t[key]) {
-          if (key === 'includedBody') {
-            el.innerHTML = t[key];
-          } else {
-            // 若元素內含有 span 圖標，僅替換後續文字或保持內部結構
-            if (el.querySelector('span') && (key === 'pill1' || key === 'pill2' || key === 'pill3')) {
-              const icon = el.querySelector('span').outerHTML;
-              const textOnly = t[key].replace(/^[\uD800-\uDBFF\uDC00-\uDFFF\u2600-\u27BF]+\s*/, '');
-              el.innerHTML = icon + ' ' + textOnly;
-            } else {
-              el.textContent = t[key];
-            }
-          }
-        }
+      <article class="feature">
+        <div class="feature-icon">🗺️</div>
+        <h2>白蘭自由探索 ‧ 欣賞山林與部落風景</h2>
+        <p>依自己的步調欣賞山林風景、櫻花與部落周邊景致，享受不被趕路催促的旅行時光。</p>
+      </article>
+
+      <article class="feature">
+        <div class="feature-icon">🍲</div>
+        <h2>山裡住上一晚 ‧ 放慢腳步欣賞星空</h2>
+        <p>包含一晚部落民宿住宿、第一天晚餐、第二天早餐及中午簡餐。不必當天匆忙奔波，在星空蟲鳴下舒心入眠，晨起迎接微涼山嵐。</p>
+      </article>
+
+      <article class="feature">
+        <div class="feature-icon">🚐</div>
+        <h2>台北專車往返 ‧ 輕鬆走訪白蘭</h2>
+        <p>台北集合搭乘專車出發，途中停留竹東市區自由探索及享用午餐，再前往白蘭部落。第二天下午搭乘專車返回台北。詳細行程時間請加入官方 LINE 洽詢。</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 莉梅姐介紹 -->
+<section class="container">
+  <div class="guide">
+    <img src="/莉梅姐.png"
+         onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/%E8%8E%89%E6%A2%85%E5%A7%90.png';"
+         alt="莉梅姐">
+    <div>
+      <h2>原鄉引路人 ｜ 莉梅姐</h2>
+      <div class="guide-sub">推薦台灣深度小旅行 ‧ 37 年旅遊資歷私選帶路</div>
+      <p>莉梅姐擁有 37 年旅遊業豐富經驗，專辦訂製高質感、有溫度的精緻小旅行。她深信「旅行不必等別人有空」，走過無數大山大水，她現在最想做的，是替旅人引路，把值得細細欣賞的台灣部落與山林文化分享給懂生活的人。此行若希望由莉梅姐同行帶隊，請於 LINE 報名時特別備註，將由專人為您回覆最終行程安排。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 詳細資訊 -->
+<section class="container accordions">
+
+  <!-- 出發梯次 -->
+  <details class="accordion" open>
+    <summary>📅 2027 指定出發日期梯次</summary>
+    <div class="accordion-content">
+      <p class="section-note">週一至週四平日精選，避開週末與國定假日。請加入 LINE 告知您想參加的梯次：</p>
+      <div class="date-grid" id="dateGrid"></div>
+      <div class="notice">🌸 櫻花花期受自然天候影響，建議以春季山林雲霧、部落生活與慢旅行的心情出發。</div>
+    </div>
+  </details>
+
+  <!-- 費用 -->
+  <details class="accordion" id="priceDetails">
+    <summary>💰 旅展特惠價 ‧ 費用包含與說明</summary>
+    <div class="accordion-content">
+      <div class="price-box">
+        <div>
+          <div class="price-label">ITF 旅展優惠價</div>
+          <div class="price-original">原價 NT$7,900</div>
+          <div class="price-special">NT$7,570 <small>/人（雙人一室）</small></div>
+          <div class="price-save">旅展優惠現省 NT$330</div>
+        </div>
+        <div class="price-benefit">
+          🚐 台北專車往返
+          <div>二天一夜 ‧ 一泊三食舒心宿遊</div>
+        </div>
+      </div>
+
+      <div class="included">
+        <p><strong>【費用包含】</strong>台北集合往返專車車資、一晚部落民宿住宿、第一天晚餐、第二天早餐及中午簡餐、旅行業責任保險。</p>
+        <p><strong>【餐食安排】</strong>第一天於竹東市區自由用餐，午餐費用自理；第二天中午簡餐已包含於團費內。</p>
+        <p><strong>【費用說明】</strong>費用以雙人一室為基本計算。一個人也歡迎報名！若需要單人一室或指定其他住宿地點，請透過官方 LINE 洽詢，將另行報價。自由探索期間的個人消費不包含在團費內。</p>
+      </div>
+    </div>
+  </details>
+
+  <!-- FAQ -->
+  <details class="accordion" id="faqDetails">
+    <summary>❓ 出發前，你可能想確認的事</summary>
+    <div class="accordion-content">
+
+      <article class="info-card">
+        <h3>交通與集合方式如何安排？</h3>
+        <p>安排台北集合、專車往返。第一天途經竹東市區自由午餐，再前往白蘭部落；第二天下午返回台北。詳細集合地點及行程時間，將由專人透過官方 LINE 提供。</p>
+      </article>
+
+      <article class="info-card">
+        <h3>一個人也可以報名嗎？</h3>
+        <p>當然可以！費用以雙人一室為基本安排；若希望單人一室或指定其他住宿地點，請加入 LINE 洽詢，將另行報價。</p>
+      </article>
+
+      <article class="info-card">
+        <h3>幾個人可以成團？</h3>
+        <p>六人成團！您可以先加入 LINE 登記希望出發的梯次，由服務團隊為您確認成團狀態與報名手續。</p>
+      </article>
+
+      <article class="info-card">
+        <h3>櫻花一定會滿開盛開嗎？</h3>
+        <p>櫻花受自然天候影響，無法保證絕對滿開。建議以春日深山雲霧漫遊、泰雅部落風土與慢旅行的心情出發。</p>
+      </article>
+
+      <article class="info-card">
+        <h3>取消行程如何辦理退費？</h3>
+        <p>取消與退費依交通部觀光署國內旅遊定型化契約相關規定辦理。如需取消或變更，請透過官方 LINE 聯繫服務團隊。</p>
+      </article>
+
+      <article class="info-card">
+        <h3>可以請莉梅姐親自帶隊同行嗎？</h3>
+        <p>非常歡迎！若希望由莉梅姐親自帶隊同行，請於 LINE 報名時特別備註「希望莉梅姐帶隊」，將由專人回覆最終行程安排。</p>
+      </article>
+
+    </div>
+  </details>
+
+  <!-- 報名 -->
+  <details class="accordion" id="bookingDetails">
+    <summary>📝 報名方式 ｜ 三步驟就能詢問</summary>
+    <div class="accordion-content">
+
+      <div class="info-card step">
+        <span class="step-label">STEP 1</span>
+        <div>
+          <h3>加入官方 LINE 帳號</h3>
+          <p>點擊螢幕最下方的綠色按鈕，加入安捷國際旅行社官方 LINE 好友。</p>
+        </div>
+      </div>
+
+      <div class="info-card step">
+        <span class="step-label">STEP 2</span>
+        <div>
+          <h3>告知人數與希望出發日期</h3>
+          <p>於聊天室發送想參加的人數，並提供指定梯次編號（如 T01～T04）。</p>
+        </div>
+      </div>
+
+      <div class="info-card step">
+        <span class="step-label">STEP 3</span>
+        <div>
+          <h3>提出需求與專人確認</h3>
+          <p>如有單人房、住宿需求或希望莉梅姐帶隊，請一併備註，由專人為您回覆最終安排。</p>
+        </div>
+      </div>
+
+    </div>
+  </details>
+
+</section>
+</main>
+
+<!-- 頁尾 -->
+<footer class="footer">
+  <div class="footer-inner">
+    <strong>安捷國際旅行社有限公司 ｜ ENVOY INTERNATIONAL TRAVEL SERVICE CO., LTD.</strong>
+    <p>交通部觀光署註冊旅行業 ‧ 甲種 592000 號</p>
+    <p>交觀甲字第 5920 號 ｜ 統一編號：16169138</p>
+    <p>代表人：楊寶惠</p>
+    <p>地址：臺北市中山區長安東路2段50號5樓之1</p>
+    <p><a href="/">回首頁</a> ｜ <a href="https://lin.ee/Z3c7Qam" target="_blank" rel="noopener">💬 官方 LINE 客服</a></p>
+    <p>© 2026 ENVOY TRAVEL. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- 固定 LINE 按鈕 -->
+<div class="sticky">
+  <a href="https://lin.ee/Z3c7Qam" target="_blank" rel="noopener">
+    💬 LINE 詢問梯次與報名 ↗
+  </a>
+</div>
+
+<!-- 櫻花動畫 -->
+<canvas id="sakura-rain" aria-hidden="true"></canvas>
+
+<script>
+/* ========================================
+   出發梯次
+======================================== */
+const batches = [
+  ['T01','02/15（一）－02/16（二）'],
+  ['T02','02/17（三）－02/18（四）'],
+  ['T03','02/22（一）－02/23（二）'],
+  ['T04','02/24（三）－02/25（四）']
+];
+
+const LINE_URL = 'https://lin.ee/Z3c7Qam';
+
+const dateGrid = document.getElementById('dateGrid');
+
+batches.forEach(([id,date])=>{
+  const card=document.createElement('article');
+  card.className='date-card';
+
+  const batch=document.createElement('span');
+  batch.className='batch';
+  batch.textContent=id;
+
+  const dateText=document.createElement('strong');
+  dateText.textContent=date;
+
+  const link=document.createElement('a');
+  link.href=LINE_URL;
+  link.target='_blank';
+  link.rel='noopener';
+  link.textContent='詢問這個梯次 ↗';
+
+  card.append(batch,dateText,link);
+  dateGrid.appendChild(card);
+});
+
+/* ========================================
+   GA4 自訂事件
+======================================== */
+function trackTourEvent(eventName,params={}){
+  if(typeof gtag!=='function')return;
+
+  gtag('event',eventName,{
+    tour_id:'2027_sakura_atayal',
+    tour_name:'2027白蘭部落櫻花山林二天一夜',
+    tour_price:7570,
+    currency:'TWD',
+    ...params
+  });
+}
+
+/* LINE 點擊與梯次選擇 */
+document.addEventListener('click',function(e){
+  const link=e.target.closest('a[href*="lin.ee/"]');
+  if(!link)return;
+
+  const card=link.closest('.date-card');
+  const batch=card?.querySelector('.batch')?.textContent.trim();
+  const date=card?.querySelector('strong')?.textContent.trim();
+
+  if(batch){
+    trackTourEvent('select_departure_date',{
+      departure_batch:batch,
+      departure_date:date||''
+    });
+  }
+
+  let location='other';
+
+  if(card){
+    location='departure_date';
+  }else if(link.closest('.sticky')){
+    location='sticky_bottom';
+  }else if(link.closest('footer')){
+    location='footer';
+  }
+
+  trackTourEvent('contact_line',{
+    contact_method:'LINE',
+    button_location:location,
+    departure_batch:batch||'not_selected'
+  });
+});
+
+/* 展開價格 */
+document.getElementById('priceDetails')
+  .addEventListener('toggle',function(){
+    if(this.open){
+      trackTourEvent('view_price_details',{
+        section_name:'price_and_inclusions'
       });
-
-      document.getElementById('zhBtn').setAttribute('aria-pressed', String(lang === 'zh'));
-      document.getElementById('jaBtn').setAttribute('aria-pressed', String(lang === 'ja'));
-
-      const grid = document.getElementById('dateGrid');
-      grid.replaceChildren();
-      batches.forEach(([id, zhDate, jaDate]) => {
-        const card = document.createElement('article');
-        card.className = 'date-card';
-        const batch = document.createElement('span');
-        batch.className = 'batch';
-        batch.textContent = id;
-        const date = document.createElement('strong');
-        date.textContent = lang === 'zh' ? zhDate : jaDate;
-        const a = document.createElement('a');
-        a.href = lineUrl;
-        a.target = '_blank';
-        a.rel = 'noopener';
-        a.textContent = t.choose + ' ↗';
-        a.setAttribute('aria-label', id + ' ' + t.choose);
-        card.append(batch, date, a);
-        grid.appendChild(card);
-      });
-      try { localStorage.setItem('sakuraLang', lang); } catch(e) {}
     }
+  });
 
-    document.getElementById('zhBtn').addEventListener('click', () => setLanguage('zh'));
-    document.getElementById('jaBtn').addEventListener('click', () => setLanguage('ja'));
-    setLanguage('zh');
-  </script>
-
-  <!-- 櫻花動態畫布 -->
-  <script>
-    (() => {
-      const canvas = document.getElementById('sakura-rain');
-      if (!canvas || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      const ctx = canvas.getContext('2d');
-      let w = 0, h = 0, dpr = 1, petals = [], settled = [], last = 0, raf = 0, scrollY = window.scrollY;
-      const rnd = (a, b) => a + Math.random() * (b - a);
-
-      function resize() {
-        w = window.innerWidth;
-        h = window.innerHeight;
-        dpr = Math.min(devicePixelRatio || 1, 2);
-        canvas.width = Math.round(w * dpr);
-        canvas.height = Math.round(h * dpr);
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        settled = [];
-        petals = [];
-        for (let i = 0; i < Math.min(30, Math.max(12, Math.round(w / 32))); i++) spawn(true);
-      }
-
-      function spawn(randomY = false) {
-        petals.push({
-          x: rnd(0, w),
-          y: randomY ? rnd(-h, 0) : rnd(-90, -12),
-          r: rnd(3.2, 6.8),
-          vy: rnd(.45, 1.2),
-          vx: rnd(-.25, .3),
-          phase: rnd(0, 6.28),
-          spin: rnd(.005, .025),
-          a: rnd(.35, .75)
-        });
-      }
-
-      function drawPetal(p, t) {
-        ctx.save();
-        ctx.translate(p.x + Math.sin(t * .0008 + p.phase) * 12, p.y);
-        ctx.rotate(Math.sin(t * p.spin * .04 + p.phase) * .55);
-        ctx.globalAlpha = p.a;
-        ctx.fillStyle = '#df879d';
-        ctx.beginPath();
-        ctx.moveTo(0, 0);
-        ctx.bezierCurveTo(-p.r, -p.r * .65, -p.r * .9, -p.r * 1.8, 0, -p.r * 1.6);
-        ctx.bezierCurveTo(p.r * .9, -p.r * 1.8, p.r, -p.r * .65, 0, 0);
-        ctx.fill();
-        ctx.restore();
-      }
-
-      function frame(t) {
-        if (!last) last = t;
-        const dt = Math.min((t - last) / 16.67, 2);
-        last = t;
-        ctx.clearRect(0, 0, w, h);
-        for (let i = petals.length - 1; i >= 0; i--) {
-          const p = petals[i];
-          p.y += p.vy * dt;
-          p.x += p.vx * dt;
-          drawPetal(p, t);
-          if (p.y >= h - p.r * 1.1) {
-            if (settled.length < Math.min(95, Math.round(w / 6))) settled.push({ ...p, y: h - rnd(0, 13), a: p.a * .72 });
-            petals.splice(i, 1);
-            spawn();
-          }
-        }
-        for (const p of settled) drawPetal(p, t);
-        raf = requestAnimationFrame(frame);
-      }
-
-      let scrollScheduled = false;
-      window.addEventListener('scroll', () => {
-        if (scrollScheduled) return;
-        scrollScheduled = true;
-        requestAnimationFrame(() => {
-          scrollScheduled = false;
-          if (Math.abs(window.scrollY - scrollY) > 5) {
-            scrollY = window.scrollY;
-            settled = [];
-            petals = [];
-            for (let i = 0; i < Math.min(30, Math.max(12, Math.round(w / 32))); i++) spawn(true);
-          }
-        });
-      }, { passive: true });
-
-      window.addEventListener('resize', resize, { passive: true });
-      resize();
-      raf = requestAnimationFrame(frame);
-
-      document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-          cancelAnimationFrame(raf);
-          last = 0;
-        } else {
-          raf = requestAnimationFrame(frame);
-        }
+/* 展開 FAQ */
+document.getElementById('faqDetails')
+  .addEventListener('toggle',function(){
+    if(this.open){
+      trackTourEvent('view_faq',{
+        section_name:'faq'
       });
-    })();
-  </script>
+    }
+  });
+
+/* ========================================
+   櫻花飄落動畫
+======================================== */
+(function(){
+  const canvas=document.getElementById('sakura-rain');
+
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    return;
+  }
+
+  const ctx=canvas.getContext('2d');
+  if(!ctx)return;
+
+  let width,height,dpr,petals=[];
+
+  function resize(){
+    width=window.innerWidth;
+    height=window.innerHeight;
+    dpr=Math.min(window.devicePixelRatio||1,2);
+
+    canvas.width=width*dpr;
+    canvas.height=height*dpr;
+
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+
+    petals=Array.from({
+      length:Math.min(30,Math.max(12,Math.floor(width/32)))
+    },()=>({
+      x:Math.random()*width,
+      y:Math.random()*height,
+      r:3+Math.random()*4,
+      speed:.4+Math.random()*.9,
+      drift:Math.random()*6.28,
+      alpha:.35+Math.random()*.4
+    }));
+  }
+
+  function draw(t){
+    ctx.clearRect(0,0,width,height);
+
+    petals.forEach(p=>{
+      p.y+=p.speed;
+      p.x+=Math.sin(t*.001+p.drift)*.3;
+
+      if(p.y>height+15){
+        p.y=-15;
+        p.x=Math.random()*width;
+      }
+
+      ctx.save();
+      ctx.translate(p.x,p.y);
+      ctx.rotate(Math.sin(t*.001+p.drift)*.5);
+      ctx.globalAlpha=p.alpha;
+      ctx.fillStyle='#df879d';
+      ctx.beginPath();
+      ctx.moveTo(0,0);
+      ctx.bezierCurveTo(-p.r,-p.r*.7,-p.r,-p.r*1.7,0,-p.r*1.6);
+      ctx.bezierCurveTo(p.r,-p.r*1.7,p.r,-p.r*.7,0,0);
+      ctx.fill();
+      ctx.restore();
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  resize();
+  window.addEventListener('resize',resize);
+  requestAnimationFrame(draw);
+})();
+</script>
+
 </body>
 </html>
