@@ -1,633 +1,756 @@
+
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>ENVOY 安捷國際旅行社 ｜ 臺灣原鄉慢旅 ‧ 小團專車出發</title>
-  <meta name="description" content="ENVOY 安捷國際旅行社。原鄉引路人莉梅姐私選帶路，平日出發、六人精緻小團專車直達，享受不趕路的在地風土食農與山林文化。">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#06151D">
+<title>ENVOY 安捷國際旅行社 ｜ 臺灣原鄉慢旅 ‧ 小團專車出發</title>
+<meta name="description" content="ENVOY 安捷國際旅行社。原鄉引路人莉梅姐私選帶路，平日出發、六人精緻小團專車直達，享受不趕路的在地風土食農與山林文化。">
 
-  <!-- Google tag (gtag.js) GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PPP4CT61HC"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-PPP4CT61HC');
-  </script>
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PPP4CT61HC"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-PPP4CT61HC');
+</script>
 
-  <!-- Google Fonts: Montserrat & Noto Sans TC / Noto Serif TC -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Noto+Sans+TC:wght@400;500;600;700;800&family=Noto+Serif+TC:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Noto+Sans+TC:wght@400;500;600;700;800&family=Noto+Serif+TC:wght@600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --bg-main: #06151D;
-      --bg-card: #0D2633;
-      --accent-gold: #C5A059;
-      --accent-rose: #B64F68;
-      --line-green: #06A54E;
-      --text-main: #FFFFFF;
-      --text-muted: #94A3B8;
-      --text-dim: #64748B;
-    }
+<style>
+:root {
+  --bg-main:#06151D;
+  --bg-card:#0D2633;
+  --accent-gold:#C5A059;
+  --accent-rose:#B64F68;
+  --line-green:#06A54E;
+  --text-main:#FFFFFF;
+  --text-muted:#94A3B8;
+}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  -webkit-tap-highlight-color:transparent;
+}
+html{scroll-behavior:smooth}
+body{
+  min-height:100vh;
+  background:var(--bg-main);
+  color:var(--text-main);
+  font-family:'Noto Sans TC',sans-serif;
+  overflow-x:hidden;
+  display:flex;
+  flex-direction:column;
+}
+a{color:inherit}
 
-    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-    html { scroll-behavior: smooth; }
-    
-    body {
-      width: 100%;
-      min-height: 100vh;
-      background: var(--bg-main);
-      color: var(--text-main);
-      font-family: 'Noto Sans TC', sans-serif;
-      overflow-x: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+/* 導覽列 */
+.et-navbar{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:68px;
+  padding:0 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:linear-gradient(
+    180deg,
+    rgba(6,21,29,.96),
+    rgba(6,21,29,.8) 75%,
+    transparent
+  );
+  backdrop-filter:blur(14px);
+  z-index:1000;
+}
+.nav-brand-lockup{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+}
+.nav-emblem-img{
+  height:40px;
+  width:auto;
+  object-fit:contain;
+}
+.nav-brand-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.18;
+}
+.nav-brand-en{
+  font-family:Montserrat,sans-serif;
+  font-size:18px;
+  font-weight:700;
+  letter-spacing:3px;
+  color:#fff;
+}
+.nav-brand-zh{
+  font-size:10.5px;
+  font-weight:600;
+  letter-spacing:1.5px;
+  color:var(--accent-gold);
+  margin-top:2px;
+}
+.btn-nav-line{
+  background:var(--line-green);
+  color:#fff;
+  padding:8px 18px;
+  border-radius:20px;
+  text-decoration:none;
+  font-weight:800;
+  font-size:13.5px;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  box-shadow:0 4px 12px rgba(6,165,78,.35);
+  transition:transform .2s;
+}
+.btn-nav-line:hover{transform:scale(1.03)}
 
-    /* ==================== 1. 頂部固定導覽列 ==================== */
-    .et-navbar {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 68px;
-      padding: 0 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: linear-gradient(180deg, rgba(6, 21, 29, 0.96) 0%, rgba(6, 21, 29, 0.8) 75%, transparent 100%);
-      backdrop-filter: blur(14px);
-      z-index: 1000;
-    }
+/* 主視覺 */
+.hero-billboard{
+  position:relative;
+  width:100%;
+  min-height:50vh;
+  padding:100px 28px 34px;
+  display:flex;
+  align-items:flex-end;
+  overflow:hidden;
+  background:#0B222E;
+}
+.hero-bg-media{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 36%;
+  z-index:1;
+  filter:brightness(.85);
+}
+.hero-overlay-gradient{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(6,21,29,.25),
+      rgba(6,21,29,.72) 58%,
+      var(--bg-main)
+    ),
+    linear-gradient(
+      90deg,
+      rgba(6,21,29,.8),
+      rgba(6,21,29,.3)
+    );
+  z-index:2;
+}
+.hero-content{
+  position:relative;
+  max-width:850px;
+  z-index:10;
+}
+.hero-badge-pill{
+  display:inline-flex;
+  align-items:center;
+  color:#FDE68A;
+  font-size:13px;
+  font-weight:800;
+  margin-bottom:8px;
+  letter-spacing:.5px;
+}
+.hero-main-title{
+  font-family:'Noto Serif TC',serif;
+  font-size:clamp(26px,5.2vw,44px);
+  font-weight:800;
+  line-height:1.28;
+  margin-bottom:8px;
+  text-shadow:0 4px 16px rgba(0,0,0,.65);
+}
+.hero-sub-text{
+  font-size:clamp(15px,2.5vw,18px);
+  color:#BAE6FD;
+  margin-bottom:12px;
+  font-weight:600;
+}
+.hero-clean-lead{
+  font-size:13.5px;
+  color:#E2E8F0;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:6px 10px;
+}
+.hero-clean-lead span{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+}
+.hero-clean-lead .dot{
+  color:rgba(255,255,255,.3);
+}
 
-    .nav-brand-lockup {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      cursor: pointer;
-    }
-    .nav-emblem-img {
-      height: 40px;
-      width: auto;
-      object-fit: contain;
-      display: block;
-    }
-    .nav-brand-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      line-height: 1.18;
-    }
-    .nav-brand-en {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      color: #FFFFFF;
-    }
-    .nav-brand-zh {
-      font-family: 'Noto Sans TC', sans-serif;
-      font-size: 10.5px;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      color: var(--accent-gold);
-      margin-top: 2px;
-    }
+/* 行程滑動區 */
+.netflix-rows-wrap{
+  padding:18px 0 55px;
+  width:100%;
+  flex:1;
+}
+.row-section{
+  padding:0 28px;
+}
+.row-header-box{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin:0 auto 14px;
+  max-width:1200px;
+}
+.row-main-title{
+  font-size:20px;
+  font-weight:900;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.row-swipe-hint{
+  font-size:12.5px;
+  color:var(--accent-gold);
+  font-weight:800;
+}
+.slider-container{
+  position:relative;
+  width:100%;
+  max-width:1200px;
+  margin:auto;
+}
+.scroll-track{
+  display:flex;
+  gap:18px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  scroll-snap-type:x mandatory;
+  padding:6px 4px 22px;
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+}
+.scroll-track::-webkit-scrollbar{display:none}
 
-    .btn-nav-line {
-      background: var(--line-green);
-      color: #FFFFFF;
-      padding: 8px 18px;
-      border-radius: 20px;
-      text-decoration: none;
-      font-weight: 800;
-      font-size: 13.5px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      box-shadow: 0 4px 12px rgba(6, 165, 78, 0.35);
-      transition: transform 0.2s;
-    }
-    .btn-nav-line:hover { transform: scale(1.03); }
+/* 商品卡片 */
+.tour-card-real{
+  flex:0 0 315px;
+  scroll-snap-align:start;
+  background:var(--bg-card);
+  border-radius:18px;
+  overflow:hidden;
+  border:1.5px solid rgba(255,255,255,.12);
+  display:flex;
+  flex-direction:column;
+  text-decoration:none;
+  color:inherit;
+  cursor:pointer;
+  position:relative;
+  transition:
+    transform .25s,
+    box-shadow .25s,
+    border-color .25s;
+}
+.tour-card-real:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 36px rgba(0,0,0,.6);
+}
+.tour-card-real.leshui-border{
+  border-color:rgba(69,107,90,.6);
+}
+.tour-card-real.leshui-border:hover{
+  border-color:#6EE7B7;
+}
+.tour-card-real.sakura-border{
+  border-color:rgba(182,79,104,.55);
+}
+.tour-card-real.sakura-border:hover{
+  border-color:#FDA4AF;
+}
+.card-thumb-real{
+  width:100%;
+  height:195px;
+  position:relative;
+  overflow:hidden;
+  background:#081B24;
+}
+.meat-cinematic-wrapper{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+.meat-cinematic-img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:48% 70%;
+  transform:scale(2.4);
+  transform-origin:48% 70%;
+  filter:contrast(1.18) saturate(1.25) brightness(.95);
+  display:block;
+  transition:transform .3s;
+}
+.tour-card-real:hover .meat-cinematic-img{
+  transform:scale(2.48);
+}
+.sakura-cinematic-img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 30%;
+  filter:contrast(1.1) saturate(1.15) brightness(.96);
+  display:block;
+  transition:transform .3s;
+}
+.tour-card-real:hover .sakura-cinematic-img{
+  transform:scale(1.05);
+}
+.card-badge-weekday{
+  position:absolute;
+  top:10px;
+  left:10px;
+  background:rgba(6,21,29,.9);
+  color:#6EE7B7;
+  border:1px solid var(--line-green);
+  padding:3px 9px;
+  border-radius:8px;
+  font-size:11px;
+  font-weight:800;
+  z-index:2;
+}
+.card-badge-weekday.pink{
+  color:#FDA4AF;
+  border-color:var(--accent-rose);
+}
+.card-duration-tag{
+  position:absolute;
+  bottom:8px;
+  right:10px;
+  background:rgba(0,0,0,.8);
+  color:#fff;
+  padding:3px 8px;
+  border-radius:6px;
+  font-size:11px;
+  font-weight:700;
+  z-index:2;
+}
+.card-body-real{
+  padding:16px 18px 18px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+  justify-content:space-between;
+}
+.card-title-real{
+  font-size:18.5px;
+  font-weight:800;
+  line-height:1.35;
+  margin-bottom:12px;
+}
+.card-glance-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-bottom:16px;
+}
+.glance-item{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:14.5px;
+  line-height:1.3;
+  white-space:nowrap;
+}
+.glance-item .icon{
+  font-size:18px;
+  flex-shrink:0;
+}
+.glance-item .main-kw{
+  color:#fff;
+  font-weight:800;
+  font-size:15px;
+}
+.glance-item .sep{
+  color:rgba(255,255,255,.3);
+  font-size:11px;
+}
+.glance-item .sub-desc{
+  color:#94A3B8;
+  font-size:13px;
+  font-weight:500;
+}
+.card-price-row{
+  margin-top:auto;
+  padding-top:12px;
+  border-top:1px solid rgba(255,255,255,.08);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.price-num{
+  font-size:21px;
+  font-weight:900;
+  color:#6EE7B7;
+}
+.price-num.pink{color:#FDA4AF}
+.btn-card-cta{
+  background:#fff;
+  color:#06151D;
+  font-size:12.5px;
+  font-weight:800;
+  padding:6px 14px;
+  border-radius:8px;
+  pointer-events:none;
+}
 
-    /* ==================== 2. 大氣留白電影看板 ==================== */
-    .hero-billboard {
-      position: relative;
-      width: 100%;
-      min-height: 50vh;
-      padding: 100px 28px 34px;
-      display: flex;
-      align-items: flex-end;
-      overflow: hidden;
-      background: #0B222E;
-    }
-    .hero-bg-media {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 36%;
-      z-index: 1;
-      filter: brightness(0.85);
-    }
-    .hero-overlay-gradient {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(6, 21, 29, 0.25) 0%, rgba(6, 21, 29, 0.72) 58%, var(--bg-main) 100%),
-                  linear-gradient(90deg, rgba(6, 21, 29, 0.8) 0%, rgba(6, 21, 29, 0.3) 100%);
-      z-index: 2;
-    }
+/* 頁尾 */
+.et-footer{
+  background:#040e14;
+  border-top:1px solid rgba(255,255,255,.1);
+  padding:30px 24px;
+  color:#94A3B8;
+  font-size:12px;
+  line-height:1.6;
+}
+.footer-wrapper{
+  max-width:1200px;
+  margin:auto;
+}
+.footer-company-full{
+  font-size:13px;
+  font-weight:800;
+  color:#CBD5E1;
+  margin-bottom:6px;
+}
+.footer-legal-small{
+  font-size:11px;
+  color:#64748B;
+  margin-bottom:10px;
+}
+.footer-legal-small span{
+  margin-right:12px;
+  display:inline-block;
+}
+.footer-copyright{
+  font-size:11px;
+  color:#64748B;
+}
 
-    .hero-content {
-      position: relative;
-      max-width: 850px;
-      z-index: 10;
-    }
-    .hero-badge-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: #FDE68A;
-      font-size: 13px;
-      font-weight: 800;
-      margin-bottom: 8px;
-      letter-spacing: 0.5px;
-    }
-    .hero-main-title {
-      font-family: 'Noto Serif TC', serif;
-      font-size: clamp(26px, 5.2vw, 44px);
-      font-weight: 800;
-      line-height: 1.28;
-      color: #FFFFFF;
-      margin-bottom: 8px;
-      text-shadow: 0 4px 16px rgba(0, 0, 0, 0.65);
-    }
-    .hero-sub-text {
-      font-size: clamp(15px, 2.5vw, 18px);
-      color: #BAE6FD;
-      margin-bottom: 12px;
-      font-weight: 600;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-    }
-
-    .hero-clean-lead {
-      font-size: 13.5px;
-      color: #E2E8F0;
-      font-weight: 500;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 6px 10px;
-    }
-    .hero-clean-lead span {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .hero-clean-lead .dot {
-      color: rgba(255, 255, 255, 0.3);
-      font-size: 12px;
-    }
-
-    /* ==================== 3. NETFLIX 橫向卡片滑動區 ==================== */
-    .netflix-rows-wrap {
-      padding: 18px 0 55px;
-      width: 100%;
-    }
-    .row-section {
-      padding: 0 28px;
-      position: relative;
-    }
-    
-    .row-header-box {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 14px;
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .row-main-title {
-      font-size: 20px;
-      font-weight: 900;
-      color: #FFFFFF;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .row-swipe-hint {
-      font-size: 12.5px;
-      color: var(--accent-gold);
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      gap: 3px;
-    }
-
-    .slider-container {
-      position: relative;
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    .scroll-track {
-      display: flex;
-      gap: 18px;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      padding: 6px 4px 22px;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-    }
-    .scroll-track::-webkit-scrollbar { display: none; }
-
-    .tour-card-real {
-      flex: 0 0 315px;
-      background: var(--bg-card);
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1.5px solid rgba(255, 255, 255, 0.12);
-      display: flex;
-      flex-direction: column;
-      text-decoration: none;
-      color: inherit;
-      cursor: pointer;
-      position: relative;
-      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
-    }
-    .tour-card-real:hover, .tour-card-real:active {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
-    }
-    .tour-card-real.leshui-border { border-color: rgba(69, 107, 90, 0.6); }
-    .tour-card-real.leshui-border:hover { border-color: #6EE7B7; }
-    .tour-card-real.sakura-border { border-color: rgba(182, 79, 104, 0.55); }
-    .tour-card-real.sakura-border:hover { border-color: #FDA4AF; }
-
-    .card-thumb-real {
-      width: 100%;
-      height: 195px;
-      position: relative;
-      overflow: hidden;
-      background: #081B24;
-    }
-
-    /* 烤肉特寫：精準聚焦炭火肉塊 */
-    .meat-cinematic-wrapper {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      position: relative;
-    }
-    .meat-cinematic-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 48% 70%;
-      transform: scale(2.4);
-      transform-origin: 48% 70%;
-      filter: contrast(1.18) saturate(1.25) brightness(0.95);
-      display: block;
-      transition: transform 0.3s ease;
-    }
-    .tour-card-real:hover .meat-cinematic-img {
-      transform: scale(2.48);
-    }
-
-    .sakura-cinematic-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 30%;
-      filter: contrast(1.1) saturate(1.15) brightness(0.96);
-      display: block;
-      transition: transform 0.3s ease;
-    }
-    .tour-card-real:hover .sakura-cinematic-img {
-      transform: scale(1.05);
-    }
-
-    .card-badge-weekday {
-      position: absolute;
-      top: 10px; left: 10px;
-      background: rgba(6, 21, 29, 0.9);
-      color: #6EE7B7;
-      border: 1px solid var(--line-green);
-      padding: 3px 9px;
-      border-radius: 8px;
-      font-size: 11px;
-      font-weight: 800;
-      backdrop-filter: blur(6px);
-      z-index: 2;
-    }
-    .card-badge-weekday.pink {
-      color: #FDA4AF;
-      border-color: var(--accent-rose);
-    }
-
-    .card-duration-tag {
-      position: absolute;
-      bottom: 8px; right: 10px;
-      background: rgba(0, 0, 0, 0.8);
-      color: #FFF;
-      padding: 3px 8px;
-      border-radius: 6px;
-      font-size: 11px;
-      font-weight: 700;
-      backdrop-filter: blur(4px);
-      z-index: 2;
-    }
-
-    .card-body-real {
-      padding: 16px 18px 18px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-      justify-content: space-between;
-    }
-
-    .card-title-real {
-      font-size: 18.5px;
-      font-weight: 800;
-      line-height: 1.35;
-      color: #FFF;
-      margin-bottom: 12px;
-    }
-
-    /* ==================== 一眼看清的核心排版 (字級大、亮白搶眼、無雜框) ==================== */
-    .card-glance-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 16px;
-    }
-    .glance-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14.5px;
-      line-height: 1.3;
-      white-space: nowrap;
-    }
-    .glance-item .icon {
-      font-size: 18px;
-      flex-shrink: 0;
-    }
-    /* 核心關鍵字：純白粗體大字，一眼立刻看見 */
-    .glance-item .main-kw {
-      color: #FFFFFF;
-      font-weight: 800;
-      font-size: 15px;
-      letter-spacing: 0.2px;
-    }
-    .glance-item .sep {
-      color: rgba(255, 255, 255, 0.3);
-      font-size: 11px;
-      margin: 0 1px;
-    }
-    /* 次要說明：低彩度淡灰，不搶視覺 */
-    .glance-item .sub-desc {
-      color: #94A3B8;
-      font-size: 13px;
-      font-weight: 500;
-    }
-
-    .card-price-row {
-      margin-top: auto;
-      padding-top: 12px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .price-num { font-size: 21px; font-weight: 900; color: #6EE7B7; }
-    .price-num.pink { color: #FDA4AF; }
-    
-    .btn-card-cta {
-      background: #FFFFFF;
-      color: #06151D;
-      font-size: 12.5px;
-      font-weight: 800;
-      padding: 6px 14px;
-      border-radius: 8px;
-      display: inline-flex;
-      align-items: center;
-      gap: 3px;
-      pointer-events: none;
-    }
-
-    /* ==================== 4. 頁尾 ==================== */
-    .et-footer {
-      background: #040e14;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 30px 24px;
-      color: #94A3B8;
-      font-size: 12px;
-      line-height: 1.6;
-    }
-    .footer-wrapper { max-width: 1200px; margin: 0 auto; }
-    .footer-company-full { font-size: 13px; font-weight: 800; color: #CBD5E1; margin-bottom: 6px; }
-    .footer-legal-small { font-size: 11px; color: #64748B; margin-bottom: 10px; line-height: 1.6; }
-    .footer-legal-small span { margin-right: 12px; display: inline-block; }
-    .footer-copyright { font-size: 11px; color: #64748B; }
-
-    @media (max-width: 768px) {
-      .et-navbar { padding: 0 16px; height: 64px; }
-      .nav-emblem-img { height: 36px; }
-      .nav-brand-en { font-size: 16px; }
-      .nav-brand-zh { font-size: 9.5px; }
-      .hero-billboard { padding: 88px 18px 26px; min-height: 46vh; }
-      .hero-main-title { font-size: 24px; }
-      .hero-sub-text { font-size: 14.5px; margin-bottom: 8px; }
-      .row-section { padding: 0 16px; }
-      .tour-card-real { flex: 0 0 292px; }
-      .card-thumb-real { height: 180px; }
-      .et-footer { padding: 26px 16px; }
-    }
-
-    @media (min-width: 769px) {
-      .tour-card-real { flex: 0 0 345px; }
-      .card-thumb-real { height: 210px; }
-      .card-title-real { font-size: 19px; }
-    }
-  </style>
+/* 手機版 */
+@media(max-width:768px){
+  .et-navbar{
+    padding:0 16px;
+    height:64px;
+  }
+  .nav-emblem-img{height:36px}
+  .nav-brand-en{font-size:16px}
+  .nav-brand-zh{font-size:9.5px}
+  .hero-billboard{
+    padding:88px 18px 26px;
+    min-height:46vh;
+  }
+  .hero-main-title{font-size:24px}
+  .hero-sub-text{
+    font-size:14.5px;
+    margin-bottom:8px;
+  }
+  .row-section{padding:0 16px}
+  .tour-card-real{flex-basis:292px}
+  .card-thumb-real{height:180px}
+  .et-footer{padding:26px 16px}
+}
+@media(min-width:769px){
+  .tour-card-real{flex-basis:345px}
+  .card-thumb-real{height:210px}
+  .card-title-real{font-size:19px}
+}
+</style>
 </head>
+
 <body id="top">
 
-  <!-- ==================== 1. 頂部固定導覽列 ==================== -->
-  <header class="et-navbar">
-    <a href="#top" class="nav-brand-lockup" title="回到最頂端">
-      <img src="/ENVOY_Emblem_Transparent.png"
-           onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/ENVOY_Emblem_Transparent.png';"
-           alt="ENVOY 權杖標誌"
-           class="nav-emblem-img">
-      <div class="nav-brand-text">
-        <span class="nav-brand-en">ENVOY</span>
-        <span class="nav-brand-zh">安捷國際旅行社</span>
-      </div>
-    </a>
-
-    <div>
-      <a href="https://lin.ee/Z3c7Qam" target="_blank" class="btn-nav-line">
-        💬 LINE 客服
-      </a>
+<!-- 頂部導覽列 -->
+<header class="et-navbar">
+  <a href="#top" class="nav-brand-lockup" title="回到最頂端">
+    <img
+      src="/ENVOY_Emblem_Transparent.png"
+      onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/ENVOY_Emblem_Transparent.png';"
+      alt="ENVOY 權杖標誌"
+      class="nav-emblem-img">
+    <div class="nav-brand-text">
+      <span class="nav-brand-en">ENVOY</span>
+      <span class="nav-brand-zh">安捷國際旅行社</span>
     </div>
-  </header>
+  </a>
 
-  <!-- ==================== 2. Netflix 巨幅電影看板 ==================== -->
-  <section class="hero-billboard">
-    <img src="/viktorija-demjanenko-uvlvyjUlwNI-unsplash.jpg"
-         onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/viktorija-demjanenko-uvlvyjUlwNI-unsplash.jpg';"
-         alt="臺灣原鄉慢旅"
-         class="hero-bg-media">
-    <div class="hero-overlay-gradient"></div>
+  <a
+    href="https://lin.ee/Z3c7Qam"
+    target="_blank"
+    rel="noopener"
+    class="btn-nav-line">
+    💬 LINE 客服
+  </a>
+</header>
 
-    <div class="hero-content">
-      <div class="hero-badge-pill">🌿 原鄉引路人 ‧ 莉梅姐 37 年私選</div>
-      <h1 class="hero-main-title">走進山海風土 ‧ 感受原生感動</h1>
-      <p class="hero-sub-text">專車原車直達 ‧ 平日避世慢行 ‧ 六人小團即可成行</p>
+<!-- 首頁主視覺 -->
+<section class="hero-billboard">
+  <img
+    src="/viktorija-demjanenko-uvlvyjUlwNI-unsplash.jpg"
+    onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/viktorija-demjanenko-uvlvyjUlwNI-unsplash.jpg';"
+    alt="臺灣原鄉慢旅"
+    class="hero-bg-media">
 
-      <div class="hero-clean-lead">
-        <span>🚐 專車原車直達</span>
-        <span class="dot">‧</span>
-        <span>🗓️ 平日避開人潮</span>
-        <span class="dot">‧</span>
-        <span>🍲 部落現炊熱食</span>
-        <span class="dot">‧</span>
-        <span>✨ 貼心打理無購物</span>
-      </div>
+  <div class="hero-overlay-gradient"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge-pill">
+      🌿 原鄉引路人 ‧ 莉梅姐 37 年私選
     </div>
-  </section>
 
-  <!-- ==================== 3. NETFLIX 橫向卡片滑動區 ==================== -->
-  <main class="netflix-rows-wrap">
-    <section class="row-section">
-      <div class="row-header-box">
-        <div class="row-main-title">🔥 精選原鄉慢旅</div>
-        <div class="row-swipe-hint">滑動看更多 👉</div>
-      </div>
+    <h1 class="hero-main-title">
+      走進山海風土 ‧ 感受原生感動
+    </h1>
 
-      <div class="slider-container">
-        <div class="scroll-track">
+    <p class="hero-sub-text">
+      專車原車直達 ‧ 平日避世慢行 ‧ 六人小團即可成行
+    </p>
 
-          <!-- 卡片 1: 樂水一日遊 (粗白大字秒讀關鍵字) -->
-          <a href="/tours/leshui-atayal.html" class="tour-card-real leshui-border">
-            <div class="card-thumb-real">
-              <div class="meat-cinematic-wrapper">
-                <img src="/IMAG0097_0.jpg"
-                     onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/IMAG0097_0.jpg';"
-                     alt="樂水部落炭火烤肉"
-                     class="meat-cinematic-img">
-              </div>
-              <span class="card-badge-weekday">每週四出發</span>
-              <span class="card-duration-tag">一日慢旅</span>
-            </div>
-            <div class="card-body-real">
-              <div class="card-title-real">宜蘭樂水部落 ‧ 泰雅文化深度一日慢旅</div>
+    <div class="hero-clean-lead">
+      <span>🚐 專車原車直達</span>
+      <span class="dot">‧</span>
+      <span>🗓️ 平日避開人潮</span>
+      <span class="dot">‧</span>
+      <span>🍲 部落現炊熱食</span>
+      <span class="dot">‧</span>
+      <span>✨ 貼心打理無購物</span>
+    </div>
+  </div>
+</section>
 
-              <!-- 一眼看清的重點清單 -->
-              <div class="card-glance-list">
-                <div class="glance-item">
-                  <span class="icon">🚐</span>
-                  <span class="main-kw">台北專車直達</span>
-                  <span class="sep">‧</span>
-                  <span class="sub-desc">原車往返免轉乘</span>
-                </div>
-                <div class="glance-item">
-                  <span class="icon">🔥</span>
-                  <span class="main-kw">炭火現烤肉串</span>
-                  <span class="sep">‧</span>
-                  <span class="sub-desc">柴燒竹筒飯 DIY</span>
-                </div>
-                <div class="glance-item">
-                  <span class="icon">🌲</span>
-                  <span class="main-kw">百年森鐵舊隧道</span>
-                  <span class="sep">‧</span>
-                  <span class="sub-desc">尋訪大葉鼻蝠</span>
-                </div>
-              </div>
+<!-- 精選行程 -->
+<main class="netflix-rows-wrap">
+<section class="row-section">
 
-              <div class="card-price-row">
-                <div>
-                  <span class="price-num">NT$3,370</span>
-                  <span style="font-size:11.5px; color:#94A3B8;">/人起</span>
-                </div>
-                <span class="btn-card-cta">查看行程 ↗</span>
-              </div>
-            </div>
-          </a>
+  <div class="row-header-box">
+    <div class="row-main-title">🔥 精選原鄉慢旅</div>
+    <div class="row-swipe-hint">滑動看更多 👉</div>
+  </div>
 
-          <!-- 卡片 2: 白蘭櫻花 2天1夜 (粗白大字秒讀關鍵字) -->
-          <a href="/tours/2027_sakura-atayal.html" class="tour-card-real sakura-border">
-            <div class="card-thumb-real">
-              <img src="/linus-belanger-iQkLU7YgtYM-unsplash.jpg"
-                   onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/linus-belanger-iQkLU7YgtYM-unsplash.jpg';"
-                   alt="白蘭櫻花高山山林"
-                   class="sakura-cinematic-img">
-              <span class="card-badge-weekday pink">2027 平日限定</span>
-              <span class="card-duration-tag">2天1夜宿遊</span>
-            </div>
-            <div class="card-body-real">
-              <div class="card-title-real">新竹五峰白蘭 ‧ 遇見山裡的櫻花季</div>
+  <div class="slider-container">
+    <div class="scroll-track">
 
-              <!-- 一眼看清的重點清單 -->
-              <div class="card-glance-list">
-                <div class="glance-item">
-                  <span class="icon">🚅</span>
-                  <span class="main-kw">台北專車</span>
-                  <span class="sep">‧</span>
-                  <span class="sub-desc">原車直達最速返家</span>
-                </div>
-                <div class="glance-item">
-                  <span class="icon">🌸</span>
-                  <span class="main-kw">白蘭山林自由探索</span>
-                  <span class="sep">‧</span>
-                  <span class="sub-desc">平日賞櫻慢旅行</span>
-                </div>
-                <div class="glance-item">
-                  <span class="icon">🛏️</span>
-                  <span class="main-kw">舒心一泊三食</span>
-                  <span class="sep">‧</span>
-                  <span class="sub-desc">山林漫步宿遊</span>
-                </div>
-              </div>
+      <!-- 樂水部落 -->
+      <a
+        href="/tours/leshui-atayal.html"
+        class="tour-card-real leshui-border"
+        data-tour-id="leshui_atayal_day_trip">
 
-              <div class="card-price-row">
-                <div>
-                  <span class="price-num pink">NT$7,570</span>
-                  <span style="font-size:11.5px; color:#94A3B8;">/人起</span>
-                </div>
-                <span class="btn-card-cta">查看行程 ↗</span>
-              </div>
-            </div>
-          </a>
-
+        <div class="card-thumb-real">
+          <div class="meat-cinematic-wrapper">
+            <img
+              src="/IMAG0097_0.jpg"
+              onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/IMAG0097_0.jpg';"
+              alt="樂水部落炭火烤肉"
+              class="meat-cinematic-img">
+          </div>
+          <span class="card-badge-weekday">每週四出發</span>
+          <span class="card-duration-tag">一日慢旅</span>
         </div>
-      </div>
-    </section>
-  </main>
 
-  <!-- ==================== 4. 統一標準頁尾 ==================== -->
-  <footer class="et-footer">
-    <div class="footer-wrapper">
-      <div class="footer-company-full">安捷國際旅行社有限公司 ｜ ENVOY INTERNATIONAL TRAVEL SERVICE CO., LTD.</div>
-      <div class="footer-legal-small">
-        <span>交通部觀光署註冊旅行業 ‧ 甲種 592000 號</span>
-        <span>交觀甲字第 5920 號</span>
-        <span>統一編號：16169138</span>
-        <span>代表人：楊寶惠</span>
-        <span>地址：臺北市中山區長安東路2段50號5樓之1</span>
-      </div>
-      <p class="footer-copyright">
-        © 2026 ENVOY TRAVEL. All Rights Reserved.
-      </p>
+        <div class="card-body-real">
+          <div class="card-title-real">
+            宜蘭樂水部落 ‧ 泰雅文化深度一日慢旅
+          </div>
+
+          <div class="card-glance-list">
+            <div class="glance-item">
+              <span class="icon">🚐</span>
+              <span class="main-kw">台北專車直達</span>
+              <span class="sep">‧</span>
+              <span class="sub-desc">原車往返免轉乘</span>
+            </div>
+
+            <div class="glance-item">
+              <span class="icon">🔥</span>
+              <span class="main-kw">炭火現烤肉串</span>
+              <span class="sep">‧</span>
+              <span class="sub-desc">柴燒竹筒飯 DIY</span>
+            </div>
+
+            <div class="glance-item">
+              <span class="icon">🌲</span>
+              <span class="main-kw">百年森鐵舊隧道</span>
+              <span class="sep">‧</span>
+              <span class="sub-desc">尋訪大葉鼻蝠</span>
+            </div>
+          </div>
+
+          <div class="card-price-row">
+            <div>
+              <span class="price-num">NT$3,370</span>
+              <span style="font-size:11.5px;color:#94A3B8;">/人起</span>
+            </div>
+            <span class="btn-card-cta">查看行程 ↗</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 白蘭部落 -->
+      <a
+        href="/tours/2027_sakura-atayal.html"
+        class="tour-card-real sakura-border"
+        data-tour-id="2027_sakura_atayal">
+
+        <div class="card-thumb-real">
+          <img
+            src="/linus-belanger-iQkLU7YgtYM-unsplash.jpg"
+            onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/linus-belanger-iQkLU7YgtYM-unsplash.jpg';"
+            alt="白蘭櫻花高山山林"
+            class="sakura-cinematic-img">
+
+          <span class="card-badge-weekday pink">2027 平日限定</span>
+          <span class="card-duration-tag">2天1夜宿遊</span>
+        </div>
+
+        <div class="card-body-real">
+          <div class="card-title-real">
+            新竹五峰白蘭 ‧ 遇見山裡的櫻花季
+          </div>
+
+          <div class="card-glance-list">
+            <div class="glance-item">
+              <span class="icon">🚐</span>
+              <span class="main-kw">台北專車</span>
+              <span class="sep">‧</span>
+              <span class="sub-desc">往返免轉乘</span>
+            </div>
+
+            <div class="glance-item">
+              <span class="icon">🌸</span>
+              <span class="main-kw">白蘭山林自由探索</span>
+              <span class="sep">‧</span>
+              <span class="sub-desc">平日賞櫻慢旅行</span>
+            </div>
+
+            <div class="glance-item">
+              <span class="icon">🛏️</span>
+              <span class="main-kw">舒心一泊三食</span>
+              <span class="sep">‧</span>
+              <span class="sub-desc">山林漫步宿遊</span>
+            </div>
+          </div>
+
+          <div class="card-price-row">
+            <div>
+              <span class="price-num pink">NT$7,570</span>
+              <span style="font-size:11.5px;color:#94A3B8;">/人起</span>
+            </div>
+            <span class="btn-card-cta">查看行程 ↗</span>
+          </div>
+        </div>
+      </a>
+
     </div>
-  </footer>
+  </div>
+
+</section>
+</main>
+
+<!-- 頁尾 -->
+<footer class="et-footer">
+  <div class="footer-wrapper">
+
+    <div class="footer-company-full">
+      安捷國際旅行社有限公司 ｜ ENVOY INTERNATIONAL TRAVEL SERVICE CO., LTD.
+    </div>
+
+    <div class="footer-legal-small">
+      <span>交通部觀光署註冊旅行業 ‧ 甲種 592000 號</span>
+      <span>交觀甲字第 5920 號</span>
+      <span>統一編號：16169138</span>
+      <span>代表人：楊寶惠</span>
+      <span>地址：臺北市中山區長安東路2段50號5樓之1</span>
+    </div>
+
+    <p class="footer-copyright">
+      © 2026 ENVOY TRAVEL. All Rights Reserved.
+    </p>
+
+  </div>
+</footer>
+
+<!-- GA4 自訂事件 -->
+<script>
+const ENVOY_TOURS = {
+  leshui_atayal_day_trip: {
+    tour_id: 'leshui_atayal_day_trip',
+    tour_name: '宜蘭樂水部落泰雅文化一日慢旅',
+    tour_price: 3370
+  },
+  '2027_sakura_atayal': {
+    tour_id: '2027_sakura_atayal',
+    tour_name: '2027白蘭部落櫻花山林二天一夜',
+    tour_price: 7570
+  }
+};
+
+/* 共用 GA4 事件 */
+function envoyTrack(eventName, params = {}) {
+  if (typeof gtag !== 'function') return;
+
+  gtag('event', eventName, {
+    currency: 'TWD',
+    transport_type: 'beacon',
+    ...params
+  });
+}
+
+/* 首頁商品與 LINE 點擊 */
+document.addEventListener('click', function(event) {
+  const anchor = event.target.closest('a[href]');
+  if (!anchor) return;
+
+  /* 點擊旅遊商品 */
+  if (anchor.classList.contains('tour-card-real')) {
+    const tourId = anchor.dataset.tourId;
+    const tour = ENVOY_TOURS[tourId];
+
+    if (tour) {
+      envoyTrack('select_tour', {
+        ...tour,
+        button_location: 'homepage_tour_card',
+        page_section: 'featured_tours'
+      });
+    }
+  }
+
+  /* 點擊首頁 LINE 客服 */
+  if (
+    anchor.classList.contains('btn-nav-line') &&
+    anchor.href.startsWith('https://lin.ee/')
+  ) {
+    envoyTrack('contact_line', {
+      tour_id: 'homepage',
+      tour_name: 'ENVOY 官網首頁',
+      contact_method: 'LINE',
+      button_location: 'header',
+      departure_batch: 'not_selected'
+    });
+  }
+});
+</script>
 
 </body>
 </html>
