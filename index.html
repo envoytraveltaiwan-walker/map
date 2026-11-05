@@ -79,6 +79,58 @@
 }
 @media(max-width:365px){.brand-emblem{height:43px;max-width:29px}.brand-en{font-size:18px}.brand-zh{font-size:8px}.nav-btn{font-size:12px;padding:7px}.hero-editorial h1{font-size:29px}.hero-editorial-points span{font-size:14px;padding:6px 11px}}
 
+
+/* 2026-11 手機版精修：縮短主視覺、行程卡與人物介紹 */
+.tour-badge-second{top:57px;background:#153e32}
+.tour-details{gap:7px;margin-bottom:15px}
+.tour-body{padding:21px}
+.tour-note{font-size:12px;line-height:1.65;color:#66736e;margin-top:16px}
+.guide-section{background:#fff}
+.guide-card{max-width:940px;margin:auto}
+.guide-top{display:flex;align-items:center;gap:32px}
+.guide-portrait{width:215px;flex:none;background:#f6f6f3;border-radius:18px;overflow:hidden;aspect-ratio:4/5}
+.guide-photo{width:100%;height:100%;display:block;object-fit:cover;object-position:center 20%;border-radius:0}
+.guide-heading{min-width:0}
+.guide-heading .section-title{margin-bottom:10px}
+.guide-intro{font-size:18px;color:#4b6059;margin:0;line-height:1.75}
+.guide-description{max-width:740px;margin:19px 0 8px;font-size:17px;line-height:1.85}
+.guide-note{display:block;background:none;border-radius:0;padding:0;font-size:13px;font-weight:600;color:#8b7857;margin:10px 0 0}
+.community{max-width:720px}
+.community .section-title{margin-bottom:17px}
+.community p{font-size:18px;line-height:1.75;margin-bottom:24px}
+.mobile-break{display:none}
+@media(max-width:700px){
+  .hero-editorial-inner{padding-top:23px;padding-bottom:24px}
+  .hero-kicker-new{margin-bottom:10px;font-size:15px}
+  .hero-editorial h1{font-size:clamp(30px,8.2vw,38px);line-height:1.36}
+  .hero-editorial-subtitle{font-size:16px;margin:12px 0}
+  .hero-editorial-points{gap:7px}
+  .hero-editorial-points span{font-size:14px;padding:5px 12px}
+  .hero-editorial-actions{margin-top:16px;gap:4px}
+  .hero-editorial-primary{min-height:53px}
+  .hero-editorial-guide{padding:5px 0;font-size:14px}
+  .tour-body{padding:19px}
+  .tour-details{font-size:16px;gap:7px;margin-bottom:14px}
+  .tour-title{font-size:21px;margin-bottom:10px}
+  .tour-badge{font-size:13px;padding:6px 11px}
+  .tour-badge-second{top:51px}
+  .guide-section{padding:32px 0 38px}
+  .guide-top{gap:15px;align-items:center}
+  .guide-portrait{width:36%;max-width:150px;aspect-ratio:4/5}
+  .guide-heading{flex:1}
+  .guide-heading .section-kicker{font-size:11px;letter-spacing:.05em}
+  .guide-heading .section-title{font-size:clamp(20px,5.3vw,27px);line-height:1.4;margin:4px 0 7px}
+  .guide-intro{font-size:14px;line-height:1.6}
+  .guide-description{font-size:16px;margin:16px 0 8px;line-height:1.8}
+  .guide-note{font-size:12px;line-height:1.6}
+  .community-section{padding:38px 0 44px}
+  .community .section-kicker{font-size:12px}
+  .community .section-title{font-size:clamp(25px,7vw,32px);line-height:1.45;margin-bottom:13px}
+  .community p{font-size:16px;margin-bottom:21px}
+  .community-btn{min-height:54px;font-size:18px}
+  .mobile-break{display:block}
+}
+
 </style>
 </head>
 <body>
@@ -114,26 +166,31 @@
 <div class="section-kicker">NEXT JOURNEY</div><h2 class="section-title" id="tours-title">下一趟，一起去哪裡？</h2>
 <div class="tour-grid">
 <a class="tour-card" href="tours/leshui-atayal.html" data-tour-id="leshui_atayal_day_trip">
-<div class="tour-media"><img src="Smoky%20Mountain%20Skewers%20and%20Bamboo%20Sticky%20Rice.png" alt="炭火烤肉串與竹筒飯的山林料理情境照片" loading="lazy"><span class="tour-badge">每週四出發</span></div>
+<div class="tour-media"><img src="Smoky%20Mountain%20Skewers%20and%20Bamboo%20Sticky%20Rice.png" alt="炭火烤肉串與竹筒飯的山林料理情境照片" loading="lazy"><span class="tour-badge">每週四出發</span><span class="tour-badge tour-badge-second">6 人成團</span></div>
 <div class="tour-body"><h3 class="tour-title">宜蘭樂水部落・泰雅文化深度一日慢旅</h3>
-<div class="tour-details"><div>🚐 台北專車往返</div><div>🔥 炭火烤肉・竹筒飯 DIY</div><div>🌲 百年森鐵舊隧道・山林文化體驗</div><div>👥 6 人成團</div></div>
+<div class="tour-details"><div>🚐 台北專車往返</div><div>🔥 炭火烤肉・竹筒飯 DIY</div><div>🌲 百年森鐵舊隧道・山林文化體驗</div></div>
 <div class="tour-bottom"><div><span class="tour-price">NT$3,370</span><span class="price-unit">／人</span></div><span class="tour-cta">查看行程 →</span></div></div></a>
 <a class="tour-card" href="tours/2027_sakura-atayal.html" data-tour-id="2027_sakura_atayal">
 <div class="tour-media"><img src="viktorija-demjanenko-uvlvyjUlwNI-unsplash.jpg" alt="春季粉色櫻花盛開的情境照片" loading="lazy"><span class="tour-badge sakura">2027 平日季節限定</span></div>
 <div class="tour-body"><h3 class="tour-title">新竹五峰白蘭・遇見山裡的櫻花季</h3>
 <div class="tour-details"><div>🚐 台北專車往返免轉乘</div><div>🌸 春日賞櫻・山林自由探索</div><div>🛏️ 兩天一夜・入住部落民宿</div></div>
 <div class="tour-bottom"><div><span class="tour-price sakura">NT$7,570</span><span class="price-unit">／人</span></div><span class="tour-cta">查看行程 →</span></div></div></a>
-</div><p class="tour-note">※ 首頁主視覺與樂水料理照片為情境示意，櫻花照片為季節意象；實際景觀、餐點與活動內容依行程公告為準。</p>
+</div><p class="tour-note">※ 部分圖片為情境示意，實際景觀、餐點及活動內容以各行程公告為準。</p>
 </div></section>
-<section class="section guide-section" id="guide" aria-labelledby="guide-title"><div class="container guide-layout">
-<img class="guide-photo" src="%E8%8E%89%E6%A2%85%E5%A7%90.png" alt="莉梅姐本人照片" loading="lazy">
-<div><div class="section-kicker">MEET OUR GUIDE</div><h2 class="section-title" id="guide-title">莉梅姐的旅行邀請</h2>
-<p class="guide-description">喜歡旅行，也喜歡把台灣值得慢慢看的風景分享給更多人。從山林到部落，從文化到生活，邀請你用舒服的步調認識台灣。不用等朋友湊齊，也能在旅途中遇見新旅伴。</p>
-<span class="guide-note">莉梅姐私選行程・親自同行梯次另行公告</span></div></div></section>
+<section class="section guide-section" id="guide" aria-labelledby="guide-title">
+  <div class="container"><div class="guide-card">
+    <div class="guide-top">
+      <div class="guide-portrait"><img class="guide-photo" src="%E8%8E%89%E6%A2%85%E5%A7%90.png" alt="莉梅姐本人照片" loading="lazy"></div>
+      <div class="guide-heading"><div class="section-kicker">MEET OUR GUIDE</div><h2 class="section-title" id="guide-title">莉梅姐的旅行邀請</h2><p class="guide-intro">37 年旅遊經驗，帶你用不同的步調認識台灣。</p></div>
+    </div>
+    <p class="guide-description">喜歡旅行，也喜歡把台灣值得慢慢看的風景分享給更多人。不必等朋友湊齊，也能在旅途中認識新旅伴。</p>
+    <p class="guide-note">莉梅姐私選行程・親自同行梯次另行公告</p>
+  </div></div>
+</section>
 <section class="section community-section" id="community" aria-labelledby="community-title"><div class="container"><div class="community">
-<div class="section-kicker">TRAVEL TOGETHER</div><h2 class="section-title" id="community-title">一個人來，也能一起玩。</h2>
-<p>加入 LINE，接收小團旅行與平日慢旅的最新消息。一起期待下一趟好風景。</p>
-<a class="community-btn" href="https://lin.ee/Z3c7Qam" target="_blank" rel="noopener noreferrer" data-line-location="community_invite">加入 LINE 旅行圈 →</a>
+<div class="section-kicker">ENVOY TRAVEL COMMUNITY</div><h2 class="section-title" id="community-title">下一趟好風景，<br class="mobile-break">我們一起出發。</h2>
+<p>掌握平日小團、季節限定行程與最新出團消息。</p>
+<a class="community-btn" href="https://lin.ee/Z3c7Qam" target="_blank" rel="noopener noreferrer" data-line-location="community_invite">加入 LINE 旅行圈 ↗</a>
 </div></div></section>
 </main>
 <footer class="site-footer"><div class="container">
