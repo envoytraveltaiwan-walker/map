@@ -1,0 +1,1109 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>隱世白蘭・櫻雲秘藏｜ENVOY 安捷國際旅行社</title>
+<meta name="description" content="2027白蘭部落春季兩天一夜慢旅。台北專車往返、竹東午餐自理、白蘭山林自由探索、部落民宿住宿、第二天簡餐包含。6人成團，旅展價每人NT$7,570。">
+
+<style>
+:root {
+  --green:#204d40;
+  --deep:#071b1e;
+  --ink:#20322b;
+  --gold:#ad8b4d;
+  --rose:#a74d66;
+  --paper:#ffffff;
+  --bg:#eeeae3;
+  --line:#e4ddd1;
+}
+
+* { box-sizing:border-box; }
+
+html { scroll-behavior:smooth; }
+
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font:16px/1.8 system-ui,-apple-system,
+       "Noto Sans TC",sans-serif;
+}
+
+a { color:inherit; }
+
+.sheet {
+  max-width:880px;
+  margin:28px auto;
+  padding:38px 42px;
+  background:var(--paper);
+  border:1px solid var(--line);
+  box-shadow:0 14px 38px #263e3020;
+}
+
+/* 品牌頁首 */
+.site-header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding-bottom:18px;
+  border-bottom:2px solid var(--green);
+}
+
+.brand {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:0;
+}
+
+.brand img {
+  width:46px;
+  height:62px;
+  object-fit:contain;
+}
+
+.brand strong {
+  display:block;
+  font:800 25px Georgia,serif;
+  letter-spacing:2px;
+  line-height:1.2;
+}
+
+.brand small {
+  display:block;
+  margin-top:5px;
+  color:var(--gold);
+  font-size:13px;
+  font-weight:700;
+}
+
+.line-btn {
+  display:inline-block;
+  padding:11px 17px;
+  background:#078b4a;
+  color:#fff;
+  text-decoration:none;
+  border-radius:8px;
+  font-weight:800;
+  text-align:center;
+}
+
+.ribbon {
+  height:5px;
+  margin:20px 0;
+  background:repeating-linear-gradient(
+    90deg,
+    #a74d66 0 18px,
+    #fff 18px 21px,
+    #204d40 21px 38px,
+    #b69a62 38px 52px
+  );
+}
+
+/* 行程主標 */
+.hero {
+  text-align:center;
+  padding:15px 0 20px;
+}
+
+.eyebrow {
+  color:var(--green);
+  font-weight:800;
+  letter-spacing:2px;
+  font-size:14px;
+}
+
+.hero h1 {
+  margin:9px 0;
+  color:#173b32;
+  font-family:Georgia,"Noto Serif TC",serif;
+  font-size:clamp(29px,5vw,39px);
+  line-height:1.4;
+}
+
+.hero p {
+  margin:5px 0;
+  color:#56695d;
+}
+
+/* 價格 */
+.price {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:24px;
+  padding:20px;
+  margin:16px 0;
+  border:1px solid #e6d3b4;
+  border-radius:10px;
+  background:#faf5ed;
+}
+
+.old {
+  color:#777;
+  text-decoration:line-through;
+}
+
+.new {
+  color:var(--rose);
+  font-size:34px;
+  font-weight:900;
+}
+
+.save {
+  color:#92652b;
+  font-weight:800;
+}
+
+/* 特色 */
+.chips {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin:18px 0 28px;
+}
+
+.chip {
+  padding:13px 10px;
+  border:1px solid #d1e1d6;
+  border-radius:8px;
+  background:#f0f6f2;
+  text-align:center;
+  font-size:14px;
+  font-weight:700;
+}
+
+/* 通用內容 */
+h2 {
+  margin:34px 0 16px;
+  padding-bottom:9px;
+  border-bottom:1px solid var(--line);
+  color:var(--green);
+  font-size:22px;
+}
+
+h3 {
+  margin:16px 0 7px;
+  color:#294b3e;
+  font-size:18px;
+}
+
+.pitch {
+  padding:19px 21px;
+  border:1px solid #e9dcc5;
+  border-radius:9px;
+  background:#fcf9f3;
+}
+
+.pitch p { margin:8px 0; }
+
+/* 行程卡片 */
+.day-intro {
+  margin-bottom:15px;
+  color:#627269;
+  font-size:14px;
+}
+
+.activity {
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:8px 20px;
+  padding:17px 0;
+  border-bottom:1px solid #e8e8e3;
+}
+
+.activity-title {
+  font-weight:800;
+  color:#244b3d;
+  font-size:17px;
+}
+
+.activity-duration {
+  color:#956e3c;
+  font-size:14px;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.activity-desc {
+  grid-column:1/-1;
+  color:#58675f;
+  font-size:15px;
+  line-height:1.8;
+}
+
+.note {
+  margin:19px 0;
+  padding:14px 17px;
+  border-left:4px solid var(--gold);
+  background:#f7f8f6;
+  font-size:14px;
+  line-height:1.8;
+}
+
+/* 費用區 */
+.two {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+.info-box {
+  padding:18px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:#fff;
+}
+
+.info-box h3 { margin-top:0; }
+
+.info-box p { margin:6px 0; }
+
+.info-box ul {
+  margin:8px 0;
+  padding-left:21px;
+}
+
+.info-box li { margin-bottom:5px; }
+
+/* 報名 */
+.cta {
+  margin-top:30px;
+  padding:25px 20px;
+  border:1px solid #9ac6aa;
+  border-radius:12px;
+  background:#edf6ef;
+  text-align:center;
+}
+
+.cta h2 {
+  margin:0 0 8px;
+  border:0;
+}
+
+.cta p { margin:8px 0 17px; }
+
+/* ENVOY 全站統一頁尾 */
+.envoy-footer {
+  background:var(--deep);
+  color:#dce3e4;
+  padding:42px 28px 46px;
+}
+
+.envoy-footer-inner {
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.envoy-footer-company {
+  margin:0 0 24px;
+  font-size:20px;
+  font-weight:800;
+  line-height:1.6;
+}
+
+.envoy-footer-details {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px 24px;
+  color:#aeb9bc;
+  font-size:15px;
+  line-height:1.8;
+}
+
+.envoy-footer-copyright {
+  margin-top:26px;
+  color:#98a8ad;
+  font-size:14px;
+}
+
+/* 編輯工具 */
+.editor {
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:100;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px;
+  padding:11px;
+  background:#132f29;
+  color:#fff;
+}
+
+.editor button {
+  border:0;
+  border-radius:6px;
+  padding:10px 13px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.editor .primary { background:#d7b46e; }
+.editor .secondary { background:#e9f1ed; }
+
+.editor .status {
+  font-size:12px;
+}
+
+.editmode [data-edit] {
+  outline:1px dashed #b98345;
+  outline-offset:3px;
+  background:#fffdf5;
+}
+
+/* 手機版 */
+@media(max-width:640px) {
+  .sheet {
+    margin:0;
+    padding:24px 18px 35px;
+    border:0;
+    box-shadow:none;
+  }
+
+  .site-header { align-items:flex-start; }
+
+  .brand img {
+    width:35px;
+    height:50px;
+  }
+
+  .brand strong {
+    font-size:19px;
+    letter-spacing:1px;
+  }
+
+  .brand small { font-size:11px; }
+
+  .site-header .line-btn {
+    font-size:12px;
+    padding:9px 10px;
+  }
+
+  .hero h1 { font-size:30px; }
+
+  .price {
+    flex-direction:column;
+    gap:4px;
+    padding:17px;
+  }
+
+  .chips,.two { grid-template-columns:1fr; }
+
+  .activity {
+    grid-template-columns:1fr;
+    gap:3px;
+  }
+
+  .activity-duration {
+    white-space:normal;
+  }
+
+  .activity-desc { grid-column:1; }
+
+  .envoy-footer {
+    padding:32px 20px 110px;
+  }
+
+  .envoy-footer-company { font-size:17px; }
+
+  .envoy-footer-details {
+    display:block;
+    font-size:14px;
+  }
+
+  .envoy-footer-details span {
+    display:block;
+    margin-bottom:5px;
+  }
+
+  .envoy-footer-copyright { font-size:13px; }
+
+  .editor button {
+    font-size:12px;
+    padding:8px;
+  }
+}
+
+/* 列印 */
+@media print {
+  body { background:#fff; }
+
+  .sheet {
+    max-width:100%;
+    margin:0;
+    padding:0;
+    border:0;
+    box-shadow:none;
+  }
+
+  .editor { display:none; }
+
+  .activity,.info-box,.cta {
+    break-inside:avoid;
+  }
+
+  .envoy-footer {
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<main class="sheet" id="document">
+
+  <header class="site-header">
+    <div class="brand">
+      <img
+        src="https://raw.githubusercontent.com/envoytraveltaiwan-walker/map/main/ENVOY_Emblem_Transparent.png"
+        alt="ENVOY Logo"
+      >
+      <div>
+        <strong>ENVOY TRAVEL</strong>
+        <small>安捷國際旅行社｜原鄉引路人</small>
+      </div>
+    </div>
+
+    <a
+      class="line-btn"
+      href="https://lin.ee/Z3c7Qam"
+      target="_blank"
+      rel="noopener noreferrer"
+    >LINE 專人諮詢</a>
+  </header>
+
+  <div class="ribbon"></div>
+
+  <section class="hero">
+    <div class="eyebrow" data-edit>
+      2027 春季｜週日至週四限定出發
+    </div>
+
+    <h1 data-edit>隱世白蘭・櫻雲秘藏</h1>
+
+    <p data-edit>
+      莉梅姐私選｜新竹五峰泰雅山林兩天一夜
+    </p>
+
+    <p data-edit>
+      台北專車往返・春日賞櫻・山林慢遊
+    </p>
+  </section>
+
+  <div class="price">
+    <div>
+      原價
+      <span class="old" data-edit>NT$7,900</span>
+      ／人
+    </div>
+
+    <div>
+      旅展優惠價
+      <span class="new" data-edit>NT$7,570</span>
+      ／人
+    </div>
+
+    <div class="save" data-edit>
+      現省 NT$330
+    </div>
+  </div>
+
+  <div class="chips">
+    <div class="chip" data-edit>
+      台北專車往返<br>途中安排適當休息
+    </div>
+
+    <div class="chip" data-edit>
+      春日櫻花與山林景色<br>自在探索
+    </div>
+
+    <div class="chip" data-edit>
+      6 人成團<br>部落民宿一晚
+    </div>
+  </div>
+
+  <section class="pitch">
+    <h3 data-edit>
+      莉梅姐的私選筆記｜為什麼值得走這一趟？
+    </h3>
+
+    <p data-edit>
+      不必自己開山路，從台北搭乘專車出發，
+      途經竹東，慢慢走進新竹五峰的白蘭山林。
+      沿途保留休息時間，把旅程留給山景、
+      春日櫻花與自在的生活步調。
+    </p>
+
+    <p data-edit>
+      在白蘭，不必急著完成每一個景點。
+      可以在住宿周邊散步、欣賞山巒、
+      找個喜歡的角落坐下來休息，
+      也可以和新認識的旅伴分享旅行故事。
+    </p>
+  </section>
+
+  <!-- 第一天 -->
+  <section id="day1">
+    <h2>DAY 1｜竹東小憩・走進白蘭山林</h2>
+
+    <p class="day-intro" data-edit>
+      從台北出發，先在竹東享用午餐，
+      再走進白蘭部落，展開悠閒的山林旅程。
+    </p>
+
+    <div class="activity">
+      <div class="activity-title" data-edit>
+        台北集合・搭乘專車前往竹東
+      </div>
+      <div class="activity-duration" data-edit>
+        約 1 小時 50 分–2 小時 10 分
+      </div>
+      <div class="activity-desc" data-edit>
+        從台北搭乘專車出發，
+        車程已預留途中使用洗手間、
+        上下車及短暫伸展的休息時間，
+        不需自行駕車前往山區。
+      </div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-title" data-edit>
+        竹東午餐・自由選擇喜愛的餐食
+      </div>
+      <div class="activity-duration" data-edit>
+        約 1 小時
+      </div>
+      <div class="activity-desc" data-edit>
+        在竹東安排午餐及休息時間，
+        旅客可自行選擇餐食。
+        此餐費用自理，不包含於團費。
+      </div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-title" data-edit>
+        沿山路前往白蘭部落
+      </div>
+      <div class="activity-duration" data-edit>
+        約 1 小時 10 分
+      </div>
+      <div class="activity-desc" data-edit>
+        從竹東進入五峰山區，
+        沿途欣賞山巒與山村風景。
+        山區道路彎曲，將以安全及舒適行車為原則。
+      </div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-title" data-edit>
+        白蘭山林車遊・沿途賞景
+      </div>
+      <div class="activity-duration" data-edit>
+        約 40–50 分鐘
+      </div>
+      <div class="activity-desc" data-edit>
+        搭乘專車欣賞部落周邊山景，
+        沿途感受白蘭山林與春日景色。
+        車遊路線與停靠位置將依實際道路條件安排。
+      </div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-title" data-edit>
+        白蘭櫻花與山林自由探索
+      </div>
+      <div class="activity-duration" data-edit>
+        約 3 小時
+      </div>
+      <div class="activity-desc" data-edit>
+        在部落民宿周邊可安全步行的範圍，
+        自由散步、欣賞山景、拍照或休息。
+        可依個人體力選擇活動，
+        不安排固定導覽、闖關或體力挑戰。
+        櫻花花況依季節及天候而定。
+      </div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-title" data-edit>
+        入住部落民宿・自在休息
+      </div>
+      <div class="activity-duration" data-edit>
+        約 1–1.5 小時
+      </div>
+      <div class="activity-desc" data-edit>
+        辦理入住、整理行李，
+        在山林環境中放鬆休息。
+        住宿安排以正式確認的房型及住宿資訊為準。
+      </div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-title" data-edit>
+        享用部落民宿晚餐
+      </div>
+      <div class="activity-duration" data-edit>
+        約 1 小時
+      </div>
+      <div class="activity-desc" data-edit>
+        享用住宿安排的晚餐，
+        費用已包含於團費。
+        如有特殊飲食需求，請於報名前提出。
+      </div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-title" data-edit>
+        餐後自由交流・山中閒聊
+      </div>
+      <div class="activity-duration" data-edit>
+        約 1–1.5 小時
+      </div>
+      <div class="activity-desc" data-edit>
+        晚餐後自由聊天、交流旅行故事，
+        也可選擇提早休息。
+        莉梅姐是否親自同行，
+        依各出團梯次確認。
+      </div>
+    </div>
+  </section>
+
+  <!-- 第二天 -->
+  <section id="day2">
+    <h2>DAY 2｜晨光白蘭・悠閒返程</h2>
+
+    <p class="day-intro" data-edit>
+      早晨不趕行程，享用早餐後，
+      保留自由賞景與休息的時間，
+      再享用午間簡餐，搭乘專車返回台北。
+    </p>
+
+    <div class="activity">
+      <div class="activity-title" data-edit>
+        悠閒享用民宿早餐
+      </div>
+      <div class="activity-duration" data-edit>
+        約 1 小時
+      </div>
+      <div class="activity-desc" data-edit>
+        在民宿享用早餐，
+        不安排清晨攝影或需要提早起床的活動。
+        早餐費用已包含於團費。
+      </div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-title" data-edit>
+        白蘭山林散步・自由賞景
+      </div>
+      <div class="activity-duration" data-edit>
+        約 1.5–2 小時
+      </div>
+      <div class="activity-desc" data-edit>
+        可在住宿周邊安全可達的區域散步、
+        欣賞山景、拍照，
+        或留在民宿休息。
+        活動可依個人體力自由選擇。
+      </div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-title" data-edit>
+        整理行李・辦理退房
+      </div>
+      <div class="activity-duration" data-edit>
+        約 45 分鐘
+      </div>
+      <div class="activity-desc" data-edit>
+        保留整理行李、使用洗手間及上下車時間，
+        不需匆忙離開住宿地點。
+      </div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-title" data-edit>
+        享用午間簡餐
+      </div>
+      <div class="activity-duration" data-edit>
+        約 1 小時
+      </div>
+      <div class="activity-desc" data-edit>
+        享用行程安排的午間簡餐，
+        此餐費用已包含於團費。
+        實際供餐地點及餐食內容將於行前確認。
+      </div>
+    </div>
+
+    <div class="activity">
+      <div class="activity-title" data-edit>
+        專車返回台北
+      </div>
+      <div class="activity-duration" data-edit>
+        約 3–3.5 小時
+      </div>
+      <div class="activity-desc" data-edit>
+        搭乘專車返回台北，
+        車程已預留途中使用洗手間與短暫休息時間。
+        實際所需時間依出發地點及交通狀況而定。
+      </div>
+    </div>
+  </section>
+
+  <div class="note" data-edit>
+    行程以熟齡慢旅行方式規劃。
+    各項時間為預估所需時間，
+    實際集合時間與地點將於出發前提供。
+    如遇天候、道路安全等不可抗力或
+    不可歸責事由，依適用法令及旅遊契約辦理。
+  </div>
+
+  <!-- 自由探索 -->
+  <section>
+    <h2>白蘭自由探索｜在山裡慢慢走</h2>
+
+    <div class="pitch">
+      <h3 data-edit>山巒與山村風景</h3>
+      <p data-edit>
+        欣賞白蘭山區的層疊山景，
+        在安全可達的位置停留、拍照與休息。
+      </p>
+
+      <h3 data-edit>春日櫻花</h3>
+      <p data-edit>
+        春季留意部落周邊的櫻花景色。
+        花期受氣候影響，
+        不保證特定日期的開花程度。
+      </p>
+
+      <h3 data-edit>部落生活與當季農產</h3>
+      <p data-edit>
+        在合法開放的區域認識山村生活，
+        如遇營業中的在地店家，
+        可自由選購當季農產。
+      </p>
+    </div>
+
+    <div class="note" data-edit>
+      自由探索不包含固定導覽、
+      私人場域入場或付費體驗。
+      請勿擅自進入私人營區或獨自走入山徑。
+      白蘭溪步道尚未完成安全及導覽評估，
+      不列入本次團體行程。
+    </div>
+  </section>
+
+  <!-- 費用 -->
+  <section>
+    <h2>費用與住宿說明</h2>
+
+    <div class="two">
+
+      <div class="info-box">
+        <h3>費用包含</h3>
+        <ul data-edit>
+          <li>台北往返專車</li>
+          <li>部落民宿住宿一晚</li>
+          <li>第一天晚餐</li>
+          <li>第二天早餐</li>
+          <li>第二天午間簡餐</li>
+          <li>依法投保之旅行業責任保險</li>
+        </ul>
+      </div>
+
+      <div class="info-box">
+        <h3>費用不包含</h3>
+        <ul data-edit>
+          <li>第一天竹東午餐</li>
+          <li>個人購物及其他個人消費</li>
+          <li>行程未列明之付費活動</li>
+          <li>私人場域入場費</li>
+          <li>個人指定之住宿升級費用</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 出團 -->
+  <section>
+    <h2>出團與報名方式</h2>
+
+    <div class="info-box">
+      <p data-edit>
+        <strong>出團期間：</strong>
+        2027 春季，週日至週四出發，
+        實際梯次以公告日期為準。
+      </p>
+
+      <p data-edit>
+        <strong>成團人數：</strong>
+        6 人成團。
+      </p>
+
+      <p data-edit>
+        <strong>住宿：</strong>
+        部落民宿，提供雙人房、
+        四人房及六人房等房型，
+        實際可選房型與名額依出團安排確認。
+      </p>
+
+      <p data-edit>
+        <strong>報名方式：</strong>
+        透過 ENVOY 官方 LINE 詢問出團日期、
+        名額、房型及付款方式。
+      </p>
+
+      <p data-edit>
+        <strong>取消與退費：</strong>
+        依正式簽訂之國內旅遊定型化契約
+        及相關適用規定辦理。
+      </p>
+    </div>
+  </section>
+
+  <!-- 常見問題 -->
+  <section>
+    <h2>旅客常見問題</h2>
+
+    <div class="info-box">
+      <h3>Q｜需要自己開車上山嗎？</h3>
+      <p data-edit>
+        不需要，從台北搭乘專車往返，
+        途中預留適當休息時間。
+      </p>
+
+      <h3>Q｜兩天午餐都有包含嗎？</h3>
+      <p data-edit>
+        第一天在竹東午餐自理，
+        第二天午間簡餐已包含於團費。
+      </p>
+
+      <h3>Q｜長輩可以參加嗎？</h3>
+      <p data-edit>
+        行程以慢旅節奏安排，
+        可依體力選擇散步或休息。
+        若有行動不便、輔具或特殊協助需求，
+        請於報名前告知，
+        以便確認交通與住宿條件。
+      </p>
+
+      <h3>Q｜一定看得到櫻花嗎？</h3>
+      <p data-edit>
+        櫻花為季節性自然景觀，
+        花期會受到天候影響，
+        無法保證盛開程度。
+      </p>
+
+      <h3>Q｜莉梅姐會親自帶隊嗎？</h3>
+      <p data-edit>
+        莉梅姐私選行程不代表每一梯次均親自同行。
+        如希望由莉梅姐帶隊，
+        請於報名時向 LINE 專人確認指定梯次。
+      </p>
+
+      <h3>Q｜自由探索有固定導覽嗎？</h3>
+      <p data-edit>
+        本行程沒有安排固定導覽或闖關活動。
+        旅客可在安全、合法開放的範圍
+        自由散步、拍照或休息。
+      </p>
+
+      <h3>Q｜住宿是哪一家民宿？</h3>
+      <p data-edit>
+        本行程統一安排部落民宿。
+        實際住宿資訊及房型
+        將於訂購確認及行前資料中提供。
+      </p>
+    </div>
+  </section>
+
+  <!-- LINE 報名 -->
+  <section class="cta">
+    <h2>LINE 私訊索取出團資訊</h2>
+
+    <p data-edit>
+      想了解出發日期、剩餘名額或住宿房型？
+      歡迎加入 ENVOY 官方 LINE，
+      由專人協助確認。
+    </p>
+
+    <p data-edit>
+      私訊關鍵字：「我要詢問白蘭櫻雲秘藏」
+    </p>
+
+    <a
+      class="line-btn"
+      href="https://lin.ee/Z3c7Qam"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      加入安捷旅遊官方 LINE
+    </a>
+  </section>
+
+</main>
+
+<!-- 全站統一公司頁尾 -->
+<footer class="envoy-footer">
+  <div class="envoy-footer-inner">
+
+    <div class="envoy-footer-company">
+      安捷國際旅行社有限公司
+      ｜ ENVOY INTERNATIONAL TRAVEL SERVICE CO., LTD.
+    </div>
+
+    <div class="envoy-footer-details">
+      <span>
+        交通部觀光署註冊旅行業・甲種 592000 號
+      </span>
+      <span>交觀甲字第 5920 號</span>
+      <span>統一編號 16169138</span>
+      <span>代表人 楊寶惠</span>
+      <span>
+        地址 臺北市中山區長安東路2段50號5樓之1
+      </span>
+    </div>
+
+    <div class="envoy-footer-copyright">
+      © 2026 ENVOY TRAVEL. All Rights Reserved.
+    </div>
+
+  </div>
+</footer>
+
+<!-- 編輯工具 -->
+<div class="editor">
+  <button class="primary" id="toggle">
+    開啟編輯模式
+  </button>
+
+  <button class="secondary" id="save">
+    儲存本機修改
+  </button>
+
+  <button class="secondary" id="download">
+    下載修改後 HTML
+  </button>
+
+  <button class="secondary" id="print">
+    列印／存 PDF
+  </button>
+
+  <span class="status" id="status">
+    內容可直接編輯
+  </span>
+</div>
+
+<script>
+const editable = [
+  ...document.querySelectorAll("[data-edit]")
+];
+
+const storageKey = "envoy-bailan-2027-final-v4";
+
+function snapshot() {
+  return editable.map(el => el.innerHTML);
+}
+
+try {
+  const saved = JSON.parse(
+    localStorage.getItem(storageKey) || "null"
+  );
+
+  if (saved && saved.length === editable.length) {
+    editable.forEach((el, i) => {
+      el.innerHTML = saved[i];
+    });
+  }
+} catch (error) {
+  console.warn("無法載入已儲存內容", error);
+}
+
+let editing = false;
+
+document.getElementById("toggle").onclick = () => {
+  editing = !editing;
+
+  document.body.classList.toggle(
+    "editmode",
+    editing
+  );
+
+  editable.forEach(el => {
+    el.contentEditable = editing ? "true" : "false";
+  });
+
+  document.getElementById("toggle").textContent =
+    editing ? "完成編輯" : "開啟編輯模式";
+
+  document.getElementById("status").textContent =
+    editing
+      ? "點擊虛線區塊即可修改"
+      : "內容可直接編輯";
+};
+
+document.getElementById("save").onclick = () => {
+  try {
+    localStorage.setItem(
+      storageKey,
+      JSON.stringify(snapshot())
+    );
+
+    document.getElementById("status").textContent =
+      "已儲存於此瀏覽器";
+  } catch (error) {
+    alert("無法儲存，請改用下載 HTML");
+  }
+};
+
+document.getElementById("download").onclick = () => {
+  editable.forEach(el => {
+    el.contentEditable = "false";
+  });
+
+  document.body.classList.remove("editmode");
+  editing = false;
+
+  document.getElementById("toggle").textContent =
+    "開啟編輯模式";
+
+  const html =
+    "<!DOCTYPE html>\n" +
+    document.documentElement.outerHTML;
+
+  const blob = new Blob(
+    [html],
+    { type:"text/html;charset=utf-8" }
+  );
+
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+
+  link.href = url;
+  link.download =
+    "ENVOY_Bailan_2027_Itinerary.html";
+
+  link.click();
+
+  setTimeout(() => {
+    URL.revokeObjectURL(url);
+  }, 2000);
+};
+
+document.getElementById("print").onclick = () => {
+  window.print();
+};
+</script>
+
+</body>
+</html>
