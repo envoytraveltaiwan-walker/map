@@ -131,6 +131,24 @@
   .mobile-break{display:block}
 }
 
+
+/* GEO content enhancement: keep existing brand visual and components */
+.geo-intro{padding:42px 0 12px;background:var(--cream)}
+.geo-intro .container{max-width:900px}
+.geo-intro p{font-size:17px;line-height:1.95;color:var(--muted);margin:0}
+.geo-faq{padding:52px 0 64px;background:var(--cream)}
+.geo-faq .container{max-width:900px}
+.geo-faq .geo-eyebrow{font-size:12px;letter-spacing:.14em;color:var(--green);font-weight:700;margin-bottom:12px}
+.geo-faq h2{font-family:'Noto Serif TC',serif;font-size:clamp(25px,3.5vw,35px);color:var(--ink);margin:0 0 24px;line-height:1.4}
+.geo-faq details{border-bottom:1px solid var(--border);padding:0}
+.geo-faq details:first-of-type{border-top:1px solid var(--border)}
+.geo-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 4px;font-weight:700;font-size:16px;line-height:1.7}
+.geo-faq summary::-webkit-details-marker{display:none}
+.geo-faq summary::after{content:'+';font-size:24px;font-weight:400;color:var(--green);flex-shrink:0}
+.geo-faq details[open] summary::after{content:'−'}
+.geo-faq details p{margin:0 4px 20px;color:var(--muted);font-size:15px;line-height:1.9}
+.geo-faq a{color:var(--green);text-underline-offset:3px}
+@media(max-width:600px){.geo-intro{padding:28px 0 4px}.geo-intro p{font-size:15px}.geo-faq{padding:34px 0 45px}.geo-faq summary{font-size:15px;padding:16px 2px}}
 </style>
 
 <link rel="canonical" href="https://envoytravel.tw/">
@@ -166,6 +184,10 @@
   </div>
 </section>
 <main>
+<section class="geo-intro" aria-label="安捷國際旅行社的旅行特色"><div class="container">
+<p>ENVOY 安捷國際旅行社以台灣原鄉慢旅為特色，精選值得深入體驗的山林、部落文化與在地風景。平日出發、台北專車往返，以小團方式探索台灣。即使一個人想旅行，也可以洽詢參團，由專人協助確認出團日期與名額。</p>
+</div></section>
+
 <section class="section" id="tours" aria-labelledby="tours-title"><div class="container">
 <div class="section-kicker">NEXT JOURNEY</div><h2 class="section-title" id="tours-title">下一趟，一起去哪裡？</h2>
 <div class="tour-grid">
@@ -185,12 +207,20 @@
   <div class="container"><div class="guide-card">
     <div class="guide-top">
       <div class="guide-portrait"><img class="guide-photo" src="%E8%8E%89%E6%A2%85%E5%A7%90.png" alt="莉梅姐本人照片" loading="lazy"></div>
-      <div class="guide-heading"><div class="section-kicker">MEET OUR GUIDE</div><h2 class="section-title" id="guide-title">莉梅姐的旅行邀請</h2><p class="guide-intro">37 年旅遊經驗，帶你用不同的步調認識台灣。</p></div>
+      <div class="guide-heading"><div class="section-kicker">MEET OUR GUIDE</div><h2 class="section-title" id="guide-title">走過五大洲，最愛的還是台灣。</h2><p class="guide-intro">37 年旅遊經驗，從世界的風景走回台灣的山林與人情。</p></div>
     </div>
-    <p class="guide-description">喜歡旅行，也喜歡把台灣值得慢慢看的風景分享給更多人。不必等朋友湊齊，也能在旅途中認識新旅伴。</p>
+    <p class="guide-description">走過世界，看過無數風景，莉梅姐最鍾愛的，始終是台灣這片土地。多年旅行累積的眼光，讓她更懂得哪些風景值得停留、哪些在地故事值得細細品味。從山林到部落，從風土到人情，她將自己喜愛的台灣，化為一條條精選路線。不必追趕行程，也不必等朋友湊齊，跟著莉梅姐的眼光，重新發現台灣的美好。</p>
     <p class="guide-note">莉梅姐私選行程・親自同行梯次另行公告</p>
   </div></div>
 </section>
+<section class="geo-faq" id="travel-faq" aria-labelledby="geo-faq-title"><div class="container">
+<div class="geo-eyebrow">ENVOY TRAVEL GUIDE</div><h2 id="geo-faq-title">旅行前，你可能想知道</h2>
+<details><summary>一個人也可以參加 ENVOY 的小團旅行嗎？</summary><p>可以。不必先自行找齊旅伴，即可透過<a href="https://lin.ee/Z3c7Qam" target="_blank" rel="noopener noreferrer">官方 LINE</a> 洽詢報名。各行程依公告的成團條件及實際名額安排。</p></details>
+<details><summary>ENVOY 的旅行有什麼特色？</summary><p>ENVOY 精選台灣山林、部落與在地文化路線，以平日出發、專車小團及自在的旅行節奏為特色，讓旅客有更多時間欣賞風景與體驗在地生活。</p></details>
+<details><summary>ENVOY 的行程都是莉梅姐親自帶隊嗎？</summary><p>行程由莉梅姐以多年旅行經驗參與精選規劃。親自同行的梯次會另外公告，報名前可向專人確認。</p></details>
+<details><summary>從哪裡出發？需要自行開車嗎？</summary><p>目前官網介紹的<a href="/tours/leshui-atayal.html">樂水</a>與<a href="/tours/2027_sakura-atayal.html">白蘭</a>行程均安排台北專車往返，無須自行開車。實際集合地點、時間與交通安排請以各行程公告為準。</p></details>
+<details><summary>如何選擇適合自己的旅行路線？</summary><p>可依旅行天數、活動內容、步行需求與喜好選擇行程。若對路線難度或活動安排有疑問，可透過<a href="https://lin.ee/Z3c7Qam" target="_blank" rel="noopener noreferrer">官方 LINE</a> 向專人確認。</p></details>
+</div></section>
 <section class="section community-section" id="community" aria-labelledby="community-title"><div class="container"><div class="community">
 <div class="section-kicker">ENVOY TRAVEL COMMUNITY</div><h2 class="section-title" id="community-title">下一趟好風景，<br class="mobile-break">我們一起出發。</h2>
 <p>掌握平日小團、季節限定行程與最新出團消息。</p>
